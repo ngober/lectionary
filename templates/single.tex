@@ -1,0 +1,22 @@
+\documentclass{article}
+
+\title{For the {{ calendar[0].title }}}
+\author{}
+\date{}
+
+{% block packages %}
+\usepackage{pdfpages}
+{% endblock %}
+
+\begin{document}
+\maketitle
+
+\input{../body/{{ calendar[0].basename }}.tex}
+
+\newpage
+{% for musicpage in musicpages %}
+\includepdf[pages=-]{../music/{{ musicpage }}}
+{% endfor %}
+
+\end{document}
+

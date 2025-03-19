@@ -1,0 +1,30 @@
+---
+  - title: First Sunday of Advent
+    week: 1
+    season: advent
+    basename: advent1
+
+  - title: Second Sunday of Advent
+    week: 2
+    season: advent
+    basename: advent2
+
+  - title: Third Sunday of Advent
+    week: 3
+    season: advent
+    basename: advent3
+
+  - title: Fourth Sunday of Advent
+    week: 4
+    season: advent
+    basename: advent4
+
+  - title: First Sunday After Christmas
+    week: 5
+    season: christmas
+    basename: christmas1
+
+  - title: Second Sunday of Lent
+    week: 7 # TODO update
+    season: lent
+    basename: lent2

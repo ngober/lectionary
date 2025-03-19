@@ -1,0 +1,26 @@
+\documentclass{article}
+
+\title{test title}
+\author{}
+\date{}
+
+{% block packages %}
+\usepackage{pdfpages}
+{% endblock %}
+
+\begin{document}
+\maketitle
+
+{% for event in calendar %}
+  \section{For the {{ event.title }}}
+  \input{../body/{{ event.basename }}.tex}
+
+{% endfor %}
+
+\newpage
+{% for musicpage in musicpages %}
+\includepdf[pages=-]{../music/{{ musicpage }}}
+{% endfor %}
+\end{document}
+
+

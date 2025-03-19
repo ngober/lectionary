@@ -1,0 +1,50 @@
+{#
+  reading(data)
+
+  Provides basic reading output
+
+  params:
+   - data.address: the address of the reading, e.g. 'John 3:16'
+   - data.text: the text of the reading
+#}
+{% macro reading(data) -%}
+\noindent {{ data.address }}
+
+\begin{quote} {{ data.text }} \end{quote}
+{%- endmacro %}
+
+{% block body %}
+{% block presong_readings %}
+{{ reading(readings[0]) }}
+{% endblock presong_readings %}
+
+{% for musicname in musicpages.keys() %}
+\noindent {{ musicname }}
+
+{% endfor %}
+
+\noindent The Lord's Prayer
+
+\begin{quote} \itshape
+  Our Father in Heaven: hallowed be your name.\\
+  Your kingdom come, your will be done, on Earth as it is in Heaven.\\
+  Give us this day our daily bread, and forgive us our trespasses,\\
+  As we forgive those who trespass against us,\\
+  And lead us not into temptation, but deliver us from evil,\\
+  For yours is the kingdom, the power, and the glory forever and ever,\\
+  Amen.
+\end{quote}
+
+{% block postsong_readings %}
+{{ reading(readings[1]) }}
+
+{{ reading(readings[2]) }}
+{% endblock postsong_readings %}
+
+{% block prayer %}
+Let us pray:
+\begin{quote} {{ prayer }} \end{quote}
+Amen
+{% endblock prayer %}
+
+{% endblock body %}
