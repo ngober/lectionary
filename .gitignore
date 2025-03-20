@@ -4,4 +4,9 @@ full/
 
 venv/
 
+**/__pycache__/
+.sconsign.dblite
+
+music/*.pdf
+
 *~
