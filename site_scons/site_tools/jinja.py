@@ -2,6 +2,7 @@ import os
 import traceback
 import pathlib
 import contextlib
+import yaml
 
 import SCons.Scanner.LaTeX
 from SCons.Builder import Builder
