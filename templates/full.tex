@@ -12,7 +12,8 @@
 \maketitle
 
 {% for event in calendar %}
-  \section{For the {{ event.title }}}
+  \newpage
+  \section*{For the {{ event.title }}}
   \input{../body/{{ event.basename }}.tex}
 
 {% endfor %}

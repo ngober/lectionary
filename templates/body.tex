@@ -15,7 +15,9 @@
 
 {% block body %}
 {% block presong_readings %}
-{{ reading(readings[0]) }}
+  {% for r in presong_readings %}
+    {{ reading(r) }}
+  {% endfor %}
 {% endblock presong_readings %}
 
 {% for musicname in musicpages.keys() %}
@@ -36,9 +38,9 @@
 \end{quote}
 
 {% block postsong_readings %}
-{{ reading(readings[1]) }}
-
-{{ reading(readings[2]) }}
+  {% for r in postsong_readings %}
+    {{ reading(r) }}
+  {% endfor %}
 {% endblock postsong_readings %}
 
 {% block prayer %}

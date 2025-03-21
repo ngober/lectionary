@@ -39,7 +39,7 @@ def BuildSingle(env, basename):
     env.Body(f'body/{basename}', f'data/{basename}')
 
     parsed_event = parse_yaml(f'data/{basename}.yaml')
-    wrapper_sources = ['templates/single.tex'] + [f'music/{music_file}' for music_file in parsed_event['musicpages'].values()]
+    wrapper_sources = ['templates/single.tex'] + [f'music/{music_file}' for music_file in (parsed_event.get('musicpages') or {}).values()]
 
     return env.Build('single', basename, wrapper_sources)
 
@@ -54,6 +54,7 @@ env.Lilypond('music/turn_your_eyes_upon_jesus.ly'),
 env.Lilypond('music/o_come_all_ye_faithful.ly'),
 env.Lilypond('music/only_a_holy_god.ly'),
 env.Lilypond('music/yet_not_i.ly'),
+env.Lilypond('music/be_thou_my_vision.ly')
 ))
 
 for event in calendar_data:

@@ -28,3 +28,23 @@
     week: 7 # TODO update
     season: lent
     basename: lent2
+
+  - title: Fourth Sunday of Lent
+    week: 9 # TODO update
+    season: lent
+    basename: lent4
+
+  - title: Fifth Sunday of Lent
+    week: 10 # TODO update
+    season: lent
+    basename: lent5
+
+  - title: Ascension Sunday
+    week: 16
+    season: easter
+    basename: ascension
+
+  - title: The Day of Pentecost
+    week: 17
+    season: pentecost
+    basename: pentecost

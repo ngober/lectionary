@@ -7,6 +7,8 @@ import yaml
 import SCons.Scanner.LaTeX
 from SCons.Builder import Builder
 
+from .esv_api import get_text
+
 def parse_yaml(fname):
     with open(fname, 'rt') as rfp:
         return yaml.safe_load(rfp)
@@ -41,11 +43,26 @@ def add_template_name(target, source, env):
     source.extend(templates)
     return target, source
 
+def augment_readings(readings):
+    def tolerate_dict(r):
+        if isinstance(r, dict):
+            return tolerate_dict(r['address'])
+        address, text = get_text(r)
+        return { 'address': address, 'text': '\n\n'.join(text) }
+    return list(map(tolerate_dict, readings))
+
+def normalize_yaml(parsed):
+    readings = augment_readings(parsed['readings'])
+    parsed['musicpages'] = parsed.get('musicpages') or {}
+    parsed['presong_readings'] = readings[:len(readings)//2]
+    parsed['postsong_readings'] = readings[len(readings)//2:]
+    return parsed
+
 @noisy()
 def render_body(target, source, env):
     template_name = pathlib.Path(get_first_with_ext(source, '.tex'))
     data_src_name = pathlib.Path(get_first_with_ext(source, '.yaml'))
-    data = parse_yaml(data_src_name)
+    data = normalize_yaml(parse_yaml(data_src_name))
     rendered = render_jinja(template_name, data, env['jinja_env'])
     pathlib.Path(str(target[0])).write_text(rendered)
 
@@ -60,26 +77,20 @@ def render_wrapper(target, source, env):
     rendered = render_jinja(template_name, render_data, env['jinja_env'])
     target_name.write_text(rendered)
 
-def generate(env):
-    env['BUILDERS']['Wrapper'] = Builder(
+def WrapperBuilder():
+    return Builder(
         action=render_wrapper,
         suffix='.tex',
         src_suffix='.yaml',
         target_scanner=SCons.Scanner.LaTeX.LaTeXScanner()
         #emitter=add_calendar_data
     )
-    env['BUILDERS']['Body'] = Builder(
+
+def BodyBuilder():
+    return Builder(
         action=render_body,
         suffix='.tex',
         src_suffix='.yaml',
         target_scanner=SCons.Scanner.LaTeX.LaTeXScanner(),
         emitter=add_template_name
     )
-
-def exists():
-    try:
-        import jinja2, yaml
-        return True
-    except ImportError:
-        return False
-

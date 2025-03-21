@@ -10,3 +10,5 @@ venv/
 music/*.pdf
 
 *~
+
+esv_api.key

@@ -19,8 +19,16 @@ def generate(env):
         src_suffix='.mxl'
     )
 
+    uncomp_musicxml_converter = Builder(
+        action='musicxml2ly --no-beaming --no-page-layout --no-rest-positions --output=$TARGET $SOURCE',
+        suffix='.ly',
+        src_suffix='.mxl'
+    )
+
+
     env['BUILDERS']['Lilypond'] = lilypond_builder
     env['BUILDERS']['MusicXML'] = musicxml_converter
+    env['BUILDERS']['UncompMusicXML'] = uncomp_musicxml_converter
 
 def exists(env):
     return True
