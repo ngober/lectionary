@@ -72,7 +72,7 @@ def render_wrapper(target, source, env):
     template_name = pathlib.Path(get_first_with_ext(source, '.tex'))
     render_data = {
         'calendar': env['calendar_events'],
-        'musicpages': [pathlib.Path(str(f)).name for f in source if str(f).endswith('.pdf')]
+        'musicpages': [pathlib.Path(str(f)).stem for f in source if str(f).endswith('.pdf')]
     }
     rendered = render_jinja(template_name, render_data, env['jinja_env'])
     target_name.write_text(rendered)

@@ -39,7 +39,7 @@ def BuildSingle(env, basename):
     env.Body(f'body/{basename}', f'data/{basename}')
 
     parsed_event = parse_yaml(f'data/{basename}.yaml')
-    wrapper_sources = ['templates/single.tex'] + [f'music/{music_file}' for music_file in (parsed_event.get('musicpages') or {}).values()]
+    wrapper_sources = ['templates/single.tex'] + [f'music/{music_file}.pdf' for music_file in (parsed_event.get('musicpages') or {}).values()]
 
     return env.Build('single', basename, wrapper_sources)
 
