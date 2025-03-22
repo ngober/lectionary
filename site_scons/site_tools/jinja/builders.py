@@ -1,4 +1,5 @@
 import os
+import itertools
 import traceback
 import pathlib
 import contextlib
@@ -28,10 +29,10 @@ def render_jinja(template_name, data, jinja_env):
 def get_first_with_ext(source, ext):
     return str(next(filter(lambda s: str(s).endswith(ext), source)))
 
-def add_calendar_data(target, source, env):
-    target_name = pathlib.Path(str(target[0]))
-    cal_src_name = pathlib.Path(get_first_with_ext(source, '.yaml'))
-    source.extend(f'data/{event_data["basename"]}.tex' for event_data in env['calendar_events'])
+def add_musicpages(target, source, env):
+    data_src_name = [f'data/{evt["basename"]}.yaml' for evt in env['calendar_events']]
+    data = map(parse_yaml, data_src_name)
+    source.extend(f'music/{mus}.pdf' for mus in itertools.chain(*((evt.get('musicpages') or {}).values() for evt in data)))
     return target, source
 
 def add_template_name(target, source, env):
@@ -82,8 +83,8 @@ def WrapperBuilder():
         action=render_wrapper,
         suffix='.tex',
         src_suffix='.yaml',
-        target_scanner=SCons.Scanner.LaTeX.LaTeXScanner()
-        #emitter=add_calendar_data
+        target_scanner=SCons.Scanner.LaTeX.LaTeXScanner(),
+        emitter=add_musicpages
     )
 
 def BodyBuilder():

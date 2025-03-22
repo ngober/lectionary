@@ -39,7 +39,7 @@ def BuildSingle(env, basename):
     env.Body(f'body/{basename}', f'data/{basename}')
 
     parsed_event = parse_yaml(f'data/{basename}.yaml')
-    wrapper_sources = ['templates/single.tex'] + [f'music/{music_file}.pdf' for music_file in (parsed_event.get('musicpages') or {}).values()]
+    wrapper_sources = ['templates/single.tex']
 
     return env.Build('single', basename, wrapper_sources)
 
@@ -62,4 +62,4 @@ for event in calendar_data:
     if event_file.exists():
         env.Clone(calendar_events=[event]).BuildSingle(event['basename'])
 
-env.Build('full', 'full', ['templates/full.tex'] + musicfiles)
+env.Build('full', 'full', ['templates/full.tex'])
