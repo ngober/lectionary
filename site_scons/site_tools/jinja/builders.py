@@ -21,19 +21,8 @@ class noisy(contextlib.AbstractContextManager, contextlib.ContextDecorator):
             print(traceback.format_exc())
         return False
 
-def render_jinja(template_name, data, jinja_env):
-    template = jinja_env.get_template(os.path.basename(str(template_name)))
-    rendered = template.render(**data)
-    return rendered
-
 def get_first_with_ext(source, ext):
     return str(next(filter(lambda s: str(s).endswith(ext), source)))
-
-def add_musicpages(target, source, env):
-    data_src_name = [f'data/{evt["basename"]}.yaml' for evt in env['calendar_events']]
-    data = map(parse_yaml, data_src_name)
-    source.extend(f'music/{mus}.pdf' for mus in itertools.chain(*((evt.get('musicpages') or {}).values() for evt in data)))
-    return target, source
 
 def add_template_name(target, source, env):
     target_name = pathlib.Path(str(target[0]))
@@ -44,16 +33,19 @@ def add_template_name(target, source, env):
     source.extend(templates)
     return target, source
 
-def augment_readings(readings):
+def augment_readings(readings, draft=False):
     def tolerate_dict(r):
         if isinstance(r, dict):
             return tolerate_dict(r['address'])
-        address, text = get_text(r)
+        if draft:
+            address, text = r, ['\lipsum[2]']
+        else:
+            address, text = get_text(r)
         return { 'address': address, 'text': '\n\n'.join(text) }
     return list(map(tolerate_dict, readings))
 
-def normalize_yaml(parsed):
-    readings = augment_readings(parsed['readings'])
+def normalize_yaml(parsed, draft=False):
+    readings = augment_readings(parsed['readings'], draft)
     parsed['musicpages'] = parsed.get('musicpages') or {}
     parsed['presong_readings'] = readings[:len(readings)//2]
     parsed['postsong_readings'] = readings[len(readings)//2:]
@@ -63,28 +55,25 @@ def normalize_yaml(parsed):
 def render_body(target, source, env):
     template_name = pathlib.Path(get_first_with_ext(source, '.tex'))
     data_src_name = pathlib.Path(get_first_with_ext(source, '.yaml'))
-    data = normalize_yaml(parse_yaml(data_src_name))
-    rendered = render_jinja(template_name, data, env['jinja_env'])
-    pathlib.Path(str(target[0])).write_text(rendered)
+    data = normalize_yaml(parse_yaml(data_src_name), env['DRAFT'])
+    env.Render(target[0], template_name, data)
 
 @noisy()
 def render_wrapper(target, source, env):
-    target_name = pathlib.Path(str(target[0]))
     template_name = pathlib.Path(get_first_with_ext(source, '.tex'))
+    hymnal_name = pathlib.Path(get_first_with_ext(source, '.pdf'))
     render_data = {
         'calendar': env['calendar_events'],
-        'musicpages': [pathlib.Path(str(f)).stem for f in source if str(f).endswith('.pdf')]
+        'hymnal_name' : os.path.splitext(os.path.basename(str(hymnal_name)))[0]
     }
-    rendered = render_jinja(template_name, render_data, env['jinja_env'])
-    target_name.write_text(rendered)
+    env.Render(target[0], template_name, render_data)
 
 def WrapperBuilder():
     return Builder(
         action=render_wrapper,
         suffix='.tex',
         src_suffix='.yaml',
-        target_scanner=SCons.Scanner.LaTeX.LaTeXScanner(),
-        emitter=add_musicpages
+        target_scanner=SCons.Scanner.LaTeX.LaTeXScanner()
     )
 
 def BodyBuilder():

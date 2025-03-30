@@ -1,21 +1,4 @@
-\version "2.22.1"
-% automatically converted by musicxml2ly from o_come_all_ye_faithful.mxl
-\pointAndClickOff
-
-\header {
-    title =  "O Come, All Ye Faithful"
-    composer =  "John Francis Wade (1711-1786)"
-    encodingsoftware =  "MuseScore 4.4.3"
-    encodingdate =  "2024-12-08"
-    }
-
-\layout {
-    \context { \Score
-        skipBars = ##t
-        autoBeaming = ##f
-        }
-    }
-PartPOneVoiceOne =  \relative g' {
+OComeAllYeFaithfulSoprano =  \relative g' {
     \clef "treble" \numericTimeSignature\time 4/4 \key g \major \partial
     4 g4 | % 1
     g2 d4 g4 | % 2
@@ -41,7 +24,7 @@ PartPOneVoiceOne =  \relative g' {
     g1 \bar "|."
     }
 
-PartPOneVoiceOneLyricsOne =  \lyricmode {\set ignoreMelismata = ##t
+OComeAllYeFaithfulVerseOne =  \lyricmode {\set ignoreMelismata = ##t
     O come, all ye faith -- ful, joy -- ful and
     tri -- um -- phant, O come ye O come\skip1 ye
     to Beth --\skip1 le -- hem; Come and be --
@@ -50,7 +33,7 @@ PartPOneVoiceOneLyricsOne =  \lyricmode {\set ignoreMelismata = ##t
     come, let us a -- dore him, \skip1 Christ\skip1 the Lord!
     }
 
-PartPOneVoiceOneLyricsTwo =  \lyricmode {\set ignoreMelismata = ##t
+OComeAllYeFaithfulVerseTwo =  \lyricmode {\set ignoreMelismata = ##t
     _ Sing, choirs of an -- gels; sing in ex -- ul -- ta -- tion;
     _ sing, all ye ci -- ti -- zens of hea --\skip1 v'n a -- bove!
     Glory to God, all glo -- ry in the high --\skip1 est!
@@ -58,7 +41,7 @@ PartPOneVoiceOneLyricsTwo =  \lyricmode {\set ignoreMelismata = ##t
 %   O come, let us a -- dore him, \skip1 Christ\skip1 the Lord!
 }
 
-PartPOneVoiceOneLyricsThree =  \lyricmode {\set ignoreMelismata = ##t
+OComeAllYeFaithfulVerseThree =  \lyricmode {\set ignoreMelismata = ##t
     _ Yea, Lord, we greet Thee, born this hap -- py mor -- ning;
     _ Je -- sus, to Thee _ be all glo --\skip1 ry giv'n!
     Word of the Fa -- ther, now in flesh ap -- pear --\skip1 ing!
@@ -66,7 +49,7 @@ PartPOneVoiceOneLyricsThree =  \lyricmode {\set ignoreMelismata = ##t
 %   O come, let us a -- dore him, \skip1 Christ\skip1 the Lord!
     }
 
-PartPOneVoiceTwo =  \relative d' {
+OComeAllYeFaithfulAlto =  \relative d' {
     \clef "treble" \numericTimeSignature\time 4/4 \key g \major \partial
     4 d4 | % 1
     d2 d4 d4 | % 2
@@ -92,7 +75,7 @@ PartPOneVoiceTwo =  \relative d' {
     b1 \bar "|."
     }
 
-PartPTwoVoiceOne =  \relative b {
+OComeAllYeFaithfulTenor =  \relative b {
     \clef "bass" \numericTimeSignature\time 4/4 \key g \major \partial 4
     b4 | % 1
     b2 b4 b4 | % 2
@@ -118,7 +101,7 @@ PartPTwoVoiceOne =  \relative b {
     g1 \bar "|."
     }
 
-PartPTwoVoiceTwo =  \relative g {
+OComeAllYeFaithfulBass =  \relative g {
     \clef "bass" \numericTimeSignature\time 4/4 \key g \major \partial 4
     g4 | % 1
     g2 b4 g4 | % 2
@@ -143,32 +126,35 @@ PartPTwoVoiceTwo =  \relative g {
 
 
 % The score definition
+\tocItem \markup "O Come, All Ye Faithful"
 \score {
-    <<
-        
-        \new Staff
-        <<
-            \context Staff << 
-                \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-                \context Voice = "PartPOneVoiceOne" {  \voiceOne \PartPOneVoiceOne }
-                \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "1." \PartPOneVoiceOneLyricsOne }
-                \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "2." \PartPOneVoiceOneLyricsTwo }
-                \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "3." \PartPOneVoiceOneLyricsThree }
-                \context Voice = "PartPOneVoiceTwo" {  \voiceTwo \PartPOneVoiceTwo }
-                >>
-            >>
-        \new Staff
-        <<
-            \context Staff << 
-                \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-                \context Voice = "PartPTwoVoiceOne" {  \voiceOne \PartPTwoVoiceOne }
-                \context Voice = "PartPTwoVoiceTwo" {  \voiceTwo \PartPTwoVoiceTwo }
-                >>
-            >>
-        
-        >>
-    \layout {}
-    % To create MIDI output, uncomment the following line:
-    %  \midi {\tempo 4 = 100 }
+\header {
+    title =  "O Come, All Ye Faithful"
+    composer =  "John Francis Wade (1711-1786)"
     }
+
+    <<
+        \new StaffGroup <<
+            \new Staff
+            <<
+                \context Staff << 
+                    \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
+                    \context Voice = "OComeAllYeFaithfulSoprano" {  \voiceOne \OComeAllYeFaithfulSoprano }
+                    \new Lyrics \lyricsto "OComeAllYeFaithfulSoprano" { \set stanza = "1." \OComeAllYeFaithfulVerseOne }
+                    \new Lyrics \lyricsto "OComeAllYeFaithfulSoprano" { \set stanza = "2." \OComeAllYeFaithfulVerseTwo }
+                    \new Lyrics \lyricsto "OComeAllYeFaithfulSoprano" { \set stanza = "3." \OComeAllYeFaithfulVerseThree }
+                    \context Voice = "OComeAllYeFaithfulAlto" {  \voiceTwo \OComeAllYeFaithfulAlto }
+                    >>
+                >>
+            \new Staff
+            <<
+                \context Staff << 
+                    \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
+                    \context Voice = "OComeAllYeFaithfulTenor" {  \voiceOne \OComeAllYeFaithfulTenor }
+                    \context Voice = "OComeAllYeFaithfulBass" {  \voiceTwo \OComeAllYeFaithfulBass }
+                    >>
+                >>
+        >>
+    >>
+}
 

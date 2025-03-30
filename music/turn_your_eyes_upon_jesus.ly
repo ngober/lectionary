@@ -1,18 +1,4 @@
-\version "2.22.1"
-% automatically converted by musicxml2ly from turn_your_eyes_upon_jesus.mxl
-\pointAndClickOff
-
-\header {
-    title =  "Turn Your Eyes upon Jesus"
-    composer =  "Helen Howarth Lemmel, 1922"
-    }
-
-\layout {
-    \context { \Score
-        autoBeaming = ##f
-        }
-    }
-PartPOneVoiceOne =  \relative f' {
+TurnYourEyesSoprano =  \relative f' {
     \clef "treble" \time 3/4 \key f \major | % 1
     <f a>4 s2 | % 2
     <f a>4 <f gis>4 <f a>4 | % 3
@@ -48,14 +34,14 @@ PartPOneVoiceOne =  \relative f' {
     <c f>2 \bar "|."
     }
 
-PartPOneVoiceOneLyricsOne =  \lyricmode {
+TurnYourEyesVerseOne =  \lyricmode {
     O "soul," are you wear -- y and trou -- "bled?"
     No light in the dark -- ness you "see?"
     "There’s" a light for a look at the Sav -- "ior,"
     And life more a -- bun -- dant and "free!"
     }
 
-PartPOneVoiceOneLyricsTwo =  \lyricmode {
+TurnYourEyesVerseTwo =  \lyricmode {
     Through death in -- to life ev -- er -- last -- ing He
     "passed," and we fol -- low Him "there;" Ov -- er us sin no
     more hath do -- min -- "ion" For more than con -- quer -- ors we
@@ -64,13 +50,13 @@ PartPOneVoiceOneLyricsTwo =  \lyricmode {
     strange -- ly "dim," In the light of His glo -- ry and "grace."
     }
 
-PartPOneVoiceOneLyricsThree =  \lyricmode {
+TurnYourEyesVerseThree =  \lyricmode {
     His Word shall not fail you He prom -- "ised;" Be -- lieve
     "Him," and all will be "well:" Then __ \skip1 go to a world that is
     dy -- "ing," His pe -- rfect sal -- va -- tion to "tell!"
     }
 
-PartPOneVoiceTwo =  \relative d' {
+TurnYourEyesAlto =  \relative d' {
     \clef "treble" \time 3/4 \key f \major s2*7 d4 s4*5 c4 s4*15 | % 13
     g'2 s1 | % 15
     e4 s2 | % 16
@@ -82,7 +68,7 @@ PartPOneVoiceTwo =  \relative d' {
     f2 s2. f8 s8*17 \bar "|."
     }
 
-PartPTwoVoiceOne =  \relative f {
+TurnYourEyesTenor =  \relative f {
     \clef "bass" \time 3/4 \key f \major | % 1
     <f c'>4 s2 | % 2
     <f c'>4 <f b>4 <f c'>4 | % 3
@@ -118,7 +104,7 @@ PartPTwoVoiceOne =  \relative f {
     <f a>2 \bar "|."
     }
 
-PartPTwoVoiceTwo =  \relative bes, {
+TurnYourEyesBass =  \relative bes, {
     \clef "bass" \time 3/4 \key f \major s4*9 | % 4
     bes2. s4*39 \bar "||"
     f'2 f4 s4*15 | % 24
@@ -127,34 +113,35 @@ PartPTwoVoiceTwo =  \relative bes, {
 
 
 % The score definition
+\tocItem \markup "Turn Your Eyes Upon Jesus"
 \score {
-    <<
-        
-        \new Staff
-        <<
-            
-            \context Staff << 
-                \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-                \context Voice = "PartPOneVoiceOne" {  \voiceOne \PartPOneVoiceOne }
-                \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "1." \PartPOneVoiceOneLyricsOne }
-                \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "2." \PartPOneVoiceOneLyricsTwo }
-                \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "3." \PartPOneVoiceOneLyricsThree }
-                \context Voice = "PartPOneVoiceTwo" {  \voiceTwo \PartPOneVoiceTwo }
-                >>
-            >>
-        \new Staff
-        <<
-            
-            \context Staff << 
-                \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-                \context Voice = "PartPTwoVoiceOne" {  \voiceOne \PartPTwoVoiceOne }
-                \context Voice = "PartPTwoVoiceTwo" {  \voiceTwo \PartPTwoVoiceTwo }
-                >>
-            >>
-        
-        >>
-    \layout {}
-    % To create MIDI output, uncomment the following line:
-    %  \midi {\tempo 4 = 100 }
+\header {
+    title =  "Turn Your Eyes Upon Jesus"
+    composer =  "Helen Howarth Lemmel, 1922"
     }
+
+    <<
+        \new StaffGroup <<
+            \new Staff
+            <<
+                \context Staff << 
+                    \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
+                    \context Voice = "TurnYourEyesSoprano" {  \voiceOne \TurnYourEyesSoprano }
+                    \new Lyrics \lyricsto "TurnYourEyesSoprano" { \set stanza = "1." \TurnYourEyesVerseOne }
+                    \new Lyrics \lyricsto "TurnYourEyesSoprano" { \set stanza = "2." \TurnYourEyesVerseTwo }
+                    \new Lyrics \lyricsto "TurnYourEyesSoprano" { \set stanza = "3." \TurnYourEyesVerseThree }
+                    \context Voice = "TurnYourEyesAlto" {  \voiceTwo \TurnYourEyesAlto }
+                >>
+            >>
+            \new Staff
+            <<
+                \context Staff << 
+                    \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
+                    \context Voice = "TurnYourEyesTenor" {  \voiceOne \TurnYourEyesTenor }
+                    \context Voice = "TurnYourEyesBass" {  \voiceTwo \TurnYourEyesBass }
+                >>
+            >>
+        >>
+    >>
+}
 

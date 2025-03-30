@@ -1,21 +1,4 @@
-\version "2.22.1"
-% automatically converted by musicxml2ly from O Come, O Come, Emmanuel.musicxml
-\pointAndClickOff
-
-\header {
-    title =  "O Come, O Come, Emmanuel"
-    composer =  "VENI EMMANUEL"
-    arranger =  "Jason Hunsaker"
-    encodingsoftware =  "MuseScore 4.4.3"
-    encodingdate =  "2024-12-07"
-    }
-
-\layout {
-    \context { \Score
-        autoBeaming = ##f
-        }
-    }
-PartPOneVoiceOne =  \relative e' {
+OComeOComeEmmanuelSoprano =  \relative e' {
     \clef "treble" \numericTimeSignature\time 2/2 \key g \major \partial
     4 e4 | % 1
     <e g>4 <fis b>4 <e b'>4 <d b'>4 | % 2
@@ -41,51 +24,43 @@ PartPOneVoiceOne =  \relative e' {
     <b e>2. \bar "|."
     }
 
-PartPOneVoiceOneLyricsOne =  \lyricmode {\set ignoreMelismata = ##t
-    "1. O" "come," O "come," Em -- man --\skip1 \skip1 u -- "el," And
-    ran -- som cap -- tive Is --\skip1 ra --\skip1 "el," That mourns in
-    lone -- ly ex -- ile\skip1 here Un -- til the Son of God\skip1 ap
-    --\skip1 "pear." Re -- "joice!" Re -- "joice!" Em -- man --\skip1
-    \skip1 u -- el Shall come to "thee," O Is --\skip1 ra --\skip1 "el!"
+OComeOComeEmmanuelVerseOne =  \lyricmode {
+    "O" "come," O "come," Em -- man -- u -- "el," And
+    ran -- som cap -- tive Is -- ra -- "el," That mourns in
+    lone -- ly ex -- ile here Un -- til the Son of God ap
+    -- "pear." Re -- "joice!" Re -- "joice!" Em -- man --
+     u -- el Shall come to "thee," O Is -- ra -- "el!"
     }
 
-PartPOneVoiceOneLyricsTwo =  \lyricmode {\set ignoreMelismata = ##t
-    "2. O" "come," Thou Day -- "spring," come\skip1 and\skip1 cheer And
-    com -- fort by Thine ad --\skip1 vent\skip1 "here;" Dis -- pel the
-    long "night’s" brood -- ing\skip1 "gloom;" And rend the shad -- ows
-    of\skip1 the\skip1 "tomb." \skip1 \skip1 \skip1 \skip1 \skip1 \skip1
-    \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1
-    \skip1 \skip1 \skip1 \skip1 \skip1
+OComeOComeEmmanuelVerseTwo =  \lyricmode {
+    "O" "come," Thou Day -- "spring," come and cheer And
+    com -- fort by Thine ad -- vent "here;" Dis -- pel the
+    long "night’s" brood -- ing "gloom;" And rend the shad -- ows
+    of the "tomb."
     }
 
-PartPOneVoiceOneLyricsThree =  \lyricmode {\set ignoreMelismata = ##t
-    "3. O" "come," Thou Rod of Jes --\skip1 "se’s" \skip1 "stem," From
-    ev -- "’ry" wound Thou heal --\skip1 est\skip1 them That in Thy word
-    doth trust and\skip1 "heed;" That they there -- by be -- come\skip1
-    Thy\skip1 "seed." \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1
-    \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1
-    \skip1 \skip1 \skip1 \skip1
+OComeOComeEmmanuelVerseThree =  \lyricmode {
+    "O" "come," Thou Rod of Jes -- "se’s"  "stem," From
+    ev -- "’ry" wound Thou heal -- est them That in Thy word
+    doth trust and "heed;" That they there -- by be -- come
+    Thy "seed."
     }
 
-PartPOneVoiceOneLyricsFive =  \lyricmode {\set ignoreMelismata = ##t
-    "5. O" "come," De -- sire of Na --\skip1 "tions," \skip1 bind In one
-    the hearts of hu --\skip1 man --\skip1 "kind;" That we our sad di --
-    vi -- sions\skip1 "cease;" And fill the world with heav --\skip1
-    "en’s" \skip1 "peace." \skip1 \skip1 \skip1 \skip1 \skip1 \skip1
-    \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1
-    \skip1 \skip1 \skip1 \skip1 \skip1
+OComeOComeEmmanuelVerseFive =  \lyricmode {
+    "O" "come," De -- sire of Na -- "tions,"  bind In one
+    the hearts of hu -- man -- "kind;" That we our sad di --
+    vi -- sions "cease;" And fill the world with heav --
+    "en’s"  "peace."
     }
 
-PartPOneVoiceOneLyricsFour =  \lyricmode {\set ignoreMelismata = ##t
-    "4. O" "come," Thou Key of Da --\skip1 "vid," \skip1 come And o --
-    pen up our "Heav’n" --\skip1 ly\skip1 "home;" Un -- lock the fet --
-    ters of the\skip1 "mind," And o -- pen up the eyes\skip1 of the
-    "blind." \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1
-    \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1
-    \skip1 \skip1 \skip1
+OComeOComeEmmanuelVerseFour =  \lyricmode {
+    "O" "come," Thou Key of Da -- "vid,"  come And o --
+    pen up our "Heav’n" -- ly "home;" Un -- lock the fet --
+    ters of the "mind," And o -- pen up the eyes of the
+    "blind."
     }
 
-PartPOneVoiceTwo =  \relative e' {
+OComeOComeEmmanuelAlto =  \relative e' {
     \clef "treble" \numericTimeSignature\time 2/2 \key g \major \partial
     4 e4 s1 | % 2
     e2 s2*5 | % 5
@@ -97,7 +72,7 @@ PartPOneVoiceTwo =  \relative e' {
     c2 b2 s2. \bar "|."
     }
 
-PartPTwoVoiceOne =  \relative e {
+OComeOComeEmmanuelTenor =  \relative e {
     \clef "bass" \numericTimeSignature\time 2/2 \key g \major \partial 4
     <e g>4 | % 1
     <e b'>4 <d b'>4 <c b'>4 <b g'>4 | % 2
@@ -123,7 +98,7 @@ PartPTwoVoiceOne =  \relative e {
     <e g>2. \bar "|."
     }
 
-PartPTwoVoiceTwo =  \relative c {
+OComeOComeEmmanuelBass =  \relative c {
     \clef "bass" \numericTimeSignature\time 2/2 \key g \major \partial 4
     s4*5 | % 2
     c4 ( a4  b ) s4 s2. \bar ""
@@ -135,44 +110,39 @@ PartPTwoVoiceTwo =  \relative c {
 
 
 % The score definition
+\tocItem \markup "O Come, O Come, Emmanuel"
 \score {
+\header {
+    title =  "O Come, O Come, Emmanuel"
+    composer =  "VENI EMMANUEL"
+    arranger =  "Jason Hunsaker"
+    }
+
     <<
-        
         \new StaffGroup
         <<
             \new Staff
             <<
-                \set Staff.instrumentName = \markup { \center-column { \line {"S"} \line {"A"} } }
-                \set Staff.shortInstrumentName = \markup { \center-column { \line {"S"} \line {"A"} } }
-                
                 \context Staff << 
                     \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-                    \context Voice = "PartPOneVoiceOne" {  \voiceOne \PartPOneVoiceOne }
-                    \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "1." \PartPOneVoiceOneLyricsOne }
-                    \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "2." \PartPOneVoiceOneLyricsTwo }
-                    \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "3." \PartPOneVoiceOneLyricsThree }
-                    \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "4." \PartPOneVoiceOneLyricsFive }
-                    \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "5." \PartPOneVoiceOneLyricsFour }
-                    \context Voice = "PartPOneVoiceTwo" {  \voiceTwo \PartPOneVoiceTwo }
+                    \context Voice = "OComeOComeEmmanuelSoprano" {  \voiceOne \OComeOComeEmmanuelSoprano }
+                    \new Lyrics \lyricsto "OComeOComeEmmanuelSoprano" { \set stanza = "1." \OComeOComeEmmanuelVerseOne }
+                    \new Lyrics \lyricsto "OComeOComeEmmanuelSoprano" { \set stanza = "2." \OComeOComeEmmanuelVerseTwo }
+                    \new Lyrics \lyricsto "OComeOComeEmmanuelSoprano" { \set stanza = "3." \OComeOComeEmmanuelVerseThree }
+                    \new Lyrics \lyricsto "OComeOComeEmmanuelSoprano" { \set stanza = "4." \OComeOComeEmmanuelVerseFour }
+                    \new Lyrics \lyricsto "OComeOComeEmmanuelSoprano" { \set stanza = "5." \OComeOComeEmmanuelVerseFive }
+                    \context Voice = "OComeOComeEmmanuelAlto" {  \voiceTwo \OComeOComeEmmanuelAlto }
                     >>
                 >>
             \new Staff
             <<
-                \set Staff.instrumentName = \markup { \center-column { \line {"T"} \line {"B"} } }
-                \set Staff.shortInstrumentName = \markup { \center-column { \line {"T"} \line {"B"} } }
-                
                 \context Staff << 
                     \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-                    \context Voice = "PartPTwoVoiceOne" {  \voiceOne \PartPTwoVoiceOne }
-                    \context Voice = "PartPTwoVoiceTwo" {  \voiceTwo \PartPTwoVoiceTwo }
+                    \context Voice = "OComeOComeEmmanuelTenor" {  \voiceOne \OComeOComeEmmanuelTenor }
+                    \context Voice = "OComeOComeEmmanuelBass" {  \voiceTwo \OComeOComeEmmanuelBass }
                     >>
                 >>
-            
             >>
-        
         >>
-    \layout {}
-    % To create MIDI output, uncomment the following line:
-    %  \midi {\tempo 4 = 100 }
     }
 

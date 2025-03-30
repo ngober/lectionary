@@ -1,49 +1,38 @@
-\version "2.22.1"
-% automatically converted by musicxml2ly from music/yet_not_i.mxl
-\pointAndClickOff
-
-\header {
-    title =  "Untitled score"
-    composer =  "Composer / arranger"
-    encodingsoftware =  "MuseScore 4.5.0"
-    encodingdate =  "2025-03-16"
-    }
-
-PartPOneVoiceOne =  \relative a {
+YetNotIUpper =  \relative a {
     \clef "treble" \numericTimeSignature\time 4/4 \key d \major \partial
-    4. \stemUp <a d>8 \stemUp <a d>8 \stemUp <d fis>8 | % 1
-    \stemUp <d fis>4 r8 \stemUp <d fis>8 \stemUp <d fis>8 \stemUp <cis
-        e>8 \stemUp <cis e>8 \stemUp <b d>8 | % 2
-    \stemUp <b d>4 \stemUp <g b>4 r8 \stemUp <a d>8 \stemUp <a d>8
-    \stemUp <d fis>8 | % 3
-    \stemUp <d fis>4 r8 \stemUp <d fis>8 \stemUp <d fis>8 \stemUp <a d>8
-    \stemUp <fis' a>8 \stemUp <d fis>8 | % 4
-    \stemUp <cis e>2 r8 \stemUp <a d>8 \stemUp <a d>8 \stemUp <d fis>8 | % 5
-    \stemUp <d fis>4 r8 \stemUp <d fis>8 \stemUp <d fis>8 \stemUp <cis
-        e>8 \stemUp <cis e>8 \stemUp <b d>8 | % 6
-    \stemUp <b d>4 \stemUp <g b>4 r8 \stemUp <a d>8 \stemUp <a d>8
-    \stemUp <d fis>8 | % 7
-    \stemUp <d fis>4 r8 \stemUp <d fis>8 \stemUp <d fis>8 \stemUp <b e>8
-    \stemUp <b e>8 \stemUp <a d>8 | % 8
-    \stemUp <a d>2 r8 \stemUp <d fis>8 \stemUp <d fis>8 \stemUp <g b>8 | % 9
-    \stemUp <g b>4 r8 \stemUp <g b>8 \stemDown <b g'>8 \stemDown <fis a>8
-    \stemDown <fis a>8 \stemDown <e g>8 | \barNumberCheck #10
-    \stemUp <d fis>8 \stemUp <fis a>8 \stemUp <fis a>4 r4 \stemDown <a
-        d>8 \stemDown <a cis>8 | % 11
-    \stemUp <g b>4. \stemUp <fis a>8 \stemUp <fis a>8 \stemUp <fis a>8
-    \stemUp <fis a>8 \stemUp <d fis>8 | % 12
-    \stemUp <d e>2 ( ~ \stemUp <cis e>8 ) r8 \stemUp <d fis>8 \stemUp <b
+    4. <a d>8 <a d>8 <d fis>8 | % 1
+    <d fis>4 r8 <d fis>8 <d fis>8 <cis
+        e>8 <cis e>8 <b d>8 | % 2
+    <b d>4 <g b>4 r8 <a d>8 <a d>8
+    <d fis>8 | % 3
+    <d fis>4 r8 <d fis>8 <d fis>8 <a d>8
+    <fis' a>8 <d fis>8 | % 4
+    <cis e>2 r8 <a d>8 <a d>8 <d fis>8 | % 5
+    <d fis>4 r8 <d fis>8 <d fis>8 <cis
+        e>8 <cis e>8 <b d>8 | % 6
+    <b d>4 <g b>4 r8 <a d>8 <a d>8
+    <d fis>8 | % 7
+    <d fis>4 r8 <d fis>8 <d fis>8 <b e>8
+    <b e>8 <a d>8 | % 8
+    <a d>2 r8 <d fis>8 <d fis>8 <g b>8 | % 9
+    <g b>4 r8 <g b>8 <b g'>8 <fis a>8
+    <fis a>8 <e g>8 | \barNumberCheck #10
+    <d fis>8 <fis a>8 <fis a>4 r4 <a
+        d>8 <a cis>8 | % 11
+    <g b>4. <fis a>8 <fis a>8 <fis a>8
+    <fis a>8 <d fis>8 | % 12
+    <d e>2 ( ~ <cis e>8 ) r8 <d fis>8 <b
         e>8 | % 13
-    \stemUp <a d>4 \stemUp <a d>8 \stemUp <b e>8 \stemUp <b e>4 \stemUp
-    <b e>8 \stemUp <d fis>8 | % 14
-    \stemUp <d fis>4 \stemDown <a' d>8 \stemDown <a cis>8 \stemUp <g b>4
-    \stemUp <fis a>8 \stemUp <e g>8 | % 15
-    \stemUp <d fis>4 \stemUp <a d>8 \stemUp <d e>8 \stemUp <cis e>4.
-    \stemUp <a d>8 | % 16
-    \stemUp <a d>2 r2 \bar "|."
+    <a d>4 <a d>8 <b e>8 <b e>4
+    <b e>8 <d fis>8 | % 14
+    <d fis>4 <a' d>8 <a cis>8 <g b>4
+    <fis a>8 <e g>8 | % 15
+    <d fis>4 <a d>8 <d e>8 <cis e>4.
+    <a d>8 | % 16
+    <a d>2 r2 \bar "|."
     }
 
-PartPOneVoiceOneLyricsTwo =  \lyricmode {\set ignoreMelismata = ##t The
+YetNotIVerseTwo =  \lyricmode {\set ignoreMelismata = ##t The
     night is "dark," but I am not for -- sak -- "en," for by my "side,"
     the Sav -- "ior," he will "stay." I la -- bor on in weak -- ness and
     re -- joic -- ing for in my "need," His pow -- er is dis --
@@ -53,7 +42,7 @@ PartPOneVoiceOneLyricsTwo =  \lyricmode {\set ignoreMelismata = ##t The
     but through Christ in "me."
     }
 
-PartPOneVoiceOneLyricsOne =  \lyricmode {\set ignoreMelismata = ##t What
+YetNotIVerseOne =  \lyricmode {\set ignoreMelismata = ##t What
     gift of grace is Je -- sus my re -- dee -- mer there is no more for
     Heav -- en now to "give." He is my "joy," my right -- eous -- ness
     and free -- "dom," my stead -- fast "love," my deep and bound --
@@ -63,7 +52,7 @@ PartPOneVoiceOneLyricsOne =  \lyricmode {\set ignoreMelismata = ##t What
     Christ in "me."
     }
 
-PartPOneVoiceOneLyricsThree =  \lyricmode {\set ignoreMelismata = ##t No
+YetNotIVerseThree =  \lyricmode {\set ignoreMelismata = ##t No
     fate I "dread," I know I am for -- giv -- en The fut -- ure "sure,"
     the "price," it has been "paid." For Je -- sus bled and suf -- fered
     for my par -- "don," and He was raised to ov -- er -- throw the
@@ -73,7 +62,7 @@ PartPOneVoiceOneLyricsThree =  \lyricmode {\set ignoreMelismata = ##t No
     through Christ in "me."
     }
 
-PartPOneVoiceOneLyricsFour =  \lyricmode {\set ignoreMelismata = ##t
+YetNotIVerseFour =  \lyricmode {\set ignoreMelismata = ##t
     With ev -- ery "breath," I long to fol -- low Je -- "sus," for He
     has said that He will bring me "home." And day by "day," I know He
     will re -- new "me," un -- til I stand with joy be -- fore the
@@ -83,79 +72,73 @@ PartPOneVoiceOneLyricsFour =  \lyricmode {\set ignoreMelismata = ##t
     through Christ in "me."
     }
 
-PartPTwoVoiceOne =  \relative a, {
+YetNotILower =  \relative a, {
     \clef "bass" \numericTimeSignature\time 4/4 \key d \major \partial
-    4. \stemDown <a fis'>8 \stemDown <a fis'>8 \stemDown <a a'>8 | % 1
-    \stemDown <d a'>4 r8 \stemDown <d a'>8 \stemUp <d a'>8 \stemUp <d
-        a'>8 \stemUp <fis, a'>8 \stemUp <fis a'>8 | % 2
-    \stemUp <g g'>4 \stemUp <g d'>4 r8 \stemDown <a fis'>8 \stemDown <a
-        fis'>8 \stemDown <a a'>8 | % 3
-    \stemDown <d a'>4 r8 \stemDown <d a'>8 \stemDown <d a'>8 \stemDown
-    <d fis>8 \stemDown <b d'>8 \stemDown <b b'>8 | % 4
-    \stemDown <a a'>2 r8 \stemDown <a fis'>8 \stemDown <a fis'>8
-    \stemDown <a a'>8 | % 5
-    \stemDown <d a'>4 r8 \stemDown <d a'>8 \stemUp <d a'>8 \stemUp <d
-        a'>8 \stemUp <fis, a'>8 \stemUp <fis a'>8 | % 6
-    \stemUp <g g'>4 \stemUp <g d'>4 r8 \stemDown <a fis'>8 \stemDown <a
-        fis'>8 \stemDown <a a'>8 | % 7
-    \stemDown <d a'>4 r8 \stemDown <d a'>8 \stemDown <a a'>8 \stemDown
-    <a g'>8 \stemDown <a g'>8 \stemDown <a fis'>8 | % 8
-    \stemDown <d fis>2 r8 \stemDown <d a'>8 \stemDown <d a'>8 \stemDown
+    4. <a fis'>8 <a fis'>8 <a a'>8 | % 1
+    <d a'>4 r8 <d a'>8 <d a'>8 <d
+        a'>8 <fis, a'>8 <fis a'>8 | % 2
+    <g g'>4 <g d'>4 r8 <a fis'>8 <a
+        fis'>8 <a a'>8 | % 3
+    <d a'>4 r8 <d a'>8 <d a'>8
+    <d fis>8 <b d'>8 <b b'>8 | % 4
+    <a a'>2 r8 <a fis'>8 <a fis'>8
+    <a a'>8 | % 5
+    <d a'>4 r8 <d a'>8 <d a'>8 <d
+        a'>8 <fis, a'>8 <fis a'>8 | % 6
+    <g g'>4 <g d'>4 r8 <a fis'>8 <a
+        fis'>8 <a a'>8 | % 7
+    <d a'>4 r8 <d a'>8 <a a'>8
+    <a g'>8 <a g'>8 <a fis'>8 | % 8
+    <d fis>2 r8 <d a'>8 <d a'>8
     <d d'>8 | % 9
-    \stemDown <g d'>4 r8 \stemDown <g d'>8 \stemDown <g d'>8 \stemDown
-    <g d'>8 \stemDown <g d'>8 \stemDown <g b>8 | \barNumberCheck #10
-    \stemDown <d a'>8 \stemDown <d d'>8 \stemDown <d d'>4 r4 \stemDown
-    <fis fis'>8 \stemDown <fis e'>8 | % 11
-    \stemDown <g d'>4. \stemDown <g d'>8 \stemDown <d d'>8 \stemDown <d
-        d'>8 \stemDown <d d'>8 \stemDown <d b'>8 | % 12
-    \stemDown <a a'>2 ~ ~ \stemDown <a a'>8 r8 \stemDown <a a'>8
-    \stemDown <a g'>8 | % 13
-    \stemDown <d fis>4 \stemDown <d fis>8 \stemDown <d g>8 \stemDown <e
-        g>4 \stemDown <e g>8 \stemDown <e a>8 | % 14
-    \stemDown <fis a>4 \stemDown <fis fis'>8 \stemDown <fis e'>8
-    \stemDown <g d'>4 \stemDown <g, d''>8 \stemDown <g b'>8 | % 15
-    \stemDown <a a'>4 \stemDown <a fis'>8 \stemDown <a g'>8 \stemDown <a
-        a'>4. \stemDown <a g'>8 | % 16
-    \stemDown <d fis>2 r2 \bar "|."
+    <g d'>4 r8 <g d'>8 <g d'>8
+    <g d'>8 <g d'>8 <g b>8 | \barNumberCheck #10
+    <d a'>8 <d d'>8 <d d'>4 r4
+    <fis fis'>8 <fis e'>8 | % 11
+    <g d'>4. <g d'>8 <d d'>8 <d
+        d'>8 <d d'>8 <d b'>8 | % 12
+    <a a'>2 ~ ~ <a a'>8 r8 <a a'>8
+    <a g'>8 | % 13
+    <d fis>4 <d fis>8 <d g>8 <e
+        g>4 <e g>8 <e a>8 | % 14
+    <fis a>4 <fis fis'>8 <fis e'>8
+    <g d'>4 <g, d''>8 <g b'>8 | % 15
+    <a a'>4 <a fis'>8 <a g'>8 <a
+        a'>4. <a g'>8 | % 16
+    <d fis>2 r2 \bar "|."
     }
 
 
 % The score definition
+\tocItem \markup "Yet Not I But Through Christ In Me"
 \score {
+\header {
+    title =  "Yet Not I But Through Christ In Me"
+    composer =  "Composer / arranger"
+    }
+
     <<
-        
         \new StaffGroup
         <<
             \new Staff
             <<
-                \set Staff.instrumentName = \markup { \center-column { \line {"S"} \line {"A"} } }
-                \set Staff.shortInstrumentName = \markup { \center-column { \line {"S"} \line {"A"} } }
-                
                 \context Staff << 
                     \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-                    \context Voice = "PartPOneVoiceOne" {  \PartPOneVoiceOne }
-                    \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "1." \PartPOneVoiceOneLyricsTwo }
-                    \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "2." \PartPOneVoiceOneLyricsOne }
-                    \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "3." \PartPOneVoiceOneLyricsThree }
-                    \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "4." \PartPOneVoiceOneLyricsFour }
+                    \context Voice = "YetNotIUpper" {  \YetNotIUpper }
+                    \new Lyrics \lyricsto "YetNotIUpper" { \set stanza = "1." \YetNotIVerseTwo }
+                    \new Lyrics \lyricsto "YetNotIUpper" { \set stanza = "2." \YetNotIVerseOne }
+                    \new Lyrics \lyricsto "YetNotIUpper" { \set stanza = "3." \YetNotIVerseThree }
+                    \new Lyrics \lyricsto "YetNotIUpper" { \set stanza = "4." \YetNotIVerseFour }
                     >>
                 >>
             \new Staff
             <<
-                \set Staff.instrumentName = \markup { \center-column { \line {"T"} \line {"B"} } }
-                \set Staff.shortInstrumentName = \markup { \center-column { \line {"T"} \line {"B"} } }
-                
                 \context Staff << 
                     \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-                    \context Voice = "PartPTwoVoiceOne" {  \PartPTwoVoiceOne }
+                    \context Voice = "YetNotILower" {  \YetNotILower }
                     >>
                 >>
-            
             >>
-        
         >>
-    \layout {}
-    % To create MIDI output, uncomment the following line:
-    %  \midi {\tempo 4 = 100 }
     }
 

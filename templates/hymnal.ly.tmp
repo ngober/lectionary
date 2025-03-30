@@ -1,0 +1,41 @@
+\version "2.22.1"
+\pointAndClickOff
+
+#(define (oly:create-toc-file layout pages)
+  (let* ((label-table (ly:output-def-lookup layout 'label-page-table)))
+    (if (not (null? label-table))
+      (let* ((format-line (lambda (toc-item)
+             (let* ((label (car toc-item))
+                    (text  (cdaddr toc-item))
+                    (label-page (and (list? label-table)
+                                     (assoc label label-table)))
+                    (page (and label-page (cdr label-page))))
+               (format #f "~a, subsection, 1, {~a}, ~a" page text label))))
+             (formatted-toc-items (map format-line (toc-items)))
+             (whole-string (string-join formatted-toc-items ",\n"))
+             (output-name (ly:parser-output-name))
+             (outfilename (format #f "~a.toc" output-name))
+             (outfile (open-output-file outfilename)))
+        (if (output-port? outfile)
+            (display whole-string outfile)
+            (ly:warning (G_ "Unable to open output file ~a for the TOC information") outfilename))
+        (close-output-port outfile)))))
+
+\paper {
+    top-margin = 1.5\in
+    bottom-margin = 1.25\in
+    left-margin = 1\in
+    right-margin = 1\in
+    print-all-headers = ##t
+    print-page-number = ##f
+
+    #(define (page-post-process layout pages) (oly:create-toc-file layout pages))
+}
+
+\header{
+    tagline = ""
+}
+
+{% for mus in musicpages %}
+\include "../music/{{ mus }}.ly"
+{% endfor %}

@@ -1,150 +1,143 @@
-\version "2.22.1"
-% automatically converted by musicxml2ly from music/be_thou_my_vision.xml
-\pointAndClickOff
-
-\header {
-    title =  Slane
-    copyright =  \markup \column {
-        \line { "From Hymnary.org (based on a score from the Cyber Hymnal)"}
-        \line { "Public Domain"} }
-    
-    composer =  "Ancient Irish Tune"
-    encodingsoftware =  "NWC2MusicXML"
-    encodingdate =  "2011-07-29"
+BeThouMyVisionSoprano =  \relative es' {
+    \clef "treble" \numericTimeSignature\time 3/4 \key es \major | % 1
+    es4 es4 f8( es8) | % 2
+    c4 bes4 c4 | % 3
+    es4 es4 f4 | % 4
+    g2. | % 5
+    f4 f4 f4 | % 6
+    f4 g4 bes4 | % 7
+    c4 bes4 g4 | % 8
+    bes2. | % 9
+    c4 c8( d8) es8( d8) | \barNumberCheck #10
+    \slurDashed c4( bes4) g4 | % 11
+    bes4 es,4 d4 | % 12
+    \slurSolid c2( bes4) | % 13
+    es4 g4 bes4 | % 14
+    c8( bes8) g4 es8( g8) | % 15
+    f4 es4 es4 | % 16
+    es2. \bar "|."
     }
 
-PartPOneVoiceOne =  \relative es' {
-    \clef "treble" \key es \major | % 1
-    \stemUp es4 \stemUp es4 \stemUp f8 \stemUp es8 s4 | % 2
-    \stemUp c4 \stemUp bes4 \stemUp bes8 \stemUp c8 s4 | % 3
-    \stemUp es4 \stemUp es4 \stemUp f4 s4 | % 4
-    \stemUp g2. s4 | % 5
-    \stemUp f4 \stemUp f4 \stemUp f4 s4 | % 6
-    \stemUp f4 \stemUp g4 \stemUp bes4 s4 | % 7
-    \stemDown c4 \stemUp bes4 \stemUp g4 s4 | % 8
-    \stemDown bes2. s4 | % 9
-    \stemDown c4 \stemDown c8 \stemDown d8 \stemDown es8 \stemDown d8 s4
-    | \barNumberCheck #10
-    \stemDown c4 \stemDown bes4 \stemUp g4 s4 | % 11
-    \stemDown bes4 \stemUp es,4 \stemUp d4 s4 | % 12
-    c2 bes4 s4 | % 13
-    \stemUp es4 \stemUp g4 \stemUp bes4 s4 | % 14
-    \stemDown c8 \stemDown bes8 \stemUp g4 \stemUp es8 \stemUp g8 s4 | % 15
-    \stemUp f4 \stemUp es4 \stemUp es4 s4 | % 16
-    \stemUp es1 \bar "|."
+BeThouMyVisionAlto =  \relative c' {
+    \clef "treble" \numericTimeSignature\time 3/4 \key es \major | % 1
+    bes4 bes4 bes4 | % 2
+    aes4 bes4 c4 | % 3
+    bes4 c4 d4 | % 4
+    es2. | % 5
+    d4 d4 es4 | % 6
+    f4 es4 es4 | % 7
+    es4 es4 es4 | % 8
+    f2. | % 9
+    aes4 es4 es4 | \barNumberCheck #10
+    \slurDashed es4( es4) f4 | % 11
+    es4 c bes4 | % 12
+    \slurSolid aes2( bes4) | % 13
+    bes4 es4 f4 | % 14
+    es4 es4 d4 | % 15
+    c4 c4 aes4 | % 16
+    bes2. \bar "|."
     }
 
-PartPTwoVoiceOne =  \relative es' {
-    \clef "treble" \key es \major | % 1
-    \stemUp es4 \stemUp es4 \stemUp f8 \stemUp es8 s4 | % 2
-    \stemUp c4 \stemUp bes4 \stemUp bes8 \stemUp c8 s4 | % 3
-    \stemUp es4 \stemUp es4 ~ \stemDown es4 s4 | % 4
-    \stemUp <es g>2. s4 | % 5
-    \stemUp f4 \stemUp f4 \stemUp f4 s4 | % 6
-    \stemDown c4 \stemUp g'4 \stemDown g8 \stemDown f8 s4 | % 7
-    \stemUp c'4 \stemDown f,4 \stemUp g4 s4 | % 8
-    \stemDown es4 \stemUp bes'4 \stemDown es,4 s4 | % 9
-    \stemUp c'4 \stemUp c8 \stemUp d8 \stemUp es8 \stemUp d8 s4 |
-    \barNumberCheck #10
-    \stemUp c4 \stemUp bes4 \stemUp g4 s4 | % 11
-    \stemDown f4 \stemUp es4 \stemUp d4 s4 | % 12
-    \stemUp c2 \stemUp bes4 s4 | % 13
-    \stemUp es4 \stemUp <es g>4 \stemUp bes'4 s4 | % 14
-    \stemUp c8 \stemUp bes8 \stemUp g4 \stemUp es8 \stemUp g8 s4 | % 15
-    \stemUp f4 \stemUp es4 \stemUp es4 s4 | % 16
-    \stemUp <bes es>1 \bar "|."
+BeThouMyVisionTenor =  \relative g {
+    \clef "bass" \numericTimeSignature\time 3/4 \key es \major | % 1
+    g4 g4 es4 | % 2
+    es4 d4 es4 | % 3
+    es4 g4 bes4 | % 4
+    bes2. | % 5
+    bes4 bes4 a4 | % 6
+    bes4 bes4 bes4 | % 7
+    aes4 bes4 c4 | % 8
+    d2. | % 9
+    es4 c8( bes8) aes4 | \barNumberCheck #10
+    \slurDashed aes4( g4) bes4 | % 11
+    g4 g4 f4 | % 12
+    \slurSolid es2( f4) | % 13
+    g4 bes4 bes4 | % 14
+    g4 bes4 bes4 | % 15
+    aes4 aes4 f4 | % 16
+    <es g>2. \bar "|."
     }
 
-PartPTwoVoiceTwo =  \relative c' {
-    \clef "treble" \key es \major s1*2 | % 3
-    c2 f4 s4*5 | % 5
-    bes,4 <a es'>4 <bes d>4 s4 | % 6
-    f'4 d4 bes'4 s4 | % 7
-    g4 bes4 es,4 s4 | % 8
-    <f bes>2 ~ d4 s4 | % 9
-    es4 as4 g4 s4 | \barNumberCheck #10
-    g2 d4 s4 | % 11
-    bes'4 s4*7 | % 13
-    c,2 d4 s4 | % 14
-    es2. s4 | % 15
-    c2. s4*5 \bar "|."
+BeThouMyVisionBass =  \relative bes, {
+    \clef "bass" \numericTimeSignature\time 3/4 \key es \major | % 1
+    es4 es4 g,4 | % 2
+    aes4 bes4 aes4 | % 3
+    g4 c4 bes4 | % 4
+    es2. | % 5
+    bes4 bes4 c4 | % 6
+    d4 es4 g4 | % 7
+    aes4 g4 c4 | % 8
+    bes2. | % 9
+    aes,4 aes4 c4 | \barNumberCheck #10
+    \slurDashed es4( es4) d4 | % 11
+    c4 c4 g4 | % 12
+    \slurSolid aes4( c4 d4) | % 13
+    es4 es4 d4 | % 14
+    c4 bes4 g4 | % 15
+    aes4 <aes es'>4 <f c'>4 | %16
+    <es bes'>2. \bar "|."
     }
 
-PartPThreeVoiceOne =  \relative g {
-    \clef "bass" \key es \major | % 1
-    \stemDown g4 \stemDown as4 \stemDown g4 s4 | % 2
-    \stemUp as8 \stemUp g8 \stemDown d4 \stemUp g4 s4 | % 3
-    \stemDown c,4 \stemDown bes4 \stemDown as4 s4 | % 4
-    \stemDown es4 \stemDown bes'4 \stemDown es4 s4 | % 5
-    \stemDown d4 \stemUp c4 \stemUp bes4 s4 | % 6
-    \stemDown bes8 \stemDown a8 \stemDown g8 \stemDown f'8 \stemDown es8
-    \stemDown d8 s4 | % 7
-    \stemUp es'4 \stemDown d,4 \stemDown es4 s4 | % 8
-    \stemDown bes4 \stemUp bes'4 ~ \stemUp bes4 s4 | % 9
-    \stemDown as4 \stemDown f4 \stemUp c'8 \stemUp f8 s4 |
-    \barNumberCheck #10
-    \stemDown es,8 \stemDown f8 \stemDown g8 \stemDown a8 \stemUp bes8 ~
-    \stemUp bes8 s4 | % 11
-    \stemDown d,4 \stemDown g4 \stemDown f4 s4 | % 12
-    \stemUp g4 \stemDown f8 \stemDown es8 \stemUp f4 s4 | % 13
-    \stemDown <c es g>2 \stemDown bes8 \stemDown as8 s4 | % 14
-    \stemDown g4 \stemDown es4 \stemDown g4 s4 | % 15
-    \stemDown as8 \stemDown bes8 \stemDown c4 \stemDown as4 s4 | % 16
-    \stemUp <es g'>1 \bar "|."
+BeThouMyVisionVerseOne =  \lyricmode {
+    Be thou my vis -- "ion," Oh Lord of my "heart;"
+    Naught be all else to me save that thou "art."
+    Thou my best thought by day and by "night;"
+    Wak -- ing or sleep -- "ing," thy pre -- sence my "light"
     }
 
-PartPThreeVoiceTwo =  \relative bes {
-    \clef "bass" \key es \major | % 1
-    bes4 c4 bes4 s4 | % 2
-    f8 es8 f4 es4 s4 | % 3
-    g2 c4 s4 | % 4
-    bes2. s4 | % 5
-    f2. s4 | % 6
-    f4 bes8 ~ bes8 bes4 s4 | % 7
-    c,4 bes'4 bes4 s4 | % 8
-    bes4 ~ g4 s2. c4 c,8 d8 s4 | \barNumberCheck #10
-    es'4 d4 g,8 s4. | % 11
-    bes2 as4 s4 | % 12
-    es4 as8 g8 d4 s2. g4 s4 | % 14
-    g4 bes2 s4 | % 15
-    as4 g4 g4 f4 s1 \bar "|."
+BeThouMyVisionVerseTwo =  \lyricmode {
+    Be thou my wis -- "dom," and thou my true "Word;"
+    I ev -- er with thee and thou with "me," "Lord."
+    Thou my great
+    \set ignoreMelismata = ##t
+    Fa -- "ther,"
+    \unset ignoreMelismata
+    and I thy dear "child;"
+    Thou in me dwell -- "ing," with thee re -- con -- "ciled."
     }
+
+BeThouMyVisionVerseThree =  \lyricmode {
+    Rich -- es I heed "not," nor "vain," em --pty "praise;"
+    Thou mine in -- her -- it -- ance now and al -- "ways."
+    Thou and thou on -- "ly," first in my "heart,"
+    High King of Heav -- "en," my trea -- sure thou "art."
+    }
+
+BeThouMyVisionVerseFour =  \lyricmode {
+    High King of Heav -- "en," my vic -- to -- ry "won,"
+    May I reach Heav -- "en's" "joys," Oh bright "Heaven's" "Sun!"
+    Heart of my "heart," what -- ev -- er be -- "fall,"
+    Still be my vis -- "ion," Oh Rul -- er of "all."
+    }
+
+
 
 
 % The score definition
+\tocItem \markup "Be Thou My Vision"
 \score {
-    <<
-        
-        \new Staff
-        <<
-            
-            \context Staff << 
-                \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-                \context Voice = "PartPOneVoiceOne" {  \PartPOneVoiceOne }
-                >>
-            >>
-        \new Staff
-        <<
-            
-            \context Staff = "1" << 
-                \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-                \context Voice = "PartPTwoVoiceOne" {  \voiceOne \PartPTwoVoiceOne }
-                \context Voice = "PartPTwoVoiceTwo" {  \voiceTwo \PartPTwoVoiceTwo }
-                >>
-            >>
-        \new Staff
-        <<
-            
-            \context Staff = "1" << 
-                \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-                \context Voice = "PartPThreeVoiceOne" {  \voiceOne \PartPThreeVoiceOne }
-                \context Voice = "PartPThreeVoiceTwo" {  \voiceTwo \PartPThreeVoiceTwo }
-                >>
-            >>
-        
-        >>
-    \layout {}
-    % To create MIDI output, uncomment the following line:
-    %  \midi {\tempo 4 = 100 }
+    \header {
+        title = "Be Thou My Vision"
+        composer =  "Ancient Irish Tune"
+        poet = "Mary E. Byrne (1880-1931)"
     }
+    <<
+        \new StaffGroup <<
+        \new Staff <<
+                \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
+                \context Voice = "BeThouMyVisionSoprano" {  \voiceOne \BeThouMyVisionSoprano }
+                \new Lyrics \lyricsto "BeThouMyVisionSoprano" { \set stanza = "1." \BeThouMyVisionVerseOne }
+                \new Lyrics \lyricsto "BeThouMyVisionSoprano" { \set stanza = "2." \BeThouMyVisionVerseTwo }
+                \new Lyrics \lyricsto "BeThouMyVisionSoprano" { \set stanza = "3." \BeThouMyVisionVerseThree }
+                \new Lyrics \lyricsto "BeThouMyVisionSoprano" { \set stanza = "4." \BeThouMyVisionVerseFour }
+                \context Voice = "BeThouMyVisionAlto" {  \voiceTwo \BeThouMyVisionAlto }
+        >>
+        \new Staff <<
+                \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
+                \context Voice = "BeThouMyVisionTenor" {  \voiceOne \BeThouMyVisionTenor }
+                \context Voice = "BeThouMyVisionBass" {  \voiceTwo \BeThouMyVisionBass }
+        >>
+    >>
+    >>
+}
 

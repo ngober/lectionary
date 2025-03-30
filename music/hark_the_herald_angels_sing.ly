@@ -1,28 +1,4 @@
-\version "2.22.1"
-% automatically converted by musicxml2ly from hark_the_herald_angels_sing.musicxml
-\pointAndClickOff
-
-\header {
-    title =  "Hark! The Herald Angels Sing"
-    composer =  "Felix Mendelssohn"
-    poet =  "Charles Wesley"
-    tagline = ""
-    }
-
-%\layout {
-    %\context { \Score
-        %autoBeaming = ##f
-        %}
-    %}
-
-\paper {
-    top-margin = 1.5\in
-    bottom-margin = 1.25\in
-    left-margin = 1\in
-    right-margin = 1\in
-}
-
-SopranoNotes =  \relative c' {
+HarkTheHeraldSoprano =  \relative c' {
     \clef "treble" \numericTimeSignature\time 4/4 \key f \major | % 1
     c4 <c f>4 <c f>4. <c e>8 | % 2
     <c f>4 <f a>4 <f a>4 ( <e g>4 ) | % 3
@@ -46,11 +22,11 @@ SopranoNotes =  \relative c' {
     <c f>4 <c g'>4 <c f>2 \bar "|."
     }
 
-AltoNotes =  \relative f {
+HarkTheHeraldAlto =  \relative f {
     \clef "treble" \numericTimeSignature\time 4/4 \key f \major s2*5 d'4 d4 s2*26 bes'4 bes4
     }
 
-PartPOneVoiceOneLyricsOne =  \lyricmode {
+HarkTheHeraldLyricsOne =  \lyricmode {
     "Hark!" the her -- ald an -- gels "sing,"
     "\"Glo" -- ry to the new -- born "King;"
     Peace on earth and mer -- cy "mild,"
@@ -63,7 +39,7 @@ PartPOneVoiceOneLyricsOne =  \lyricmode {
     "\"Glo" -- ry to the new -- born "King!\""
     }
 
-PartPOneVoiceOneLyricsTwo =  \lyricmode {
+HarkTheHeraldLyricsTwo =  \lyricmode {
     "Christ," by high -- est "heav'n" a -- "dored;"
     "Christ," the ev -- er -- last -- ing "Lord!"
     Late in time be -- hold Him "come:"
@@ -75,7 +51,7 @@ PartPOneVoiceOneLyricsTwo =  \lyricmode {
     %"Hark!" the her -- ald an -- gels "sing," "\"Glo" -- ry to the new -- born "King!\""
     }
 
-PartPOneVoiceOneLyricsThree =  \lyricmode {
+HarkTheHeraldLyricsThree =  \lyricmode {
     "Hail," the "heav'n" -- born Prince of "Peace!"
     "Hail," the Son of Right -- ous -- "ness!"
     Light and life to all He "brings,"
@@ -87,7 +63,7 @@ PartPOneVoiceOneLyricsThree =  \lyricmode {
     %"Hark!" the her -- ald an -- gels "sing," "\"Glo" -- ry to the new -- born "King!\""
     }
 
-TenorNotes =  \relative f {
+HarkTheHeraldTenor =  \relative f {
     \clef "bass" \numericTimeSignature\time 4/4 \key f \major | % 1
     <f a>4 <f a>4 a4. g8 | % 2
     <a, f'>4 <f c''>4 <c' c'>2 | % 3
@@ -111,42 +87,47 @@ TenorNotes =  \relative f {
     <c, a'>4 <c bes'>4 <f, a'>2 \bar "|."
     }
 
-BassNotes =  \relative f {
+HarkTheHeraldBass =  \relative f {
     \clef "bass" \numericTimeSignature\time 4/4 \key f \major s2 f4 c4
     s2*7 f4 c4 s2 b4 ( g4 ) s2 c4 e4 s2*15 f4 f4 s2*5 g4 f4 s2 a4 f4 s1
     \bar "|."
     }
 
-UpperNotes = << \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-                \context Voice = "SopranoNotes" {  \voiceOne \SopranoNotes }
-                \context Voice = "AltoNotes" {  \voiceTwo \AltoNotes }
-                \new Lyrics \lyricsto "SopranoNotes" { \set stanza = "1." \PartPOneVoiceOneLyricsOne }
-                \new Lyrics \lyricsto "SopranoNotes" { \set stanza = "2." \PartPOneVoiceOneLyricsTwo }
-                \new Lyrics \lyricsto "SopranoNotes" { \set stanza = "3." \PartPOneVoiceOneLyricsThree }
+HarkTheHeraldUpper = << \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
+                \context Voice = "HarkTheHeraldSoprano" {  \voiceOne \HarkTheHeraldSoprano }
+                \context Voice = "HarkTheHeraldAlto" {  \voiceTwo \HarkTheHeraldAlto }
+                \new Lyrics \lyricsto "HarkTheHeraldSoprano" { \set stanza = "1." \HarkTheHeraldLyricsOne }
+                \new Lyrics \lyricsto "HarkTheHeraldSoprano" { \set stanza = "2." \HarkTheHeraldLyricsTwo }
+                \new Lyrics \lyricsto "HarkTheHeraldSoprano" { \set stanza = "3." \HarkTheHeraldLyricsThree }
             >>
 
-LowerNotes = << \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-                \context Voice = "TenorNotes" {  \voiceOne \TenorNotes }
-                \context Voice = "BassNotes" {  \voiceTwo \BassNotes }
+HarkTheHeraldLower = << \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
+                \context Voice = "HarkTheHeraldTenor" {  \voiceOne \HarkTheHeraldTenor }
+                \context Voice = "HarkTheHeraldBass" {  \voiceTwo \HarkTheHeraldBass }
             >>
 
 % The score definition
+\tocItem \markup "Hark! The Herald Angels Sing"
 \score {
+    \header {
+        title =  "Hark! The Herald Angels Sing"
+        composer =  "Felix Mendelssohn"
+        poet =  "Charles Wesley"
+        tagline = ""
+    }
+
     <<
-        \new PianoStaff
+        \new StaffGroup
         <<
-            \context Staff = "1" \UpperNotes
-            \context Staff = "2" \LowerNotes
+            \context Staff = "1" \HarkTheHeraldUpper
+            \context Staff = "2" \HarkTheHeraldLower
         >>
     >>
-    \layout {
-        #(layout-set-staff-size 14)
-    }
 }
 %\markup {
-    %\PartPOneVoiceOneLyricsTwo
+    %\HarkTheHeraldLyricsTwo
 %}
 %\markup {
-    %\PartPOneVoiceOneLyricsThree
+    %\HarkTheHeraldLyricsThree
 %}
 

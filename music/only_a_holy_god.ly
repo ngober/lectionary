@@ -1,20 +1,4 @@
-\version "2.22.1"
-% automatically converted by musicxml2ly from only_a_holy_god.mxl
-\pointAndClickOff
-
-\header {
-    title =  "Only A Holy God"
-    composer =  "Michael Farren, Jonny Robinson,\nDustin Smith, Rich Thompson"
-    encodingsoftware =  "MuseScore 4.4.3"
-    encodingdate =  "2024-12-15"
-    }
-
-\layout {
-    \context { \Score
-        autoBeaming = ##f
-        }
-    }
-PartPOneVoiceOne =  \relative cis' {
+OnlyAHolyGodSoprano =  \relative cis' {
     \clef "treble" \time 6/8 \key e \major | % 1
     <cis e>8 [ <cis fis>8 <e gis>16 <e gis>16 ~ ] ~ <e gis>8 [ <cis fis>8
     <b e>8 ] | % 2
@@ -39,7 +23,7 @@ PartPOneVoiceOne =  \relative cis' {
     <b e>4. ~ ~ <b e>4 r8 \bar "|."
     }
 
-PartPOneVoiceOneLyricsOne =  \lyricmode {\set ignoreMelismata = ##t Who
+OnlyAHolyGodVerseOne =  \lyricmode {\set ignoreMelismata = ##t Who
     else com -- mands\skip1 all the host of hea -- "ven?" \skip1 Who
     else could make\skip1 ev -- ery knee bow "down?" \skip1 Who else
     could whis --\skip1 per and dark -- ness trem -- "ble?" \skip1 On --
@@ -48,7 +32,7 @@ PartPOneVoiceOneLyricsOne =  \lyricmode {\set ignoreMelismata = ##t Who
     -- ly "God!" Come and wor -- ship the ho -- ly "God." \skip1
     }
 
-PartPOneVoiceOneLyricsTwo =  \lyricmode {\set ignoreMelismata = ##t What
+OnlyAHolyGodVerseTwo =  \lyricmode {\set ignoreMelismata = ##t What
     o -- ther beau --\skip1 ty de -- mands such prai -- "ses?" \skip1
     What o -- ther splen --\skip1 dor out -- shines the "sun?" \skip1
     What o -- ther maj --\skip1 es -- ty rules with just -- "ice?"
@@ -59,7 +43,7 @@ PartPOneVoiceOneLyricsTwo =  \lyricmode {\set ignoreMelismata = ##t What
     \skip1
     }
 
-PartPOneVoiceOneLyricsThree =  \lyricmode {\set ignoreMelismata = ##t
+OnlyAHolyGodVerseThree =  \lyricmode {\set ignoreMelismata = ##t
     What o -- ther glo --\skip1 ry con -- sumes like fi -- "re?" \skip1
     What o -- ther pow --\skip1 er can raise the "dead?" \skip1 What o
     -- ther name\skip1 re -- mains un -- de -- feat -- "ed?" \skip1 On
@@ -69,7 +53,7 @@ PartPOneVoiceOneLyricsThree =  \lyricmode {\set ignoreMelismata = ##t
     \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1
     }
 
-PartPOneVoiceOneLyricsFour =  \lyricmode {\set ignoreMelismata = ##t Who
+OnlyAHolyGodVerseFour =  \lyricmode {\set ignoreMelismata = ##t Who
     else could res --\skip1 cue me from my fail -- "ing?" \skip1 Who
     else would of --\skip1 fer his on -- ly "Son?" \skip1 Who else in --
     vites\skip1 me to call him fa -- "ther?" \skip1 On -- ly a ho -- ly
@@ -79,7 +63,7 @@ PartPOneVoiceOneLyricsFour =  \lyricmode {\set ignoreMelismata = ##t Who
     \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1
     }
 
-PartPOneVoiceTwo =  \relative b {
+OnlyAHolyGodAlto =  \relative b {
     \clef "treble" \time 6/8 \key e \major s2. | % 2
     \time 9/8  s4. b8 b4 ~ b4 r8 | % 3
     \time 6/8  s2. | % 4
@@ -95,7 +79,7 @@ PartPOneVoiceTwo =  \relative b {
     a4. e8 ( [ fis8 ) fis8 ] s1*3 \bar "|."
     }
 
-PartPTwoVoiceOne =  \relative cis {
+OnlyAHolyGodLower =  \relative cis {
     \clef "bass" \time 6/8 \key e \major | % 1
     <cis gis'>8 [ <cis a'>8 <cis b'>16 <e b'>16 ~ ] ~ <e b'>8 [ <e a>8
     <e gis>8 ] | % 2
@@ -125,42 +109,36 @@ PartPTwoVoiceOne =  \relative cis {
 
 
 % The score definition
+\tocItem \markup "Only A Holy God"
 \score {
+\header {
+    title =  "Only A Holy God"
+    composer =  "Michael Farren, Jonny Robinson,\nDustin Smith, Rich Thompson"
+    }
+
     <<
-        
         \new StaffGroup
         <<
             \new Staff
             <<
-                \set Staff.instrumentName = \markup { \center-column { \line {"S"} \line {"A"} } }
-                \set Staff.shortInstrumentName = \markup { \center-column { \line {"S"} \line {"A"} } }
-                
                 \context Staff << 
                     \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-                    \context Voice = "PartPOneVoiceOne" {  \voiceOne \PartPOneVoiceOne }
-                    \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "1." \PartPOneVoiceOneLyricsOne }
-                    \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "2." \PartPOneVoiceOneLyricsTwo }
-                    \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "3." \PartPOneVoiceOneLyricsThree }
-                    \new Lyrics \lyricsto "PartPOneVoiceOne" { \set stanza = "4." \PartPOneVoiceOneLyricsFour }
-                    \context Voice = "PartPOneVoiceTwo" {  \voiceTwo \PartPOneVoiceTwo }
+                    \context Voice = "OnlyAHolyGodSoprano" {  \voiceOne \OnlyAHolyGodSoprano }
+                    \new Lyrics \lyricsto "OnlyAHolyGodSoprano" { \set stanza = "1." \OnlyAHolyGodVerseOne }
+                    \new Lyrics \lyricsto "OnlyAHolyGodSoprano" { \set stanza = "2." \OnlyAHolyGodVerseTwo }
+                    \new Lyrics \lyricsto "OnlyAHolyGodSoprano" { \set stanza = "3." \OnlyAHolyGodVerseThree }
+                    \new Lyrics \lyricsto "OnlyAHolyGodSoprano" { \set stanza = "4." \OnlyAHolyGodVerseFour }
+                    \context Voice = "OnlyAHolyGodAlto" {  \voiceTwo \OnlyAHolyGodAlto }
                     >>
                 >>
             \new Staff
             <<
-                \set Staff.instrumentName = \markup { \center-column { \line {"T"} \line {"B"} } }
-                \set Staff.shortInstrumentName = \markup { \center-column { \line {"T"} \line {"B"} } }
-                
                 \context Staff << 
                     \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-                    \context Voice = "PartPTwoVoiceOne" {  \PartPTwoVoiceOne }
+                    \context Voice = "OnlyAHolyGodLower" {  \OnlyAHolyGodLower }
                     >>
                 >>
-            
             >>
-        
         >>
-    \layout {}
-    % To create MIDI output, uncomment the following line:
-    %  \midi {\tempo 4 = 100 }
     }
 

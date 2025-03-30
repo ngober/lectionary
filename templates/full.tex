@@ -4,24 +4,27 @@
 \author{}
 \date{}
 
+\usepackage{lilypondtoc}
 {% block packages %}
+\usepackage{lipsum}
 \usepackage{pdfpages}
 {% endblock %}
 
 \begin{document}
+\tableofcontents
 \maketitle
 
 {% for event in calendar %}
   \newpage
-  \section*{For the {{ event.title }}}
+  \addcontentsline{toc}{section}{For {{ event.title }}}
+  \section*{For {{ event.title }}}
   \input{../body/{{ event.basename }}.tex}
 
 {% endfor %}
 
 \newpage
-{% for musicpage in musicpages %}
-\includepdf[pages=-]{../music/{{ musicpage }}.pdf}
-{% endfor %}
+\addcontentsline{toc}{section}{Hymnal}
+\includescore{{ '{' }}{{ hymnal_name }}}
 \end{document}
 
 

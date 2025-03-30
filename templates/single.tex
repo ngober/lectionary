@@ -4,7 +4,9 @@
 \author{}
 \date{}
 
+\usepackage{lilypondtoc}
 {% block packages %}
+\usepackage{lipsum}
 \usepackage{pdfpages}
 {% endblock %}
 
@@ -14,9 +16,7 @@
 \input{../body/{{ calendar[0].basename }}.tex}
 
 \newpage
-{% for musicpage in musicpages %}
-\includepdf[pages=-]{../music/{{ musicpage }}.pdf}
-{% endfor %}
+\includescore{{ '{' }}{{ hymnal_name }}}
 
 \end{document}
 
