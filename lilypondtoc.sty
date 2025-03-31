@@ -28,13 +28,13 @@
 
 
 \newcommand{\includescore}[1]{
-%\def\oly@fname{\oly@basename\@ifmtarg{#1}{}{_#1}}
-\let\oly@addtotoc\undefined
-\readfile{#1.toc}{\oly@addtotoc}
-\ifx\oly@addtotoc\undefined
+%\def\hymn@fname{\hymn@basename\@ifmtarg{#1}{}{_#1}}
+\let\hymn@addtotoc\undefined
+\readfile{#1.toc}{\hymn@addtotoc}
+\ifx\hymn@addtotoc\undefined
 \includepdf[pages=-]{#1}
 \else
-\edef\includeit{\noexpand\includepdf[pages=-,pagecommand={},addtotoc={\oly@addtotoc}]
+\edef\includeit{\noexpand\includepdf[pages=-,pagecommand={},addtotoc={\hymn@addtotoc}]
 {#1}}\includeit
 \fi
 }

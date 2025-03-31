@@ -61,16 +61,14 @@ def BuildSingle(env, basename):
 
 AddMethod(env, BuildSingle)
 
-musicfiles = list(itertools.chain(
 env.Lilypond('music/hark_the_herald_angels_sing.ly'),
 env.Lilypond('music/o_come_o_come_emmanuel.ly'),
 env.Lilypond('music/turn_your_eyes_upon_jesus.ly'),
 env.Lilypond('music/o_come_all_ye_faithful.ly'),
 env.Lilypond('music/only_a_holy_god.ly'),
-env.Lilypond('music/yet_not_i.ly'),
+env.Lilypond('music/yet_not_i_but_through_christ_in_me.ly'),
 env.Lilypond('music/be_thou_my_vision.ly'),
-env.Lilypond('music/my_hope_is_built.ly')
-))
+env.Lilypond('music/my_hope_is_built_on_nothing_less.ly')
 
 for event in calendar_data:
     event_file = File(f'data/{event["basename"]}.yaml')

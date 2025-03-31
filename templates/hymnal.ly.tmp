@@ -1,16 +1,16 @@
 \version "2.22.1"
 \pointAndClickOff
 
-#(define (oly:create-toc-file layout pages)
+#(define (hymn:create-toc-file layout pages)
   (let* ((label-table (ly:output-def-lookup layout 'label-page-table)))
     (if (not (null? label-table))
       (let* ((format-line (lambda (toc-item)
-             (let* ((label (car toc-item))
-                    (text  (cdaddr toc-item))
+             (let* ((text  (cdaddr toc-item))
+                    (label (string-append "mus:" (string-join (map (lambda (strpart) (string-filter strpart char-set:letter)) (string-split text #\space)) "_")))
                     (label-page (and (list? label-table)
-                                     (assoc label label-table)))
+                                     (assoc (car toc-item) label-table)))
                     (page (and label-page (cdr label-page))))
-               (format #f "~a, subsection, 1, {~a}, ~a" page text label))))
+               (format #f "~a, subsection, 1, {~a}, ~(~a~)" page text label))))
              (formatted-toc-items (map format-line (toc-items)))
              (whole-string (string-join formatted-toc-items ",\n"))
              (output-name (ly:parser-output-name))
@@ -29,7 +29,7 @@
     print-all-headers = ##t
     print-page-number = ##f
 
-    #(define (page-post-process layout pages) (oly:create-toc-file layout pages))
+    #(define (page-post-process layout pages) (hymn:create-toc-file layout pages))
 }
 
 \header{
