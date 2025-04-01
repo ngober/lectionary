@@ -1,14 +1,22 @@
 \documentclass{article}
 
-\title{For the {{ calendar[0].title }}}
+\title{For {{ calendar[0].title }}}
 \author{}
 \date{}
 
 \usepackage{lilypondtoc}
+\usepackage{geometry}
 {% block packages %}
 \usepackage{lipsum}
 \usepackage{pdfpages}
 {% endblock %}
+
+\geometry{
+  top=0.25in,
+  bottom=0.25in,
+  left=0.5in,
+  right=0.5in,
+}
 
 \begin{document}
 \maketitle
