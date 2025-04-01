@@ -8,7 +8,7 @@
    - data.text: the text of the reading
 #}
 {% macro reading(data) -%}
-\noindent Read: {{ data.address }}
+\subsection*{Read: {{ data.address }}}
 
 \begin{quote} {{ data.text }} \end{quote}
 {%- endmacro %}
@@ -20,13 +20,15 @@
   {% endfor %}
 {% endblock presong_readings %}
 
+\subsection*{Sing one or more of the following}
+\begin{itemize}
 {% for musicname, musiclabel in musicpages.items() %}
-\noindent Sing: {{ musicname }} (pg. \pageref{mus:{{ musiclabel }}})
+\item {{ musicname }} (pg. \pageref{mus:{{ musiclabel }}})
+{% endfor %}
+\end{itemize}
 \vspace{8pt}
 
-{% endfor %}
-
-\noindent The Lord's Prayer
+\subsection*{Pray the following together}
 
 \begin{quote} \itshape
   Our Father in Heaven: hallowed be your name.\\
