@@ -1,8 +1,12 @@
 import requests
 import pathlib
+import re
 
 API_KEY = pathlib.Path('esv_api.key').read_text().strip()
 API_URL = 'https://api.esv.org/v3/passage/text/'
+
+def smallcap(text):
+    return re.sub(r'\b[A-Z]+\b', lambda match: f'\\textsc{{{match.group(0).title()}}}', text)
 
 def get_text(address):
 
@@ -23,7 +27,7 @@ def get_text(address):
     response = response.json()
 
     addr_to_return = response['canonical']
-    passages = [r.strip() for r in response['passages']]
+    passages = [smallcap(r.strip()) for r in response['passages']]
 
     return addr_to_return, passages
 
