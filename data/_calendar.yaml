@@ -24,32 +24,92 @@
     season: christmas
     basename: christmas1
 
+      #- title: the Second Sunday After Christmas
+      #week: 6
+      #season: christmas
+      #basename: christmas2
+
+      #- title: Epiphany
+      #week: 6.1
+      #season: epiphany
+      #basename: epiphany
+
+      #- title: the First Sunday after Epiphany
+      #week: 7
+      #season: ordinary
+      #basename: ordinary1
+
+      #- title: the Second Sunday after Epiphany
+      #week: 8
+      #season: ordinary
+      #basename: ordinary2
+
+      #- title: the Third Sunday after Epiphany
+      #week: 9
+      #season: ordinary
+      #basename: ordinary3
+
+      #- title: the Fourth Sunday after Epiphany
+      #week: 10
+      #season: ordinary
+      #basename: ordinary4
+
+      #- title: the Fifth Sunday after Epiphany
+      #week: 11
+      #season: ordinary
+      #basename: ordinary5
+
+      #- title: the Sixth Sunday after Epiphany
+      #week: 12
+      #season: ordinary
+      #basename: ordinary6
+
+      #- title: the Seventh Sunday after Epiphany
+      #week: 13
+      #season: ordinary
+      #basename: ordinary7
+
+      #- title: the Eighth Sunday after Epiphany
+      #week: 14
+      #season: ordinary
+      #basename: ordinary8
+
+      #- title: the Ninth Sunday after Epiphany
+      #week: 15
+      #season: ordinary
+      #basename: ordinary9
+
+      #  - title: the First Sunday of Lent
+      #week: 16
+      #season: lent
+      #basename: lent1
+
   - title: the Second Sunday of Lent
-    week: 7 # TODO update
+    week: 17
     season: lent
     basename: lent2
 
   - title: the Third Sunday of Lent
-    week: 8 # TODO update
+    week: 18
     season: lent
     basename: lent3
 
   - title: the Fourth Sunday of Lent
-    week: 9 # TODO update
+    week: 19
     season: lent
     basename: lent4
 
   - title: the Fifth Sunday of Lent
-    week: 10 # TODO update
+    week: 20
     season: lent
     basename: lent5
 
   - title: Ascension Sunday
-    week: 16
+    week: 21
     season: easter
     basename: ascension
 
   - title: the Day of Pentecost
-    week: 17
+    week: 22
     season: pentecost
     basename: pentecost

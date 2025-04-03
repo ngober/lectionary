@@ -1,4 +1,5 @@
 import itertools
+import operator
 import pathlib
 import os.path
 
@@ -23,7 +24,7 @@ jinja_env = jinja2.Environment(
 )
 
 calendar = File(str(root / 'data' / '_calendar.yaml'))
-calendar_data = parse_yaml(str(calendar))
+calendar_data = sorted(parse_yaml(str(calendar)), key=operator.itemgetter('week'))
 data_nodes = { event['basename']: File(f'data/{event["basename"]}')  for event in calendar_data }
 
 env = Environment(BUILDERS={
@@ -38,7 +39,7 @@ env = Environment(BUILDERS={
 env.Append(TEXINPUTS=str(root))
 
 def Render(env, target_name, template_name, data):
-    template = jinja_env.get_template(os.path.basename(str(template_name)))
+    template = env['jinja_env'].get_template(os.path.basename(str(template_name)))
     rendered = template.render(**data)
     pathlib.Path(str(target_name)).write_text(rendered)
     return env.File(target_name)
@@ -69,6 +70,7 @@ env.Lilypond('music/only_a_holy_god.ly'),
 env.Lilypond('music/yet_not_i_but_through_christ_in_me.ly'),
 env.Lilypond('music/be_thou_my_vision.ly'),
 env.Lilypond('music/my_hope_is_built_on_nothing_less.ly')
+env.Lilypond('music/come_ye_sinners_poor_and_needy.ly')
 
 for event in calendar_data:
     event_file = File(f'data/{event["basename"]}.yaml')

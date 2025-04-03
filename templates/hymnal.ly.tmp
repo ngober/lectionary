@@ -18,8 +18,9 @@
              (outfile (open-output-file outfilename)))
         (if (output-port? outfile)
             (display whole-string outfile)
-            (ly:warning (G_ "Unable to open output file ~a for the TOC information") outfilename))
-        (close-output-port outfile)))))
+            (ly:warning (G_ "Unable to open output file `~a' for the TOC information") outfilename))
+        (close-output-port outfile)
+        (ly:message "Printed TOC information to `~a'" outfilename)))))
 
 \paper {
     top-margin = 1.5\in
