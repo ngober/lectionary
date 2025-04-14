@@ -29,7 +29,7 @@ data_nodes = { event['basename']: File(f'data/{event["basename"]}')  for event i
 
 env = Environment(BUILDERS={
                       'TwoUp': Builder(
-                          action="pdfjam --nup 2x1 --landscape --trim '2cm 4cm 1cm 4cm' --clip true --outfile $TARGET $SOURCE"
+                          action="pdfjam --nup 2x1 --landscape --clip true --outfile $TARGET $SOURCE"
                       )
                   },
                   tools=['default', 'lilypond', 'jinja'],
@@ -58,7 +58,8 @@ AddMethod(env, Build)
 def BuildSingle(env, basename):
     env.Body(f'body/{basename}', f'data/{basename}')
     wrapper_sources = ['templates/single.tex']
-    return env.Build('single', basename, wrapper_sources)
+    pdffile = env.Build('single', basename, wrapper_sources)
+    return env.TwoUp(f'single/{basename}_2up.pdf', f'single/{basename}.pdf')
 
 AddMethod(env, BuildSingle)
 

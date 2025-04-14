@@ -104,12 +104,18 @@
     season: lent
     basename: lent5
 
-  - title: Ascension Sunday
+  - title: Palm Sunday
+    subtitle: The Sixth Sunday of Lent
     week: 21
+    season: lent
+    basename: lent6
+
+  - title: Ascension Sunday
+    week: 22
     season: easter
     basename: ascension
 
   - title: the Day of Pentecost
-    week: 22
+    week: 23
     season: pentecost
     basename: pentecost
