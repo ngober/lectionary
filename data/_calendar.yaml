@@ -110,6 +110,11 @@
     season: lent
     basename: lent6
 
+  - title: Resurrection Sunday
+    week: 22
+    season: easter
+    basename: easter
+
   - title: Ascension Sunday
     week: 22
     season: easter

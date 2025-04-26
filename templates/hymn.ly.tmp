@@ -1,0 +1,95 @@
+\tocItem \markup "{{ title | trim }}"
+\score {
+    \header {
+        title = "{{ title | trim }}"
+        {% if subtitle is defined %}
+        subtitle = "{{ subtitle | trim }}"
+        {% endif %}
+        {% if poet is defined %}
+        poet = "{{ poet | trim }}"
+        {% endif %}
+        {% if composer is defined %}
+        composer = "{{ composer | trim }}"
+        {% endif %}
+    }
+    <<
+        \new ChoirStaff <<
+        \new Staff <<
+                \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
+                \context Voice = "{{ tag }}Soprano" \with { \consists "Ambitus_engraver" } {
+                  \override Ambitus.X-offset = #0.0
+                  \voiceOne
+                    \relative es' {
+                      \clef "treble" \numericTimeSignature\time {{ time_signature }} \key {{ key }} |
+		      {% set doublebar = joiner('\\bar "||"') %}
+		      {% for section in sections %}
+			{% if not loop.first and "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
+		      	{{ doublebar() }}
+			{% if "title" in section.keys() %}\mark "{{ section.title }}"{% endif %}
+			{% if "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
+			{{ section.soprano }}
+		      {% endfor %} \bar "|."
+                    }
+                }
+                \context Voice = "{{ tag }}Alto" \with { \consists "Ambitus_engraver" } {
+                  \override Ambitus.X-offset = #2.0
+                  \voiceTwo \relative c' {
+                    \clef "treble" \numericTimeSignature\time {{ time_signature }} \key {{ key }} |
+		      {% set doublebar = joiner('\\bar "||"') %}
+		      {% for section in sections %}
+			{% if not loop.first and "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
+		      	{{ doublebar() }}
+			{% if "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
+			{{ section.alto }}
+		      {% endfor %} \bar "|."
+                  }
+                }
+
+		{% for verse_index in range(num_verses) %}
+                \new Lyrics \lyricsto "{{ tag }}Soprano" {
+                  {% if num_verses > 1 %}
+                  \set stanza = "{{ verse_index+1 }}."
+                  {% endif %}
+                  \lyricmode {
+		    {% for section in sections %}
+                    {{ section.lyrics[verse_index] }}
+		    {% endfor %}
+                  }
+                }
+		{% endfor %}
+        >>
+        \new Staff <<
+                \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
+                \context Voice = "{{ tag }}Tenor" \with { \consists "Ambitus_engraver" } {
+                  \override Ambitus.X-offset = #0.0
+                  \voiceOne
+                    \relative g {
+                      \clef "bass" \numericTimeSignature\time {{ time_signature }} \key {{ key }} |
+		      {% set doublebar = joiner('\\bar "||"') %}
+		      {% for section in sections %}
+			{% if not loop.first and "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
+		      	{{ doublebar() }}
+			{% if "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
+			{{ section.tenor }}
+		      {% endfor %} \bar "|."
+                    }
+                }
+                \context Voice = "{{ tag }}Bass" \with { \consists "Ambitus_engraver" } {
+                  \override Ambitus.X-offset = #2.0
+                  \voiceTwo
+                    \relative d {
+                      \clef "bass" \numericTimeSignature\time {{ time_signature }} \key {{ key }} |
+		      {% set doublebar = joiner('\\bar "||"') %}
+		      {% for section in sections %}
+			{% if not loop.first and "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
+		      	{{ doublebar() }}
+			{% if "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
+			{{ section.bass }}
+		      {% endfor %} \bar "|."
+                    }
+                }
+        >>
+    >>
+    >>
+}
+

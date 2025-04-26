@@ -2,6 +2,8 @@ import itertools
 import operator
 import pathlib
 import os.path
+import contextlib
+import traceback
 
 import jinja2
 import yaml
@@ -38,6 +40,14 @@ env = Environment(BUILDERS={
                   DRAFT=GetOption('draft'))
 env.Append(TEXINPUTS=str(root))
 
+class noisy(contextlib.AbstractContextManager, contextlib.ContextDecorator):
+    ''' A decorator that always prints exceptions '''
+    def __exit__(self, exc_type, exc_value, trc):
+        if exc_type is not None:
+            print(traceback.format_exc())
+        return False
+
+@noisy()
 def Render(env, target_name, template_name, data):
     template = env['jinja_env'].get_template(os.path.basename(str(template_name)))
     rendered = template.render(**data)
@@ -72,6 +82,10 @@ env.Lilypond('music/yet_not_i_but_through_christ_in_me.ly'),
 env.Lilypond('music/be_thou_my_vision.ly'),
 env.Lilypond('music/my_hope_is_built_on_nothing_less.ly')
 env.Lilypond('music/come_ye_sinners_poor_and_needy.ly')
+
+for source in env.Glob('music/*.yaml'):
+    target = pathlib.Path(str(source)).with_suffix('.ly')
+    env.LilypondSingle(target=str(target), source=source)
 
 for event in calendar_data:
     event_file = File(f'data/{event["basename"]}.yaml')

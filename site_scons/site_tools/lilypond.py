@@ -3,6 +3,9 @@ import re
 import itertools
 import yaml
 import pathlib
+import hashlib
+
+import pyphen
 
 from SCons.Builder import Builder
 from SCons.Scanner import Scanner
@@ -26,6 +29,23 @@ def render_wrapper(target, source, env):
 def parse_yaml(fname):
     with open(fname, 'rt') as rfp:
         return yaml.safe_load(rfp)
+
+def hyphenate(text):
+    splitter = pyphen.Pyphen(lang='en_US', left=1)
+    return splitter.inserted(text.group(0), hyphen=' -- ')
+
+def render_single(target, source, env):
+    source_name = pathlib.Path(str(source[0]))
+    tag = hashlib.sha256(source_name.stem.encode()).hexdigest()
+    tag = tag.translate(str.maketrans("0123456789", "ghijklmnop"))
+
+    data = parse_yaml(source_name)
+    num_verses = max([len(section['lyrics']) for section in data['sections']])
+
+    for section in data['sections']:
+        section['lyrics'] = [re.sub(r'(?<!")\w+(?!")', hyphenate, verse) for verse in section['lyrics']]
+
+    env.Render(target[0], 'templates/hymn.ly.tmp', { "tag": tag, "num_verses": num_verses, **data })
 
 def add_musicpages(target, source, env):
     data_src_name = [f'data/{evt["basename"]}.yaml' for evt in env['calendar_events']]
@@ -61,10 +81,17 @@ def generate(env):
         emitter=add_musicpages
     )
 
+    lilypond_single = Builder(
+        action=render_single,
+        suffix='.yaml',
+        src_suffix='.ly'
+    )
+
     env['BUILDERS']['Lilypond'] = lilypond_builder
     env['BUILDERS']['MusicXML'] = musicxml_converter
     env['BUILDERS']['UncompMusicXML'] = uncomp_musicxml_converter
     env['BUILDERS']['LilypondWrapper']  = lilypond_wrapper
+    env['BUILDERS']['LilypondSingle']  = lilypond_single
 
 def exists(env):
     return True
