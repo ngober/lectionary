@@ -1,0 +1,107 @@
+title: Be Thou My Vision
+composer: Ancient Irish Tune
+poet: Mary E. Byrne (1880-1931)
+key: es \major
+time_signature: 3/4
+
+sections:
+  - soprano: >
+      es4 es4 f8( es8) | # 2
+      c4 bes4 c4 | # 3
+      es4 es4 f4 | # 4
+      g2. | # 5
+      f4 f4 f4 | # 6
+      f4 g4 bes4 | # 7
+      c4 bes4 g4 | # 8
+      bes2. | # 9
+      c4 c8( d8) es8( d8) | #10
+      \slurDashed c4( bes4) g4 | # 11
+      bes4 es,4 d4 | # 12
+      \slurSolid c2( bes4) | # 13
+      es4 g4 bes4 | # 14
+      c8( bes8) g4 es8( g8) | # 15
+      f4 es4 es4 | # 16
+      es2.
+
+    alto: >
+      bes4 bes4 bes4 | # 2
+      aes4 bes4 c4 | # 3
+      bes4 c4 d4 | # 4
+      es2. | # 5
+      d4 d4 es4 | # 6
+      f4 es4 es4 | # 7
+      es4 es4 es4 | # 8
+      f2. | # 9
+      aes4 es4 es4 | # 10
+      \slurDashed es4( es4) f4 | # 11
+      es4 c bes4 | # 12
+      \slurSolid aes2( bes4) | # 13
+      bes4 es4 f4 | # 14
+      es4 es4 d4 | # 15
+      c4 c4 aes4 | # 16
+      bes2.
+
+    tenor: >
+      g4 g4 es4 | # 2
+      es4 d4 es4 | # 3
+      es4 g4 bes4 | # 4
+      bes2. | # 5
+      bes4 bes4 a4 | # 6
+      bes4 bes4 bes4 | # 7
+      aes4 bes4 c4 | # 8
+      d2. | # 9
+      es4 c8( bes8) aes4 | # 10
+      \slurDashed aes4( g4) bes4 | # 11
+      g4 g4 f4 | # 12
+      \slurSolid es2( f4) | # 13
+      g4 bes4 bes4 | # 14
+      g4 bes4 bes4 | # 15
+      aes4 aes4 f4 | # 16
+      <es g>2.
+
+    bass: >
+      es4 es4 g,4 | # 2
+      aes4 bes4 aes4 | # 3
+      g4 c4 bes4 | # 4
+      es2. | # 5
+      bes4 bes4 c4 | # 6
+      d4 es4 g4 | # 7
+      aes4 g4 c4 | # 8
+      bes2. | # 9
+      aes,4 aes4 c4 | # 10
+      \slurDashed es4( es4) d4 | # 11
+      c4 c4 g4 | # 12
+      \slurSolid aes4( c4 d4) | # 13
+      es4 es4 d4 | # 14
+      c4 bes4 g4 | # 15
+      aes4 <aes es'>4 <f c'>4 | #16
+      <es bes'>2.
+
+    lyrics:
+      - >
+        Be thou my vision, Oh Lord of my heart;
+        Naught be all else to me save that thou art.
+        Thou my best thought by day and by night;
+        Waking or sleeping, thy presence my light
+
+      - |
+        Be thou my wisdom, and thou my true Word;
+        I ever with thee and thou with me, Lord.
+        Thou my great
+        \set ignoreMelismata = ##t
+        Father,
+        \unset ignoreMelismata
+        and I thy dear child;
+        Thou in me dwelling, with thee reconciled.
+
+      - >
+        Riches I heed not, nor vain, empty praise;
+        Thou mine inheritance now and always.
+        Thou and thou only, first in my heart,
+        High King of Heaven, my treasure thou art.
+
+      - >
+        High King of Heaven, my victory won,
+        May I reach Heaven's joys, Oh bright Heaven's Sun!
+        Heart of my heart, whatever befall,
+        Still be my vision, Oh Ruler of all.

@@ -30,9 +30,31 @@ def parse_yaml(fname):
     with open(fname, 'rt') as rfp:
         return yaml.safe_load(rfp)
 
+OVERRIDES = dict(map(lambda x: (re.sub('-', '', x), x), [
+    'a-le-lu-ia',
+    'a-men',
+    'a-tone',
+    'ru-ler'
+]))
 def hyphenate(text):
-    splitter = pyphen.Pyphen(lang='en_US', left=1)
-    return splitter.inserted(text.group(0), hyphen=' -- ')
+    LY_HYPEN = ' -- '
+
+    word = text.group(0)
+    sentinel = object()
+    overridden = OVERRIDES.get(word.lower(), sentinel)
+    if overridden is not sentinel:
+        positions = [m.start(0) - idx for idx,m in enumerate(re.finditer('-', overridden))]
+        for pos in reversed(positions):
+            word = word[:pos] + LY_HYPEN + word[pos:]
+        return word
+
+    splitter = pyphen.Pyphen(lang='en_US')
+    return splitter.inserted(word, hyphen=LY_HYPEN)
+
+UNQUOTED_WORD = re.compile(r'(?<!")\w+(?!")')
+def process_verse(verse):
+    lines = verse.splitlines()
+    return '\n'.join(UNQUOTED_WORD.sub(hyphenate, line) if not line.strip().startswith('\\') else line for line in lines)
 
 def render_single(target, source, env):
     source_name = pathlib.Path(str(source[0]))
@@ -43,7 +65,7 @@ def render_single(target, source, env):
     num_verses = max([len(section['lyrics']) for section in data['sections']])
 
     for section in data['sections']:
-        section['lyrics'] = [re.sub(r'(?<!")\w+(?!")', hyphenate, verse) for verse in section['lyrics']]
+        section['lyrics'] = [process_verse(verse) for verse in section['lyrics']]
 
     env.Render(target[0], 'templates/hymn.ly.tmp', { "tag": tag, "num_verses": num_verses, **data })
 

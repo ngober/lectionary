@@ -79,7 +79,6 @@ env.Lilypond('music/turn_your_eyes_upon_jesus.ly'),
 env.Lilypond('music/o_come_all_ye_faithful.ly'),
 env.Lilypond('music/only_a_holy_god.ly'),
 env.Lilypond('music/yet_not_i_but_through_christ_in_me.ly'),
-env.Lilypond('music/be_thou_my_vision.ly'),
 env.Lilypond('music/my_hope_is_built_on_nothing_less.ly')
 env.Lilypond('music/come_ye_sinners_poor_and_needy.ly')
 
