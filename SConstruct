@@ -75,7 +75,6 @@ AddMethod(env, BuildSingle)
 
 env.Lilypond('music/hark_the_herald_angels_sing.ly'),
 env.Lilypond('music/o_come_o_come_emmanuel.ly'),
-env.Lilypond('music/turn_your_eyes_upon_jesus.ly'),
 env.Lilypond('music/o_come_all_ye_faithful.ly'),
 env.Lilypond('music/only_a_holy_god.ly'),
 env.Lilypond('music/yet_not_i_but_through_christ_in_me.ly'),

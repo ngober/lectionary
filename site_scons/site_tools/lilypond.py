@@ -31,15 +31,20 @@ def parse_yaml(fname):
         return yaml.safe_load(rfp)
 
 OVERRIDES = dict(map(lambda x: (re.sub('-', '', x), x), [
+    'a-bun-dant',
     'a-le-lu-ia',
     'a-men',
     'a-tone',
-    'ru-ler'
+    'con-quer-ors',
+    'o-ver',
+    'pro-mised',
+    'ru-ler',
+    'wea-ry'
 ]))
 def hyphenate(text):
     LY_HYPEN = ' -- '
 
-    word = text.group(0)
+    word = text.group(1)
     sentinel = object()
     overridden = OVERRIDES.get(word.lower(), sentinel)
     if overridden is not sentinel:
@@ -51,7 +56,7 @@ def hyphenate(text):
     splitter = pyphen.Pyphen(lang='en_US')
     return splitter.inserted(word, hyphen=LY_HYPEN)
 
-UNQUOTED_WORD = re.compile(r'(?<!")\w+(?!")')
+UNQUOTED_WORD = re.compile(r'(?<!")\b([a-zA-Z\']+)\b[;:,.!]?(?!")')
 def process_verse(verse):
     lines = verse.splitlines()
     return '\n'.join(UNQUOTED_WORD.sub(hyphenate, line) if not line.strip().startswith('\\') else line for line in lines)
