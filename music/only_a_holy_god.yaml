@@ -1,0 +1,125 @@
+title: Only A Holy God
+composer: Michael Farren, Jonny Robinson, Dustin Smith, Rich Thompson
+time_signature: 6/8
+key: e \major
+
+sections:
+  - soprano: >
+      \time 6/8 e8 [ fis8 gis16 gis16 ~ ] ~ gis8 [ fis8 e8 ] |
+      \time 9/8 cis8. [ e8. ] cis8 b4 ~ b4 r8 |
+      \time 6/8 e8 [ fis8 gis16 gis16 ~ ] ~ gis8 [ fis8 e8 ] |
+      \time 9/8 cis8. [ e8. ] e4. ~ ~ e4 r8 |
+      \time 6/8 e8 [ fis8 gis16 gis16 ~ ] ~ gis8 [ fis8 e8 ] |
+      \time 9/8 cis8. [ e8. ] cis8 b4 ~ b4 r8 |
+      \time 6/8 e8 [ fis8 gis8 ] fis4 e8 |
+      e4. ~ ~ e4 r8
+
+    alto: >
+      cis8 [ cis8 e16 e16 ~ ] ~ e8 [ cis8 b8 ] |
+      a8. [ cis8. ] cis8 b4 ~ b4 r8 |
+      cis8 [ cis8 e16 e16 ~ ] ~ e8 [ cis8 b8 ] |
+      a8. [ cis8. ] b4. ~ ~ b4 r8 |
+      cis8 [ cis8 e16 e16 ~ ] ~ e8 [ cis8 b8 ] |
+      a8. [ cis8. ] cis8 b4 ~ b4 r8 |
+      cis8 [ cis8 e8 ] dis4 cis8 |
+      b4. ~ ~ b4 r8
+
+    tenor: >
+      gis8 [ a8 b16 b16 ~ ] ~ b8 [ a8 gis8 ] |
+      e8. [ e8. ] fis8 gis4 ~ ~ ~ gis4 r8 |
+      gis8 [ a8 b16 b16 ~ ] ~ b8 [ a8 gis8 ] |
+      e8. [ e8. ] gis4. ~ ~ ~ gis4 r8 |
+      gis8 [ a8 b16 b16 ~ ] ~ b8 [ a8 gis8 ] |
+      e8. [ e8. ] e8 e4 ~ ~ e4 r8 |
+      a8 [ a8 cis8 ] b4 b8 |
+      gis4. ~ ~ ~ gis4 r8
+
+    bass: >
+      cis8 [ cis8 cis16 e16 ~ ] ~ e8 [ e8 e8 ] |
+      a,8. [ a8. ] e8 e4 ~ ~ ~ e4 r8 |
+      cis'8 [ cis8 cis16 e16 ~ ] ~ e8 [ e8 e8 ] |
+      a,8. [ a8. ] e4. ~ ~ ~ e4 r8 |
+      cis'8 [ cis8 cis16 e16 ~ ] ~ e8 [ e8 e8 ] |
+      a,8. [ a8. ] gis8 gis4 ~ ~ gis4 r8 |
+      a8 [ a8 a8 ] b4 b8 |
+      e,4. ~ ~ ~ e4 r8
+
+    lyrics:
+      - >
+        Who else commands all the host of heaven?
+        Who else could make every knee bow down?
+        Who else could whisper and darkness tremble?
+        Only a holy God.
+
+      - >
+        What other beauty demands such praises?
+        What other splendor outshines the sun?
+        What other majesty rules with justice?
+        Only a holy God.
+
+      - What other glory consumes like fire?
+        What other power can raise the dead?
+        What other name remains undefeated?
+        Only a holy God.
+
+      - Who else could rescue me from my failing?
+        Who else whould offer his only Son?
+        Who else invites me to call him father?
+        Only a holy God.
+
+  - title: Refrain
+    soprano: >
+      cis'4. e,4 cis'8 |
+      cis4. e,4 b'8 |
+      b4. e,4 b'8 |
+      b4. fis4 r8 |
+      cis'4. e,4 cis'8 |
+      cis4. e,4 b'8 |
+      b8 [ a8 gis8 ] fis4 gis8 |
+      gis4. r8 e8 [ b'8 ] |
+      b8 [ a8 gis8 ] fis4 e8 |
+      e4. ~ ~ e4 r8
+
+    alto: >
+      gis'4. e8 ( [ fis8 ) gis8 ] |
+      a4. e8 ( [ fis8 ) fis8 ] |
+      gis4. e8 ( [ fis8 ) gis8 ] |
+      fis4. fis4 r8 |
+      gis4. e8 ( [ fis8 ) gis8 ] |
+      a4. e8 ( [ fis8 ) fis8 ] |
+      gis8 [ e8 e8 ] dis4 dis8 |
+      e4. r8 e8 [ gis8 ] |
+      gis8 [ e8 e8 ] dis4 cis8 |
+      b4. ~ ~ b4 r8
+
+    tenor: >
+      e4. cis4 e8 |
+      e'4. cis4 dis8 |
+      e4. b4 e8 |
+      dis4. dis4 r8 |
+      e4. cis4 e8 |
+      e4. cis4 dis8 |
+      e8 [ cis8 b8 ] b4 gis8 |
+      cis4. r8 cis8 [ e8 ] |
+      e8 [ cis8 b8 ] b4 b8 |
+      gis4. ~ ~ ~ gis4 r8
+
+    bass: >
+      cis'4. cis4 b8 |
+      a4. a4 b8 |
+      e4. gis4 e8 |
+      b4. b4 r8 |
+      cis4. cis4 b8 |
+      a4. a4 b8 |
+      e8 [ e8 e8 ] b4 bis8 |
+      cis4. r8 cis8 [ b8 ] |
+      a8 [ a8 a8 ] b4 b8 |
+      e,4. ~ ~ ~ e4 r8
+
+    lyrics:
+     - >
+        Come and behold him,
+        the One and the Only!
+        Cry out, sing holy,
+        forever the holy God!
+        Come and worship the holy God.

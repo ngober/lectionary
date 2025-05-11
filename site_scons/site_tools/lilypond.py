@@ -36,6 +36,9 @@ OVERRIDES = dict(map(lambda x: (re.sub('-', '', x), x), [
     'a-men',
     'a-tone',
     'con-quer-ors',
+    'fi-re',
+    'ho-ly',
+    'ma-je-sty',
     'o-ver',
     'pro-mised',
     'ru-ler',
@@ -71,6 +74,9 @@ def render_single(target, source, env):
 
     for section in data['sections']:
         section['lyrics'] = [process_verse(verse) for verse in section['lyrics']]
+        if 'time_signature' in section:
+            measured = zip(itertools.cycle(section['time_signature']), section['soprano'].split('|'))
+            section['soprano'] = '|'.join(f' \\time {ts} {line}' for ts, line in measured)
 
     env.Render(target[0], 'templates/hymn.ly.tmp', { "tag": tag, "num_verses": num_verses, **data })
 
