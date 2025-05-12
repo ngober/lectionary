@@ -1,49 +1,26 @@
 \version "2.22.1"
 
-{{ tag }}Soprano = \relative es' {
-\clef "treble" \numericTimeSignature\time {{ time_signature }} \key {{ key }} |
-{% set doublebar = joiner('\\bar "||"') %}
-{% for section in sections %}
-{% if not loop.first and "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
+{%- macro partmaker(sections, name, clef, relpitch, make_title=False) %}
+\relative {{ relpitch }} {
+\clef "{{ clef }}" \numericTimeSignature\time {{ time_signature }} \key {{ key }} |
+{%- set doublebar = joiner('\\bar "||"') %}
+{%- for section in sections %}
+{%- if not loop.first and "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
 {{ doublebar() }}
-{% if "title" in section.keys() %}\mark "{{ section.title }}"{% endif %}
-{% if "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
-{{ section.soprano }}
-{% endfor %} \bar "|."
+{%- if make_title and "title" in section.keys() %}\mark "{{ section.title }}"{% endif %}
+{%- if "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
+{{ section[name] }}
+{%- endfor %} \bar "|."
 }
+{%- endmacro %}
 
-{{ tag }}Alto = \relative c' {
-\clef "treble" \numericTimeSignature\time {{ time_signature }} \key {{ key }} |
-{% set doublebar = joiner('\\bar "||"') %}
-{% for section in sections %}
-{% if not loop.first and "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
-{{ doublebar() }}
-{% if "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
-{{ section.alto }}
-{% endfor %} \bar "|."
-}
+{{ tag }}Soprano = {{ partmaker(sections, "soprano", "treble", "es'", True) }}
 
-{{ tag }}Tenor = \relative g {
-\clef "bass" \numericTimeSignature\time {{ time_signature }} \key {{ key }} |
-{% set doublebar = joiner('\\bar "||"') %}
-{% for section in sections %}
-{% if not loop.first and "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
-{{ doublebar() }}
-{% if "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
-{{ section.tenor }}
-{% endfor %} \bar "|."
-}
+{{ tag }}Alto = {{ partmaker(sections, "alto", "treble", "c'") }}
 
-{{ tag }}Bass = \relative d {
-\clef "bass" \numericTimeSignature\time {{ time_signature }} \key {{ key }} |
-{% set doublebar = joiner('\\bar "||"') %}
-{% for section in sections %}
-{% if not loop.first and "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
-{{ doublebar() }}
-{% if "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
-{{ section.bass }}
-{% endfor %} \bar "|."
-}
+{{ tag }}Tenor = {{ partmaker(sections, "tenor", "bass", "g") }}
+
+{{ tag }}Bass = {{ partmaker(sections, "bass", "bass", "d") }}
 
 \tocItem \markup "{{ title | trim }}"
 \score {
