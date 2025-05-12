@@ -14,6 +14,18 @@
 }
 {%- endmacro %}
 
+{%- macro voices_with_ambitus(voice_one_name, voice_two_name) %}
+\context Voice { \partCombine \{{ voice_one_name }} \{{ voice_two_name }} }
+\context NullVoice = "{{ voice_one_name }}" \with { \consists "Ambitus_engraver" } {
+  \override Ambitus.X-offset = #0.0
+  \{{ voice_one_name }}
+}
+\context NullVoice = "{{ voice_two_name }}" \with { \consists "Ambitus_engraver" } {
+  \override Ambitus.X-offset = #2.0
+  \{{ voice_two_name }}
+}
+{%- endmacro %}
+
 {{ tag }}Soprano = {{ partmaker(sections, "soprano", "treble", "es'", True) }}
 
 {{ tag }}Alto = {{ partmaker(sections, "alto", "treble", "c'") }}
@@ -39,16 +51,7 @@
     <<
         \new ChoirStaff <<
         \new Staff \with { printPartCombineTexts = ##f } <<
-                \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-		\context Voice { \partCombine \{{ tag }}Soprano \{{ tag }}Alto }
-                \context NullVoice = "{{ tag }}Soprano" \with { \consists "Ambitus_engraver" } {
-                  \override Ambitus.X-offset = #0.0
-                  \voiceOne \{{ tag }}Soprano
-                }
-                \context NullVoice = "{{ tag }}Alto" \with { \consists "Ambitus_engraver" } {
-                  \override Ambitus.X-offset = #2.0
-                  \voiceTwo \{{ tag }}Alto
-                }
+		{{ voices_with_ambitus(tag + "Soprano", tag + "Alto") }}
 
 		{% for verse_index in range(num_verses) %}
                 \new Lyrics \lyricsto "{{ tag }}Soprano" {
@@ -63,17 +66,8 @@
                 }
 		{% endfor %}
         >>
-        \new Staff <<
-                \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-		\context Voice { \partCombine \{{ tag }}Tenor \{{ tag }}Bass }
-                \context NullVoice = "{{ tag }}Tenor" \with { \consists "Ambitus_engraver" } {
-                  \override Ambitus.X-offset = #0.0
-                  \{{ tag }}Tenor
-                }
-                \context NullVoice = "{{ tag }}Bass" \with { \consists "Ambitus_engraver" } {
-                  \override Ambitus.X-offset = #2.0
-                  \{{ tag }}Bass
-                }
+        \new Staff \with { printPartCombineTexts = ##f } <<
+		{{ voices_with_ambitus(tag + "Tenor", tag + "Bass") }}
         >>
     >>
     >>
