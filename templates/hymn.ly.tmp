@@ -1,4 +1,50 @@
 \version "2.22.1"
+
+{{ tag }}Soprano = \relative es' {
+\clef "treble" \numericTimeSignature\time {{ time_signature }} \key {{ key }} |
+{% set doublebar = joiner('\\bar "||"') %}
+{% for section in sections %}
+{% if not loop.first and "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
+{{ doublebar() }}
+{% if "title" in section.keys() %}\mark "{{ section.title }}"{% endif %}
+{% if "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
+{{ section.soprano }}
+{% endfor %} \bar "|."
+}
+
+{{ tag }}Alto = \relative c' {
+\clef "treble" \numericTimeSignature\time {{ time_signature }} \key {{ key }} |
+{% set doublebar = joiner('\\bar "||"') %}
+{% for section in sections %}
+{% if not loop.first and "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
+{{ doublebar() }}
+{% if "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
+{{ section.alto }}
+{% endfor %} \bar "|."
+}
+
+{{ tag }}Tenor = \relative g {
+\clef "bass" \numericTimeSignature\time {{ time_signature }} \key {{ key }} |
+{% set doublebar = joiner('\\bar "||"') %}
+{% for section in sections %}
+{% if not loop.first and "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
+{{ doublebar() }}
+{% if "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
+{{ section.tenor }}
+{% endfor %} \bar "|."
+}
+
+{{ tag }}Bass = \relative d {
+\clef "bass" \numericTimeSignature\time {{ time_signature }} \key {{ key }} |
+{% set doublebar = joiner('\\bar "||"') %}
+{% for section in sections %}
+{% if not loop.first and "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
+{{ doublebar() }}
+{% if "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
+{{ section.bass }}
+{% endfor %} \bar "|."
+}
+
 \tocItem \markup "{{ title | trim }}"
 \score {
     \header {
@@ -15,35 +61,16 @@
     }
     <<
         \new ChoirStaff <<
-        \new Staff <<
+        \new Staff \with { printPartCombineTexts = ##f } <<
                 \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-                \context Voice = "{{ tag }}Soprano" \with { \consists "Ambitus_engraver" } {
+		\context Voice { \partCombine \{{ tag }}Soprano \{{ tag }}Alto }
+                \context NullVoice = "{{ tag }}Soprano" \with { \consists "Ambitus_engraver" } {
                   \override Ambitus.X-offset = #0.0
-                  \voiceOne
-                    \relative es' {
-                      \clef "treble" \numericTimeSignature\time {{ time_signature }} \key {{ key }} |
-		      {% set doublebar = joiner('\\bar "||"') %}
-		      {% for section in sections %}
-			{% if not loop.first and "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
-		      	{{ doublebar() }}
-			{% if "title" in section.keys() %}\mark "{{ section.title }}"{% endif %}
-			{% if "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
-			{{ section.soprano }}
-		      {% endfor %} \bar "|."
-                    }
+                  \voiceOne \{{ tag }}Soprano
                 }
-                \context Voice = "{{ tag }}Alto" \with { \consists "Ambitus_engraver" } {
+                \context NullVoice = "{{ tag }}Alto" \with { \consists "Ambitus_engraver" } {
                   \override Ambitus.X-offset = #2.0
-                  \voiceTwo \relative c' {
-                    \clef "treble" \numericTimeSignature\time {{ time_signature }} \key {{ key }} |
-		      {% set doublebar = joiner('\\bar "||"') %}
-		      {% for section in sections %}
-			{% if not loop.first and "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
-		      	{{ doublebar() }}
-			{% if "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
-			{{ section.alto }}
-		      {% endfor %} \bar "|."
-                  }
+                  \voiceTwo \{{ tag }}Alto
                 }
 
 		{% for verse_index in range(num_verses) %}
@@ -61,33 +88,14 @@
         >>
         \new Staff <<
                 \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
-                \context Voice = "{{ tag }}Tenor" \with { \consists "Ambitus_engraver" } {
+		\context Voice { \partCombine \{{ tag }}Tenor \{{ tag }}Bass }
+                \context NullVoice = "{{ tag }}Tenor" \with { \consists "Ambitus_engraver" } {
                   \override Ambitus.X-offset = #0.0
-                  \voiceOne
-                    \relative g {
-                      \clef "bass" \numericTimeSignature\time {{ time_signature }} \key {{ key }} |
-		      {% set doublebar = joiner('\\bar "||"') %}
-		      {% for section in sections %}
-			{% if not loop.first and "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
-		      	{{ doublebar() }}
-			{% if "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
-			{{ section.tenor }}
-		      {% endfor %} \bar "|."
-                    }
+                  \{{ tag }}Tenor
                 }
-                \context Voice = "{{ tag }}Bass" \with { \consists "Ambitus_engraver" } {
+                \context NullVoice = "{{ tag }}Bass" \with { \consists "Ambitus_engraver" } {
                   \override Ambitus.X-offset = #2.0
-                  \voiceTwo
-                    \relative d {
-                      \clef "bass" \numericTimeSignature\time {{ time_signature }} \key {{ key }} |
-		      {% set doublebar = joiner('\\bar "||"') %}
-		      {% for section in sections %}
-			{% if not loop.first and "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
-		      	{{ doublebar() }}
-			{% if "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
-			{{ section.bass }}
-		      {% endfor %} \bar "|."
-                    }
+                  \{{ tag }}Bass
                 }
         >>
     >>
