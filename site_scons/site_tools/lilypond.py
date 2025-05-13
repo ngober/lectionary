@@ -32,37 +32,48 @@ def parse_yaml(fname):
 
 OVERRIDES = dict(map(lambda x: (re.sub('-', '', x), x), [
     'a-bun-dant',
+    'a-dored',
     'a-le-lu-ia',
     'a-men',
     'a-tone',
     'con-quer-ors',
+    'de-i-ty',
+    'em-man-u-el',
     'fi-re',
     'ho-ly',
     'ma-je-sty',
     'o-ver',
+    'right-ous-ness',
     'pro-mised',
     'ru-ler',
     'wea-ry'
 ]))
-def hyphenate(text):
-    LY_HYPEN = ' -- '
+QUOTED_WORD = re.compile(r'"(?:[^"\\]|\\.)*"')
+PUNCTUATED_WORD = re.compile(r'"?\b([a-zA-Z\']*)\b[;:,.!"]*')
+LY_HYPEN = ' -- '
+def hyphenate(match):
+    inner_word = match.group(1)
 
-    word = text.group(1)
     sentinel = object()
-    overridden = OVERRIDES.get(word.lower(), sentinel)
+    overridden = OVERRIDES.get(inner_word.lower(), sentinel)
     if overridden is not sentinel:
         positions = [m.start(0) - idx for idx,m in enumerate(re.finditer('-', overridden))]
         for pos in reversed(positions):
-            word = word[:pos] + LY_HYPEN + word[pos:]
-        return word
+            inner_word = inner_word[:pos] + LY_HYPEN + inner_word[pos:]
+        return inner_word
 
     splitter = pyphen.Pyphen(lang='en_US')
-    return splitter.inserted(word, hyphen=LY_HYPEN)
+    return splitter.inserted(inner_word, hyphen=LY_HYPEN)
 
-UNQUOTED_WORD = re.compile(r'(?<!")\b([a-zA-Z\']+)\b[;:,.!]?(?!")')
+def filter_quoted_hyphenate(word):
+    if QUOTED_WORD.match(word):
+        return word
+    return PUNCTUATED_WORD.sub(hyphenate, word)
+
+UNQUOTED_WORD = re.compile(r'(?:(?<=(\\")|.[^"])|^)\b([a-zA-Z\']+)\b[;:,.!]?(?=(\\")|[^"]|$)')
 def process_verse(verse):
     lines = verse.splitlines()
-    return '\n'.join(UNQUOTED_WORD.sub(hyphenate, line) if not line.strip().startswith('\\') else line for line in lines)
+    return '\n'.join(' '.join(map(filter_quoted_hyphenate, line.split())) if not line.strip().startswith('\\') else line for line in lines)
 
 def render_single(target, source, env):
     source_name = pathlib.Path(str(source[0]))
