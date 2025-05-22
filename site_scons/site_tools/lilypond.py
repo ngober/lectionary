@@ -30,24 +30,7 @@ def parse_yaml(fname):
     with open(fname, 'rt') as rfp:
         return yaml.safe_load(rfp)
 
-OVERRIDES = dict(map(lambda x: (re.sub('-', '', x), x), [
-    'a-bun-dant',
-    'a-dored',
-    'a-le-lu-ia',
-    'a-men',
-    'a-tone',
-    'con-quer-ors',
-    'de-i-ty',
-    'em-man-u-el',
-    'fi-re',
-    'ho-ly',
-    'ma-je-sty',
-    'o-ver',
-    'right-ous-ness',
-    'pro-mised',
-    'ru-ler',
-    'wea-ry'
-]))
+OVERRIDES = dict(map(lambda x: (re.sub('-', '', x), x), pathlib.Path('hyphen.txt').read_text().splitlines()))
 QUOTED_WORD = re.compile(r'"(?:[^"\\]|\\.)*"')
 PUNCTUATED_WORD = re.compile(r'"?\b([a-zA-Z\']*)\b[;:,.!"]*')
 LY_HYPEN = ' -- '

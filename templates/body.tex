@@ -10,7 +10,12 @@
 {% macro reading(data) -%}
 \subsection*{Read: {{ data.address }}}
 
-\begin{quote} {{ data.text }} \end{quote}
+{%- set vspace = joiner('\\vspace{8pt}') %}
+{% for paragraph in data.text %}
+{{ paragraph }}
+
+{{ vspace() }}
+{% endfor %}
 {%- endmacro %}
 
 {% block body %}

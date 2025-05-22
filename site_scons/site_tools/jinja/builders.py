@@ -41,7 +41,7 @@ def augment_readings(readings, draft=False):
             address, text = r, ['\lipsum[2]']
         else:
             address, text = get_text(r)
-        return { 'address': address, 'text': '\n\n'.join(text) }
+        return { 'address': address, 'text': text }
     return list(map(tolerate_dict, readings))
 
 def normalize_yaml(parsed, draft=False):
