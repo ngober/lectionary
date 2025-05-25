@@ -8,6 +8,8 @@ import traceback
 import jinja2
 import yaml
 
+from util import noisy
+
 AddOption(
     '--draft',
     action='store_true',
@@ -39,13 +41,6 @@ env = Environment(BUILDERS={
                   calendar_events=calendar_data,
                   DRAFT=GetOption('draft'))
 env.Append(TEXINPUTS=str(root))
-
-class noisy(contextlib.AbstractContextManager, contextlib.ContextDecorator):
-    ''' A decorator that always prints exceptions '''
-    def __exit__(self, exc_type, exc_value, trc):
-        if exc_type is not None:
-            print(traceback.format_exc())
-        return False
 
 @noisy()
 def Render(env, target_name, template_name, data):

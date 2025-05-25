@@ -38,5 +38,5 @@
 }
 
 {% for mus in musicpages %}
-\include "../music/{{ mus }}.ly"
+\include "../{{ mus }}"
 {% endfor %}

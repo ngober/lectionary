@@ -10,6 +10,8 @@ import pyphen
 from SCons.Builder import Builder
 from SCons.Scanner import Scanner
 
+from util import get_basename
+
 def generate_lilypond(source, target, env, for_signature):
     target_name = os.path.splitext(str(target[0]))[0]
     return f'lilypond --pspdfopt=TeX -o {target_name} {source[0]!s}'
@@ -22,7 +24,7 @@ def render_wrapper(target, source, env):
     template_name = pathlib.Path(str(source[0]))
     render_data = {
         'calendar': env['calendar_events'],
-        'musicpages': [pathlib.Path(str(f)).stem for f in source[1:]]
+        'musicpages': [str(f) for f in source[1:]]
     }
     env.Render(target[0], template_name, render_data)
 
@@ -77,7 +79,7 @@ def render_single(target, source, env):
 def add_musicpages(target, source, env):
     data_src_name = [f'data/{evt["basename"]}.yaml' for evt in env['calendar_events']]
     data = map(parse_yaml, data_src_name)
-    source.extend(sorted(f'music/{mus}.ly' for mus in itertools.chain(*((evt.get('musicpages') or {}).values() for evt in data))))
+    source.extend(sorted(f'music/{get_basename(mus)}.ly' for mus in itertools.chain(*((evt.get('musicpages') or []) for evt in data))))
     return target, source
 
 def generate(env):

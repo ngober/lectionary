@@ -4,22 +4,17 @@ import traceback
 import pathlib
 import contextlib
 import yaml
+import sys
 
 import SCons.Scanner.LaTeX
 from SCons.Builder import Builder
 
 from .esv_api import get_text
+from util import noisy, get_basename
 
 def parse_yaml(fname):
     with open(fname, 'rt') as rfp:
         return yaml.safe_load(rfp)
-
-class noisy(contextlib.AbstractContextManager, contextlib.ContextDecorator):
-    ''' A decorator that always prints exceptions '''
-    def __exit__(self, exc_type, exc_value, trc):
-        if exc_type is not None:
-            print(traceback.format_exc())
-        return False
 
 def get_first_with_ext(source, ext):
     return str(next(filter(lambda s: str(s).endswith(ext), source)))
@@ -46,7 +41,7 @@ def augment_readings(readings, draft=False):
 
 def normalize_yaml(parsed, draft=False):
     readings = augment_readings(parsed['readings'], draft)
-    parsed['musicpages'] = parsed.get('musicpages') or {}
+    parsed['musicpages'] = { name: get_basename(name) for name in (parsed.get('musicpages') or []) }
     parsed['presong_readings'] = readings[:len(readings)//2]
     parsed['postsong_readings'] = readings[len(readings)//2:]
     return parsed
