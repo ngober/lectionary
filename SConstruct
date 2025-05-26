@@ -69,7 +69,6 @@ def BuildSingle(env, basename):
 AddMethod(env, BuildSingle)
 
 env.Lilypond('music/hark_the_herald_angels_sing.ly'),
-env.Lilypond('music/o_come_o_come_emmanuel.ly'),
 env.Lilypond('music/yet_not_i_but_through_christ_in_me.ly'),
 env.Lilypond('music/my_hope_is_built_on_nothing_less.ly')
 env.Lilypond('music/come_ye_sinners_poor_and_needy.ly')
