@@ -8,6 +8,7 @@ venv/
 .sconsign.dblite
 
 music/*.pdf
+music/*.ly
 
 *~
 
