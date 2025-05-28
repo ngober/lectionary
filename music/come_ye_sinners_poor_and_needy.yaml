@@ -1,0 +1,115 @@
+title: Come, Ye Sinners, Poor and Needy
+poet: Joseph Hart (1712-1768)
+composer: Walker's \"Southern Harmony\", 1835
+key: as \major
+time_signature: 4/4
+
+sections:
+  - soprano: >
+      f4 as4 f4 es8( f8) |
+      as4 as4 f8( es8) c4 |
+      es4 es4 f4 es8( f8) |
+      as4 bes4 c2 |
+      c4 es4 c8( bes8) as4 |
+      bes4 c4 as8( f8) es4 |
+      f4. as8 f8( es8) c8( bes8) |
+      c4 es4 f2
+
+    alto: >
+      c4 c des des  |
+      c4 c des c  |
+      c4 c des es |
+      c4 es es2 |
+      es4 es aes8( g) f4 |
+      es4 es c c |
+      c4. es8 des8( bes) c8( bes) |
+      c4 bes c2
+
+    tenor: >
+      aes4 aes aes aes |
+      aes4 aes aes aes |
+      aes4 aes aes aes |
+      aes4 g aes2 |
+      aes4 bes c c |
+      bes4 aes aes g |
+      aes4. aes8 aes8( g) aes( g) |
+      aes4 bes aes2
+
+    bass: >
+      f4 f f f |
+      f4 f des aes |
+      aes4 aes des c |
+      f4 es aes,2 |
+      aes'4 g f f |
+      g4 aes f c |
+      f4. c8 des8( es) f8( g) |
+      aes4 g f2
+
+    lyrics:
+      - >
+        Come ye sinners,  poor and needy, Weak and wounded, sick and sore;
+        Jesus ready stands to save you, Full of pity, love and pow'r.
+
+      - >
+        Come, ye thirsty,  come and welcome,
+        God's free bounty  glorify;
+        True belief and true repentance,
+        Every grace that brings you nigh.
+
+      - >
+        Come ye weary,  heavy laden,
+        Lost and ruined by the fall;
+        If you tarry till you're better,
+        You will never come at all.
+
+      - >
+        Let not conscience  make you linger,
+        Nor of fitness fondly dream;
+        All the fitness He requireth
+        Is to feel your  need of Him.
+
+  - title: Refrain
+    lyrics:
+     - >
+        I will arise and go to Jesus, He will embrace me in His arms;
+        In the arms of my dear Savior, O there are ten thousand charms.
+
+    soprano: >
+      f4 as8 as8 f4 es8( f8) |
+      as4 as4 f8( es8) c4 |
+      es4 es8 es8 f4 es8( f8) |
+      as4 bes4 c2 |
+      c4 es4 c8( bes8) as4 |
+      bes4 c4 as8( f8) es4 |
+      f4. as8 f8( es8) c8( bes8) |
+      c4 es4 f2
+
+    alto: >
+      c4 c8 c des4 des |
+      c4 c des c |
+      c4 c8 c des4 es |
+      c4 es es2 |
+      es4 es aes8( g) f4 |
+      es4 es c c |
+      c4. es8 des8( bes) c8( bes) |
+      c4 bes c2
+
+    tenor: >
+      aes4 aes8 aes aes4 aes |
+      aes4 aes aes aes |
+      aes4 aes8 aes aes4 aes |
+      aes4 g aes2 |
+      aes4 bes c c |
+      bes4 aes aes g |
+      aes4. aes8 aes8( g) aes( g) |
+      aes4 bes aes2
+
+    bass: >
+      f4 f8 f f4 f |
+      f4 f des g |
+      g4 g8 g des4 c |
+      f4 es g2 |
+      aes4 g f f |
+      g4 aes f c |
+      f4. c8 des8( es) f( g) |
+      aes4 g f2
