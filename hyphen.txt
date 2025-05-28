@@ -20,6 +20,9 @@ jes-se
 ma-je-sty
 o-pen
 o-ver
+o-ver-come
+o-ver-throw
+re-deem-er
 right-ous-ness
 pro-mised
 ru-ler
