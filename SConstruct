@@ -68,8 +68,6 @@ def BuildSingle(env, basename):
 
 AddMethod(env, BuildSingle)
 
-env.Lilypond('music/hark_the_herald_angels_sing.ly'),
-env.Lilypond('music/my_hope_is_built_on_nothing_less.ly')
 env.Lilypond('music/come_ye_sinners_poor_and_needy.ly')
 
 for source in env.Glob('music/*.yaml'):

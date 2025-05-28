@@ -1,0 +1,120 @@
+title: My Hope Is Built on Nothing Less
+composer: William B. Bradbury (1816-1868)
+poet: Edward Mote (1797-1874)
+time_signature: 3/4
+key: f \major
+
+sections:
+  - anacrusis: 4
+    soprano: >
+      c4 |
+      f8 a c4 a  |
+      a8 g  g4 a |
+      bes8 bes bes4 g  |
+      f8 e  f4  c |
+      f8 a  c4 a  |
+      a8 g  g4 a |
+      bes8 bes  bes4 g  |
+      f8 e  f4
+
+    alto: >
+      c4 |
+      c8 c f4 f |
+      f8 e e4 f |
+      f8 f f4 d |
+      c8 c c4 c |
+      c8 c f4 f |
+      f8 e e4 f |
+      f8 f f4 d |
+      c8 c c4
+
+    tenor: >
+      a4
+      a8 a  a4 c  |
+      c8 c  c4 c |
+      d8 d  d4 bes  |
+      a8 g  a4 a |
+      a8 a  a4 c  |
+      c8 c  c4 c |
+      d8 d  d4 bes  |
+      a8 g  a4
+
+    bass: >
+      f4
+      f8 f f4 f |
+      c8 c c4 f |
+      bes,8 bes bes4 bes |
+      c8 c f4 f |
+      f8 f f4 f |
+      c8 c c4 f |
+      bes,8 bes bes4 bes |
+      c8 c f4
+
+    lyrics:
+      - >
+        My hope is built on nothing less
+        than Jesus' blood and righteousness;
+        I dare not trust the sweetest frame,
+        but wholly lean on Jesus' name.
+
+      - >
+        When darkness veils his lovely face,
+        I rest on his unchanging grace;
+        in every high and stormy gale,
+        my anchor holds within the veil.
+
+      - >
+        His oath, his covenant, his blood,
+        support me in the whelming flood;
+        when all around my soul gives way,
+        he then is all my hope and stay.
+
+      - >
+        When he shall come with trumpet sound,
+        O may I then in him be found:
+        dressed in his righteousness alone,
+        faultless to stand before the throne.
+
+  - title: Refrain
+    anacrusis: 4
+    soprano: >
+      c' |
+      c8 c  c4 c  |
+      d8 d  d4 d |
+      c8 a  a4 f |
+      a8 a  g4 c, |
+      f8 f  f4 a  |
+      f8 e  f4 
+
+    alto: >
+      f |
+      f8 e f4 f |
+      f8 f f4 f |
+      f8 f f4 f |
+      f8 f e4 c |
+      c8 c d4 c |
+      g8 g c'4 
+
+    tenor: >
+      a |
+      a8 bes  c4 a  |
+      bes8 bes bes4 bes|
+      a8 c  c4 a  |
+      c8 c  c4 bes |
+      a8 f  bes4 f |
+      c'8 bes  a4 
+
+    bass: >
+      f |
+      f8 g a4 f |
+      bes8 bes bes4 bes |
+      f8 f f4 f, |
+      f8 a c4 bes |
+      a8 a bes4 f' |
+      c8 c f4 
+
+    lyrics:
+      - >
+        On Christ, the solid Rock, I stand:
+        all other ground is sinking sand;
+        all other ground is sinking sand.
