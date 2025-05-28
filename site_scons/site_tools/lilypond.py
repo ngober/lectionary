@@ -77,7 +77,7 @@ def render_single(target, source, env):
     env.Render(target[0], 'templates/hymn.ly.tmp', { "tag": tag, "num_verses": num_verses, **data })
 
 def add_musicpages(target, source, env):
-    data_src_name = [f'data/{evt["basename"]}.yaml' for evt in env['calendar_events']]
+    data_src_name = [f'body/{evt["basename"]}.yaml' for evt in env['calendar_events']]
     data = map(parse_yaml, data_src_name)
     source.extend(sorted(set(f'music/{get_basename(mus)}.ly' for mus in itertools.chain(*((evt.get('musicpages') or []) for evt in data)))))
     return target, source

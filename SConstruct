@@ -27,9 +27,9 @@ jinja_env = jinja2.Environment(
     autoescape=jinja2.select_autoescape()
 )
 
-calendar = File(str(root / 'data' / '_calendar.yaml'))
+calendar = File(str(root / '_calendar.yaml'))
 calendar_data = sorted(parse_yaml(str(calendar)), key=operator.itemgetter('week'))
-data_nodes = { event['basename']: File(f'data/{event["basename"]}')  for event in calendar_data }
+data_nodes = { event['basename']: File(f'body/{event["basename"]}')  for event in calendar_data }
 
 env = Environment(BUILDERS={
                       'TwoUp': Builder(
@@ -61,7 +61,7 @@ def Build(env, directory, basename, sources):
 AddMethod(env, Build)
 
 def BuildSingle(env, basename):
-    env.Body(f'body/{basename}', f'data/{basename}')
+    env.Body(f'body/{basename}')
     wrapper_sources = ['templates/single.tex']
     pdffile = env.Build('single', basename, wrapper_sources)
     return env.TwoUp(f'single/{basename}_2up.pdf', f'single/{basename}.pdf')
@@ -76,7 +76,7 @@ for source in env.Glob('music/*.yaml'):
     env.Lilypond(target=target.with_suffix('.pdf').stem, source=ly_single_target) # Used for debugging
 
 for event in calendar_data:
-    event_file = File(f'data/{event["basename"]}.yaml')
+    event_file = File(f'body/{event["basename"]}.yaml')
     if event_file.exists():
         env.Clone(calendar_events=[event]).BuildSingle(event['basename'])
 
