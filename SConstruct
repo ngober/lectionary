@@ -75,7 +75,8 @@ env.Lilypond('music/come_ye_sinners_poor_and_needy.ly')
 
 for source in env.Glob('music/*.yaml'):
     target = pathlib.Path(str(source)).with_suffix('.ly')
-    env.LilypondSingle(target=str(target), source=source)
+    ly_single_target = env.LilypondSingle(target=str(target), source=source)
+    env.Lilypond(target=target.with_suffix('.pdf').stem, source=ly_single_target) # Used for debugging
 
 for event in calendar_data:
     event_file = File(f'data/{event["basename"]}.yaml')
