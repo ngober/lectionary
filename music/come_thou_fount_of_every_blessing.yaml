@@ -1,0 +1,137 @@
+title: Come, Thou Fount of Every Blessing
+composer: Robert Robinson (1735-1790)
+key: d \major
+time_signature: 3/4
+
+sections:
+  - anacrusis: 4
+    soprano: >
+      fis8 e |
+      d4 4 fis8 a |
+      e4 4 fis8 a |
+      b4 a fis8 e |
+      d2 
+
+      fis8 e |
+      d4 4 fis8 a |
+      e4 4 fis8 a |
+      b4 a fis8 e |
+      d2 
+
+      a'8 b16( cis) |
+      d4 cis b8 a |
+      b8( a) fis4 a8 b16( cis) |
+      d4 cis b8 a |
+      d2
+
+      fis,8 e |
+      d4 4 fis8 a |
+      e4 4 fis8 a |
+      b4 a fis8 e |
+      d2 
+
+    alto: >
+      d8 cis |
+      d4 4 d8 d |
+      cis4 4 d8 d |
+      d4 d d8 cis |
+      d2 
+
+      d8 cis |
+      d4 4 d8 d |
+      cis4 4 d8 d |
+      d4 d d8 cis |
+      d2 
+
+      d8 g |
+      fis4 a g8 fis |
+      d4 d4 d8 g8 |
+      fis4 a g8 fis |
+      fis2
+
+      d8 cis |
+      d4 4 d8 d |
+      cis4 4 d8 d |
+      d4 d d8 cis |
+      d2 
+
+    tenor: >
+      a8 g |
+      fis4 4 a8 a |
+      a4 4 a8 a |
+      g4 fis a8 g |
+      fis2 
+
+      a8 g |
+      fis4 4 a8 a |
+      a4 4 a8 a |
+      g4 fis a8 g |
+      fis2 
+
+      a8 a |
+      a4 a d8 d |
+      g,8( fis) a4 a8 g8 |
+      a4 a d8 d |
+      a2
+
+      a8 g |
+      fis4 4 a8 a |
+      a4 4 a8 a |
+      g4 fis a8 g |
+      fis2 
+
+    bass: >
+      d8 g, |
+      d'4 4 d8 fis, |
+      a4 4 d8 fis |
+      g4 d a8 a |
+      d2 
+
+      d8 g, |
+      d'4 4 d8 fis, |
+      a4 4 d8 fis |
+      g4 d a8 a |
+      d2 
+
+      fis8 e |
+      d4 fis g8 d |
+      d4 d4 fis8 e8 |
+      d4 fis g8 d |
+      d2
+
+      d8 g, |
+      d'4 4 d8 fis, |
+      a4 4 d8 fis |
+      g4 d a8 a |
+      d2 
+
+    lyrics:
+      - >
+        Come, thou Fount of every blessing;
+        tune my heart to sing thy grace;
+        streams of mercy, never ceasing,
+        call for songs of loudest praise.
+        Teach me some melodious sonnet,
+        sung by flaming tongues above;
+        praise the mount! I’m fixed upon it,
+        mount of thy redeeming love!
+
+      - >
+        Here I raise my Ebenezer;
+        hither by thy help I’m come;
+        and I hope, by thy good pleasure,
+        safely to arrive at home.
+        Jesus sought me when a stranger,
+        "wander" -- ing from the fold of God;
+        he, to rescue me from danger,
+        interposed his precious blood.
+
+      - >
+        O to grace how great a debtor
+        daily I’m constrained to be!
+        Let that goodness, like a fetter,
+        bind my "wander" -- ing heart to thee.
+        Prone to wander, Lord, I feel it,
+        prone to leave the God I love;
+        here’s my heart; O take and seal it;
+        seal it for thy courts above.

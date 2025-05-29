@@ -124,3 +124,8 @@
     week: 23
     season: pentecost
     basename: pentecost
+
+  - title: PLACEHOLDER
+    week: 24
+    season: ordinary
+    basename: ordinary1
