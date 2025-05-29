@@ -34,7 +34,7 @@ def parse_yaml(fname):
 
 OVERRIDES = dict(map(lambda x: (re.sub('-', '', x), x), pathlib.Path('hyphen.txt').read_text().splitlines()))
 QUOTED_WORD = re.compile(r'"(?:[^"\\]|\\.)*"')
-PUNCTUATED_WORD = re.compile(r'"?\b([a-zA-Z\']*)\b[;:,.!"]*')
+PUNCTUATED_WORD = re.compile(r'"?\b([a-zA-Z\']*)\b([;:,.!"]*)')
 LY_HYPEN = ' -- '
 def hyphenate(match):
     inner_word = match.group(1)
@@ -42,13 +42,10 @@ def hyphenate(match):
     sentinel = object()
     overridden = OVERRIDES.get(inner_word.lower(), sentinel)
     if overridden is not sentinel:
-        positions = [m.start(0) - idx for idx,m in enumerate(re.finditer('-', overridden))]
-        for pos in reversed(positions):
-            inner_word = inner_word[:pos] + LY_HYPEN + inner_word[pos:]
-        return inner_word
+        return re.sub('-', LY_HYPEN, overridden) + match.group(2)
 
     splitter = pyphen.Pyphen(lang='en_US')
-    return splitter.inserted(inner_word, hyphen=LY_HYPEN)
+    return splitter.inserted(inner_word, hyphen=LY_HYPEN) + match.group(2)
 
 def filter_quoted_hyphenate(word):
     if QUOTED_WORD.match(word):
