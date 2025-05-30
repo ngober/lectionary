@@ -1,0 +1,188 @@
+title: To God Be the Glory
+poet: Fanny Crosby (1820-1915)
+composer: William Doane (1832-1915)
+key: g \major
+time_signature: 3/4
+
+sections:
+  - anacrusis: 4
+    soprano: >
+      d4 |
+      d2 e8 fis |
+      g4 d g |
+      a4 d, a' |
+      b2 b4 |
+      c4 e, c' |
+      b4 g b |
+      b4 a e |
+      a2 d,4 |
+      d2 e8 fis |
+      g4 d g |
+      a4 d, a' |
+      b2 b4 |
+      d4 c a |
+      g4 fis g |
+      b4 b a |
+      g2
+
+    alto: >
+      b4 |
+      b4( d) c8 c |
+      b4 b d |
+      d4 4 4 |
+      d2 4 |
+      e4 c e |
+      d4 4 4 |
+      cis4 cis e |
+      d2 c4 |
+      b4( d) c8 c |
+      b4 b d |
+      d4 4 4 |
+      d2 f4 |
+      e4 4 4 |
+      d4 4 4 |
+      d4 4 c |
+      d2
+
+    tenor: >
+      g4 |
+      g2 fis8 d |
+      d4 g4 g |
+      fis4 4 4 |
+      g2 4 |
+      g4 4 4 |
+      g4 4 4 |
+      e4 4 a8( g) |
+      fis2 4 |
+      g2 fis8 d |
+      d4 g4 g |
+      fis4 4 4 |
+      g2 4 |
+      g4 a c |
+      b4 a b |
+      g4 g fis |
+      g2
+
+    bass: >
+      g,4 |
+      g4( b) d8 8 |
+      g,4 4 b |
+      d4 4 4 |
+      g2 4 |
+      c,4 4 4 |
+      g4 b g |
+      a4 a cis |
+      d2 4 |
+      g,4( b) d8 8 |
+      g,4 4 b |
+      d4 4 4 |
+      g2 4 |
+      c,4 4 4 |
+      d4 4 4 |
+      d4 4 4 |
+      g,2
+
+    lyrics:
+      - >
+        To God be the glory, great things he hath done,
+        so loved he the world that he gave us his son,
+        who yielded his life an atonement for sin,
+        and opened the life -- gate that all may go in.
+
+      - >
+        O perfect redemption, the purchase of blood,
+        to every believer the promise of God,
+        the vilest offender who truly believes,
+        that moment from Jesus a pardon receives.
+
+      - >
+        Great things he hath taught us, great things he hath done,
+        and great our rejoicing through Jesus the Son;
+        but purer and higher and greater will be
+        our wonder, our transport, when Jesus we see.
+
+  - anacrusis: 4
+    title: Refrain
+    soprano: >
+      b8. c16 |
+      d2 b8. c16 |
+      d2 d8. b16 |
+      g4 a b |
+      a2 a8. b16 |
+      c2 a8. b16 |
+      c2 c8 a |
+      d4 d c |
+      b2 d,4 |
+      d2 e8 fis |
+      g4 d g |
+      a4 d, a' |
+      b2 b4 |
+      d4 c a |
+      g4 fis g |
+      b4 b a |
+      g2
+
+    alto: >
+      d8. 16 |
+      g2 d8. 16 |
+      g2 d8. 16 |
+      d4 4 4 |
+      d2 d8. 16 |
+      d2 d8. 16 |
+      d2 d8 8 |
+      d4 4 4 |
+      d2 b4 |
+      b4( d) c8 8 |
+      b4 b d |
+      d4 d d |
+      d2 f4 |
+      e4 4 4 |
+      d4 4 4 |
+      d4 4 c |
+      b2
+
+    tenor: >
+      g8. a16 |
+      b2 g8. a16 |
+      b2 b8. g16 |
+      g4 fis g |
+      fis2 fis8. g16 |
+      a2 fis8. g16 |
+      a2 a8 fis8 |
+      g4 g fis |
+      g2 g4 |
+      g2 fis8 d |
+      d4 g g |
+      fis4 4 4 |
+      g2 4 |
+      g4 a c |
+      b4 a b |
+      g4 g fis |
+      g2
+
+    bass: >
+      g'8. 16 |
+      g2 8. 16 |
+      g2 8. g,16 |
+      b4 a g |
+      d'2 8. 16 |
+      d2 8. 16 |
+      d2 d8 c |
+      b4 b a |
+      g2 4 |
+      g4( b) d8 8 |
+      g,4 g b |
+      d4 4 4 |
+      g2 4 |
+      c,4 4 4 |
+      d4 4 4 |
+      d4 4 4 |
+      g,2
+
+    lyrics:
+      - >
+        Praise the Lord, praise the Lord, let the earth hear his voice!
+        Praise the Lord, praise the Lord, let the people rejoice!
+        O come to the Father through Jesus the Son,
+        and give him the glory, great things he hath done.
+

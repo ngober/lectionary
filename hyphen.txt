@@ -7,6 +7,7 @@ a-lone
 a-men
 a-rise
 a-tone
+a-tone-ment
 bless-ed
 con-quer-ors
 da-vid
@@ -17,6 +18,7 @@ e-ben-e-zer
 e-choes
 em-man-u-el
 fi-re
+great-er
 heal-est
 hea-vy
 ho-ly
@@ -28,6 +30,7 @@ ling-er
 ma-je-sty
 nee-dy
 o-pen
+o-pened
 o-ver
 o-ver-come
 o-ver-throw
@@ -43,3 +46,4 @@ strang-er
 thir-sty
 tri-um-phant
 wea-ry
+vil-est
