@@ -1,30 +1,30 @@
 ---
-  - title: the First Sunday of Advent
+  - title: the First Week of Advent
     week: 1
     season: advent
     basename: advent1
 
-  - title: the Second Sunday of Advent
+  - title: the Second Week of Advent
     week: 2
     season: advent
     basename: advent2
 
-  - title: the Third Sunday of Advent
+  - title: the Third Week of Advent
     week: 3
     season: advent
     basename: advent3
 
-  - title: the Fourth Sunday of Advent
+  - title: the Fourth Week of Advent
     week: 4
     season: advent
     basename: advent4
 
-  - title: the First Sunday After Christmas
+  - title: the First Week After Christmas
     week: 5
     season: christmas
     basename: christmas1
 
-      #- title: the Second Sunday After Christmas
+      #- title: the Second Week After Christmas
       #week: 6
       #season: christmas
       #basename: christmas2
@@ -34,78 +34,78 @@
       #season: epiphany
       #basename: epiphany
 
-      #- title: the First Sunday after Epiphany
+      #- title: the First Week after Epiphany
       #week: 7
       #season: ordinary
       #basename: ordinary1
 
-      #- title: the Second Sunday after Epiphany
+      #- title: the Second Week after Epiphany
       #week: 8
       #season: ordinary
       #basename: ordinary2
 
-      #- title: the Third Sunday after Epiphany
+      #- title: the Third Week after Epiphany
       #week: 9
       #season: ordinary
       #basename: ordinary3
 
-      #- title: the Fourth Sunday after Epiphany
+      #- title: the Fourth Week after Epiphany
       #week: 10
       #season: ordinary
       #basename: ordinary4
 
-      #- title: the Fifth Sunday after Epiphany
+      #- title: the Fifth Week after Epiphany
       #week: 11
       #season: ordinary
       #basename: ordinary5
 
-      #- title: the Sixth Sunday after Epiphany
+      #- title: the Sixth Week after Epiphany
       #week: 12
       #season: ordinary
       #basename: ordinary6
 
-      #- title: the Seventh Sunday after Epiphany
+      #- title: the Seventh Week after Epiphany
       #week: 13
       #season: ordinary
       #basename: ordinary7
 
-      #- title: the Eighth Sunday after Epiphany
+      #- title: the Eighth Week after Epiphany
       #week: 14
       #season: ordinary
       #basename: ordinary8
 
-      #- title: the Ninth Sunday after Epiphany
+      #- title: the Ninth Week after Epiphany
       #week: 15
       #season: ordinary
       #basename: ordinary9
 
-      #  - title: the First Sunday of Lent
+      #  - title: the First Week of Lent
       #week: 16
       #season: lent
       #basename: lent1
 
-  - title: the Second Sunday of Lent
+  - title: the Second Week of Lent
     week: 17
     season: lent
     basename: lent2
 
-  - title: the Third Sunday of Lent
+  - title: the Third Week of Lent
     week: 18
     season: lent
     basename: lent3
 
-  - title: the Fourth Sunday of Lent
+  - title: the Fourth Week of Lent
     week: 19
     season: lent
     basename: lent4
 
-  - title: the Fifth Sunday of Lent
+  - title: the Fifth Week of Lent
     week: 20
     season: lent
     basename: lent5
 
   - title: Palm Sunday
-    subtitle: The Sixth Sunday of Lent
+    subtitle: The Sixth Week of Lent
     week: 21
     season: lent
     basename: lent6
@@ -129,3 +129,8 @@
     week: 24
     season: ordinary
     basename: ordinary1
+
+  - title: PLACEHOLDER
+    week: 25
+    season: ordinary
+    basename: ordinary2
