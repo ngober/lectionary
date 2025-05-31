@@ -27,7 +27,7 @@ jinja_env = jinja2.Environment(
     autoescape=jinja2.select_autoescape()
 )
 
-calendar = File(str(root / '_calendar.yaml'))
+calendar = File(str(root / 'calendar.yaml'))
 calendar_data = sorted(parse_yaml(str(calendar)), key=operator.itemgetter('week'))
 data_nodes = { event['basename']: File(f'body/{event["basename"]}')  for event in calendar_data }
 
