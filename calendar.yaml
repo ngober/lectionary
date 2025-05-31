@@ -115,25 +115,58 @@
     season: easter
     basename: easter
 
+  - title: the Third Week after Easter
+    week: 25
+    season: easter
+    basename: easter3
+
+  - title: the Fourth Week after Easter
+    week: 26
+    season: easter
+    basename: easter4
+
+  - title: the Sixth Week after Easter
+    week: 28
+    season: easter
+    basename: easter6
+
   - title: Ascension Sunday
-    week: 22
+    week: 29
     season: easter
     basename: ascension
 
   - title: the Day of Pentecost
-    week: 23
+    week: 30
     season: pentecost
     basename: pentecost
 
   - title: PLACEHOLDER
-    week: 24
+    subtitle: On Wisdom
+    week: 31
     season: ordinary
     basename: ordinary1
 
   - title: PLACEHOLDER
-    week: 25
+    week: 32
     season: ordinary
     basename: ordinary2
+
+  - title: PLACEHOLDER
+    subtitle: On the Foolishness of Faith
+    week: 33
+    season: ordinary
+    basename: ordinary3
+
+  - title: PLACEHOLDER
+    subtitle: On the Eternal Hope of the Faithful
+    week: 34
+    season: ordinary
+    basename: ordinary4
+
+  - title: Thanksgiving Day
+    week: 59
+    season: ordinary
+    basename: ordinary29
 
   - title: Last Week After Pentecost
     subtitle: Christ the King
