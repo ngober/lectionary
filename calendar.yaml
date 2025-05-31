@@ -134,3 +134,9 @@
     week: 25
     season: ordinary
     basename: ordinary2
+
+  - title: Last Week After Pentecost
+    subtitle: Christ the King
+    week: 60
+    season: ordinary
+    basename: ordinary30
