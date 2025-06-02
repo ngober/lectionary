@@ -44,7 +44,10 @@ def hyphenate(match):
     sentinel = object()
     overridden = OVERRIDES.get(inner_word.lower(), sentinel)
     if overridden is not sentinel:
-        return prefix + re.sub('-', LY_HYPEN, overridden) + suffix
+        positions = [m.start(0) - idx for idx,m in enumerate(re.finditer('-', overridden))]
+        for pos in reversed(positions):
+            inner_word = inner_word[:pos] + LY_HYPEN + inner_word[pos:]
+        return f'{prefix}{inner_word}{suffix}'
 
     splitter = pyphen.Pyphen(lang='en_US')
     return prefix + splitter.inserted(inner_word, hyphen=LY_HYPEN) + suffix
