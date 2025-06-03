@@ -1,0 +1,81 @@
+title: Great Is Thy Faithfulness
+poet: Thomas Chisolm (1866-1960)
+composer: William Runyan (1870-1957)
+key: d \major
+time_signature: 3/4
+
+sections:
+  - soprano: >
+      fis4 4 4 | fis4. e8 4 | g4 g g | g4 fis2 |
+      b4 cis b | a4. g8 fis4 | e4 fis gis | a2. |
+      a4 b cis | d4. cis8 b4 | a4 g fis | fis4 e2 |
+      b4 cis d | d4. a8 a4 | fis4 fis e | d2.
+
+    alto: >
+      d4 4 4 | d4. 8 4 | cis4 d e | d4 d2 |
+      b4 cis b | a4. g8 fis4 | e4 dis d | cis2. |
+      g'4 g g | fis4. a8 g4 | fis4 e d | d4 d2 |
+      f4 f f | f4. 8 4 | d4 cis a | a2.
+
+    tenor: >
+      a4 a ais | b4. 8 4 | a4 b cis | b4 a2 |
+      g4 a g | a4. 8 4 | gis4 a b | a2. |
+      cis4 cis a | a4. b8 cis4 | d4 b a | b4 b2 |
+      d4 cis b | a4. d8 d4 | a4 a g | fis2.
+
+    bass: >
+      d4 d d | g'4. 8 4 | a4 a a | d4 2 |
+      g4 g g | fis4. e8 d4 | b4 b e | a2. |
+      a'4 4 4 | d,4. 8 4 | d4 e fis | g4 2 |
+      gis4 4 4 | a4. 8 4 | a4 a,4 a4 | d2.
+
+    lyrics:
+      - >
+        Great is thy faithfulness, O God my Father,
+        there is no shadow of turning with thee;
+        Thou changest not, thy compassions they fail not;
+        as thou hast been thou forever will be.
+
+      - >
+        Summer and winter and springtime and harvest,
+        sun, moon, and stars in their courses above
+        join with all nature in manifold witness
+        to thy great faithfulness, mercy and love.
+
+      - >
+        Pardon for sin and a peace that endureth,
+        thy own dear presence to cheer and to guide;
+        strength for today and bright hope for tomorrow,
+        blessings all mine, with ten thousand beside!
+
+  - soprano: >
+      a4 a e | g8. fis16 fis2 | b4 b fis | a8. g16 g2 |
+      a4 b cis | d4 a b | cis4 d b | a2. |
+      a4 b cis | d4. cis8 b4 | a4 g fis | fis4 e2 |
+      b'4 cis d | d4. a8 4 | fis4 g c, | d2.
+
+    alto: >
+      c4 4 4 | d8. 16 2 | dis4 4 4 | e8. 16 2 |
+      g4 4 4 | fis4 fis f | e4 fis d | cis2. |
+      g'4 4 4 | fis4. a8 g | fis4 e d | d4 2 |
+      f4 4 4 | fis4. 8 4 | d4 cis a | a2.
+
+    tenor: >
+      e4 e a | b8. a16 2 | a4 fis b | c8. b16 2 |
+      cis4 cis a | a4 a a | a4 a gis | a2. |
+      cis4 cis a | a4. b8 cis4 | d4 b a | a4 a2 |
+      d4 cis b | a4. d8 d4 | a4. d8 d4 | a4 e g | fis2.
+
+    bass: >
+      a4 4 4 | d8. 16 2 | b4 4 4 | e8. 16 2 |
+      a4 4 4 | d,4 4 4 | e4 4 4 | a,2. |
+      a'4 4 4 | d,4. 8 4 | d4 e fis | g4 2 |
+      gis4 4 4 | a4. 8 4 | a,4 4 4 | d2.
+
+    lyrics:
+      - >
+        Great is thy faithfulness! Great is thy faithfulness!
+        Morning by morning new mercies I see;
+        all I have needed thy hand hath provided,
+        great is thy faithfulness, Lord, unto me.
+

@@ -1,0 +1,55 @@
+title: Holy, Holy, Holy!
+poet: Reginald Heber (1783-1826)
+composer: John B. Dykes (1823-1876)
+key: d \major
+time_signature: 4/4
+
+sections:
+  - soprano: >
+      d4 d fis fis | a2 a | b4( b) b b | a2 fis |
+      a4. 8 4 4 | d4( d) cis a | e4 a b4. 8 | a1 |
+      d,4 d fis fis | a4( a) a2 | b4. 8 4 4 | a2 2 |
+      d2 a4 4 | b2 fis2 | g4 e e4. d8 | d1
+
+    alto: >
+      a4 a d d | cis4( e) d( cis) | b4( cis) d e | fis2 d |
+      e4 e fis e | d4( e) e fis | e4 cis d4. c8 | c1 |
+      a4 a d d | cis4( e) d( cis) | b4 cis d e | fis2 d |
+      d2 4 4 | d2 d4( c) | b4 b cis4. d8 | d1
+
+    tenor: >
+      fis4 fis d d | e4( g) fis( a) | g4( a) b cis | d4( a) a2 |
+      a4 4 4 4 | fis4( gis) a a | c4 a gis4. a8 | a2( g) |
+      fis4 fis d d | e4( g) fis( a) | g4( a) b cis | d4( a) fis2 |
+      fis4( g) a c | b2 a | g4 g g4. fis8 | fis1
+
+    bass: >
+      d4 d b b | a2 d | g,4~ 4 g'4 4 | d2 2 |
+      cis4 4 4 4 | b4~ 4 cis d | e4 e e4. a,8 | a1 | 
+      d4 d b b | a2 d | g,4. 8 g'4 4 | d2 2 |
+      b2 fis4 4 | g2 d' | g,4 g a4. d8 | d1
+
+    lyrics:
+      - >
+        Holy, holy, holy! Lord God Almighty!
+        Early in the morning our song shall rise to thee.
+        Holy, holy, holy! merciful and mighty!
+        God in three Persons, blessed Trinity!
+
+      - >
+        Holy, holy, holy! all the saints adore thee,
+        Casting down their golden crowns around the glassy sea.
+        Cherubim and seraphim, falling down before thee,
+        Who was and is and evermore shall be.
+
+      - >
+        Holy, Holy, Holy! though the darkness hide thee,
+        Though the eye of sinful man thy glory may not see,
+        Only thou art holy; there is none beside thee,
+        Perfect in pow'r, in love, and purity.
+
+      - >
+        Holy, holy, holy! Lord God Almighty!
+        All thy works shall praise thy name, in earth, and sky, and sea;
+        Holy, holy, holy! merciful and mighty!
+        God in three Persons, blessed Trinity.

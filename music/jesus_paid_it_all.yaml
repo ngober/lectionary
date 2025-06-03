@@ -1,0 +1,73 @@
+title: Jesus Paid It All
+poet: Elvina M. Hall (1820-1889)
+composer: John T. Grape (1835-1915)
+key: des \major
+time_signature: 3/4
+
+sections:
+  - anacrusis: 4
+    soprano: |
+      des8( f) | aes4. bes8 aes f | des2
+      des4 | es4. 8 des8 es8 | f2
+      des8 f | aes4. bes8 aes f | des2
+      des8 es | f4. ges8 f es | des2.
+
+    alto: |
+      des8( f) | f4. ges8 f des | aes2
+      aes4 | c4. c8 bes c | des2
+      des8 des | f4. ges8 f des | aes2
+      des8 des | des4. es8 des c | des2.
+
+    tenor: |
+      f8( aes) | des4. des8 des aes | f2
+      f4 | aes4. aes8 f aes | aes2
+      fes8 aes | des4. des8 des aes | f2
+      aes8 bes | aes4. aes8 aes ges | f2.
+
+    bass: |
+      des4 | des4. 8 8 8 | des2
+      des4 | aes4. 8 8 8 | des2
+      des8 8 | des4. 8 8 8 | des2
+      f8 ges | aes4. aes,8 8 8 | des2.
+
+    lyrics:
+      - >
+        I hear the Savior say,
+        "Thy strength indeed is small,
+        child of weakness, watch and pray,
+        find in me thine all in all."
+
+      - >
+        Lord, now indeed I find
+        thy pow'r and thine alone
+        can \skip1 change the leper's spots
+        and \skip1 melt the heart of stone
+
+      - >
+        And when, before the throne,
+        I stand in him complete,
+        "Jesus died my soul to save,"
+        my \skip1 lips shall still repeat.
+
+  - title: Refrain
+    soprano: |
+      aes'4. bes8 aes f | des'2. | aes4. bes8 aes f | es2.
+      aes4. bes8 aes f | des'8 c bes4 des | f,4. ges8 f es | des2
+
+    alto: |
+      f4. ges8 f des | f2. | f4. ges8 f des | c2.
+      f4. ges8 f des | f8 aes ges4 des | des4. es8 des c | des2
+
+    tenor: |
+      des'4. des8 des aes | aes2. | des4. des8 des aes | aes2.
+      des4. des8 des aes | aes8 des des4 bes | aes4. aes8 aes aes | f2
+
+    bass: |
+      des4. 8 8 8 | des2. | des4. des8 des f | aes2.
+      des,4. 8 8 8 | des8 f ges4 g | aes4. aes,8 8 8 | des2
+
+    lyrics:
+      - Jesus paid it all, all to him I owe;
+        sin had left a crimson stain, he washed it white as snow
+
+

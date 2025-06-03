@@ -32,6 +32,18 @@ def parse_yaml(fname):
     with open(fname, 'rt') as rfp:
         return yaml.safe_load(rfp)
 
+def syllable_quote_escape(syl):
+    escaped = re.sub('"', r'\\"', syl)
+    return f'"{escaped}"'
+
+def split_by_positions(seq, positions):
+    windows = list(positions)
+    if not windows:
+        return [seq]
+    windows = itertools.chain(((None, positions[0]),), itertools.pairwise(positions), ((positions[-1], None),))
+    windows = (slice(*locs) for locs in windows)
+    return [seq[slc] for slc in windows]
+
 OVERRIDES = dict(map(lambda x: (re.sub('-', '', x), x), pathlib.Path('hyphen.txt').read_text().splitlines()))
 QUOTED_WORD = re.compile(r'"(?:[^"\\]|\\.)*"')
 PUNCTUATED_WORD = re.compile(r'("?)\b([a-zA-Z\']*)\b([;:,.!"]*)')
@@ -45,12 +57,17 @@ def hyphenate(match):
     overridden = OVERRIDES.get(inner_word.lower(), sentinel)
     if overridden is not sentinel:
         positions = [m.start(0) - idx for idx,m in enumerate(re.finditer('-', overridden))]
-        for pos in reversed(positions):
-            inner_word = inner_word[:pos] + LY_HYPEN + inner_word[pos:]
-        return f'{prefix}{inner_word}{suffix}'
+    else:
+        positions = pyphen.Pyphen(lang='en_US').positions(inner_word)
 
-    splitter = pyphen.Pyphen(lang='en_US')
-    return prefix + splitter.inserted(inner_word, hyphen=LY_HYPEN) + suffix
+    inner_word_parts = split_by_positions(inner_word, positions)
+
+    inner_word_parts[0] = prefix + inner_word_parts[0]
+    inner_word_parts[-1] = inner_word_parts[-1] + suffix
+
+    inner_word_parts = [syllable_quote_escape(syl) if '"' in syl else syl for syl in inner_word_parts]
+
+    return LY_HYPEN.join(inner_word_parts)
 
 def filter_quoted_hyphenate(word):
     if QUOTED_WORD.match(word):
