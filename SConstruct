@@ -6,9 +6,8 @@ import contextlib
 import traceback
 
 import jinja2
-import yaml
 
-from util import noisy
+from util import noisy, parse_yaml
 
 AddOption(
     '--draft',
@@ -17,10 +16,6 @@ AddOption(
 )
 
 root = pathlib.Path(Dir('.').srcnode().abspath)
-
-def parse_yaml(fname):
-    with open(fname, 'rt') as rfp:
-        return yaml.safe_load(rfp)
 
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(root / 'templates'),

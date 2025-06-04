@@ -3,18 +3,13 @@ import itertools
 import traceback
 import pathlib
 import contextlib
-import yaml
 import sys
 
 import SCons.Scanner.LaTeX
 from SCons.Builder import Builder
 
 from .esv_api import get_text
-from util import noisy, get_basename
-
-def parse_yaml(fname):
-    with open(fname, 'rt') as rfp:
-        return yaml.safe_load(rfp)
+from util import noisy, get_basename, parse_yaml
 
 def get_first_with_ext(source, ext):
     return str(next(filter(lambda s: str(s).endswith(ext), source)))

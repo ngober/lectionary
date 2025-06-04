@@ -1,7 +1,6 @@
 import os.path
 import re
 import itertools
-import yaml
 import pathlib
 import hashlib
 
@@ -10,7 +9,7 @@ import pyphen
 from SCons.Builder import Builder
 from SCons.Scanner import Scanner
 
-from util import get_basename
+from util import get_basename, parse_yaml
 
 def generate_lilypond(source, target, env, for_signature):
     target_name = os.path.splitext(str(target[0]))[0]
@@ -27,10 +26,6 @@ def render_wrapper(target, source, env):
         'musicpages': [str(f) for f in source[1:]]
     }
     env.Render(target[0], template_name, render_data)
-
-def parse_yaml(fname):
-    with open(fname, 'rt') as rfp:
-        return yaml.safe_load(rfp)
 
 def syllable_quote_escape(syl):
     escaped = re.sub('"', r'\\"', syl)
