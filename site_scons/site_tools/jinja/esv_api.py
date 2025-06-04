@@ -25,23 +25,26 @@ def poetry_indent(lines, short_indent, long_indent):
         return f'\\par\\noindent {l}'
     return list(map(ident, lines))
 
-def indent(text):
-    paragraphs = list(split_paragraph(text))
-    icounts = [indent_counts(p) for p in paragraphs]
-
-    reassembled_paragraphs = []
-    for p,counts in zip(paragraphs, icounts):
-        if len(counts.keys()) == 2:
-            short_indent = min(counts.keys())
-            long_indent = max(counts.keys())
-            if counts[short_indent] >= 0.8*counts[long_indent]:
-                reassembled_paragraphs.append('\n'.join(poetry_indent(p, short_indent, long_indent)))
-            else:
-                reassembled_paragraphs.append('\n'.join(p))
+def indent_paragraph(par):
+    counts = indent_counts(par)
+    if len(counts.keys()) == 2:
+        short_indent = min(counts.keys())
+        long_indent = max(counts.keys())
+        if counts[short_indent] >= 0.5*counts[long_indent]:
+            return '\n'.join(poetry_indent(par, short_indent, long_indent))
         else:
-            reassembled_paragraphs.append('\n'.join(p))
+            return '\n'.join(par)
+    else:
+        return '\n'.join(par)
 
-    return reassembled_paragraphs
+def process_passage(text, address):
+    text = smallcap(text)
+    pars = split_paragraph(text)
+
+    if re.match('Psalm \d*$', address): # TODO also match Psalm \d*:1-
+        pars = pars[1:]
+
+    return [indent_paragraph(p) for p in pars]
 
 def get_text(address):
 
@@ -62,7 +65,7 @@ def get_text(address):
     response = response.json()
 
     addr_to_return = response['canonical']
-    passages = list(itertools.chain.from_iterable(indent(smallcap(r)) for r in response['passages']))
+    passages = list(itertools.chain.from_iterable(process_passage(r, addr_to_return) for r in response['passages']))
 
     return addr_to_return, passages
 

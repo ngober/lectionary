@@ -10,11 +10,10 @@
 {% macro reading(data) -%}
 \subsection*{Read: {{ data.address }}}
 
-{%- set vspace = joiner('\\vspace{8pt}') %}
+{%- set vspace = joiner('\\vspace{6pt}') %}
 {% for paragraph in data.text %}
-{{ paragraph }}
-
 {{ vspace() }}
+{{ paragraph }}
 {% endfor %}
 {%- endmacro %}
 
