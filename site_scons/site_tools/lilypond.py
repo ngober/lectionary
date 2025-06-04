@@ -74,6 +74,15 @@ def process_verse(verse):
     lines = verse.splitlines()
     return '\n'.join(' '.join(map(filter_quoted_hyphenate, line.split())) if not line.strip().startswith('\\') else line for line in lines)
 
+def insert_soft_breaks(part):
+    *head, last = part.splitlines()
+    head = [f'{l} \\allowBreak' if not l.rstrip().endswith('|') else l for l in head]
+    return '\n'.join(head + [last])
+
+def time_signature_cycle(part, time_sigs):
+    measured = zip(itertools.cycle(section['time_signature']), part.split('|'))
+    return '|'.join(f' \\time {ts} {line}' for ts, line in measured)
+
 def render_single(target, source, env):
     source_name = pathlib.Path(str(source[0]))
     tag = hashlib.sha256(source_name.stem.encode()).hexdigest()
@@ -84,9 +93,10 @@ def render_single(target, source, env):
 
     for section in data['sections']:
         section['lyrics'] = [process_verse(verse) for verse in section['lyrics']]
+        #for part in ('soprano', 'alto', 'tenor', 'bass'):
+            #section[part] = insert_soft_breaks(section[part])
         if 'time_signature' in section:
-            measured = zip(itertools.cycle(section['time_signature']), section['soprano'].split('|'))
-            section['soprano'] = '|'.join(f' \\time {ts} {line}' for ts, line in measured)
+            section['soprano'] = time_signature_cycle(section['soprano'], section['time_signature'])
 
     env.Render(target[0], 'templates/hymn.ly.tmp', { "tag": tag, "num_verses": num_verses, **data })
 
