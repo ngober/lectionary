@@ -1,4 +1,5 @@
 import contextlib
+import traceback
 
 class noisy(contextlib.AbstractContextManager, contextlib.ContextDecorator):
     ''' A decorator that always prints exceptions '''
