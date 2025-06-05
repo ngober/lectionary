@@ -37,12 +37,22 @@ def indent_paragraph(par):
     else:
         return '\n'.join(par)
 
+RIGHT_SELAH = '''
+
+\\\\setlength{\\\\parindent}{3in}
+\\\\textit{Selah}
+\\\\setlength{\\\\parindent}{15pt}
+
+'''
 def process_passage(text, address):
     text = smallcap(text)
     pars = split_paragraph(text)
 
-    if re.match('Psalm \d*$', address): # TODO also match Psalm \d*:1-
+    if re.search('Psalm \d*$', address) or re.search('Psalm \d*:1\b', address):
         pars = pars[1:]
+
+    for par in pars:
+        par[-1] = re.sub('Selah$', RIGHT_SELAH, par[-1])
 
     return [indent_paragraph(p) for p in pars]
 
