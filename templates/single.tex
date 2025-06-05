@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\title{For {{ calendar[0].title }}}
+\title{For {{ calendar[0].title }}{% if 'subtitle' in calendar[0] %}\\ {\large\normalfont {{ calendar[0].subtitle }}}{% endif %}}
 \author{}
 \date{}
 

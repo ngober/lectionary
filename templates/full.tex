@@ -17,7 +17,7 @@
 {% for event in calendar %}
   \newpage
   \addcontentsline{toc}{section}{For {{ event.title }}}
-  \section*{For {{ event.title }}}
+  \section*{For {{ event.title }}{% if 'subtitle' in event %}\\ {\large\normalfont {{ event.subtitle }}}{% endif %}}
   \input{../body/{{ event.basename }}.tex}
 
 {% endfor %}
