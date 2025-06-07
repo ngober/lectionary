@@ -98,7 +98,7 @@ def render_single(target, source, env):
         if 'time_signature' in section:
             section['soprano'] = time_signature_cycle(section['soprano'], section['time_signature'])
 
-    env.Render(target[0], 'templates/hymn.ly.tmp', { "tag": tag, "num_verses": num_verses, **data })
+    env.Render(target[0], '../templates/hymn.ly.tmp', { "tag": tag, "num_verses": num_verses, **data })
 
 def add_musicpages(target, source, env):
     data_src_name = [f'body/{evt["basename"]}.yaml' for evt in env['calendar_events']]

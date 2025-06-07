@@ -1,0 +1,3 @@
+Import('env')
+for source in env.Glob('*.yaml'):
+    env.Body(source)

@@ -1,0 +1,11 @@
+import pathlib
+
+Import('env')
+env.Lilypond('come_ye_sinners_poor_and_needy.ly')
+
+for source in env.Glob('*.yaml'):
+    target = pathlib.Path(str(source)).with_suffix('.ly')
+    ly_single_target = env.LilypondSingle(target=str(target), source=source)
+    env.Lilypond(target=str(target.with_suffix('.pdf')), source=ly_single_target) # Used for debugging
+
+

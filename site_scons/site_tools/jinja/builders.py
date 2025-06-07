@@ -19,7 +19,7 @@ def add_template_name(target, source, env):
     templates = [f'templates/{event_data.get("season", "body")}.tex' for event_data in env['calendar_events']]
     templates = [temp for temp in templates if os.path.exists(temp)]
     if not templates:
-        templates = ['templates/body.tex']
+        templates = ['../templates/body.tex']
     source.extend(templates)
     return target, source
 

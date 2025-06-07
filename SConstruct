@@ -24,7 +24,6 @@ jinja_env = jinja2.Environment(
 
 calendar = File(str(root / 'calendar.yaml'))
 calendar_data = sorted(parse_yaml(str(calendar)), key=operator.itemgetter('week'))
-data_nodes = { event['basename']: File(f'body/{event["basename"]}')  for event in calendar_data }
 
 env = Environment(BUILDERS={
                       'TwoUp': Builder(
@@ -56,19 +55,11 @@ def Build(env, directory, basename, sources):
 AddMethod(env, Build)
 
 def BuildSingle(env, basename):
-    env.Body(f'body/{basename}')
     wrapper_sources = ['templates/single.tex']
     pdffile = env.Build('single', basename, wrapper_sources)
     return env.TwoUp(f'single/{basename}_2up.pdf', f'single/{basename}.pdf')
 
 AddMethod(env, BuildSingle)
-
-env.Lilypond('music/come_ye_sinners_poor_and_needy.ly')
-
-for source in env.Glob('music/*.yaml'):
-    target = pathlib.Path(str(source)).with_suffix('.ly')
-    ly_single_target = env.LilypondSingle(target=str(target), source=source)
-    env.Lilypond(target=str(target.with_suffix('.pdf')), source=ly_single_target) # Used for debugging
 
 for event in calendar_data:
     event_file = File(f'body/{event["basename"]}.yaml')
@@ -77,3 +68,4 @@ for event in calendar_data:
 
 env.Build('full', 'full', ['templates/full.tex'])
 Decider('timestamp-match')
+SConscript(['body/SConscript', 'music/SConscript'], exports='env')
