@@ -6,9 +6,9 @@ time_signature: 4/4
 
 sections:
   - soprano: >
-      d4 d fis fis | a2 a | b4( b) b b | a2 fis |
-      a4. 8 4 4 | d4( d) cis a | e4 a b4. 8 | a1 |
-      d,4 d fis fis | a4( a) a2 | b4. 8 4 4 | a2 2 |
+      d4 d fis fis | a2 a | b4 b b b | a2 fis |
+      a4. 8 4 4 | d4 d cis a | e4 a b4. 8 | a1 |
+      d,4 d fis fis | a4 a a2 | b4. 8 4 4 | a2 2 |
       d2 a4 4 | b2 fis2 | g4 e e4. d8 | d1
 
     alto: >
@@ -31,9 +31,9 @@ sections:
 
     lyrics:
       - >
-        Holy, holy, holy! Lord God Almighty!
-        Early in the morning our song shall rise to thee.
-        Holy, holy, holy! merciful and mighty!
+        Holy, holy, holy! Lord __ \skip1 God Almighty!
+        Early in the mor -- \skip1 ning our song shall rise to thee.
+        Holy, holy, ho -- \skip1 ly! merciful and mighty!
         God in three Persons, blessed Trinity!
 
       - >
@@ -45,11 +45,11 @@ sections:
       - >
         Holy, Holy, Holy! though the darkness hide thee,
         Though the eye of sinful man thy glory may not see,
-        Only thou art holy; there is none beside thee,
+        Only thou art ho -- \skip1 ly; there is none beside thee,
         Perfect in pow'r, in love, and purity.
 
       - >
-        Holy, holy, holy! Lord God Almighty!
+        Holy, holy, holy! Lord __ \skip1 God Almighty!
         All thy works shall praise thy name, in earth, and sky, and sea;
-        Holy, holy, holy! merciful and mighty!
+        Holy, holy, ho -- \skip1 ly! merciful and mighty!
         God in three Persons, blessed Trinity.
