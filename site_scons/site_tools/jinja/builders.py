@@ -16,10 +16,10 @@ def get_first_with_ext(source, ext):
 
 def add_template_name(target, source, env):
     target_name = pathlib.Path(str(target[0]))
-    templates = [f'templates/{event_data.get("season", "body")}.tex' for event_data in env['calendar_events']]
+    templates = [f'templates/{event_data.get("season", "body")}.tex.tmp' for event_data in env['calendar_events']]
     templates = [temp for temp in templates if os.path.exists(temp)]
     if not templates:
-        templates = ['../templates/body.tex']
+        templates = ['../templates/body.tex.tmp']
     source.extend(templates)
     return target, source
 
@@ -43,14 +43,14 @@ def normalize_yaml(parsed, draft=False):
 
 @noisy()
 def render_body(target, source, env):
-    template_name = pathlib.Path(get_first_with_ext(source, '.tex'))
+    template_name = pathlib.Path(get_first_with_ext(source, '.tex.tmp'))
     data_src_name = pathlib.Path(get_first_with_ext(source, '.yaml'))
     data = normalize_yaml(parse_yaml(data_src_name), env['DRAFT'])
     env.Render(target[0], template_name, data)
 
 @noisy()
 def render_wrapper(target, source, env):
-    template_name = pathlib.Path(get_first_with_ext(source, '.tex'))
+    template_name = pathlib.Path(get_first_with_ext(source, '.tex.tmp'))
     hymnal_name = pathlib.Path(get_first_with_ext(source, '.pdf'))
     render_data = {
         'calendar': env['calendar_events'],

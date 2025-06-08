@@ -5,10 +5,13 @@
 \date{}
 
 \usepackage{lilypondtoc}
+\usepackage{geometry}
 {% block packages %}
 \usepackage{lipsum}
 \usepackage{pdfpages}
 {% endblock %}
+
+\input{geometry.tex}
 
 \begin{document}
 \tableofcontents

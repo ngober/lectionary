@@ -1,13 +1,41 @@
 body/*.tex
-single/
-full/
 
-venv/
+single/*.tex
+single/*.ly
+full/*.tex
+full/*.ly
+
+## Core latex/pdflatex auxiliary files:
+**/*.aux
+**/*.lof
+**/*.log
+**/*.lot
+**/*.fls
+**/*.out
+**/*.toc
+**/*.fmt
+**/*.fot
+**/*.cb
+**/*.cb2
+**/.*.lb
+
+## Intermediate documents:
+**/*.dvi
+**/*.xdv
+**/*.pdf
+
+## Bibliography auxiliary files (bibtex/biblatex/biber):
+**/*.bbl
+**/*.bcf
+**/*.blg
+
+## Build tool auxiliary files:
+**/*.fdb_latexmk
+**/*.synctex.gz
 
 **/__pycache__/
 .sconsign.dblite
 
-music/*.pdf
 music/*.ly
 
 *~

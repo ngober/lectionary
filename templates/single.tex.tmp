@@ -11,12 +11,7 @@
 \usepackage{pdfpages}
 {% endblock %}
 
-\geometry{
-  top=0.25in,
-  bottom=0.25in,
-  left=0.75in,
-  right=0.25in,
-}
+\input{geometry.tex}
 
 \begin{document}
 \maketitle

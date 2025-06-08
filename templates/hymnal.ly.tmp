@@ -22,11 +22,8 @@
         (close-output-port outfile)
         (ly:message "Printed TOC information to `~a'" outfilename)))))
 
+\include "geometry.ly"
 \paper {
-    top-margin = 1.5\in
-    bottom-margin = 1.25\in
-    left-margin = 1\in
-    right-margin = 1\in
     print-all-headers = ##t
     print-page-number = ##f
 

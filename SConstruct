@@ -30,7 +30,7 @@ env = Environment(BUILDERS={
                           action="pdfjam --nup 2x1 --landscape --clip true --outfile $TARGET $SOURCE"
                       )
                   },
-                  tools=['default', 'lilypond', 'jinja'],
+                  tools=['default', 'lilypond', 'jinja', 'geometry'],
                   jinja_env=jinja_env,
                   calendar_events=calendar_data,
                   DRAFT=GetOption('draft'))
@@ -55,7 +55,7 @@ def Build(env, directory, basename, sources):
 AddMethod(env, Build)
 
 def BuildSingle(env, basename):
-    wrapper_sources = ['templates/single.tex']
+    wrapper_sources = ['templates/single.tex.tmp']
     pdffile = env.Build('single', basename, wrapper_sources)
     return env.TwoUp(f'single/{basename}_2up.pdf', f'single/{basename}.pdf')
 
@@ -66,6 +66,12 @@ for event in calendar_data:
     if event_file.exists():
         env.Clone(calendar_events=[event]).BuildSingle(event['basename'])
 
-env.Build('full', 'full', ['templates/full.tex'])
+env.LyGeometry('single/geometry')
+env.TexGeometry('single/geometry')
+
+env.LyGeometry('full/geometry')
+env.TexGeometry('full/geometry')
+
+env.Build('full', 'full', ['templates/full.tex.tmp'])
 Decider('timestamp-match')
 SConscript(['body/SConscript', 'music/SConscript'], exports='env')
