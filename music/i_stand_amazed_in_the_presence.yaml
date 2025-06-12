@@ -5,49 +5,21 @@ time_signature: 4/4
 
 sections:
   - anacrusis: 4
-    soprano: >
-      es4 |
-      es4. c8 es4 as8 bes8 |
-      c2 as4 as4 |
-      g4 g8 g8 as4 bes4 |
-      as2. es4 |
-      f4. f8 as4 g8 f8 |
-      es2 as4 bes4 |
-      c4 c8 c8 bes4 bes4 |
-      as1
+    soprano: |
+      es4 | es4. c8 es4 as8 bes8 | c2 as4 as4 | g4 g8 g8 as4 bes4 | as2.
+      es4 | f4. f8 as4 g8 f8 | es2 as4 bes4 | c4 c8 c8 bes4 bes4 | as1
 
-    alto: >
-      c4 |
-      c4. c8 c4 c8 des8 |
-      es2 c4 es4 |
-      es4 es8 es8 es4 es4 |
-      es2. c4 |
-      des4. des8 f4 es8 des8 |
-      c2 es4 f4 |
-      es4 es8 es8 des4 des4 |
-      c1
+    alto: |
+      c4 | c4. c8 c4 c8 des8 | es2 c4 es4 | es4 es8 es8 es4 es4 | es2.
+      c4 | des4. des8 f4 es8 des8 | c2 es4 f4 | es4 es8 es8 des4 des4 | c1
 
-    tenor: >
-      as4 |
-      as4. es8 as4 as8 as8 |
-      as2 as4 as4 |
-      bes4 bes8 bes8 c4 des4 |
-      c2. as4 |
-      as4. as8 as4 as8 as8 |
-      as2 as4 as4 |
-      as4 as8 as8 g4 g4 |
-      as1
+    tenor: |
+      as4 | as4. es8 as4 as8 as8 | as2 as4 as4 | bes4 bes8 bes8 c4 des4 | c2.
+      as4 | as4. as8 as4 as8 as8 | as2 as4 as4 | as4 as8 as8 g4 g4 | as1
 
-    bass: >
-      as4 |
-      as4. as8 as4 as8 as8 |
-      as2 as4 c4 |
-      es4 es8 es8 es4 es4 |
-      as,2. as4 |
-      des4. des8 des4 des8 des8 |
-      as2 c4 des4 |
-      es4 es8 es8 es4 es4 |
-      as,1
+    bass: |
+      as4 | as4. as8 as4 as8 as8 | as2 as4 c4 | es4 es8 es8 es4 es4 | as,2.
+      as4 | des4. des8 des4 des8 des8 | as2 c4 des4 | es4 es8 es8 es4 es4 | as,1
 
     lyrics:
       - >
@@ -78,11 +50,11 @@ sections:
   - title: Refrain
     soprano: >
       c2 c8 bes8 as4 |
-      es2 es8 des8 c4 |
+      es'2 es8 des8 c4 |
       bes4 bes4 bes4. c8 |
       des4 c4 bes2 |
       c2 c8 bes8 as4 |
-      es2 es8 des8 c4 |
+      es'2 es8 des8 c4 |
       bes4 c8 ( des8 ) c4. bes8 |
       as4 g4 as4
 
@@ -109,11 +81,11 @@ sections:
     bass: >
       as4 as4 as8 as8 as4 |
       as4 as4 as8 as8 as4 |
-      es4 es4 es4. es8 |
+      es'4 es4 es4. es8 |
       es4 es4 es2 |
       as,4 as4 as8 as8 as4 |
       as4 as4 as8 as8 as4 |
-      des,4 des4 es4. es8 |
+      des4 des4 es4. es8 |
       es4 es4 as,4
 
     lyrics:

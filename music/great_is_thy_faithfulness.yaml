@@ -9,7 +9,7 @@ sections:
       fis4 4 4 | fis4. e8 4 | g4 g g | g4 fis2 |
       b4 cis b | a4. g8 fis4 | e4 fis gis | a2. |
       a4 b cis | d4. cis8 b4 | a4 g fis | fis4 e2 |
-      b4 cis d | d4. a8 a4 | fis4 fis e | d2.
+      b'4 cis d | d4. a8 a4 | fis4 fis e | d2.
 
     alto: >
       d4 4 4 | d4. 8 4 | cis4 d e | d4 d2 |
@@ -24,9 +24,9 @@ sections:
       d4 cis b | a4. d8 d4 | a4 a g | fis2.
 
     bass: >
-      d4 d d | g'4. 8 4 | a4 a a | d4 2 |
+      d4 d d | g4. 8 4 | a,4 a a | d4 2 |
       g4 g g | fis4. e8 d4 | b4 b e | a2. |
-      a'4 4 4 | d,4. 8 4 | d4 e fis | g4 2 |
+      a4 4 4 | d,4. 8 4 | d4 e fis | g4 2 |
       gis4 4 4 | a4. 8 4 | a4 a,4 a4 | d2.
 
     lyrics:
@@ -49,7 +49,7 @@ sections:
         blessings all mine, with ten thousand beside!
 
   - soprano: >
-      a4 a e | g8. fis16 fis2 | b4 b fis | a8. g16 g2 |
+      a'4 a e | g8. fis16 fis2 | b4 b fis | a8. g16 g2 |
       a4 b cis | d4 a b | cis4 d b | a2. |
       a4 b cis | d4. cis8 b4 | a4 g fis | fis4 e2 |
       b'4 cis d | d4. a8 4 | fis4 g c, | d2.
@@ -57,7 +57,7 @@ sections:
     alto: >
       c4 4 4 | d8. 16 2 | dis4 4 4 | e8. 16 2 |
       g4 4 4 | fis4 fis f | e4 fis d | cis2. |
-      g'4 4 4 | fis4. a8 g | fis4 e d | d4 2 |
+      g'4 4 4 | fis4. a8 g4 | fis4 e d | d4 2 |
       f4 4 4 | fis4. 8 4 | d4 cis a | a2.
 
     tenor: >
