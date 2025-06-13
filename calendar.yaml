@@ -1,175 +1,155 @@
----
-  - title: the First Week of Advent
-    week: 1
-    season: advent
-    basename: advent1
+- season: advent
+  title: The Season of Advent
+  weeks:
+    - title: the First Week of Advent
+      week: 1
+      basename: advent1
 
-  - title: the Second Week of Advent
-    week: 2
-    season: advent
-    basename: advent2
+    - title: the Second Week of Advent
+      week: 2
+      basename: advent2
 
-  - title: the Third Week of Advent
-    week: 3
-    season: advent
-    basename: advent3
+    - title: the Third Week of Advent
+      week: 3
+      basename: advent3
 
-  - title: the Fourth Week of Advent
-    week: 4
-    season: advent
-    basename: advent4
+    - title: the Fourth Week of Advent
+      week: 4
+      basename: advent4
 
-  - title: the First Week After Christmas
-    week: 5
-    season: christmas
-    basename: christmas1
+- season: christmas
+  title: The Season of Christmas
+  weeks:
+    - title: the First Week After Christmas
+      week: 5
+      basename: christmas1
 
       #- title: the Second Week After Christmas
       #week: 6
-      #season: christmas
       #basename: christmas2
 
       #- title: Epiphany
       #week: 6.1
-      #season: epiphany
       #basename: epiphany
 
+- season: lent
+  title: The Season of Lent
+  weeks:
+      #  - title: the First Week of Lent
+      #week: 16
+      #basename: lent1
+
+    - title: the Second Week of Lent
+      week: 17
+      basename: lent2
+
+    - title: the Third Week of Lent
+      week: 18
+      basename: lent3
+
+    - title: the Fourth Week of Lent
+      week: 19
+      basename: lent4
+
+    - title: the Fifth Week of Lent
+      week: 20
+      basename: lent5
+
+    - title: Palm Sunday
+      subtitle: The Sixth Week of Lent
+      week: 21
+      basename: lent6
+
+- season: easter
+  title: The Season of Easter
+  weeks:
+    - title: Resurrection Sunday
+      week: 22
+      basename: easter
+
+    - title: the Third Week after Easter
+      week: 25
+      basename: easter3
+
+    - title: the Fourth Week after Easter
+      week: 26
+      basename: easter4
+
+    - title: the Sixth Week after Easter
+      week: 28
+      basename: easter6
+
+    - title: Ascension Sunday
+      week: 29
+      basename: ascension
+
+    - title: the Day of Pentecost
+      week: 30
+      basename: pentecost
+
+- season: ordinary
+  title: Ordinary Time
+  weeks:
       #- title: the First Week after Epiphany
       #week: 7
-      #season: ordinary
       #basename: ordinary1
 
       #- title: the Second Week after Epiphany
       #week: 8
-      #season: ordinary
       #basename: ordinary2
 
       #- title: the Third Week after Epiphany
       #week: 9
-      #season: ordinary
       #basename: ordinary3
 
       #- title: the Fourth Week after Epiphany
       #week: 10
-      #season: ordinary
       #basename: ordinary4
 
       #- title: the Fifth Week after Epiphany
       #week: 11
-      #season: ordinary
       #basename: ordinary5
 
       #- title: the Sixth Week after Epiphany
       #week: 12
-      #season: ordinary
       #basename: ordinary6
 
       #- title: the Seventh Week after Epiphany
       #week: 13
-      #season: ordinary
       #basename: ordinary7
 
       #- title: the Eighth Week after Epiphany
       #week: 14
-      #season: ordinary
       #basename: ordinary8
 
       #- title: the Ninth Week after Epiphany
       #week: 15
-      #season: ordinary
       #basename: ordinary9
 
-      #  - title: the First Week of Lent
-      #week: 16
-      #season: lent
-      #basename: lent1
+    - title: PLACEHOLDER
+      subtitle: On Wisdom
+      week: 31
+      basename: ordinary1
 
-  - title: the Second Week of Lent
-    week: 17
-    season: lent
-    basename: lent2
+    - title: PLACEHOLDER
+      week: 32
+      basename: ordinary2
 
-  - title: the Third Week of Lent
-    week: 18
-    season: lent
-    basename: lent3
+    - title: PLACEHOLDER
+      subtitle: On the Foolishness of Faith
+      week: 33
+      basename: ordinary3
 
-  - title: the Fourth Week of Lent
-    week: 19
-    season: lent
-    basename: lent4
+    - title: PLACEHOLDER
+      subtitle: On the Eternal Hope of the Faithful
+      week: 34
+      basename: ordinary4
 
-  - title: the Fifth Week of Lent
-    week: 20
-    season: lent
-    basename: lent5
+    - title: Thanksgiving Day
+      week: 59
+      basename: ordinary29
 
-  - title: Palm Sunday
-    subtitle: The Sixth Week of Lent
-    week: 21
-    season: lent
-    basename: lent6
-
-  - title: Resurrection Sunday
-    week: 22
-    season: easter
-    basename: easter
-
-  - title: the Third Week after Easter
-    week: 25
-    season: easter
-    basename: easter3
-
-  - title: the Fourth Week after Easter
-    week: 26
-    season: easter
-    basename: easter4
-
-  - title: the Sixth Week after Easter
-    week: 28
-    season: easter
-    basename: easter6
-
-  - title: Ascension Sunday
-    week: 29
-    season: easter
-    basename: ascension
-
-  - title: the Day of Pentecost
-    week: 30
-    season: pentecost
-    basename: pentecost
-
-  - title: PLACEHOLDER
-    subtitle: On Wisdom
-    week: 31
-    season: ordinary
-    basename: ordinary1
-
-  - title: PLACEHOLDER
-    week: 32
-    season: ordinary
-    basename: ordinary2
-
-  - title: PLACEHOLDER
-    subtitle: On the Foolishness of Faith
-    week: 33
-    season: ordinary
-    basename: ordinary3
-
-  - title: PLACEHOLDER
-    subtitle: On the Eternal Hope of the Faithful
-    week: 34
-    season: ordinary
-    basename: ordinary4
-
-  - title: Thanksgiving Day
-    week: 59
-    season: ordinary
-    basename: ordinary29
-
-  - title: Last Week After Pentecost
-    subtitle: Christ the King
-    week: 60
-    season: ordinary
-    basename: ordinary30
+    - title: Last Week After Pentecost
+      subtitle: Christ the King
+      week: 60
+      basename: ordinary30

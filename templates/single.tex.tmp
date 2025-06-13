@@ -1,6 +1,7 @@
 \documentclass{article}
+{% set event = calendar[0]['weeks'][0] %}
 
-\title{For {{ calendar[0].title }}{% if 'subtitle' in calendar[0] %}\\ {\large\normalfont {{ calendar[0].subtitle }}}{% endif %}}
+\title{For {{ event.title }}{% if 'subtitle' in event %}\\ {\large\normalfont {{ event.subtitle }}}{% endif %}}
 \author{}
 \date{}
 
@@ -16,7 +17,7 @@
 \begin{document}
 \maketitle
 
-\input{../body/{{ calendar[0].basename }}.tex}
+\input{../body/{{ event.basename }}.tex}
 
 \newpage
 \includescore{{ '{' }}{{ hymnal_name }}}

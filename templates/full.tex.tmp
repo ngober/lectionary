@@ -13,21 +13,31 @@
 
 \input{geometry.tex}
 
+% Forward-declare \oldnumberline to stash the \numberline command
+% used for hymnal numbers
+\let\oldnumberline\numberline
+
 \begin{document}
 \tableofcontents
 \maketitle
+\newpage
 
-{% for event in calendar %}
-  \newpage
-  \addcontentsline{toc}{section}{For {{ event.title }}}
-  \section*{For {{ event.title }}{% if 'subtitle' in event %}\\ {\large\normalfont {{ event.subtitle }}}{% endif %}}
+{% for season in calendar %}
+  \addcontentsline{toc}{section}{{ '{' }}{{ season.title }}}
+  \section*{{ '{' }}{{ season.title }}}
+{% for event in season.weeks %}
+  \addcontentsline{toc}{subsection}{For {{ event.title }}}
+  \subsection*{For {{ event.title }}{% if 'subtitle' in event %}\\ {\large\normalfont {{ event.subtitle }}}{% endif %}}
   \input{../body/{{ event.basename }}.tex}
 
+  \newpage
+{% endfor %}
 {% endfor %}
 
-\newpage
 \addcontentsline{toc}{section}{Hymnal}
+\addtocontents{toc}{\protect\renewcommand{\protect\numberline}[1]{}}
 \includescore{{ '{' }}{{ hymnal_name }}}
+\addtocontents{toc}{\let\protect\numberline\protect\oldnumberline}
 \end{document}
 
 

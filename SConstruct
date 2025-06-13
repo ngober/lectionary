@@ -23,7 +23,7 @@ jinja_env = jinja2.Environment(
 )
 
 calendar = File(str(root / 'calendar.yaml'))
-calendar_data = sorted(parse_yaml(str(calendar)), key=operator.itemgetter('week'))
+calendar_data = parse_yaml(str(calendar))
 
 env = Environment(BUILDERS={
                       'TwoUp': Builder(
@@ -61,10 +61,11 @@ def BuildSingle(env, basename):
 
 AddMethod(env, BuildSingle)
 
-for event in calendar_data:
-    event_file = File(f'body/{event["basename"]}.yaml')
-    if event_file.exists():
-        env.Clone(calendar_events=[event]).BuildSingle(event['basename'])
+for season in calendar_data:
+    for event in season['weeks']:
+        event_file = File(f'body/{event["basename"]}.yaml')
+        if event_file.exists():
+            env.Clone(calendar_events=[{**season, 'weeks': [event]}]).BuildSingle(event['basename'])
 
 env.LyGeometry('single/geometry')
 env.TexGeometry('single/geometry')
