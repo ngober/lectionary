@@ -105,7 +105,10 @@ def add_musicpages(target, source, env):
     calendar_events = itertools.chain.from_iterable(season['weeks'] for season in env['calendar_events'])
     data_src_name = [f'body/{evt["basename"]}.yaml' for evt in calendar_events]
     data = map(parse_yaml, data_src_name)
-    source.extend(sorted(set(f'music/{get_basename(mus)}.ly' for mus in itertools.chain(*((evt.get('musicpages') or []) for evt in data)))))
+    musicsets = itertools.chain.from_iterable(evt.get('musicpages') or [] for evt in data)
+    musicpages = sorted(set(f'music/{get_basename(mus)}.ly' for mus in musicsets))
+    source.extend(musicpages)
+    target.append(str(pathlib.Path(str(target[0])).with_suffix('.toc')))
     return target, source
 
 def generate(env):
