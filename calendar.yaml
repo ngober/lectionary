@@ -20,6 +20,10 @@
 - season: christmas
   title: The Season of Christmas
   weeks:
+    - title: Christmas Day
+      week: 4.1
+      basename: christmas
+
     - title: the First Week After Christmas
       week: 5
       basename: christmas1

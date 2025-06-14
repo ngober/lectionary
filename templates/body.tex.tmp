@@ -24,14 +24,17 @@
   {% endfor %}
 {% endblock presong_readings %}
 
+{%- if musicpages is defined %}
 \subsubsection*{Sing one or more of the following}
 \begin{itemize}
 {% for musicname, musiclabel in musicpages.items() %}
 \item {{ musicname }} (pg. \pageref{mus:{{ musiclabel }}})
 {% endfor %}
 \end{itemize}
-\vspace{8pt}
+%\vspace{8pt}
+{%- endif %}
 
+{%- if lordsprayer %}
 \subsubsection*{Pray the following together}
 
 \begin{quote} \itshape
@@ -43,6 +46,7 @@
   For yours is the kingdom, the power, and the glory forever and ever,\\
   Amen.
 \end{quote}
+{%- endif %}
 
 {% block postsong_readings %}
   {% for r in postsong_readings %}

@@ -36,9 +36,11 @@ def augment_readings(readings, draft=False):
 
 def normalize_yaml(parsed, draft=False):
     readings = augment_readings(parsed['readings'], draft)
-    parsed['musicpages'] = { name: get_basename(name) for name in (parsed.get('musicpages') or []) }
+    if 'musicpages' in parsed:
+        parsed['musicpages'] = { name: get_basename(name) for name in (parsed.get('musicpages') or []) }
     parsed['presong_readings'] = readings[:len(readings)//2]
     parsed['postsong_readings'] = readings[len(readings)//2:]
+    parsed['lordsprayer'] = parsed.get('lordsprayer', True)
     return parsed
 
 @noisy()
