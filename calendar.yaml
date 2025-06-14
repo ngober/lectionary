@@ -71,6 +71,14 @@
       week: 22
       basename: easter
 
+        #- title: the First Week after Easter
+        #week: 23
+        #basename: easter1
+
+        #- title: the Second Week after Easter
+        #week: 24
+        #basename: easter2
+
     - title: the Third Week after Easter
       week: 25
       basename: easter3
@@ -79,11 +87,16 @@
       week: 26
       basename: easter4
 
+        #- title: the Fifth Week after Easter
+        #week: 27
+        #basename: easter5
+
     - title: the Sixth Week after Easter
       week: 28
       basename: easter6
 
     - title: Ascension Sunday
+      subtitle: Fourty Days after Easter
       week: 29
       basename: ascension
 
@@ -149,11 +162,21 @@
       week: 34
       basename: ordinary4
 
+    - title: PLACEHOLDER
+      subtitle: On Holy Communion
+      week: 35
+      basename: ordinary5
+
+    - title: the Week of October 1
+      subtitle: Nathan and Rachel Gober's Wedding Anniversary
+      week: 52
+      basename: ordinary22
+
     - title: Thanksgiving Day
       week: 59
       basename: ordinary29
 
-    - title: Last Week After Pentecost
+    - title: the Week of November 28
       subtitle: Christ the King
       week: 60
       basename: ordinary30
