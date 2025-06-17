@@ -10,7 +10,7 @@
                     (label-page (and (list? label-table)
                                      (assoc (car toc-item) label-table)))
                     (page (and label-page (cdr label-page))))
-               (format #f "~a, subsection, 1, {~a}, ~(~a~)" page text label))))
+               (format #f "~a, section, 1, {~a}, ~(~a~)" page text label))))
              (formatted-toc-items (map format-line (toc-items)))
              (whole-string (string-join formatted-toc-items ",\n"))
              (output-name (ly:parser-output-name))

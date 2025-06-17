@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{book}
 
 \title{test title}
 \author{}
@@ -16,15 +16,21 @@
 \let\oldnumberline\numberline
 
 \begin{document}
-\tableofcontents
+\frontmatter
+%Half-title
+\cleardoublepage
 \maketitle
-\newpage
+%Information (copyright notice, ISBN, etc.)
+%Dedication if any, else empty
+\tableofcontents
 
+\mainmatter
+\addcontentsline{toc}{chapter}{Readings}
 \input{fulltext.tex}
 
-\addcontentsline{toc}{section}{Hymnal}
+\addcontentsline{toc}{chapter}{Hymnal}
 \addtocontents{toc}{\protect\renewcommand{\protect\numberline}[1]{}}
-\includescore{fulltext_hymnal.pdf}
+\includescore{fulltext_hymnal}
 \addtocontents{toc}{\let\protect\numberline\protect\oldnumberline}
 \end{document}
 
