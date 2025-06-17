@@ -15,6 +15,12 @@ AddOption(
     help='Build in draft form'
 )
 
+AddOption(
+    '--twoup',
+    action='store_true',
+    help='Build in 2up form'
+)
+
 root = pathlib.Path(Dir('.').srcnode().abspath)
 
 jinja_env = jinja2.Environment(
@@ -50,22 +56,20 @@ def Build(env, directory, basename, sources):
     music_file = env.Lilypond(f'{directory}/{basename}_hymnal', music_wrapper)
     texfile = env.Wrapper(f'{directory}/{basename}', sources + music_file)
     env.Depends(texfile, calendar) # rebuild if calendar changed, but does not appear in sources
-    return env.PDF(f'{directory}/{basename}', texfile)
+    if GetOption('twoup'):
+        oneup_pdf = env.PDF(f'{directory}/{basename}_1up.pdf', texfile)
+        pdf_result = env.TwoUp(f'{directory}/{basename}.pdf', oneup_pdf)
+    else:
+        pdf_result = env.PDF(f'{directory}/{basename}', texfile)
+    return pdf_result
 
 AddMethod(env, Build)
-
-def BuildSingle(env, basename):
-    wrapper_sources = ['templates/single.tex.tmp']
-    pdffile = env.Build('single', basename, wrapper_sources)
-    return env.TwoUp(f'single/{basename}_2up.pdf', f'single/{basename}.pdf')
-
-AddMethod(env, BuildSingle)
 
 for season in calendar_data:
     for event in season['weeks']:
         event_file = File(f'body/{event["basename"]}.yaml')
         if event_file.exists():
-            env.Clone(calendar_events=[{**season, 'weeks': [event]}]).BuildSingle(event['basename'])
+            env.Clone(calendar_events=[{**season, 'weeks': [event]}]).Build('single', event['basename'], ['templates/single.tex.tmp'])
 
 env.LyGeometry('single/geometry')
 env.TexGeometry('single/geometry')
