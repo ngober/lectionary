@@ -1,0 +1,31 @@
+\documentclass{article}
+
+\title{test title}
+\author{}
+\date{}
+
+\usepackage{lilypondtoc}
+\usepackage{geometry}
+\usepackage{lipsum}
+\usepackage{pdfpages}
+
+\input{geometry.tex}
+
+% Forward-declare \oldnumberline to stash the \numberline command
+% used for hymnal numbers
+\let\oldnumberline\numberline
+
+\begin{document}
+\tableofcontents
+\maketitle
+\newpage
+
+\input{fulltext.tex}
+
+\addcontentsline{toc}{section}{Hymnal}
+\addtocontents{toc}{\protect\renewcommand{\protect\numberline}[1]{}}
+\includescore{fulltext_hymnal.pdf}
+\addtocontents{toc}{\let\protect\numberline\protect\oldnumberline}
+\end{document}
+
+

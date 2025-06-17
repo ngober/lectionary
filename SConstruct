@@ -77,6 +77,7 @@ env.TexGeometry('single/geometry')
 env.LyGeometry('full/geometry')
 env.TexGeometry('full/geometry')
 
-env.Build('full', 'full', ['templates/full.tex.tmp'])
+env.Build('full', 'fulltext', ['templates/full.tex.tmp'])
+env.PDF('full/full.pdf', 'full/full.tex')
 Decider('timestamp-match')
 SConscript(['body/SConscript', 'music/SConscript'], exports='env')

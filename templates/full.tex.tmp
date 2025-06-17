@@ -1,27 +1,3 @@
-\documentclass{article}
-
-\title{test title}
-\author{}
-\date{}
-
-\usepackage{lilypondtoc}
-\usepackage{geometry}
-{% block packages %}
-\usepackage{lipsum}
-\usepackage{pdfpages}
-{% endblock %}
-
-\input{geometry.tex}
-
-% Forward-declare \oldnumberline to stash the \numberline command
-% used for hymnal numbers
-\let\oldnumberline\numberline
-
-\begin{document}
-\tableofcontents
-\maketitle
-\newpage
-
 {% for season in calendar %}
   \addcontentsline{toc}{section}{{ '{' }}{{ season.title }}}
   \section*{{ '{' }}{{ season.title }}}
@@ -33,11 +9,4 @@
   \newpage
 {% endfor %}
 {% endfor %}
-
-\addcontentsline{toc}{section}{Hymnal}
-\addtocontents{toc}{\protect\renewcommand{\protect\numberline}[1]{}}
-\includescore{{ '{' }}{{ hymnal_name }}}
-\addtocontents{toc}{\let\protect\numberline\protect\oldnumberline}
-\end{document}
-
 

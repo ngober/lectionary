@@ -4,6 +4,7 @@ single/*.tex
 single/*.ly
 full/*.tex
 full/*.ly
+!full/full.tex
 
 ## Core latex/pdflatex auxiliary files:
 **/*.aux
