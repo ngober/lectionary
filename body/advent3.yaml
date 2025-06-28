@@ -1,46 +1,11 @@
----
-  readings:
-    #- address: Isaiah 7:14
-    #  text: |
-    #    ``Therefore the Lord himself will give you a sign. Behold, the virgin shall conceive and bear a son, and shall call his name Immanuel.''
+readings:
+  #- Isaiah 7:14
+  - Luke 1:26-38
+  - John 1:12-14,16-17
+  - Hebrews 2:14-18
 
-    - address: Luke 1:26-38
-      text: |
-        ``In the sixth month the angel Gabriel was sent from God to a city of Galilee named Nazareth, to a virgin betrothed to a man whose name was Joseph, of the house of David.
-        And the virgin's name was Mary.
-        And he came to her and said, ``Greetings, O favored one, the Lord is with you!''
-        But she was greatly troubled at the saying, and tried to discern what sort of greeting this might be.
-        And the angel said to her, ``Do not be afraid, Mary, for you have found favor with God.
-        And behold, you will conceive in your womb and bear a son, and you shall call his name Jesus.
-        He will be great and will be called the Son of the Most High. And the Lord God will give to him the throne of his father David,
-        and he will reign over the house of Jacob forever, and of his kingdom there will be no end.''
+prayer: |
+  Almighty God, you have given your only-begotten Son to take our nature upon him, and to be born of a pure virgin: Grant that we, who have been born again and made your children by adoption and grace, may be renewed by your Holy Spirit; through our Lord Jesus Christ, to whom with you and the same spirit be honor and glory, now and forever,
 
-        And Mary said to the angel, ``How will this be, since I am a virgin?''
-
-        And the angel answered her, ``The Holy Spirit will come upon you, and the power of the Most High will overshadow you; therefore the child to be born will be called holy--the Son of God.
-        And behold, your relative Elizabeth in her old age has also conceived a son, and this is the sixth month with her who was called barren.
-        For nothing will be impossible with God.''
-
-        And Mary said, ``Behold, I am the servant of the Lord; let it be to me according to your word.'' And the angel departed from her.''
-
-    - address: John 1:12-14,16-17
-      text: |
-        But to all who did receive him, who believed in his name, he gave the right to become children of God,
-        who were born, not of blood nor of the will of the flesh nor of the will of man, but of God.
-        And the Word became flesh and dwelt among us, and we have seen his glory, glory as of the only Son from the Father, full of grace and truth...
-        For from his fullness we have all received, grace upon grace.
-        For the law was given through Moses; grace and truth came through Jesus Christ.
-
-    - address: Hebrews 2:14-18
-      text: |
-        Since therefore the children share in flesh and blood, he himself likewise partook of the same things, that through death he might destroy the one who has the power of death, that is, the devil,
-        and deliver all those who through fear of death were subject to lifelong slavery.
-        For surely it is not angels that he helps, but he helps the offspring of Abraham.
-        Therefore he had to be made like his brothers in every respect, so that he might become a merciful and faithful high priest in the service of God, to make propitiation for the sins of the people.
-        For because he himself has suffered when tempted, he is able to help those who are being tempted.
-
-  prayer: |
-    Almighty God, you have given your only-begotten Son to take our nature upon him, and to be born of a pure virgin: Grant that we, who have been born again and made your children by adoption and grace, may be renewed by your Holy Spirit; through our Lord Jesus Christ, to whom with you and the same spirit be honor and glory, now and forever,
-
-  musicpages:
-    - Only a Holy God
+musicpages:
+  - Only a Holy God

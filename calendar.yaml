@@ -28,9 +28,9 @@
       week: 5
       basename: christmas1
 
-      #- title: the Second Week After Christmas
-      #week: 6
-      #basename: christmas2
+    - title: the Second Week After Christmas
+      week: 6
+      basename: christmas2
 
       #- title: Epiphany
       #week: 6.1

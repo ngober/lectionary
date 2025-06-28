@@ -1,45 +1,11 @@
----
-  readings:
-    - address: Jeremiah 33:14-22
-      text: |
-        ``Behold, the days are coming, declares the \textsc{Lord}, when I will fulfill the promise I made to the house of Israel and the house of Judah.
-        In those days and at that time I will cause a righteous Branch to spring up for David, and he shall execute justice and righteousness in the land.
-        In those days Judah will be saved, and Jerusalem will dwell securely. And this is the name by which it will be called: 'The \textsc{Lord} is our righteousness.'
-        ``For thus says the \textsc{Lord}: David shall never lack a man to sit on the throne of the house of Israel,
-        and the Levitical priests shall never lack a man in my presence to offer burnt offerings, to burn grain offerings, and to make sacrifices forever.''
+readings:
+  - address: Jeremiah 33:14-22
+  - address: Micah 5:2
+  - address: Matthew 1:18-25
+    #- address: Hebrews 4:14-5:5
 
-        The word of the \textsc{Lord} came to Jeremiah:
-        ``Thus says the \textsc{Lord}: If you can break my covenant with the day and my covenant with the night, so that day and night will not come at their appointed time,
-        then also my covenant with David my servant may be broken, so that he shall not have a son to reign on his throne, and my covenant with the Levitical priests my ministers.
-        As the host of heaven cannot be numbered and the sands of the sea cannot be measured, so I will multiply the offspring of David my servant, and the Levitical priests who minister to me.''
+prayer: |
+  Merciful God, who sent your messengers the prophets to preach repentance and prepare the way for our salvation: Give us grace to heed their warnings and forsake our sins, that we may greet with joy the coming of Jesus Christ our Redeemer, who lives and reigns with you and the Holy Spirit, one God, now and forever,
 
-    - address: Micah 5:2
-      text: But you, O Bethlehem Ephrathah, who are too little to be among the clans of Judah, from you shall come forth for me one who is to be ruler in Israel, whose coming forth is from of old, from ancient days.
-
-    - address: Matthew 1:18-25
-      text: |
-        Now the birth of Jesus Christ took place in this way. When his mother Mary had been betrothed to Joseph, before they came together she was found to be with child from the Holy Spirit.
-        And her husband Joseph, being a just man and unwilling to put her to shame, resolved to divorce her quietly.
-        But as he considered these things, behold, an angel of the Lord appeared to him in a dream, saying, ``Joseph, son of David, do not fear to take Mary as your wife, for that which is conceived in her is from the Holy Spirit.
-        She will bear a son, and you shall call his name Jesus, for he will save his people from their sins.''
-        All this took place to fulfill what the Lord had spoken by the prophet:
-        ``Behold, the virgin shall conceive and bear a son, and they shall call his name Immanuel'' (which means, God with us).
-        When Joseph woke from sleep, he did as the angel of the Lord commanded him: he took his wife,
-        but knew her not until she had given birth to a son. And he called his name Jesus.
-
-      #- address: Hebrews 4:14-5:5
-      #text: |
-      #  Since then we have a great high priest who has passed through the heavens, Jesus, the Son of God, let us hold fast our confession.
-      #  For we do not have a high priest who is unable to sympathize with our weaknesses, but one who in every respect has been tempted as we are, yet without sin.
-      #  Let us then with confidence draw near to the throne of grace, that we may receive mercy and find grace to help in time of need.
-      #  For every high priest chosen from among men is appointed to act on behalf of men in relation to God, to offer gifts and sacrifices for sins.
-      #  He can deal gently with the ignorant and wayward, since he himself is beset with weakness.
-      #  Because of this he is obligated to offer sacrifice for his own sins just as he does for those of the people.
-      #  And no one takes this honor for himself, but only when called by God, just as Aaron was.
-      #  So also Christ did not exalt himself to be made a high priest, but was appointed by him who said to him, ``You are my Son, today I have begotten you'';
-
-  prayer: |
-    Merciful God, who sent your messengers the prophets to preach repentance and prepare the way for our salvation: Give us grace to heed their warnings and forsake our sins, that we may greet with joy the coming of Jesus Christ our Redeemer, who lives and reigns with you and the Holy Spirit, one God, now and forever,
-
-  musicpages:
-    - O Come, All Ye Faithful
+musicpages:
+  - O Come, All Ye Faithful
