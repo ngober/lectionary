@@ -1,0 +1,80 @@
+title: All Creatures of Our God and King
+poet: Francis of Assisi (1225)
+composer: Ralph Vaughan Williams (1906)
+time_signature: 3/2
+key: d \major
+
+sections:
+  - anacrusis: 2
+    soprano: |
+      d2 | d4 e fis d fis g | a1
+      d,2 | d4 e fis d fis g | a1
+      d4 cis | b2 a d4 cis | b2 a
+      d2 | d4 a a g fis g | a1
+      d2 | d4 a a g fis g | a1
+      g4( fis) | e2 d g4( fis) | e2 d
+      d'4 cis | b2 a d4 cis | b2 a g4 fis | e1. | d1
+
+    alto: |
+      a2 | d4 d d d d d | d2( cis)
+      d2 | a4 cis d d d d | d2( cis)
+      a'4 a | a4( g) fis2 d4 e | fis4( e) cis2
+      a'4( g) | fis4 fis fis e d d | d2( cis)
+      d4( e) | d4 g fis d d d | d4( cis fis e)
+      d2 | d4( cis) d2 d | d4( cis) b2
+      fis'4 e | fis4( e) cis2 fis4 fis | fis4( e) e( b) b d | d2( cis1) | d1
+
+    tenor: |
+      fis2 | fis4 g a fis b b | a1
+      a4( b) | a4 g a a b b | a1
+      d4 d | d2 d2 fis,4 a | a4( gis) a2
+      d2 | d4 d d a a g | e2( a)
+      a2 | a4 a a d cis b | a1
+      b2 | b4( a) a2 b4( a) | b4( g) fis2
+      fis4 a | a4( gis) a2 a4 a | fis4( g) e( fis) g a | b2( a g) | fis1
+
+    bass: |
+      d2 | d4 d d d8( cis) b4 e | a,2( a'4 g)
+      fis4( g) | fis4 e d cis b e | a,2( a'4 g)
+      fis4 fis | g2 d b4 cis | d4( e) a,2
+      fis'4( e) | d4 cis b cis d b | a2( a'4 g)
+      fis4( g) | fis4 e d b' a g | fis4( e d cis)
+      b4( a) | g2 fis e4( fis) | g4( a) b2
+      b4 cis | d4( e) a,2 b4 cis | d4( e) cis( dis) e fis | g2( a a,) | d1
+
+    lyrics:
+      - |
+        All creatures of our God and King,
+        Lift up your voice and with us sing
+        Alleluia, alleluia!
+        Thou burning sun with golden beam,
+        Thou silver moon with softer gleam,
+        O praise him, O praise him,
+        Alleluia, alleluia, alleluia.
+
+      - |
+        Thou rushing winds that art so strong,
+        Ye clouds that sail in Heav'n along,
+        O \skip1 praise him, alleluia!
+        Thou rising morn, in praise rejoice,
+        Ye lights of evening, find a voice.
+        O praise him, O praise him,
+        Alleluia, alleluia, alleluia.
+
+      - |
+        And all ye saints of tender heart,
+        Forgiving others, take your part,
+        O \skip1 sing ye, alleluia!
+        Ye who long pain and sorrow bear,
+        Praise God and on him cast your care:
+        O praise him, O praise him,
+        Alleluia, alleluia, alleluia.
+
+      - |
+        Let all things their creator bless,
+        And worship him in humbleness,
+        O \skip1 praise him, alleluia!
+        Praise, praise the Father, praise the Son,
+        And praise the Spirit, Three in One:
+        O praise him, O praise him,
+        Alleluia, alleluia, alleluia.

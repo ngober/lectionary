@@ -87,9 +87,9 @@
       week: 26
       basename: easter4
 
-        #- title: the Fifth Week after Easter
-        #week: 27
-        #basename: easter5
+    - title: the Fifth Week after Easter
+      week: 27
+      basename: easter5
 
     - title: the Sixth Week after Easter
       week: 28
