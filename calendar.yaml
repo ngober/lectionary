@@ -39,9 +39,9 @@
 - season: lent
   title: The Season of Lent
   weeks:
-      #  - title: the First Week of Lent
-      #week: 16
-      #basename: lent1
+    - title: the First Week of Lent
+      week: 16
+      basename: lent1
 
     - title: the Second Week of Lent
       week: 17
@@ -143,8 +143,8 @@
       #week: 15
       #basename: ordinary9
 
-    - title: PLACEHOLDER
-      subtitle: On Wisdom
+    - title: the Week of June 29
+      subtitle: The Confession of Peter
       week: 31
       basename: ordinary1
 
@@ -166,6 +166,15 @@
       subtitle: On Holy Communion
       week: 35
       basename: ordinary5
+
+    - title: PLACEHOLDER
+      week: 36
+      basename: placeholder1
+
+    - title: PLACEHOLDER
+      subtitle: On Wisdom
+      week: 37
+      basename: ordinary7
 
     - title: the Week of October 1
       subtitle: Nathan and Rachel Gober's Wedding Anniversary

@@ -1,0 +1,50 @@
+title: O Worship the King
+poet: Robert Grant (1779-1838)
+composer: Joseph Haydn (1732-1809)
+key: g \major
+time_signature: 3/4
+
+sections:
+  - anacrusis: 4
+    soprano: |
+      d4 | g4 g a | b2 g4 | c4 c b | a2
+      d,4 | g4 g a | b2 c4 | d8( c) b4 a | g2
+      d4 | d4 d e | fis4 fis g | a4 a b | c2
+      d,4 | g4 g a | b4 b c | d8( c) b4 a | g2
+
+    alto: |
+      b4 | d4 d d | d2 d4 | c4 d d | d2
+      d4 | b4 d d | d2 e4 | d8( e) d4 c | b2
+      d4 | d4 d cis | c4 c b | a4 d g | fis2
+      d8( c8) | b4 d d | d4 d e | d8( e) d4 c | b2
+
+    tenor: |
+      g4 | b4 g fis | g2 g4 | g4 a g | fis2
+      fis4 | g4 g fis | g2 g4 | g4 g fis | g2
+      fis4 | fis4 fis g | a4 a g | fis4 fis g | a2
+      fis4 | g4 g fis | g4 g4 g4 | g4 g fis | g2
+
+    bass: |
+      g4 | g4 b d | g2 b,4 | e4 fis g | d2
+      d4 | g,4 b d | g2 e4 | b8( c) d4 d | g,2
+      d'4 | d4 d d | d4 d d | d4 d d | d2
+      d4 | g,4 b d | g4 g e | b8( c) d4 d | g,2
+
+    lyrics:
+      - |
+        O worship the King all glorious above,
+        O gratefully sing his power and his love:
+        our shield and defender, the Ancient of Days,
+        pavilioned in splendor and girded with praise.
+
+      - |
+        Your bountiful care, what tongue can recite?
+        It breathes in the air, it shines in the light;
+        it streams from the hills, it descends to the plain,
+        and sweetly distills in the dew and the rain.
+
+      - |
+        O measureless Might, unchangeable Love,
+        whom angels delight to worship above!
+        Your ransomed creation, with glory ablaze,
+        in true adoration shall sing to your praise!
