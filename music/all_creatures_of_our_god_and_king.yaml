@@ -13,7 +13,8 @@ sections:
       d2 | d4 a a g fis g | a1
       d2 | d4 a a g fis g | a1
       g4( fis) | e2 d g4( fis) | e2 d
-      d'4 cis | b2 a d4 cis | b2 a g4 fis | e1. | d1
+      d'4 cis | b2 a d4 cis | b2 a
+      g4 fis | e1. | d1
 
     alto: |
       a2 | d4 d d d d d | d2( cis)
@@ -22,7 +23,8 @@ sections:
       a'4( g) | fis4 fis fis e d d | d2( cis)
       d4( e) | d4 g fis d d d | d4( cis fis e)
       d2 | d4( cis) d2 d | d4( cis) b2
-      fis'4 e | fis4( e) cis2 fis4 fis | fis4( e) e( b) b d | d2( cis1) | d1
+      fis'4 e | fis4( e) cis2 fis4 fis | fis4( e) e( b)
+      b d | d2( cis1) | d1
 
     tenor: |
       fis2 | fis4 g a fis b b | a1
@@ -31,7 +33,8 @@ sections:
       d2 | d4 d d a a g | e2( a)
       a2 | a4 a a d cis b | a1
       b2 | b4( a) a2 b4( a) | b4( g) fis2
-      fis4 a | a4( gis) a2 a4 a | fis4( g) e( fis) g a | b2( a g) | fis1
+      fis4 a | a4( gis) a2 a4 a | fis4( g) e( fis)
+      g a | b2( a g) | fis1
 
     bass: |
       d2 | d4 d d d8( cis) b4 e | a,2( a'4 g)
@@ -40,7 +43,8 @@ sections:
       fis'4( e) | d4 cis b cis d b | a2( a'4 g)
       fis4( g) | fis4 e d b' a g | fis4( e d cis)
       b4( a) | g2 fis e4( fis) | g4( a) b2
-      b4 cis | d4( e) a,2 b4 cis | d4( e) cis( dis) e fis | g2( a a,) | d1
+      b4 cis | d4( e) a,2 b4 cis | d4( e) cis( dis)
+      e fis | g2( a a,) | d1
 
     lyrics:
       - |
