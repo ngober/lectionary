@@ -19,6 +19,9 @@ full/*.ly
 **/*.cb
 **/*.cb2
 **/.*.lb
+**/*.idx
+**/*.ilg
+**/*.ind
 
 ## Intermediate documents:
 **/*.dvi

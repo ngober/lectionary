@@ -8,6 +8,9 @@
 \usepackage{geometry}
 \usepackage{lipsum}
 \usepackage{pdfpages}
+\usepackage{makeidx}
+
+\makeindex
 
 \input{geometry.tex}
 
@@ -32,6 +35,9 @@
 \addtocontents{toc}{\protect\renewcommand{\protect\numberline}[1]{}}
 \includescore{fulltext_hymnal}
 \addtocontents{toc}{\let\protect\numberline\protect\oldnumberline}
+
+\addcontentsline{toc}{chapter}{Index}
+\printindex
 \end{document}
 
 
