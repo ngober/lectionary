@@ -24,14 +24,15 @@ def add_template_name(target, source, env):
     source.extend(templates)
     return target, source
 
+def address_to_index(address):
+    return re.sub(r'((?:\d\s)?\w+)\s*', r'\1!', address, count=1)
+
 def augment_readings(readings, draft=False):
-    def tolerate_dict(r):
-        if draft:
-            address, text = r, ['\lipsum[2]']
-        else:
-            address, text = get_text(r)
-        return { 'address': address, 'text': text, 'index': re.sub(r'((?:\d\s)?\w+)\s*', r'\1!', address, count=1) }
-    return list(map(tolerate_dict, readings))
+    if draft:
+        texts = [['\lipsum[2]'] for _ in readings]
+    else:
+        texts = get_text(readings)
+    return [{ 'address': a, 'text': t, 'index': address_to_index(a) } for a,t in zip(readings, texts)]
 
 def normalize_yaml(parsed, draft=False):
     readings = augment_readings(parsed['readings'], draft)
