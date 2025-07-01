@@ -11,11 +11,11 @@
 \subsubsection*{Read: {{ data.address }}}
 
 {%- set vspace = joiner('\\vspace{6pt}') %}
-{% for paragraph in data.text %}
+\index{{ '{' }}{{ data.index }}}
+{%- for paragraph in data.text -%}
 {{ vspace() }}
 {{ paragraph }}
-{%- endfor -%}
-\index{{ '{' }}{{ data.index }}}
+{%- endfor %}
 {%- endmacro %}
 
 {% block body %}
