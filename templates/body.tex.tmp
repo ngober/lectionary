@@ -15,7 +15,7 @@
 {{ vspace() }}
 {{ paragraph }}
 {%- endfor -%}
-\index{{ '{' }}{{ data.address | replace(' ', '!', 1) }}}
+\index{{ '{' }}{{ data.index }}}
 {%- endmacro %}
 
 {% block body %}

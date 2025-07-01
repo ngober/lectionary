@@ -4,6 +4,7 @@ import traceback
 import pathlib
 import contextlib
 import sys
+import re
 
 import SCons.Scanner.LaTeX
 from SCons.Builder import Builder
@@ -25,13 +26,11 @@ def add_template_name(target, source, env):
 
 def augment_readings(readings, draft=False):
     def tolerate_dict(r):
-        if isinstance(r, dict):
-            return tolerate_dict(r['address'])
         if draft:
             address, text = r, ['\lipsum[2]']
         else:
             address, text = get_text(r)
-        return { 'address': address, 'text': text }
+        return { 'address': address, 'text': text, 'index': re.sub(r'((?:\d\s)?\w+)\s*', r'\1!', address, count=1) }
     return list(map(tolerate_dict, readings))
 
 def normalize_yaml(parsed, draft=False):
