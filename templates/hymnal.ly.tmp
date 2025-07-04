@@ -30,6 +30,8 @@
     #(define (page-post-process layout pages) (hymn:create-toc-file layout pages))
 }
 
+#(set-global-staff-size 16)
+
 \header{
     tagline = ""
 }
