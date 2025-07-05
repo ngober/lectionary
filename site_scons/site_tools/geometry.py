@@ -43,9 +43,10 @@ def generate_ly_geometry(target, source, env):
     paper_options = { k: parsed[k] for k in ['paperheight', 'paperwidth'] }
     margin_options = { k: parsed[k] for k in ['top-margin', 'bottom-margin', 'left-margin', 'right-margin'] }
 
-    options = f'    #(set-paper-size \'(cons (* {paper_options["paperwidth"]} in) (* {paper_options["paperheight"]} in)))\n'
+    paper_size = f'#(set! paper-alist (cons \'("hymnal_size" . (cons (* {paper_options["paperwidth"]} in) (* {paper_options["paperheight"]} in))) paper-alist))'
+    options = f'    #(set-paper-size "hymnal_size")\n'
     options = options + '\n'.join(kv_lines(margin_options, prefix='    ', suffix='\\in'))
-    pathlib.Path(str(target[0])).write_text(f'\\{name}{{\n{options}\n}}')
+    pathlib.Path(str(target[0])).write_text(f'{paper_size}\n\\{name}{{\n{options}\n}}')
 
 def generate_tex_geometry(target, source, env):
     name = 'geometry'
