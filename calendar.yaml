@@ -148,6 +148,11 @@
       week: 31
       basename: ordinary1
 
+    - title: the Week of July 4
+      subtitle: Independence Day
+      week: 32
+      basename: ordinary2
+
     - title: PLACEHOLDER
       week: 32
       basename: placeholder2
