@@ -12,6 +12,9 @@ API_URL = 'https://api.esv.org/v3/passage/text/'
 def smallcap(text):
     return re.sub(r'\b[A-Z]{2,}\b', lambda match: f'\\textsc{{{match.group(0).title()}}}', text)
 
+def drop_bracket(text):
+    return re.sub(r'\[{1,2}((.|\n)*)\]{1,2}', r'\1', text, flags=re.MULTILINE)
+
 def split_paragraph(text):
     return [list(p) for k,p in itertools.groupby(text.splitlines(), key=lambda l: l.rstrip() != '') if k]
 
@@ -48,6 +51,7 @@ RIGHT_SELAH = '''
 '''
 def process_passage(text, address):
     text = smallcap(text)
+    text = drop_bracket(text)
     pars = split_paragraph(text)
 
     if re.search('Psalm \d*$', address) or re.search('Psalm \d*:1\b', address):
