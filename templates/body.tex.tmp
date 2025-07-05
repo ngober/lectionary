@@ -10,7 +10,7 @@
 {% macro reading(data) -%}
 \subsubsection*{Read: {{ data.address }}}
 
-{%- set vspace = joiner('\\vspace{6pt}') %}
+{%- set vspace = joiner('\\vspace{4pt}\n\n') %}
 \index{{ '{' }}{{ data.index }}}
 {%- for paragraph in data.text -%}
 {{ vspace() }}
