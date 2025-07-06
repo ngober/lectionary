@@ -2,6 +2,8 @@ body/*.tex
 
 single/*.tex
 single/*.ly
+!single/preamble.tex
+
 full/*.tex
 full/*.ly
 !full/full.tex

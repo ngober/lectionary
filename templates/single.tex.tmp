@@ -1,18 +1,9 @@
-\documentclass{article}
 {% set event = calendar[0]['weeks'][0] %}
+\input{preamble.tex}
 
 \title{For {{ event.title }}{% if 'subtitle' in event %}\\ {\large\normalfont {{ event.subtitle }}}{% endif %}}
 \author{}
 \date{}
-
-\usepackage{lilypondtoc}
-\usepackage{geometry}
-{% block packages %}
-\usepackage{lipsum}
-\usepackage{pdfpages}
-{% endblock %}
-
-\input{geometry.tex}
 
 \begin{document}
 \maketitle
