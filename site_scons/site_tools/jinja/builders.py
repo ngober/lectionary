@@ -34,12 +34,32 @@ def address_to_index(address):
     # Extract a book name (maybe has a leading digit) and prepend book and chapter sort keys
     return re.sub(r'((?:\d\s)?\w+)\s*', f'{sort_key[0]}@\\1!{sort_key[1]}@', address, count=1)
 
+def reading_make_dict(a):
+    if isinstance(a, dict):
+        return a
+    return { 'address': a, 'skip': 0 }
+
+def reading_join_text(a,t):
+    firstparagraph, *tailparagraphs = t
+    firstline, *taillines = firstparagraph.lstrip().splitlines()
+
+    firstline = firstline.split()[a['skip']:] # Skip this many words of the reading
+    if firstline:
+        firstword, *tailwords = firstline
+    else:
+        firstword, tailwords = '', []
+    firstline = ' '.join(itertools.chain([firstword.capitalize()], tailwords))
+
+    firstparagraph = '\n'.join(itertools.chain([firstline], taillines)).strip()
+    return { **a, 'text': [firstparagraph, *tailparagraphs], 'index': address_to_index(a['address']) }
+
 def augment_readings(readings, draft=False):
+    readings = [reading_make_dict(a) for a in readings]
     if draft:
         texts = [['\lipsum[2]'] for _ in readings]
     else:
-        texts = get_text(readings)
-    return [{ 'address': a, 'text': t, 'index': address_to_index(a) } for a,t in zip(readings, texts)]
+        texts = get_text([a['address'] for a in readings])
+    return list(itertools.starmap(reading_join_text, zip(readings, texts)))
 
 def normalize_yaml(parsed, draft=False):
     readings = augment_readings(parsed['readings'], draft)
