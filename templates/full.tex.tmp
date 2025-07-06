@@ -1,9 +1,7 @@
 {% for season in calendar %}
-  \addcontentsline{toc}{section}{{ '{' }}{{ season.title }}}
-  \section*{{ '{' }}{{ season.title }}}
+  \section{{ '{' }}{{ season.title }}}
 {% for event in season.weeks %}
-  \addcontentsline{toc}{subsection}{For {{ event.title }}}
-  \subsection*{For {{ event.title }}{% if 'subtitle' in event %}\\ {\large\normalfont {{ event.subtitle }}}{% endif %}}
+  \subsection[For {{ event.title }}]{For {{ event.title }}{% if 'subtitle' in event %}\\ {\large\normalfont {{ event.subtitle }}}{% endif %}}
   \input{../body/{{ event.basename }}.tex}
 
   \newpage

@@ -9,16 +9,40 @@
 \usepackage{lipsum}
 \usepackage{pdfpages}
 \usepackage{makeidx}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}} % To clear page numbers from footer, and header line at the start of every chapter
+
+\pagestyle{fancy}
+
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\renewcommand{\subsectionmark}[1]{\markright{#1}}
+
+\fancyhf{}% Clear header/footer
+\fancyhead[LO]{\nouppercase\leftmark}
+\fancyhead[RE]{\nouppercase\rightmark}
+\fancyhead[RO,LE]{\thepage}
 
 \makeindex
 
 \input{geometry.tex}
+
+\titleformat{\section}[display]{\bfseries\LARGE}{}{4pt}{
+	\rule{\textwidth}{1pt}
+	\vspace{1ex}
+	\centering
+}[\vspace{-0.5ex}]
+
+\titleformat{\subsection}[display]{\bfseries\Large}{}{8pt}{\centering}[\vspace{-0.5ex}]
 
 % Forward-declare \oldnumberline to stash the \numberline command
 % used for hymnal numbers
 \let\oldnumberline\numberline
 
 \begin{document}
+\addtocontents{toc}{\protect\renewcommand{\protect\numberline}[1]{}}
 \frontmatter
 %Half-title
 \cleardoublepage
@@ -28,16 +52,14 @@
 \tableofcontents
 
 \mainmatter
-\addcontentsline{toc}{chapter}{Readings}
+\chapter{Readings}
 \input{fulltext.tex}
 
-\addcontentsline{toc}{chapter}{Hymnal}
-\addtocontents{toc}{\protect\renewcommand{\protect\numberline}[1]{}}
+\chapter{Hymnal}
 \includescore{fulltext_hymnal}
 \addtocontents{toc}{\let\protect\numberline\protect\oldnumberline}
 
 \addcontentsline{toc}{chapter}{Index}
 \printindex
 \end{document}
-
 
