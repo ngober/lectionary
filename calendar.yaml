@@ -107,17 +107,18 @@
 - season: ordinary
   title: Ordinary Time
   weeks:
-      #- title: the First Week after Epiphany
-      #week: 7
-      #basename: ordinary1
+    #- title: the First Week after Epiphany
+        #week: 7
+        #basename: epiphany1
 
       #- title: the Second Week after Epiphany
       #week: 8
       #basename: ordinary2
 
-      #- title: the Third Week after Epiphany
-      #week: 9
-      #basename: ordinary3
+    - title: the Third Week after Epiphany
+      subtitle: The Conversion of Paul
+      week: 9
+      basename: epiphany3
 
       #- title: the Fourth Week after Epiphany
       #week: 10
