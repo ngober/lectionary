@@ -1,8 +1,10 @@
 readings:
   - Numbers 21:4-9
   - Psalm 107:1-3,17-22
-  - Ephesians 2:1-9
-  - John 3:14-21
+  - address: Ephesians 2:1-9
+    skip: 1
+  - address: John 3:14-21
+    skip: 1
 
 prayer: |
   Oh God, author of all grace and comfort, come work repentence in our souls;

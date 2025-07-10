@@ -1,8 +1,10 @@
 readings:
   - Micah 4:1-5
   - John 14:1-11
-  - Acts 17:22-31
-  - Galatians 3:27-4:7
+  - address: Acts 17:22-31
+    skip: 1
+  - address: Galatians 3:27-4:7
+    skip: 1
 
 musicpages:
   - My Hope Is Built On Nothing Less

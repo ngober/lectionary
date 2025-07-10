@@ -2,7 +2,8 @@ readings:
   - Malachi 1:1,6-10
   - 1 Corinthians 11:27-32
   - Matthew 26:26-29
-  - Hebrews 9:24-28
+  - address: Hebrews 9:24-28
+    skip: 1
 
 prayer: >
   todo

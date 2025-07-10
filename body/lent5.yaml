@@ -2,7 +2,8 @@ readings:
   - Ezekiel 37:1-14
   - Psalm 130
   - John 11:1-45
-  - Romans 8:6-11
+  - address: Romans 8:6-11
+    skip: 1
 
 prayer: |
   Oh Lord, help us to approach you with becoming conception of your nature.
@@ -16,4 +17,4 @@ prayer: |
 
 musicpages:
   - I Stand Amazed In the Presence
-    #Come Ye Sinners, Poor and Needy: come_ye_sinners_poor_and_needy
+  - Come Ye Sinners, Poor and Needy

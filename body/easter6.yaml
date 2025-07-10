@@ -1,7 +1,9 @@
 readings:
-  - John 8:12-20
+  - address: John 8:12-20
+    skip: 1
   - 1 John 2:1-11
-  - Revelation 21:22-22:5
+  - address: Revelation 21:22-22:5
+    skip: 1
 
 musicpages:
   - Holy, Holy, Holy

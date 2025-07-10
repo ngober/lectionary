@@ -1,8 +1,10 @@
 readings:
   - Matthew 16:13-19
   - Psalm 23
-  - Acts 4:8-13
-  - 1 Peter 5:1-4
+  - address: Acts 4:8-13
+    skip: 1
+  - address: 1 Peter 5:1-4
+    skip: 1
 
 prayer: >
   Almighty Father, who inspired Simon Peter, first among the apostles, to confess Jesus as Messiah and Son of the living God:

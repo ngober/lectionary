@@ -1,5 +1,6 @@
 readings:
-  - Deuteronomy 10:17-21
+  - address: Deuteronomy 10:17-21
+    skip: 1
   - Psalm 145
   - Hebrews 11:8-16
   - Matthew 5:43-48
