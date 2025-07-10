@@ -1,7 +1,7 @@
 {% for season in calendar %}
-  \section{{ '{' }}{{ season.title }}}
+  \chapter{{ '{' }}{{ season.title }}}
 {% for event in season.weeks %}
-  \subsection[For {{ event.title }}]{For {{ event.title }}{% if 'subtitle' in event %}\\ {\large\normalfont {{ event.subtitle }}}{% endif %}}
+  \section[For {{ event.title }}]{For {{ event.title }}{% if 'subtitle' in event %}\\ {\large\normalfont {{ event.subtitle }}}{% endif %}}
   \input{../body/{{ event.basename }}.tex}
 
   \newpage

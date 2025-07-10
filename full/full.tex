@@ -30,13 +30,15 @@
 
 \input{geometry.tex}
 
-\titleformat{\section}[display]{\bfseries\LARGE}{}{4pt}{
-	\rule{\textwidth}{1pt}
-	\vspace{1ex}
+\titleformat{\chapter}[display]{\bfseries\LARGE\filcenter}{}{8pt}{
+	\titlerule
 	\centering
-}[\vspace{-0.5ex}]
+}[
+	\titlerule
+	\clearpage
+]
 
-\titleformat{\subsection}[display]{\bfseries\Large}{}{8pt}{\centering}[\vspace{-0.5ex}]
+\titleformat{\section}[display]{\bfseries\centering\Large}{}{8pt}{\vspace{-20pt}}
 
 % Forward-declare \oldnumberline to stash the \numberline command
 % used for hymnal numbers
@@ -53,14 +55,14 @@
 \tableofcontents
 
 \mainmatter
-\chapter{Readings}
+\part{Readings}
 \input{fulltext.tex}
 
-\chapter{Hymnal}
+\part{Hymnal}
 \includescore{fulltext_hymnal}
 \addtocontents{toc}{\let\protect\numberline\protect\oldnumberline}
 
-\addcontentsline{toc}{chapter}{Index}
+\addcontentsline{toc}{part}{Index}
 \printindex
 \end{document}
 
