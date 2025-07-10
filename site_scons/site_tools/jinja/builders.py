@@ -36,7 +36,7 @@ def address_to_index(address):
 
 def reading_make_dict(a):
     if isinstance(a, dict):
-        return a
+        return { 'skip': 0, **a }
     return { 'address': a, 'skip': 0 }
 
 def reading_join_text(a,t):
@@ -48,7 +48,7 @@ def reading_join_text(a,t):
         firstword, *tailwords = firstline
     else:
         firstword, tailwords = '', []
-    firstline = ' '.join(itertools.chain([firstword.capitalize()], tailwords))
+    firstline = ' '.join(itertools.chain([re.sub(r'\w+', lambda match: match.group(0).capitalize(), firstword)], tailwords))
 
     firstparagraph = '\n'.join(itertools.chain([firstline], taillines)).strip()
     return { **a, 'text': [firstparagraph, *tailparagraphs], 'index': address_to_index(a['address']) }
