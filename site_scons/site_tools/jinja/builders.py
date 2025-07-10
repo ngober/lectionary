@@ -35,20 +35,18 @@ def address_to_index(address):
     return re.sub(r'((?:\d\s)?\w+)\s*', f'{sort_key[0]}@\\1!{sort_key[1]}@', address, count=1)
 
 def reading_make_dict(a):
-    if isinstance(a, dict):
-        return { 'skip': 0, **a }
-    return { 'address': a, 'skip': 0 }
+    if not isinstance(a, dict):
+        a = { 'address': a }
+    return a
 
+UNESCAPED_WORD = re.compile(r'\b(?<!\\)\w*\b\s*')
 def reading_join_text(a,t):
     firstparagraph, *tailparagraphs = t
     firstline, *taillines = firstparagraph.lstrip().splitlines()
 
-    firstline = firstline.split()[a['skip']:] # Skip this many words of the reading
-    if firstline:
-        firstword, *tailwords = firstline
-    else:
-        firstword, tailwords = '', []
-    firstline = ' '.join(itertools.chain([re.sub(r'\w+', lambda match: match.group(0).capitalize(), firstword)], tailwords))
+    if a.get('skip'):
+        firstline = re.sub(UNESCAPED_WORD, '', firstline, count=a['skip'])
+    firstline = re.sub(UNESCAPED_WORD, lambda match: match.group(0).capitalize(), firstline, count=1)
 
     firstparagraph = '\n'.join(itertools.chain([firstline], taillines)).strip()
     return { **a, 'text': [firstparagraph, *tailparagraphs], 'index': address_to_index(a['address']) }
