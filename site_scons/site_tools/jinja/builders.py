@@ -19,7 +19,8 @@ def get_first_with_ext(source, ext):
 
 def add_template_name(target, source, env):
     target_name = pathlib.Path(str(target[0]))
-    templates = [f'templates/{event_data.get("season", "body")}.tex.tmp' for event_data in env['calendar_events']]
+    source_basenames = [pathlib.Path(str(s)).stem for s in source]
+    templates = [f'../templates/{env["season_map"][s]}.tex.tmp' for s in source_basenames]
     templates = [temp for temp in templates if os.path.exists(temp)]
     if not templates:
         templates = ['../templates/body.tex.tmp']

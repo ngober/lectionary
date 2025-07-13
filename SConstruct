@@ -31,6 +31,8 @@ jinja_env = jinja2.Environment(
 calendar = File(str(root / 'calendar.yaml'))
 calendar_data = parse_yaml(str(calendar))
 
+season_map = dict(itertools.chain.from_iterable([(w['basename'], season['season']) for w in season['weeks']] for season in calendar_data))
+
 env = Environment(BUILDERS={
                       'TwoUp': Builder(
                           action="pdfjam --nup 2x1 --landscape --clip true --outfile $TARGET $SOURCE"
@@ -39,6 +41,7 @@ env = Environment(BUILDERS={
                   tools=['default', 'lilypond', 'jinja', 'geometry'],
                   jinja_env=jinja_env,
                   calendar_events=calendar_data,
+                  season_map=season_map,
                   DRAFT=GetOption('draft'))
 env.Append(TEXINPUTS=str(root))
 

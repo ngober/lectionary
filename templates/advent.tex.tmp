@@ -1,4 +1,4 @@
-{% extends "body.tex" %}
+{% extends "body.tex.tmp" %}
 {% block prayer %}
 Two purple candles, the pink candle, and the final purple candle are lit
 \begin{quote} \itshape%
