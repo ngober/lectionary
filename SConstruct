@@ -52,7 +52,9 @@ def Render(env, target_name, template_name, data):
 AddMethod(env, Render)
 
 def Build(env, directory, basename, sources):
-    music_wrapper = env.LilypondWrapper(f'{directory}/{basename}_hymnal', 'templates/hymnal.ly.tmp')
+    calendar_events = itertools.chain.from_iterable(season['weeks'] for season in env['calendar_events'])
+    yaml_sources = [f'body/{evt["basename"]}.yaml' for evt in calendar_events]
+    music_wrapper = env.LilypondWrapper(f'{directory}/{basename}_hymnal', yaml_sources)
     music_file = env.Lilypond(f'{directory}/{basename}_hymnal', music_wrapper)
     texfile = env.Wrapper(f'{directory}/{basename}', sources + music_file)
     env.Depends(texfile, calendar) # rebuild if calendar changed, but does not appear in sources

@@ -11,6 +11,9 @@ from SCons.Scanner import Scanner
 
 from util import get_basename, parse_yaml
 
+def get_first_with_ext(source, ext):
+    return str(next(filter(lambda s: str(s).endswith(ext), source)))
+
 def generate_lilypond(source, target, env, for_signature):
     target_name = os.path.splitext(str(target[0]))[0]
     return f'lilypond --pspdfopt=TeX -o {target_name} {source[0]!s}'
@@ -20,10 +23,9 @@ def scan_lilypond(node, env, path, arg=None):
     return re.findall(r'\\include "(.*)"', contents)
 
 def render_wrapper(target, source, env):
-    template_name = pathlib.Path(str(source[0]))
+    template_name = pathlib.Path(get_first_with_ext(source, '.tmp'))
     render_data = {
-        'calendar': env['calendar_events'],
-        'musicpages': [str(f) for f in source[1:]]
+        'musicpages': [str(f) for f in source if str(f).endswith('.ly')]
     }
     env.Render(target[0], template_name, render_data)
 
@@ -101,15 +103,15 @@ def render_single(target, source, env):
 
     env.Render(target[0], '../templates/hymn.ly.tmp', { "tag": tag, "num_verses": num_verses, **data })
 
+def get_musicpages(yamlfile):
+    data = parse_yaml(yamlfile)
+    return [f'music/{get_basename(mus)}.ly' for mus in (data.get('musicpages') or [])]
+
 def add_musicpages(target, source, env):
-    calendar_events = itertools.chain.from_iterable(season['weeks'] for season in env['calendar_events'])
-    data_src_name = [f'body/{evt["basename"]}.yaml' for evt in calendar_events]
-    data = map(parse_yaml, data_src_name)
-    musicsets = itertools.chain.from_iterable(evt.get('musicpages') or [] for evt in data)
-    musicpages = sorted(set(f'music/{get_basename(mus)}.ly' for mus in musicsets))
-    source.extend(musicpages)
+    source = [get_musicpages(s) if s.endswith('.yaml') else s for s in map(str, source)]
+    source = sorted(set(itertools.chain.from_iterable(source)))
     target.append(str(pathlib.Path(str(target[0])).with_suffix('.toc')))
-    return target, source
+    return target, ['templates/hymnal.ly.tmp'] + source
 
 def generate(env):
     env.Append(SCANNERS=Scanner(function=scan_lilypond, skeys=['.ly']))
