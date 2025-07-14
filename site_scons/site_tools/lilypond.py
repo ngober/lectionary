@@ -105,13 +105,13 @@ def render_single(target, source, env):
 
 def get_musicpages(yamlfile):
     data = parse_yaml(yamlfile)
-    return [f'music/{get_basename(mus)}.ly' for mus in (data.get('musicpages') or [])]
+    return [f'$MUSICDIR/{get_basename(mus)}.ly' for mus in (data.get('musicpages') or [])]
 
 def add_musicpages(target, source, env):
     source = [get_musicpages(s) if s.endswith('.yaml') else s for s in map(str, source)]
     source = sorted(set(itertools.chain.from_iterable(source)))
     target.append(str(pathlib.Path(str(target[0])).with_suffix('.toc')))
-    return target, ['templates/hymnal.ly.tmp'] + source
+    return target, ['../templates/hymnal.ly.tmp'] + source
 
 def generate(env):
     env.Append(SCANNERS=Scanner(function=scan_lilypond, skeys=['.ly']))

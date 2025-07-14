@@ -1,0 +1,18 @@
+import pathlib
+
+Import('env')
+
+env.LyGeometry('geometry')
+env.TexGeometry('geometry')
+
+for source in env.Glob('$BODYDIR/*.yaml'):
+    basename = pathlib.Path(str(source)).stem
+    music_wrapper = env.LilypondWrapper(f'{basename}_hymnal', [source])
+    music_file = env.Lilypond(f'{basename}_hymnal', music_wrapper)
+    texfile = env.Wrapper(basename, ['../templates/single.tex.tmp', source] + music_file)
+    env.Depends(texfile, env['calendar_file']) # rebuild if calendar changed, but does not appear in sources
+    if GetOption('twoup'):
+        oneup_pdf = env.PDF(f'{basename}_1up.pdf', texfile)
+        pdf_result = env.TwoUp(f'{basename}.pdf', oneup_pdf)
+    else:
+        pdf_result = env.PDF(basename, texfile)

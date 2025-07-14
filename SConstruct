@@ -21,17 +21,15 @@ AddOption(
     help='Build in 2up form'
 )
 
-root = pathlib.Path(Dir('.').srcnode().abspath)
+root = Dir('.').srcnode().abspath
 
 jinja_env = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(root / 'templates'),
+    loader=jinja2.FileSystemLoader(pathlib.Path(root) / 'templates'),
     autoescape=jinja2.select_autoescape()
 )
 
-calendar = File(str(root / 'calendar.yaml'))
+calendar = File(str(pathlib.Path(root) / 'calendar.yaml'))
 calendar_data = parse_yaml(str(calendar))
-
-season_map = dict(itertools.chain.from_iterable([(w['basename'], season['season']) for w in season['weeks']] for season in calendar_data))
 
 env = Environment(BUILDERS={
                       'TwoUp': Builder(
@@ -39,9 +37,14 @@ env = Environment(BUILDERS={
                       )
                   },
                   tools=['default', 'lilypond', 'jinja', 'geometry'],
+                  ROOT=root,
+                  FULLDIR=Dir('full'),
+                  SINGLEDIR=Dir('single'),
+                  BODYDIR=Dir('body'),
+                  MUSICDIR=Dir('music'),
                   jinja_env=jinja_env,
+                  calendar_file=calendar,
                   calendar_events=calendar_data,
-                  season_map=season_map,
                   DRAFT=GetOption('draft'))
 env.Append(TEXINPUTS=str(root))
 
@@ -54,35 +57,5 @@ def Render(env, target_name, template_name, data):
 
 AddMethod(env, Render)
 
-def Build(env, directory, basename, sources):
-    calendar_events = itertools.chain.from_iterable(season['weeks'] for season in env['calendar_events'])
-    yaml_sources = [f'body/{evt["basename"]}.yaml' for evt in calendar_events]
-    music_wrapper = env.LilypondWrapper(f'{directory}/{basename}_hymnal', yaml_sources)
-    music_file = env.Lilypond(f'{directory}/{basename}_hymnal', music_wrapper)
-    texfile = env.Wrapper(f'{directory}/{basename}', sources + music_file)
-    env.Depends(texfile, calendar) # rebuild if calendar changed, but does not appear in sources
-    if GetOption('twoup'):
-        oneup_pdf = env.PDF(f'{directory}/{basename}_1up.pdf', texfile)
-        pdf_result = env.TwoUp(f'{directory}/{basename}.pdf', oneup_pdf)
-    else:
-        pdf_result = env.PDF(f'{directory}/{basename}', texfile)
-    return pdf_result
-
-AddMethod(env, Build)
-
-for season in calendar_data:
-    for event in season['weeks']:
-        event_file = File(f'body/{event["basename"]}.yaml')
-        if event_file.exists():
-            env.Clone(calendar_events=[{**season, 'weeks': [event]}]).Build('single', event['basename'], ['templates/single.tex.tmp'])
-
-env.LyGeometry('single/geometry')
-env.TexGeometry('single/geometry')
-
-env.LyGeometry('full/geometry')
-env.TexGeometry('full/geometry')
-
-env.Build('full', 'fulltext', ['templates/full.tex.tmp'])
-env.PDF('full/full.pdf', 'full/full.tex')
 Decider('timestamp-match')
-SConscript(['body/SConscript', 'music/SConscript'], exports='env')
+env.SConscript(['$FULLDIR/SConscript', '$SINGLEDIR/SConscript', '$BODYDIR/SConscript', '$MUSICDIR/SConscript'], exports='env')

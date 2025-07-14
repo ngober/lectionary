@@ -12,15 +12,21 @@ import SCons.Scanner.LaTeX
 from SCons.Builder import Builder
 
 from .esv_api import get_text
-from util import noisy, get_basename, parse_yaml
+from util import noisy, get_basename, parse_yaml, filter_calendar
 
 def get_first_with_ext(source, ext):
     return str(next(filter(lambda s: str(s).endswith(ext), source)))
 
+def get_tex_from_yaml(target, source, env):
+    return target, [str(pathlib.Path(str(s)).with_suffix('.tex')) if str(s).endswith('.yaml') else s for s in source]
+
 def add_template_name(target, source, env):
     target_name = pathlib.Path(str(target[0]))
     source_basenames = [pathlib.Path(str(s)).stem for s in source]
-    templates = [f'../templates/{env["season_map"][s]}.tex.tmp' for s in source_basenames]
+
+    season_map = dict(itertools.chain.from_iterable([(w['basename'], season['season']) for w in season['weeks']] for season in env['calendar_events']))
+
+    templates = [f'../templates/{season_map[s]}.tex.tmp' for s in source_basenames]
     templates = [temp for temp in templates if os.path.exists(temp)]
     if not templates:
         templates = ['../templates/body.tex.tmp']
@@ -80,8 +86,9 @@ def render_body(target, source, env):
 def render_wrapper(target, source, env):
     template_name = pathlib.Path(get_first_with_ext(source, '.tex.tmp'))
     hymnal_name = pathlib.Path(get_first_with_ext(source, '.pdf'))
+    source_basenames = [pathlib.Path(str(s)).stem for s in source if str(s).endswith('.tex')]
     render_data = {
-        'calendar': env['calendar_events'],
+        'calendar': filter_calendar(env['calendar_events'], *source_basenames),
         'hymnal_name' : os.path.splitext(os.path.basename(str(hymnal_name)))[0]
     }
     env.Render(target[0], template_name, render_data)
@@ -91,7 +98,8 @@ def WrapperBuilder():
         action=render_wrapper,
         suffix='.tex',
         src_suffix='.yaml',
-        target_scanner=SCons.Scanner.LaTeX.LaTeXScanner()
+        target_scanner=SCons.Scanner.LaTeX.LaTeXScanner(),
+        emitter=get_tex_from_yaml
     )
 
 def BodyBuilder():
