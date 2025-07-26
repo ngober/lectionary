@@ -2,7 +2,7 @@
 
 "Freely you received, freely give"
 
-!\[Freely Given\](https://copy.church/badges/lcc_alt_pde.svg)
+![Freely Given](https://copy.church/badges/lcc_alt_pde.svg)
 
 This work is an act of love to my family and is dedicated to the public domain, so that other families may also be blessed.
 
