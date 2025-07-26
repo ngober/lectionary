@@ -32,13 +32,12 @@ def add_template_name(target, source, env):
     source.extend(templates)
     return target, source
 
-def reading_make_dict(a):
+def make_dict_with(a, key):
     if not isinstance(a, dict):
-        a = { 'address': a }
+        a = { key: a }
     return a
 
 def augment_readings(readings, draft=False):
-    readings = [reading_make_dict(a) for a in readings]
     if draft:
         texts = [['\lipsum[2]'] for _ in readings]
     else:
@@ -46,12 +45,13 @@ def augment_readings(readings, draft=False):
     return list(itertools.starmap(texify.reading_join_text, zip(readings, texts)))
 
 def normalize_yaml(parsed, draft=False):
-    readings = augment_readings(parsed['readings'], draft)
+    readings = augment_readings([make_dict_with(a, 'address') for a in parsed['readings']], draft)
     if 'musicpages' in parsed:
         parsed['musicpages'] = { name: get_basename(name) for name in (parsed.get('musicpages') or []) }
     parsed['presong_readings'] = readings[:len(readings)//2]
     parsed['postsong_readings'] = readings[len(readings)//2:]
     parsed['lordsprayer'] = parsed.get('lordsprayer', True)
+    parsed['prayer'] = make_dict_with(parsed['prayer'], 'text')
     return parsed
 
 @noisy()

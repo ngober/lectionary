@@ -58,8 +58,18 @@
 \vspace{16pt} \noindent 
 {% block prayer -%}
 Let us pray:
-\begin{quote} {{ prayer }} \end{quote}
+{% if 'reference' in prayer -%}
+\begin{aquote}{{ '{' }}{{ prayer.reference }}}
+{%- else -%}
+\begin{quote}
+{%- endif %}
+{{ prayer.text }}
 Amen
+{% if 'reference' in prayer -%}
+\end{aquote}
+{%- else -%}
+\end{quote}
+{%- endif %}
 {% endblock prayer %}
 
 {% endblock body %}

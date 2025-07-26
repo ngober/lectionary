@@ -7,12 +7,13 @@ readings:
 musicpages:
   - Jesus Paid It All
 
-prayer: >
-  O God our rock,
-  We thank you that you did not leave us rudderless and tossed by storms in this life,
-  but have graciously given us, in your word and in the witness of the Holy Spirit,
-  a true mooring for our own lives,
-  a true anchor for our souls.
-  We pray that you would daily increase our deep hunger for your word and your truth
-  that our own words and choices and actions would be shaped by your gracious revelation,
-# Every Moment Holy, Volume 1, pg260
+prayer:
+  text: >
+    O God our rock,
+    We thank you that you did not leave us rudderless and tossed by storms in this life,
+    but have graciously given us, in your word and in the witness of the Holy Spirit,
+    a true mooring for our own lives,
+    a true anchor for our souls.
+    We pray that you would daily increase our deep hunger for your word and your truth
+    that our own words and choices and actions would be shaped by your gracious revelation,
+  reference: Every Moment Holy, Volume 1, pg. 260
