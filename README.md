@@ -13,11 +13,6 @@ The state of this project is currently "works on my machine" and may need some c
  - SCons
  - LaTeX
  - Lilypond 2.21
- - The following python libraries
-   - jinja2
-   - pyyaml
-   - pythonbible
-   - requests
  - An ESV API key, contained in the file `esv_api.key`.
 
 ### Usage
