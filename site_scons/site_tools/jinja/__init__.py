@@ -1,8 +1,9 @@
-from .builders import WrapperBuilder, BodyBuilder
+from .builders import WrapperBuilder, BodyBuilder, TemplateScanner
 
 def generate(env):
     env['BUILDERS']['Wrapper'] = WrapperBuilder()
     env['BUILDERS']['Body'] = BodyBuilder()
+    env['SCANNERS'].append(TemplateScanner())
 
 def exists():
     try:

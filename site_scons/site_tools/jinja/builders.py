@@ -8,6 +8,7 @@ import re
 
 import SCons.Scanner.LaTeX
 from SCons.Builder import Builder
+from SCons.Scanner import Scanner, FindPathDirs
 
 from .esv_api import get_text
 from util import noisy, get_basename, parse_yaml, filter_calendar
@@ -20,7 +21,6 @@ def get_tex_from_yaml(target, source, env):
     return target, [str(pathlib.Path(str(s)).with_suffix('.tex')) if str(s).endswith('.yaml') else s for s in source]
 
 def add_template_name(target, source, env):
-    target_name = pathlib.Path(str(target[0]))
     source_basenames = [pathlib.Path(str(s)).stem for s in source]
 
     season_map = dict(itertools.chain.from_iterable([(w['basename'], season['season']) for w in season['weeks']] for season in env['calendar_events']))
@@ -72,6 +72,12 @@ def render_wrapper(target, source, env):
     }
     env.Render(target[0], template_name, render_data)
 
+JINJA_EXTEND = re.compile(r'^{%\s+extends\s+([\'"])(\S+)\1\s+%}$', re.M)
+def template_scanner(node, env, path, arg=None):
+    includes = [m[1] for m in JINJA_EXTEND.findall(node.get_text_contents())]
+    deps = (os.path.join(str(d), inc) for d,inc in itertools.product(path, includes))
+    return env.File(list(filter(os.path.exists, deps)))
+
 def WrapperBuilder():
     return Builder(
         action=render_wrapper,
@@ -88,4 +94,11 @@ def BodyBuilder():
         src_suffix='.yaml',
         target_scanner=SCons.Scanner.LaTeX.LaTeXScanner(),
         emitter=add_template_name
+    )
+
+def TemplateScanner():
+    return Scanner(
+        function=template_scanner,
+        skeys=['.tmp'],
+        path_function=FindPathDirs('TEMPLATEDIR')
     )

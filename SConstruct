@@ -42,6 +42,7 @@ env = Environment(BUILDERS={
                   SINGLEDIR=Dir('single'),
                   BODYDIR=Dir('body'),
                   MUSICDIR=Dir('music'),
+                  TEMPLATEDIR=Dir('templates'),
                   jinja_env=jinja_env,
                   calendar_file=calendar,
                   calendar_events=calendar_data,
