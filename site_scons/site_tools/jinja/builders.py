@@ -6,13 +6,12 @@ import contextlib
 import sys
 import re
 
-import pythonbible as bible
-
 import SCons.Scanner.LaTeX
 from SCons.Builder import Builder
 
 from .esv_api import get_text
 from util import noisy, get_basename, parse_yaml, filter_calendar
+import texify
 
 def get_first_with_ext(source, ext):
     return str(next(filter(lambda s: str(s).endswith(ext), source)))
@@ -33,30 +32,10 @@ def add_template_name(target, source, env):
     source.extend(templates)
     return target, source
 
-def address_to_index(address):
-    sort_key = bible.convert_references_to_verse_ids(bible.get_references(address))[0]
-    sort_key = f'{sort_key:08}' # Pad to 8 digits, early books only have 7
-    sort_key = [sort_key[:2], sort_key[2:5]] # book index, chapter index
-
-    # Extract a book name (maybe has a leading digit) and prepend book and chapter sort keys
-    return re.sub(r'((?:\d\s)?\w+)\s*', f'{sort_key[0]}@\\1!{sort_key[1]}@', address, count=1)
-
 def reading_make_dict(a):
     if not isinstance(a, dict):
         a = { 'address': a }
     return a
-
-UNESCAPED_WORD = re.compile(r'\b(?<!\\)\w*\b\s*')
-def reading_join_text(a,t):
-    firstparagraph, *tailparagraphs = t
-    firstline, *taillines = firstparagraph.lstrip().splitlines()
-
-    if a.get('skip'):
-        firstline = re.sub(UNESCAPED_WORD, '', firstline, count=a['skip'])
-    firstline = re.sub(UNESCAPED_WORD, lambda match: match.group(0).capitalize(), firstline, count=1)
-
-    firstparagraph = '\n'.join(itertools.chain([firstline], taillines)).strip()
-    return { **a, 'text': [firstparagraph, *tailparagraphs], 'index': address_to_index(a['address']) }
 
 def augment_readings(readings, draft=False):
     readings = [reading_make_dict(a) for a in readings]
@@ -64,7 +43,7 @@ def augment_readings(readings, draft=False):
         texts = [['\lipsum[2]'] for _ in readings]
     else:
         texts = get_text([a['address'] for a in readings])
-    return list(itertools.starmap(reading_join_text, zip(readings, texts)))
+    return list(itertools.starmap(texify.reading_join_text, zip(readings, texts)))
 
 def normalize_yaml(parsed, draft=False):
     readings = augment_readings(parsed['readings'], draft)
