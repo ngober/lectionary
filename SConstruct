@@ -47,7 +47,7 @@ env = Environment(BUILDERS={
                   calendar_file=calendar,
                   calendar_events=calendar_data,
                   DRAFT=GetOption('draft'))
-env.Append(TEXINPUTS=str(root))
+env.Append(TEXINPUTS=str(pathlib.Path(root) / 'texmf' / 'tex' / 'latex'))
 
 @noisy()
 def Render(env, target_name, template_name, data):
