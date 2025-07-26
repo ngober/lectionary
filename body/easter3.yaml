@@ -1,7 +1,8 @@
 readings:
   - Psalm 33:13-22
   - John 20:19-29
-  - Acts 2:32-41
+  - address: Acts 2:32-41
+    prefix: Peter said
   - Jeremiah 31:31-34
 
 musicpages:

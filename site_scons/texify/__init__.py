@@ -71,5 +71,10 @@ def reading_join_text(address, text):
         firstline = re.sub(UNESCAPED_WORD, '', firstline, count=address['skip'])
     firstline = re.sub(UNESCAPED_WORD, lambda match: match.group(0).capitalize(), firstline, count=1)
 
+    # Add a prefix to the reading, if indicated
+    # eg [Jesus said:]
+    if address.get('prefix'):
+        firstline = f'[{address["prefix"]}:] {firstline}'
+
     firstparagraph = '\n'.join(itertools.chain([firstline], taillines)).strip()
     return { **address, 'text': [firstparagraph, *tailparagraphs], 'index': address_to_index(address['address']) }
