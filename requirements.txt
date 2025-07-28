@@ -1,6 +1,6 @@
-Jinja2<=3
+Jinja2>=3
 pyphen==0.17.2
 pythonbible==0.13.1
-PyYAML<=5
-requests<=2.25
-SCons<=4.4.0
+PyYAML==6.0.0
+requests>=2.25
+SCons>=4.4.0
