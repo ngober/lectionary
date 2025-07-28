@@ -10,6 +10,8 @@ import SCons.Scanner.LaTeX
 from SCons.Builder import Builder
 from SCons.Scanner import Scanner, FindPathDirs
 
+import pythonbible as bible
+
 from .esv_api import get_text
 from util import noisy, get_basename, parse_yaml, filter_calendar
 import texify
@@ -37,12 +39,21 @@ def make_dict_with(a, key):
         a = { key: a }
     return a
 
+def address_to_index(address):
+    sort_key = bible.convert_references_to_verse_ids(bible.get_references(address))[0]
+    sort_key = f'{sort_key:08}' # Pad to 8 digits, early books only have 7
+    sort_key = [sort_key[:2], sort_key[2:5]] # book index, chapter index
+
+    # Extract a book name (maybe has a leading digit) and prepend book and chapter sort keys
+    return re.sub(r'((?:\d\s)?\w+)\s*', f'{sort_key[0]}@\\1!{sort_key[1]}@', address, count=1)
+
 def augment_readings(readings, draft=False):
     if draft:
         texts = [['\lipsum[2]'] for _ in readings]
     else:
         texts = get_text([a['address'] for a in readings])
-    return list(itertools.starmap(texify.reading_join_text, zip(readings, texts)))
+    readings = [texify.reading_join_text(text=t, **r) for r,t in zip(readings, texts)]
+    return [{**r, 'index': address_to_index(r['address'])} for r in readings]
 
 def normalize_yaml(parsed, draft=False):
     readings = augment_readings([make_dict_with(a, 'address') for a in parsed['readings']], draft)

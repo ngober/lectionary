@@ -1,8 +1,7 @@
 import collections
 import re
 import itertools
-
-import pythonbible as bible
+import functools
 
 def smallcap(text):
     return re.sub(r'\b[A-Z]{2,}\b', lambda match: f'\\textsc{{{match.group(0).title()}}}', text)
@@ -14,36 +13,25 @@ def split_paragraph(text):
     return [list(p) for k,p in itertools.groupby(text.splitlines(), key=lambda l: l.rstrip() != '') if k]
 
 def indent_counts(lines):
-    counters = (len(re.search('\s*', l).group(0)) for l in lines)
-    return collections.Counter(counters)
+    return [len(re.search('\s*', l).group(0)) for l in lines]
 
-def poetry_indent(lines, short_indent, long_indent):
-    def ident(l):
-        startspace = len(re.search('\s*', l).group(0))
-        if startspace == long_indent:
-            return f'\\par\\indent {l}'
-        return f'\\par\\noindent {l}'
-    return list(map(ident, lines))
-
-def indent_paragraph(par):
+def indentations_for(par):
     counts = indent_counts(par)
-    if len(counts.keys()) == 2:
-        short_indent = min(counts.keys())
-        long_indent = max(counts.keys())
-        if counts[short_indent] >= 0.5*counts[long_indent]:
-            return '\n'.join(poetry_indent(par, short_indent, long_indent))
-        else:
-            return '\n'.join(par)
-    else:
-        return '\n'.join(par)
-
-def address_to_index(address):
-    sort_key = bible.convert_references_to_verse_ids(bible.get_references(address))[0]
-    sort_key = f'{sort_key:08}' # Pad to 8 digits, early books only have 7
-    sort_key = [sort_key[:2], sort_key[2:5]] # book index, chapter index
-
-    # Extract a book name (maybe has a leading digit) and prepend book and chapter sort keys
-    return re.sub(r'((?:\d\s)?\w+)\s*', f'{sort_key[0]}@\\1!{sort_key[1]}@', address, count=1)
+    countcounts = collections.Counter(counts)
+    if 0 in countcounts.keys():
+        del countcounts[0]
+    if len(countcounts.keys()) == 2:
+        short_indent = min(countcounts.keys())
+        long_indent = max(countcounts.keys())
+        if countcounts[short_indent] >= 0.5*countcounts[long_indent]:
+            def ident(startspace):
+                if startspace == long_indent:
+                    return '\\par\\indent'
+                if startspace == short_indent:
+                    return '\\par\\noindent'
+                return ''
+            return map(ident, counts)
+    return itertools.repeat('')
 
 RIGHT_SELAH = '''
 
@@ -52,29 +40,43 @@ RIGHT_SELAH = '''
 \\\\setlength{\\\\parindent}{15pt}
 
 '''
-UNESCAPED_WORD = re.compile(r'\b(?<!\\)\w*\b\s*')
-def reading_join_text(address, text):
-    text = smallcap(text)
-    text = drop_bracket(text)
-    pars = split_paragraph(text)
-
-    if re.search('Psalm \d*$', address['address']) or re.search('Psalm \d*:1\b', address['address']):
-        pars = pars[1:]
-
-    for par in pars:
-        par[-1] = re.sub('Selah$', RIGHT_SELAH, par[-1])
-
-    firstparagraph, *tailparagraphs = [indent_paragraph(p) for p in pars]
-    firstline, *taillines = firstparagraph.lstrip().splitlines()
-
-    if address.get('skip'):
-        firstline = re.sub(UNESCAPED_WORD, '', firstline, count=address['skip'])
-    firstline = re.sub(UNESCAPED_WORD, lambda match: match.group(0).capitalize(), firstline, count=1)
+UNESCAPED_WORD = re.compile(r'\b(?<!\\)\S*\s*')
+def config_par_adjust(par, skip=0, prefix=None):
+    # Skip N initial words
+    if skip:
+        par[0] = re.sub(UNESCAPED_WORD, '', par[0], count=skip)
 
     # Add a prefix to the reading, if indicated
-    # eg [Jesus said:]
-    if address.get('prefix'):
-        firstline = f'[{address["prefix"]}:] {firstline}'
+    # e.g. [Jesus said:]
+    prefix = f'[{prefix}] ' if prefix else ''
 
-    firstparagraph = '\n'.join(itertools.chain([firstline], taillines)).strip()
-    return { **address, 'text': [firstparagraph, *tailparagraphs], 'index': address_to_index(address['address']) }
+    # Ensure the first word is capitalized
+    par[0] = re.sub(UNESCAPED_WORD, lambda match: f'{prefix}{match.group(0).capitalize()}', par[0], count=1)
+
+    return par
+
+def identity(x):
+    return x
+
+def process_par(par, func=identity):
+    # Drop [brackets] used by translations to indicate uncertain readings
+    par = [drop_bracket(l) for l in par]
+
+    par = func(par)
+
+    # Push 'Selah' in psalms to the right and italicize
+    par[-1] = re.sub('Selah$', RIGHT_SELAH, par[-1])
+
+    # Change all-caps words (e.g. LORD) to smallcap style
+    par = [smallcap(l) for l in par]
+
+    # FIXME use LaTeX's dirtytalk package to ensure quotes are good
+
+    # Join lines together again
+    return '\n'.join(' '.join(l) for l in zip(indentations_for(par), par))
+    
+def reading_join_text(address, text, **kwargs):
+    parfuncs = itertools.chain([functools.partial(config_par_adjust, **kwargs)], itertools.repeat(identity))
+    text = [process_par(par, func) for par, func in zip(split_paragraph(text), parfuncs)]
+
+    return { **kwargs, 'address': address, 'text': text }
