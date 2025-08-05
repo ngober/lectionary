@@ -24,7 +24,7 @@ AddOption(
 root = Dir('.').srcnode().abspath
 
 jinja_env = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(pathlib.Path(root) / 'templates'),
+    loader=jinja2.FileSystemLoader(pathlib.Path(root)),
     autoescape=jinja2.select_autoescape()
 )
 
@@ -51,7 +51,7 @@ env.Append(TEXINPUTS=str(pathlib.Path(root) / 'texmf' / 'tex' / 'latex'))
 
 @noisy()
 def Render(env, target_name, template_name, data):
-    template = env['jinja_env'].get_template(os.path.basename(str(template_name)))
+    template = env['jinja_env'].get_template(str(template_name))
     rendered = template.render(**data)
     pathlib.Path(str(target_name)).write_text(rendered)
     return env.File(target_name)

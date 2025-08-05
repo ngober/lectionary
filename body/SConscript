@@ -1,3 +1,5 @@
 Import('env')
-for source in env.Glob('*.yaml'):
-    env.Body(source)
+
+body_env = env.Clone(TEMPLATEDIR='templates')
+for source in body_env.Glob('*.yaml'):
+    body_env.Body(source)

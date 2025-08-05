@@ -2,16 +2,19 @@ import itertools
 
 Import('env')
 
-env.LyGeometry('geometry')
-env.TexGeometry('geometry')
+full_env = env.Clone(TEMPLATEDIR='templates')
+full_env.LyGeometry('geometry')
+full_env.TexGeometry('geometry')
 
-yaml_sources = env.Glob('$BODYDIR/*.yaml')
-music_wrapper = env.LilypondWrapper('full_hymnal', yaml_sources)
-music_file = env.Lilypond('full_hymnal', music_wrapper)
-texfile = env.Wrapper('fulltext', ['../templates/full.tex.tmp'] + yaml_sources + music_file)
-env.Depends(texfile, env['calendar_file']) # rebuild if calendar changed, but does not appear in sources
+print(str(full_env['MUSICDIR']))
+
+yaml_sources = full_env.Glob('$BODYDIR/*.yaml')
+music_wrapper = full_env.LilypondWrapper('full_hymnal', yaml_sources)
+music_file = full_env.Lilypond('full_hymnal', music_wrapper)
+texfile = full_env.Wrapper('fulltext', ['$TEMPLATEDIR/full.tex.tmp'] + yaml_sources + music_file)
+full_env.Depends(texfile, full_env['calendar_file']) # rebuild if calendar changed, but does not appear in sources
 if GetOption('twoup'):
-    oneup_pdf = env.PDF('full_1up.pdf', 'full.tex')
-    pdf_result = env.TwoUp('full.pdf', oneup_pdf)
+    oneup_pdf = full_env.PDF('full_1up.pdf', 'full.tex')
+    pdf_result = full_env.TwoUp('full.pdf', oneup_pdf)
 else:
-    pdf_result = env.PDF('full.pdf', 'full.tex')
+    pdf_result = full_env.PDF('full.pdf', 'full.tex')

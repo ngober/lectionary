@@ -27,10 +27,10 @@ def add_template_name(target, source, env):
 
     season_map = dict(itertools.chain.from_iterable([(w['basename'], season['season']) for w in season['weeks']] for season in env['calendar_events']))
 
-    templates = [f'../templates/{season_map[s]}.tex.tmp' for s in source_basenames]
+    templates = [f'$TEMPLATEDIR/{season_map[s]}.tex.tmp' for s in source_basenames]
     templates = [temp for temp in templates if os.path.exists(temp)]
     if not templates:
-        templates = ['../templates/body.tex.tmp']
+        templates = ['$TEMPLATEDIR/body.tex.tmp']
     source.extend(templates)
     return target, source
 

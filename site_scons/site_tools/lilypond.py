@@ -87,7 +87,7 @@ def time_signature_cycle(part, time_sigs):
     return '|'.join(f' \\time {ts} {line}' for ts, line in measured)
 
 def render_single(target, source, env):
-    source_name = pathlib.Path(str(source[0]))
+    source_name = pathlib.Path(get_first_with_ext(source, '.yaml'))
     tag = hashlib.sha256(source_name.stem.encode()).hexdigest()
     tag = tag.translate(str.maketrans("0123456789", "ghijklmnop"))
 
@@ -101,7 +101,10 @@ def render_single(target, source, env):
         if 'time_signature' in section:
             section['soprano'] = time_signature_cycle(section['soprano'], section['time_signature'])
 
-    env.Render(target[0], '../templates/hymn.ly.tmp', { "tag": tag, "num_verses": num_verses, **data })
+    env.Render(target[0], get_first_with_ext(source, '.tmp'), { "tag": tag, "num_verses": num_verses, **data })
+
+def add_hymn_template(target, source, env):
+    return target, source + ['$TEMPLATEDIR/hymn.ly.tmp']
 
 def get_musicpages(yamlfile):
     data = parse_yaml(yamlfile)
@@ -111,7 +114,7 @@ def add_musicpages(target, source, env):
     source = [get_musicpages(s) if s.endswith('.yaml') else s for s in map(str, source)]
     source = sorted(set(itertools.chain.from_iterable(source)))
     target.append(str(pathlib.Path(str(target[0])).with_suffix('.toc')))
-    return target, ['../templates/hymnal.ly.tmp'] + source
+    return target, ['$MUSICDIR/templates/hymnal.ly.tmp'] + source
 
 def generate(env):
     env.Append(SCANNERS=Scanner(function=scan_lilypond, skeys=['.ly']))
@@ -144,7 +147,8 @@ def generate(env):
     lilypond_single = Builder(
         action=render_single,
         suffix='.yaml',
-        src_suffix='.ly'
+        src_suffix='.ly',
+        emitter=add_hymn_template
     )
 
     env['BUILDERS']['Lilypond'] = lilypond_builder
