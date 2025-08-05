@@ -6,8 +6,6 @@ full_env = env.Clone(TEMPLATEDIR='templates')
 full_env.LyGeometry('geometry')
 full_env.TexGeometry('geometry')
 
-print(str(full_env['MUSICDIR']))
-
 yaml_sources = full_env.Glob('$BODYDIR/*.yaml')
 music_wrapper = full_env.LilypondWrapper('full_hymnal', yaml_sources)
 music_file = full_env.Lilypond('full_hymnal', music_wrapper)
