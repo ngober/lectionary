@@ -9,7 +9,7 @@ import pyphen
 from SCons.Builder import Builder
 from SCons.Scanner import Scanner
 
-from util import get_basename, parse_yaml
+from util import get_basename, parse_yaml, make_dict_with
 
 def get_first_with_ext(source, ext):
     return str(next(filter(lambda s: str(s).endswith(ext), source)))
@@ -73,8 +73,19 @@ def filter_quoted_hyphenate(word):
 
 UNQUOTED_WORD = re.compile(r'(?:(?<=(\\")|.[^"])|^)\b([a-zA-Z\']+)\b[;:,.!]?(?=(\\")|[^"]|$)')
 def process_verse(verse):
-    lines = verse.splitlines()
-    return '\n'.join(' '.join(map(filter_quoted_hyphenate, line.split())) if not line.strip().startswith('\\') else line for line in lines)
+    verse = { 'bind': 'soprano', **make_dict_with(verse, 'text') }
+    lines = verse['text'].splitlines()
+    verse['text'] = '\n'.join(' '.join(map(filter_quoted_hyphenate, line.split())) if not line.strip().startswith('\\') else line for line in lines)
+    return verse
+
+def bind_lyrics_to_voice(tag, all_sections):
+    for leader, follower in itertools.pairwise(all_sections):
+        lyrics = []
+        for leader_verse, follower_verse in itertools.zip_longest(leader['lyrics'], follower['lyrics'], fillvalue={ 'bind': 'soprano' }):
+            if leader_verse['bind'] != follower_verse['bind']:
+                *headwords, lastword = leader_verse['text'].split()
+                leader_verse['text'] = ' '.join(itertools.chain(headwords, [f'\set associatedVoice = "{tag}{follower_verse["bind"].title()}"', lastword]))
+    return all_sections
 
 SOFTBREAK = '\\bar ""' # \\allowBreak
 def insert_soft_breaks(part):
@@ -101,6 +112,7 @@ def render_single(target, source, env):
         if 'time_signature' in section:
             section['soprano'] = time_signature_cycle(section['soprano'], section['time_signature'])
 
+    data['sections'] = bind_lyrics_to_voice(tag, data['sections'])
     env.Render(target[0], get_first_with_ext(source, '.tmp'), { "tag": tag, "num_verses": num_verses, **data })
 
 def add_hymn_template(target, source, env):

@@ -13,7 +13,7 @@ from SCons.Scanner import Scanner, FindPathDirs
 import pythonbible as bible
 
 from .esv_api import get_text
-from util import noisy, get_basename, parse_yaml, filter_calendar
+from util import noisy, get_basename, parse_yaml, filter_calendar, make_dict_with
 import texify
 
 def get_first_with_ext(source, ext):
@@ -33,11 +33,6 @@ def add_template_name(target, source, env):
         templates = ['$TEMPLATEDIR/body.tex.tmp']
     source.extend(templates)
     return target, source
-
-def make_dict_with(a, key):
-    if not isinstance(a, dict):
-        a = { key: a }
-    return a
 
 def address_to_index(address):
     sort_key = bible.convert_references_to_verse_ids(bible.get_references(address))[0]

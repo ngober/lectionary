@@ -154,6 +154,10 @@
       week: 32
       basename: ordinary2
 
+    - title: The Week of August 15
+      week: 44
+      basename: ordinary15
+
     - title: PLACEHOLDER
       week: 32
       basename: placeholder2

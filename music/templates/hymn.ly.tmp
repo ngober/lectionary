@@ -54,13 +54,15 @@
 		{{ voices_with_ambitus(tag + "Soprano", tag + "Alto") }}
 
 		{% for verse_index in range(num_verses) %}
-                \new Lyrics \lyricsto "{{ tag }}Soprano" {
+                \new Lyrics \lyricsto "{{ tag }}{{ sections[0].lyrics[verse_index].bind | capitalize }}" {
                   {% if num_verses > 1 %}
                   \set stanza = "{{ verse_index+1 }}."
                   {% endif %}
                   \lyricmode {
 		    {% for section in sections %}
-                    {{ section.lyrics[verse_index] }}
+		    {%- if section.lyrics|length > verse_index %}
+                    {{ section.lyrics[verse_index].text }}
+		    {%- endif %}
 		    {% endfor %}
                   }
                 }
