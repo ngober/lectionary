@@ -1,7 +1,8 @@
 ---
 readings:
   - Genesis 15:1-8
-  - Psalm 27
+  - address: Psalm 27
+    skip: 2
   - address: Mark 8:31-38
     skip: 1
   - Romans 4:1-5, 13-17

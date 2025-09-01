@@ -3,7 +3,9 @@
     - Isaiah 40:3-5
     - Malachi 2:17-3:5
     - Luke 1:5-25
-    - John 1:23-31
+    - address: John 1:23-31
+      skip: 2
+      prefix: John the Baptist
 
   musicpages:
     - O Come, O Come, Emmanuel

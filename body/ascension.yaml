@@ -1,8 +1,11 @@
 readings:
-  - Psalm 24
-  - Psalm 110
+  - address: Psalm 24
+    skip: 4
+  - address: Psalm 110
+    skip: 4
   - Acts 1:1-11
-  - Hebrews 9:6-14,23-28
+  - address: Hebrews 9:6-14,23-28
+    skip: 1
 
 prayer: |
   Oh God, the King of Glory, you have exalted your only Son Jesus Christ with great triumph to your kingdom in heaven.

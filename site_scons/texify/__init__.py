@@ -73,8 +73,9 @@ RIGHT_SELAH = '''
 \\\\setlength{\\\\parindent}{15pt}
 
 '''
-UNESCAPED_WORD = re.compile(r'\b(?<!\\)\S*\s*')
+UNESCAPED_WORD = re.compile(r'(?<!\\)\S*\s*')
 def config_par_adjust(par, skip=0, prefix=None):
+    print(par)
     # Skip N initial words
     if skip:
         par = UNESCAPED_WORD.sub('', par, count=skip)
@@ -85,7 +86,8 @@ def config_par_adjust(par, skip=0, prefix=None):
         par = UNESCAPED_WORD.sub(lambda match: f'[{prefix}] {match.group(0)}', par, count=1)
 
     # Ensure the first word is capitalized
-    par = UNESCAPED_WORD.sub(lambda match: match.group(0).capitalize(), par, count=1)
+    # added \b to UNESCAPED_WORD to skip leading punctuation
+    par = re.sub(r'\b(?<!\\)\S*\s*', lambda match: match.group(0).capitalize(), par, count=1)
 
     return par
 

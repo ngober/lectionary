@@ -1,7 +1,9 @@
 readings:
   - Ezekiel 37:1-14
-  - Psalm 130
-  - John 11:1-45
+  - address: Psalm 130
+    skip: 4
+  - address: John 11:1-45
+    skip: 1
   - address: Romans 8:6-11
     skip: 1
 

@@ -1,7 +1,8 @@
 readings:
   - Numbers 6:22-27
   - Philippians 2:5-11
-  - Luke 2:21-38
+  - address: Luke 2:21-38
+    skip: 1
 
 prayer: |
   Lord Jesus, who was made flesh and dwelt among us: be our companion in the way, kindle our hearts, and awaken hope, that we may know you as you are revealed in Scrpture and the breaking of bread. Grant this for the sake of your love,

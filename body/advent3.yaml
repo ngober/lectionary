@@ -1,7 +1,8 @@
 readings:
   #- Isaiah 7:14
   - Luke 1:26-38
-  - John 1:12-14,16-17
+  - address: John 1:12-14,16-17
+    skip: 1
   - Hebrews 2:14-18
 
 prayer: |

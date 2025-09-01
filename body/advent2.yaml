@@ -1,7 +1,9 @@
 readings:
   - Jeremiah 33:14-22
-  - Micah 5:2
-  - Matthew 1:18-25
+  - address: Micah 5:2
+    skip: 1
+  - address: Matthew 1:18-25
+    skip: 1
     #- Hebrews 4:14-5:5
 
 prayer: |
