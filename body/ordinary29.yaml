@@ -1,5 +1,6 @@
 readings:
-  - Psalm 145
+  - address: Psalm 145
+    skip: 6
   - Deuteronomy 26:1-11
   - Joel 2:21-27
   - 1 Thessalonians 5:12-24

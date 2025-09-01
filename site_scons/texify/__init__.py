@@ -77,14 +77,15 @@ UNESCAPED_WORD = re.compile(r'\b(?<!\\)\S*\s*')
 def config_par_adjust(par, skip=0, prefix=None):
     # Skip N initial words
     if skip:
-        par[0] = re.sub(UNESCAPED_WORD, '', par[0], count=skip)
+        par = UNESCAPED_WORD.sub('', par, count=skip)
 
     # Add a prefix to the reading, if indicated
     # e.g. [Jesus said:]
-    prefix = f'[{prefix}] ' if prefix else ''
+    if prefix:
+        par = UNESCAPED_WORD.sub(lambda match: f'[{prefix}] {match.group(0)}', par, count=1)
 
     # Ensure the first word is capitalized
-    par[0] = re.sub(UNESCAPED_WORD, lambda match: f'{prefix}{match.group(0).capitalize()}', par[0], count=1)
+    par = UNESCAPED_WORD.sub(lambda match: match.group(0).capitalize(), par, count=1)
 
     return par
 
@@ -95,17 +96,16 @@ def process_par(par, func=identity):
     # Drop [brackets] used by translations to indicate uncertain readings
     par = drop_bracket(par)
 
-    lines = par.splitlines()
-
-    lines = func(lines)
-
-    # Push 'Selah' in psalms to the right and italicize
-    lines[-1] = re.sub('Selah$', RIGHT_SELAH, lines[-1])
+    par = func(par)
 
     # Change all-caps words (e.g. LORD) to smallcap style
-    lines = [smallcap(l) for l in lines]
+    par = smallcap(par)
+
+    # Push 'Selah' in psalms to the right and italicize
+    par = re.sub('Selah$', RIGHT_SELAH, par)
 
     # Join lines together again
+    lines = par.splitlines()
     par = '\n'.join(' '.join(l) for l in zip(indentations_for(lines), lines))
 
     # Use LaTeX's dirtytalk package to ensure quotes are good

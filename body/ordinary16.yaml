@@ -4,7 +4,8 @@ readings:
     skip: 4
   - James 2:1-10,14-17
   - address: Mark 7:24-37
-    skip: 1
+    skip: 4
+    prefix: Jesus
 
 prayer:
   text: >
