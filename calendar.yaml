@@ -149,15 +149,6 @@
       week: 31
       basename: ordinary1
 
-    - title: the Week of July 4
-      subtitle: Independence Day
-      week: 32
-      basename: ordinary2
-
-    - title: The Week of August 15
-      week: 44
-      basename: ordinary15
-
     - title: PLACEHOLDER
       week: 32
       basename: placeholder2
@@ -189,6 +180,23 @@
     - title: the Week of June 29th
       week: 38
       basename: ordinary8
+
+    - title: the Week of July 4
+      subtitle: Independence Day
+      week: 39
+      basename: ordinary2
+
+    - title: The Week of August 15
+      week: 44
+      basename: ordinary15
+
+    - title: the Week of August 23
+      week: 45
+      basename: ordinary16
+
+    - title: the Week of August 31
+      week: 46
+      basename: ordinary17
 
     - title: the Week of October 1
       subtitle: Nathan and Rachel Gober's Wedding Anniversary
