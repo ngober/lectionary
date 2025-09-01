@@ -9,10 +9,11 @@ readings:
 musicpages:
   - My Hope Is Built On Nothing Less
 
-prayer: >
-  Almighty God, whom truly to know is everlasting life,
-  Grant us perfectly to know your Son Jesus Christ to be the way, the truth, and the life,
-  that we may steadfastly follow his steps in the way that leads to eternal life.
-  Grant us assurance by our baptism that you will save us as you saved Noah,
-  and that we may have peace in the promise that you will make all things new.
-# BCP pg 225
+prayer:
+  text: >
+    Almighty God, whom truly to know is everlasting life,
+    Grant us perfectly to know your Son Jesus Christ to be the way, the truth, and the life,
+    that we may steadfastly follow his steps in the way that leads to eternal life.
+    Grant us assurance by our baptism that you will save us as you saved Noah,
+    and that we may have peace in the promise that you will make all things new.
+  reference: Book of Common Prayer, pg 225

@@ -1,7 +1,10 @@
 readings:
-  - Ezekiel 22:23-30
-  - Psalm 139:1-9
-  - 1 Corinthians 2:6-13
+  - address: Ezekiel 22:23-30
+    skip: 1
+  - address: Psalm 139:1-9
+    skip: 7
+  - address: 1 Corinthians 2:6-13
+    skip: 1
   - Luke 10:21-24
 
 musicpages:

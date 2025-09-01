@@ -1,8 +1,10 @@
 readings:
   - Proverbs 22:1-2,8-9,22-23
-  - Psalm 125
+  - address: Psalm 125
+    skip: 4
   - James 2:1-10,14-17
-  - Mark 7:24-37
+  - address: Mark 7:24-37
+    skip: 1
 
 prayer:
   text: >

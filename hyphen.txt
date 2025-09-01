@@ -4,11 +4,13 @@ a-bun-dant
 a-dore
 a-dored
 a-gain
+a-ges
 a-le-lu-ia
 al-le-lu-ia
 al-migh-ty
 a-lone
 a-long
+a-mazed
 a-men
 a-rise
 a-round
@@ -43,7 +45,9 @@ jes-se
 la-den
 ling-er
 ma-je-sty
+mar-vel-ous
 might-y
+na-za-rene
 nee-dy
 o-pen
 o-pened
@@ -66,4 +70,5 @@ strang-er
 thir-sty
 tri-um-phant
 wea-ry
+ve-ry
 vil-est

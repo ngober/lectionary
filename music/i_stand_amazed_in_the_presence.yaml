@@ -23,29 +23,24 @@ sections:
 
     lyrics:
       - >
-        I stand a -- mazed in the pre -- sence Of Je -- sus the Na -- za --
-        "rene," And won -- der how He could love "me," A sin -- "ner," con
-        -- "demned," un -- "clean."
+        I stand amazed in the presence Of Jesus the Nazarene,
+        And wonder how He could love me, A sinner, condemned, unclean.
 
       - >
-        For me it was in the den __ \skip1 He "prayed:" "“Not" My "will," but
-        "Thine.”" He had no tears for His own "griefs," __ But sweat drops of
-        blood for "mine."
+        For me it was in the den \skip1 He prayed: "Not My will, but Thine."
+        He had no tears for His own griefs, But sweat drops of blood for mine.
 
       - >
-        In pi -- ty an -- gels be -- held "Him," And came from the world of
-        light To com -- fort Him in the sor -- rows He bore for my soul that
-        "night."
+        In pity angels beheld Him, And came from the world of light
+        To comfort Him in the sorrows He bore for my soul that night.
 
       - >
-        He took my sins and my sor -- "rows," He made them His ve -- ry "own;"
-        He bore the bur -- den to Cal -- "vary," And suf -- fered and died a
-        -- "lone."
+        He took my sins and my sorrows, He made them His very own;
+        He bore the burden to Calvary, And suffered and died alone.
 
       - >
-        When with the ran -- somed in glo -- ry His face I at last shall
-        "see," "’Twill" be my joy through the ag -- es To sing of His love
-        for "me."
+        When with the ransomed in glory His face I at last shall see,
+        'Twill be my joy through the ages To sing of His love for me.
 
   - title: Refrain
     soprano: >
@@ -90,12 +85,12 @@ sections:
 
     lyrics:
       - >
-        How __ mar -- vel -- "ous!" How __ won -- der -- "ful!"
-        And my song shall ev -- er "be:" How __ mar -- vel -- "ous!" How __ won -- der -- "ful"
-        is my sa -- "viors" love for "me!"
+        How marvelous! How wonderful! And my song shall ever be:
+        How marvelous! How wonderful is my saviors love for me!
 
-#IStandAmazedInThePresenceAltRefrain =  \lyricmode {
-#"Oh," how mar -- vel -- "ous!" "Oh," how won -- der -- "ful!"
-#\skip1 \skip1 \skip1 \skip1 \skip1 -- \skip1 \skip1 "Oh," how mar -- vel -- "ous!" "Oh," how won -- der -- "ful"
-#\skip1 \skip1 \skip1 \skip1 \skip1 \skip1\skip1 
-#}
+      - bind: alto
+        text: >
+          Oh, how marvelous! Oh, how wonderful!
+          \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1
+          Oh, how marvelous! Oh, how wonderful
+
