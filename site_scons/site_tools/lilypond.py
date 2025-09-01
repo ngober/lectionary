@@ -38,8 +38,7 @@ def split_by_positions(seq, positions):
     if not windows:
         return [seq]
     windows = itertools.chain(((None, positions[0]),), itertools.pairwise(positions), ((positions[-1], None),))
-    windows = (slice(*locs) for locs in windows)
-    return [seq[slc] for slc in windows]
+    return [seq[slice(*locs)] for locs in windows]
 
 OVERRIDES = dict(map(lambda x: (re.sub('-', '', x), x), pathlib.Path('hyphen.txt').read_text().splitlines()))
 QUOTED_WORD = re.compile(r'"(?:[^"\\]|\\.)*"')
@@ -81,7 +80,7 @@ def process_verse(verse):
 def bind_lyrics_to_voice(tag, all_sections):
     for leader, follower in itertools.pairwise(all_sections):
         lyrics = []
-        for leader_verse, follower_verse in itertools.zip_longest(leader['lyrics'], follower['lyrics'], fillvalue={ 'bind': 'soprano' }):
+        for leader_verse, follower_verse in zip(leader['lyrics'], itertools.chain(follower['lyrics'], itertools.repeat({ 'bind': 'soprano' }))):
             if leader_verse['bind'] != follower_verse['bind']:
                 *headwords, lastword = leader_verse['text'].split()
                 leader_verse['text'] = ' '.join(itertools.chain(headwords, [f'\set associatedVoice = "{tag}{follower_verse["bind"].title()}"', lastword]))
