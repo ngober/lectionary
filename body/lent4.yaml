@@ -1,6 +1,8 @@
 readings:
   - Numbers 21:4-9
-  - Psalm 107:1-3,17-22
+    #- Psalm 107:1-3,17-22
+  - address: Psalm 78:1-2,34-38
+    skip: 4
   - address: Ephesians 2:1-9
     skip: 1
   - address: John 3:14-21
