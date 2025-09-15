@@ -47,6 +47,9 @@
         {% if composer is defined %}
         composer = "{{ composer | trim }}"
         {% endif %}
+        {% if arranger is defined %}
+        arranger = "arr. {{ arranger | trim }}"
+        {% endif %}
     }
     <<
         \new ChoirStaff <<

@@ -7,6 +7,7 @@ for source in music_env.Glob('*.yaml'):
     target = pathlib.Path(str(source)).with_suffix('.ly')
     ly_single_target = music_env.LilypondSingle(target=str(target), source=source)
     music_env.Depends(ly_single_target, '../hyphen.txt') # rebuild if hyphen dictionary changed, but does not appear in sources
-    music_env.Lilypond(target=str(target.with_suffix('.pdf')), source=ly_single_target) # Used for debugging
+    ly_debug_target = music_env.LilypondDebug(target=str(target.with_suffix('.dbg.ly')), source=['$TEMPLATEDIR/hymnal.ly.tmp', ly_single_target]) # Used for debugging
+    music_env.Lilypond(target=str(target.with_suffix('.pdf')), source=ly_debug_target)
 
 

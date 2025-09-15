@@ -157,9 +157,15 @@ def generate(env):
 
     lilypond_single = Builder(
         action=render_single,
-        suffix='.yaml',
-        src_suffix='.ly',
+        suffix='.ly',
+        src_suffix='.yaml',
         emitter=add_hymn_template
+    )
+
+    lilypond_debug = Builder(
+        action=render_wrapper,
+        suffix='.ly',
+        src_suffix='.ly.tmp'
     )
 
     env['BUILDERS']['Lilypond'] = lilypond_builder
@@ -167,6 +173,7 @@ def generate(env):
     env['BUILDERS']['UncompMusicXML'] = uncomp_musicxml_converter
     env['BUILDERS']['LilypondWrapper']  = lilypond_wrapper
     env['BUILDERS']['LilypondSingle']  = lilypond_single
+    env['BUILDERS']['LilypondDebug']  = lilypond_debug
 
 def exists(env):
     return True

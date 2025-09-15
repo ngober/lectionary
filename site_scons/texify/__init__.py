@@ -75,7 +75,6 @@ RIGHT_SELAH = '''
 '''
 UNESCAPED_WORD = re.compile(r'(?<!\\)\S*\s*')
 def config_par_adjust(par, skip=0, prefix=None):
-    print(par)
     # Skip N initial words
     if skip:
         par = UNESCAPED_WORD.sub('', par, count=skip)

@@ -1,0 +1,76 @@
+title: Christ Our Hope In Life and Death
+poet: Keith Getty
+arranger: Nathan Gober
+time_signature: 3/4
+key: f \major
+
+sections:
+  - anacrusis: "4."
+    soprano: |
+      c8 f a | a4. a8 g f | f2 bes8. a16 | a2 a8. g16 | g4.
+      c,8 f a | a4. a8 g f | f2 bes8. a16 | a4. g8 g f | f4.
+      f8 a c | c4. a8 g f | a4. f8 g a | bes4. a8 g f | d4.
+      c8 f a | a4. a8 g f | f4. bes8 bes a | a4. g8 g f | f2
+
+    alto: |
+      c8 f f | f4. f8 e c | d2 f8. 16 | f2 f8. e16 | e4.
+      c8 f f | f4. f8 e c | d2 f8. 16 | f4. d8 d c | c4.
+      f8 f e | f4. e8 e c | f4. d8 e f | f4. f8 e d | bes4.
+      c8 f f | f4. f8 e c | d4. f8 f f | f4. d8 d c | c2
+
+    tenor: |
+      c8 c c | c4. c8 a a | f2 d'8. c16 | c2 c8. 16 | c4.
+      c8 c c | c4. c8 a a | f2 d'8. c16 | c4. bes8 8 8 | a4.
+      a8 c c | a4. c8 c a | c4. a8 bes c | d4. d8 c a | f4.
+      c'8 c c | c4. c8 a a | f4. d'8 d c | c4. bes8 8 8 | a2
+
+    bass: |
+      c8 f a | f4. f8 f e | d2 g8. a16 | f2 d8. c16 | c4.
+      c8 f a | f4. f8 f e | d2 g8. a16 | f4. c8 c c | f4.
+      f8 f f | a,4. a8 a c | d4. d8 d d | g4. d8 a a | bes4.
+      c8 f a | f4. c8 cis cis | d4. bes8 bes c | c4. c8 c c | f2
+
+    lyrics:
+      - |
+        What is our hope in life and death? Christ alone! Christ alone!
+        What is our only confidence? That our souls to him belong.
+        Who holds our days within his hand? What comes, apart from his command?
+        And what will keep us to the end? The love of Christ in which we stand.
+
+      - |
+        What truth can calm the troubled soul? God is good! God is good!
+        Where is his grace and goodness known? In our great redeemer's blood.
+        Who holds our faith when fears arise? Who stands above the stormy "trial?"
+        Who sends the waves that bring us nigh unto the shore, the rock of Christ?
+
+      - |
+        Unto the grave, what will we sing? "Christ, he lives!" "Christ, he lives!"
+        And what reward will heaven bring? Everlasting life with him.
+        There we will rise to meet the Lord, then sin and death will be destroyed.
+        And we will feast in endless joy, when Christ is ours forevermore!
+
+  - anacrusis: 4
+    name: Refrain
+    soprano: |
+      f4 | f4 d'4. c8 | c4 a4. f8 | g4 c4. b8 | b4 a
+      g4 | f4 d'4. c8 | c4 a4 bes8. a16 | a8. g16 g8. f16 d4 |
+      bes'8. a16 a8. g16 g8. f16 | f4.
+
+    alto: |
+      c4 | d4 f4. a8 | a4 f4. c8 | c4 e4. e8 | e4 f
+      e4 | d4 f4. a8 | a4 f4 g8. f16 | f8. e16 c8. a16 a4 |
+      c8. 16 d8. 16 c8. 16 | c4.
+
+    tenor: |
+      a4 | a4 d4. c8 | c4 c4. a8 | g4 g4. g8 | g4 a
+      bes4 | a4 d4. c8 | c4 c4 bes8. 16 | a8. 16 g8. 16 f4 |
+      e8. 16 g8. 16 bes8. 16 | a4.
+
+    bass: |
+      e4 | d4 bes'4. a8 | a4 f4. f8 | e4 c4. e8 | e4 f4
+      e4 | d4 bes'4. a8 | a4 f4 g8. 16 | f8. 16 e8. 16 d4 |
+      c8. 16 bes8. 16 c8. 16 | f4.
+
+    lyrics:
+      - Oh sing hallelujah! Our hope springs eternal.
+        Oh sing hallelujah! Now and ever we confess Christ our hope in life and death.
