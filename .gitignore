@@ -3,10 +3,12 @@ body/*.tex
 single/*.tex
 single/*.ly
 !single/preamble.tex
+!full/hymnal_preamble.ly
 
 full/*.tex
 full/*.ly
 !full/full.tex
+!full/hymnal_preamble.ly
 
 ## Core latex/pdflatex auxiliary files:
 **/*.aux

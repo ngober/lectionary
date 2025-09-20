@@ -1,40 +1,5 @@
 \version "2.22.1"
-\pointAndClickOff
-
-#(define (hymn:create-toc-file layout pages)
-  (let* ((label-table (ly:output-def-lookup layout 'label-page-table)))
-    (if (not (null? label-table))
-      (let* ((format-line (lambda (toc-item)
-             (let* ((text  (cdaddr toc-item))
-                    (label (string-append "mus:" (string-join (map (lambda (strpart) (string-filter strpart char-set:letter)) (string-split text #\space)) "_")))
-                    (label-page (and (list? label-table)
-                                     (assoc (car toc-item) label-table)))
-                    (page (and label-page (cdr label-page))))
-               (format #f "~a, section, 1, {~a}, ~(~a~)" page text label))))
-             (formatted-toc-items (map format-line (toc-items)))
-             (whole-string (string-join formatted-toc-items ",\n"))
-             (output-name (ly:parser-output-name))
-             (outfilename (format #f "~a.toc" output-name))
-             (outfile (open-output-file outfilename)))
-        (if (output-port? outfile)
-            (display whole-string outfile)
-            (ly:warning (G_ "Unable to open output file `~a' for the TOC information") outfilename))
-        (close-output-port outfile)
-        (ly:message "Printed TOC information to `~a'" outfilename)))))
-
-\include "geometry.ly"
-\paper {
-    print-all-headers = ##t
-    print-page-number = ##f
-
-    #(define (page-post-process layout pages) (hymn:create-toc-file layout pages))
-}
-
-#(set-global-staff-size 16)
-
-\header{
-    tagline = ""
-}
+\include "hymnal_preamble.ly"
 
 {% for mus in musicpages %}
 \include "../{{ mus }}"

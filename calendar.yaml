@@ -71,13 +71,13 @@
       week: 22
       basename: easter
 
-        #- title: the First Week after Easter
-        #week: 23
-        #basename: easter1
+    - title: the First Week after Easter
+      week: 23
+      basename: easter1
 
-        #- title: the Second Week after Easter
-        #week: 24
-        #basename: easter2
+    - title: the Second Week after Easter
+      week: 24
+      basename: easter2
 
     - title: the Third Week after Easter
       week: 25
