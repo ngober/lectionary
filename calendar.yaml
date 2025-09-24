@@ -202,6 +202,14 @@
       week: 48
       basename: ordinary19
 
+    - title: the Week of September 21
+      week: 49
+      basename: ordinary20
+
+    - title: the Week of September 28
+      week: 50
+      basename: ordinary21
+
     - title: the Week of October 1
       subtitle: Nathan and Rachel Gober's Wedding Anniversary
       week: 52

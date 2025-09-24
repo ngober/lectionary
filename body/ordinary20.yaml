@@ -1,0 +1,10 @@
+readings:
+  - 1 Kings 16:29-30,17:1-7
+  - address: Psalm 5
+    skip: 10
+  - James 5:13-20
+  - address: Luke 18:1-8
+    skip: 3
+    prefix: Jesus
+
+prayer: TODO
