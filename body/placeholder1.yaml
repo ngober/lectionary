@@ -1,5 +1,6 @@
 readings:
-  - Psalm 17:1-7,16
+  - address: Psalm 17:1-7,16
+    skip: 4
   - Psalm 145:8-9,15-22
   - Romans 9:1-5
   - Matthew 14:13-21

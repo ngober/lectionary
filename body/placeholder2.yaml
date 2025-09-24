@@ -1,6 +1,7 @@
 readings:
   - Isaiah 59:1-8
-  - Psalm 25:1-7
+  - address: Psalm 25:1-7
+    skip: 2
   - Galatians 3:23-29
   - Matthew 7:24-29
 

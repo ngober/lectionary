@@ -1,7 +1,8 @@
 # On the eternal hope of the faithful
 readings:
   - Daniel 12:1-3
-  - Psalm 16
+  - address: Psalm 16
+    skip: 4
   - address: Mark 13:1-8
     skip: 1
   - address: Hebrews 10:11-25

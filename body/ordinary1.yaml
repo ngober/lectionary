@@ -1,6 +1,7 @@
 readings:
   - Matthew 16:13-19
-  - Psalm 23
+  - address: Psalm 23
+    skip: 4
   - address: Acts 4:8-13
     skip: 1
   - address: 1 Peter 5:1-4

@@ -2,7 +2,8 @@ readings:
   - Isaiah 29:9-16
   - address: 1 Corinthians 1:18-25
     skip: 1
-  - Psalm 138
+  - address: Psalm 138
+    skip: 2
 
 musicpages:
   - Only A Holy God
