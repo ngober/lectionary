@@ -45,6 +45,7 @@ full/*.ly
 .sconsign.dblite
 
 music/*.ly
+!music/hymnal_preamble.ly
 
 *~
 
