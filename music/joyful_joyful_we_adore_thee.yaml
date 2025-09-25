@@ -1,0 +1,55 @@
+title: Joyful, Joyful, We Adore Thee
+poet: Henry Van Dyke (1852-1933)
+composer: Ludwig Van Beethoven (1770-1827)
+key: g \major
+time_signature: 4/4
+
+sections:
+  - soprano: |
+      b'4 b c d | d4 c b a | g4 g a b | b4. a8 a2 |
+      b4 b c d | d4 c b a | g4 g a b | a4. g8 g2 |
+      a4 a b g | a4 b8( c8) b4 g | a4 b8( c8) b4 a | g4 a d,2 |
+      b'4 b c d | d4 c b a | g4 g a b | a4. g8 g2
+
+    alto: |
+      d4 d d d | d4 e8( fis8) g4 d | d4 d fis g | g4. f8 f2 |
+      g4 d e f | f4 e d e | d4 d fis g | fis4. g8 g2 |
+      fis4 d d g | fis4 g8( fis8) g4 g | fis4 fis fis dis | e8( d8) cis4 d2 |
+      d4 d e f | f4 e d e | d4 d fis g | fis4. g8 g2
+
+    tenor: |
+      g4 g a b | b4 a g fis | g4 b c d | d4. 8 2 |
+      d4 d c b | g4 a b c | b4 b c d | c4. b8 b2 |
+      d4 fis, g b | c4 b8( a8)  g4 b | c4 b8( a8) b4 b | b4 a8( g8) fis2 |
+      g4 d' c b | g4 a b c | b4 b c d | c4. b8 b2 |
+
+    bass: |
+      g4 g g g | d4 d d c | b4 b a g | d'4. 8 2 |
+      g4 g g g | c,4 c c c | d4 d d d | d4. g8 g2 |
+      d4 d d d | d4 d d d | d4 d dis b | e4 a, d2 |
+      g4 g g g | c,4 c c c | d4 d d d | d4. g8 g2 |
+
+    lyrics:
+      - |
+        Joyful, joyful, we adore thee, God of glory, Lord of love!
+        Hearts unfold like flowers before thee, opening to the sun above.
+        Melt the clouds of sin and sadness; drive the dark of doubt away.
+        Giver of immortal gladness, fill us with the light of day.
+
+      - |
+        All thy works with joy surround thee; earth and heav'n reflect thy rays;
+        stars and angels sing around thee, center of unbroken praise.
+        Field and forest, vale and mountain, flowery meadow, flashing sea,
+        chanting bird and flowing fountain, call us to rejoice in thee.
+
+      - |
+        Thou art giving and forgiving, Ever blessing, ever blest,
+        Wellspring of the joy of living, Ocean depth of happy rest!
+        Thou our Father, Christ our Brother All who live in love are Thine;
+        Teach us how to love each other, Lift us to the joy divine.
+
+      - |
+        Mortals join the mighty chorus Which the morning stars began;
+        Father love is reigning o’er us, Brother love binds man to man.
+        Ever singing, march we onward, Victors in the midst of strife;
+        Joyful music leads us sunward In the triumph song of life.
