@@ -17,21 +17,15 @@ def indent_counts(lines):
     return [len(re.search('\s*', l).group(0)) for l in lines]
 
 def indentations_for(par):
-    counts = indent_counts(par)
+    counts = filter(lambda c: c > 0, indent_counts(par))
     countcounts = collections.Counter(counts)
-    if 0 in countcounts.keys():
-        del countcounts[0]
     if len(countcounts.keys()) == 2:
         short_indent = min(countcounts.keys())
         long_indent = max(countcounts.keys())
         if countcounts[short_indent] >= 0.5*countcounts[long_indent]:
-            def ident(startspace):
-                if startspace == long_indent:
-                    return '\\par\\indent'
-                if startspace == short_indent:
-                    return '\\par\\noindent'
-                return ''
-            return map(ident, counts)
+            ident = collections.default_dict(str)
+            ident.update(long_indent='\\par\\indent', short_indent='\\par\\noindent')
+            return map(ident.__getitem__, counts)
     return itertools.repeat('')
 
 DOUBLE_QUOTED_STRING = re.compile(r'[“"]((?s:.)+?)[”"]', re.M)

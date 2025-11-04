@@ -13,13 +13,13 @@ sections:
 
     alto: >
       a4 a d d | cis4( e) d( cis) | b4( cis) d e | fis2 d |
-      e4 e fis e | d4( e) e fis | e4 cis d4. c8 | c1 |
+      e4 e fis e | d4( e) e fis | e4 cis d4. cis8 | cis1 |
       a4 a d d | cis4( e) d( cis) | b4 cis d e | fis2 d |
       d2 4 4 | d2 d4( c) | b4 b cis4. d8 | d1
 
     tenor: >
       fis4 fis d d | e4( g) fis( a) | g4( a) b cis | d4( a) a2 |
-      a4 4 4 4 | fis4( gis) a a | c4 a gis4. a8 | a2( g) |
+      a4 4 4 4 | fis4( gis) a a | cis4 a gis4. a8 | a2( g) |
       fis4 fis d d | e4( g) fis( a) | g4( a) b cis | d4( a) fis2 |
       fis4( g) a c | b2 a | g4 g g4. fis8 | fis1
 

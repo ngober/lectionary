@@ -3,7 +3,8 @@ import pathlib
 Import('env')
 
 music_env = env.Clone(TEMPLATEDIR='templates')
-for source in music_env.Glob('*.yaml'):
+all_files = music_env.Glob('*.yaml')
+for source in all_files:
     target = pathlib.Path(str(source)).with_suffix('.ly')
     ly_single_target = music_env.LilypondSingle(target=str(target), source=source)
     music_env.Depends(ly_single_target, '../hyphen.txt') # rebuild if hyphen dictionary changed, but does not appear in sources
