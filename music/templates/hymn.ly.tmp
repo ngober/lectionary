@@ -2,7 +2,9 @@
 
 {%- macro partmaker(sections, name, clef, relpitch, make_title=False) %}
 \relative {{ relpitch }} {
-\clef "{{ clef }}" \numericTimeSignature\time {{ time_signature }} \key {{ key }}
+\clef "{{ clef }}"
+\numericTimeSignature\time {{ time_signature }}
+\key {{ key }}
 {%- set doublebar = joiner('\\bar "||"') %}
 {%- for section in sections %}
 {%- if not loop.first and "anacrusis" in section.keys() %}\partial {{ section.anacrusis }}{% endif %}
@@ -53,7 +55,9 @@
     }
     <<
         \new ChoirStaff <<
-        \new Staff \with { printPartCombineTexts = ##f } <<
+        \new Staff \with {
+            printPartCombineTexts = ##f
+        } <<
 		{{ voices_with_ambitus(tag + "Soprano", tag + "Alto") }}
 
 		{% for verse_index in range(num_verses) %}
@@ -71,10 +75,11 @@
                 }
 		{% endfor %}
         >>
-        \new Staff \with { printPartCombineTexts = ##f } <<
+        \new Staff \with {
+            printPartCombineTexts = ##f
+        } <<
 		{{ voices_with_ambitus(tag + "Tenor", tag + "Bass") }}
         >>
     >>
     >>
 }
-

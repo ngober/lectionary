@@ -14,17 +14,17 @@ def split_paragraph(text):
     return ['\n'.join(p) for k,p in itertools.groupby(text.splitlines(), key=lambda l: l.rstrip() != '') if k]
 
 def indent_counts(lines):
-    return [len(re.search('\s*', l).group(0)) for l in lines]
+    yield from (len(re.search('\s*', l).group(0)) for l in lines)
 
 def indentations_for(par):
-    counts = filter(lambda c: c > 0, indent_counts(par))
+    counts = list(filter(lambda c: c > 0, indent_counts(par)))
     countcounts = collections.Counter(counts)
     if len(countcounts.keys()) == 2:
         short_indent = min(countcounts.keys())
         long_indent = max(countcounts.keys())
         if countcounts[short_indent] >= 0.5*countcounts[long_indent]:
-            ident = collections.default_dict(str)
-            ident.update(long_indent='\\par\\indent', short_indent='\\par\\noindent')
+            ident = collections.defaultdict(str)
+            ident.update({long_indent:'\\par\\indent', short_indent:'\\par\\noindent'})
             return map(ident.__getitem__, counts)
     return itertools.repeat('')
 
