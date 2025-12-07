@@ -58,5 +58,11 @@ def Render(env, target_name, template_name, data):
 
 AddMethod(env, Render)
 
+@noisy()
+def FindTemplate(env, fname):
+    return env.FindFile(fname, env['TEMPLATEDIR'])
+
+AddMethod(env, FindTemplate)
+
 Decider('timestamp-match')
 env.SConscript(['$FULLDIR/SConscript', '$SINGLEDIR/SConscript', '$BODYDIR/SConscript', '$MUSICDIR/SConscript'], exports='env')

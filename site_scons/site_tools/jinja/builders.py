@@ -22,16 +22,17 @@ def get_first_with_ext(source, ext):
 def get_tex_from_yaml(target, source, env):
     return target, [str(pathlib.Path(str(s)).with_suffix('.tex')) if str(s).endswith('.yaml') else s for s in source]
 
+def filter_templates_exist(templates, env):
+    yield from filter(lambda x: x is not None, map(env.FindTemplate, templates))
+
 def add_template_name(target, source, env):
     source_basenames = [pathlib.Path(str(s)).stem for s in source]
 
     season_map = dict(itertools.chain.from_iterable([(w['basename'], season['season']) for w in season['weeks']] for season in env['calendar_events']))
 
-    templates = [f'$TEMPLATEDIR/{season_map[s]}.tex.tmp' for s in source_basenames]
-    templates = [temp for temp in templates if os.path.exists(temp)]
-    if not templates:
-        templates = ['$TEMPLATEDIR/body.tex.tmp']
-    source.extend(templates)
+    templates = [f'{season_map[s]}.tex.tmp' for s in source_basenames]
+    templates = next(filter_templates_exist(itertools.chain(templates, ('body.tex.tmp',)), env))
+    source.append(templates)
     return target, source
 
 def address_to_index(address):
@@ -81,8 +82,7 @@ def render_wrapper(target, source, env):
 JINJA_EXTEND = re.compile(r'^{%\s+extends\s+([\'"])(\S+)\1\s+%}$', re.M)
 def template_scanner(node, env, path, arg=None):
     includes = [m[1] for m in JINJA_EXTEND.findall(node.get_text_contents())]
-    deps = (os.path.join(str(d), inc) for d,inc in itertools.product(path, includes))
-    return env.File(list(filter(os.path.exists, deps)))
+    return list(filter_templates_exist(includes, env))
 
 def WrapperBuilder():
     return Builder(
