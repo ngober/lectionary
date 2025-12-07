@@ -1,0 +1,5 @@
+{% extends "body/templates/advent.tex.tmp" %}
+{% block prayer %}
+One purple candle is lit
+{{ super() }}
+{% endblock prayer %}

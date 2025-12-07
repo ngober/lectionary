@@ -30,8 +30,9 @@ def add_template_name(target, source, env):
 
     season_map = dict(itertools.chain.from_iterable([(w['basename'], season['season']) for w in season['weeks']] for season in env['calendar_events']))
 
-    templates = [f'{season_map[s]}.tex.tmp' for s in source_basenames]
-    templates = next(filter_templates_exist(itertools.chain(templates, ('body.tex.tmp',)), env))
+    name_templates = [f'{s}.tex.tmp' for s in source_basenames]
+    season_templates = [f'{season_map[s]}.tex.tmp' for s in source_basenames]
+    templates = next(filter_templates_exist(itertools.chain(name_templates, season_templates, ('body.tex.tmp',)), env))
     source.append(templates)
     return target, source
 

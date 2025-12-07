@@ -1,15 +1,4 @@
 {% extends "body/templates/body.tex.tmp" %}
-{% block prayer %}
-\begin{quote} \itshape%
-  Our hope is in the coming of the Lord.\\
-  The Lord is our faith and our life.\\
-  May his joy shine in our hearts,\\
-  and may his peace be with us all.
-\end{quote}
-
-{{ super() }}
-{% endblock prayer %}
-
 {% block lordsprayer %}
 {\itshape
 \subsubsection*{Recite the following together: The Apostles' Creed}
