@@ -1,4 +1,4 @@
-{% extends "body.tex.tmp" %}
+{% extends "body/templates/body.tex.tmp" %}
 {% block prayer %}
 Two purple candles, the pink candle, and the final purple candle are lit
 \begin{quote} \itshape%
@@ -10,3 +10,34 @@ Two purple candles, the pink candle, and the final purple candle are lit
 
 {{ super() }}
 {% endblock prayer %}
+
+{% block lordsprayer %}
+{\itshape
+\subsubsection*{Recite the following together: The Apostles' Creed}
+
+I believe in God, the Father almighty,\\
+creator of heaven and earth.
+
+\vspace{12pt}
+\noindent
+I believe in Jesus Christ, his only Son, our Lord,\\
+who was conceived by the Holy Spirit\\
+and born of the virgin Mary.\\
+He suffered under Pontius Pilate,\\
+was crucified, died, and was buried;\\
+he descended to the dead.\\
+The third day he rose again from the dead.\\
+He ascended to heaven\\
+and is seated at the right hand of God the Father almighty.\\
+From there he will come to judge the living and the dead.
+
+\vspace{12pt}
+\noindent
+I believe in the Holy Spirit,\\
+the holy Christian church,\\
+the communion of saints,\\
+the forgiveness of sins,\\
+the resurrection of the body,\\
+and the life everlasting. Amen.
+}
+{% endblock %}

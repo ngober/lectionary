@@ -36,6 +36,7 @@
 {%- endif %}
 
 {%- if lordsprayer %}
+{%- block lordsprayer %}
 \subsubsection*{Pray the following together}
 
 \begin{quote} \itshape
@@ -47,6 +48,7 @@
   For yours is the kingdom, the power, and the glory forever and ever,\\
   Amen.
 \end{quote}
+{% endblock %}
 {%- endif %}
 
 {% block postsong_readings %}
