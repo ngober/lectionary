@@ -6,70 +6,30 @@ key: g \major
 sections:
   - anacrusis: 4
     
-    soprano: >
-      g4 |
-      g2 d4 g4 |
-      a2 d,2 |
-      b'4 a4 b4 c4 |
-      b2 a4 g4 |
-      g2 fis4 e4 |
-      fis4 ( g4 ) a4 b4 |
-      fis2 ( e4. ) d8 |
-      d1 |
-      d'2 c4 b4 |
-      b2 b2 |
-      a4 b4 g4 a4 |
-      fis4. ( e8 ) d4 
+    soprano: |
+      g4 | g2 d4 g4 | a2 d,2 | b'4 a4 b4 c4 | b2 a4
+      g4 | g2 fis4 e4 | fis4 g4 a4 b4 | fis2 ( e4. ) d8 | d1 |
+      d'2 c4 b4 | b2 b2 | a4 b4 g4 a4 | fis4. ( e8 ) d4 
 
-    alto: >
-      d4 |
-      d2 d4 d4 |
-      e2 d2 |
-      d4 d4 d4 e4 |
-      d2 d4 b4 |
-      b4 ( cis4 ) d4 cis4 |
-      d2 d4 d4 |
-      d2 ( cis4. ) d8 |
-      d1 |
-      d2 e8 ( [ fis8 ) ] g4 |
-      e4 ( fis4 ) g2 |
-      d4 d4 e4 e4 |
-      d2 d4
+    alto: |
+      d4 | d2 d4 d4 | e2 d2 | d4 d4 d4 e4 | d2 d4
+      b4 | b4 ( cis4 ) d4 cis4 | d2 d4 d4 | d2 ( cis4. ) d8 | d1 |
+      d2 e8 ( [ fis8 ) ] g4 | e4 ( fis4 ) g2 | d4 d4 e4 e4 | d2 d4
 
-    tenor: >
-      b4 |
-      b2 b4 b4 |
-      c2 a2 |
-      g4 a4 g4 g4 |
-      g2 fis4 g4 |
-      g2 a4 a4 |
-      a4 ( g4 ) fis4 d4 |
-      a'2 ( g4. ) fis8 |
-      fis1 |
-      b2 c4 d4 |
-      c2 d2 |
-      d4 g,4 b4 c4 |
-      a2 fis4
+    tenor: |
+      b4 | b2 b4 b4 | c2 a2 | g4 a4 g4 g4 | g2 fis4
+      g4 | g2 a4 a4 | a4 ( g4 ) fis4 d4 | a'2 ( g4. ) fis8 |
+      fis1 | b2 c4 d4 | c2 d2 | d4 g,4 b4 c4 | a2 fis4
 
-    bass: >
-      g4 |
-      g2 b4 g4 |
-      g2 fis2 |
-      g4 fis4 g4 c,4 |
-      d2 d4 e4 |
-      e2 d4 a4 |
-      d4 ( b4 ) fis4 g4 |
-      a2 ~ a4. d8 |
-      d1 |
-      b'2 a4 g4 |
-      a2 g2 |
-      fis4 g4 e4 c4 |
-      d2 d4
+    bass: |
+      g4 | g2 b4 g4 | g2 fis2 | g4 fis4 g4 c,4 | d2 d4
+      e4 | e2 d4 a4 | d4 ( b4 ) fis4 g4 | a2 ~ a4. d8 | d1 |
+      b'2 a4 g4 | a2 g2 | fis4 g4 e4 c4 | d2 d4
 
     lyrics:
       - >
         O come, all ye faithful, joyful and triumphant,
-        O come ye O come ye to Bethlehem; Come and behold him, born the King of angels
+        O come ye O come _ ye to Bethlehem; Come and behold him, born the King of angels
 
       - >
         _ Sing, choirs of angels; sing in exultation;
@@ -77,50 +37,27 @@ sections:
 
       - >
         _ Yea, Lord, we greet Thee, born this happy morning;
-        _ Jesus, to Thee be all glory giv'n! Word of the Father, now in flesh appearing!
+        _ Jesus, to Thee _ be all glory giv'n! Word of the Father, now in flesh appearing!
 
   - anacrusis: 4
-    soprano: >
-      g4 |
-      g4 fis4 g4 a4 |
-      g2 d4 b'4 |
-      b4 a4 b4 c4 |
-      b2 a4 b4 |
-      c4 b4 a4 g4 |
-      fis2 g4 ( c4 ) |
-      b2 ( a4. ) g8 |
-      g1
+    soprano: |
+      g4 | g4 fis4 g4 a4 | g2 d4
+      b'4 | b4 a4 b4 c4 | b2 a4
+      b4 | c4 b4 a4 g4 | fis2 g4 ( c4 ) | b2 ( a4. ) g8 | g1
 
-    alto: >
-      d4 |
-      d4 d4 d4 d4 |
-      d2 d4 d4 |
-      d4 d4 d4 d4 |
-      d2 d4 g4 |
-      fis4 g4 d4 d8 ( [ cis8 ) ] |
-      d2 d4 ( e4 ) |
-      d2 ~ d4. b8 |
-      b1
+    alto: |
+      d4 | d4 d4 d4 d4 | d2 d4
+      d4 | d4 d4 d4 d4 | d2 d4
+      g4 | fis4 g4 d4 d8 ( [ cis8 ) ] | d2 d4 ( e4 ) | d2 ~ d4. b8 | b1
 
-    tenor: >
-      b4 |
-      b4 a4 b4 c4 |
-      b2 g4 g4 |
-      g4 fis4 g4 a4 |
-      g2 fis4 d'4 |
-      d4 d4 a4 a4 |
-      a2 g2 |
-      g2 ( fis4. ) g8 |
-      g1
+    tenor: |
+      b4 | b4 a4 b4 c4 | b2 g4
+      g4 | g4 fis4 g4 a4 | g2 fis4
+      d'4 | d4 d4 a4 a4 | a2 g2 | g2 ( fis4. ) g8 | g1
 
-    bass: >
-      r4 |
-      R1*3 |
-      r2 r4 g4 |
-      a4 g4 fis4 e4 |
-      d4 ( c4 ) b4 ( c4 ) |
-      d2 ~ d4. g,8 |
-      g1
+    bass: |
+      r4 | R1*3 | r2 r4
+      g4 | a4 g4 fis4 e4 | d4 ( c4 ) b4 ( c4 ) | d2 ~ d4. g,8 | g1
 
     lyrics:
       - >
