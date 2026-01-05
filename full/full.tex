@@ -58,6 +58,9 @@
 \tableofcontents
 
 \mainmatter
+\part{Introduction}
+\input{introduction.tex}
+
 \part{Readings}
 \input{fulltext.tex}
 
@@ -65,6 +68,7 @@
 \includescore{full_hymnal}
 \addtocontents{toc}{\let\protect\numberline\protect\oldnumberline}
 
+\cleardoublepage
 \addcontentsline{toc}{part}{Index}
 \printindex
 \end{document}
