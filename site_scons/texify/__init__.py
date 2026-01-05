@@ -67,7 +67,7 @@ RIGHT_SELAH = '''
 \\\\setlength{\\\\parindent}{15pt}
 
 '''
-UNESCAPED_WORD = re.compile(r'(?<!\\)\S*\s*')
+UNESCAPED_WORD = re.compile(r'(?<!\\)\S+\s*')
 def config_par_adjust(par, skip=0, prefix=None):
     # Skip N initial words
     if skip:
