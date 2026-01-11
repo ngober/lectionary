@@ -1,7 +1,9 @@
 readings:
   - Acts 26:9-21
-  - Psalm 67
-  - Galatians 1:11-24
+  - address: Psalm 67
+    skip: 10
+  - address: Galatians 1:11-24
+    skip: 1
   - Matthew 10:16-22
 
 prayer: |
