@@ -107,9 +107,10 @@
 - season: ordinary
   title: Ordinary Time
   weeks:
-    #- title: the First Week after Epiphany
-        #week: 7
-        #basename: epiphany1
+    - title: the First Week after Epiphany
+      subtitle: The Baptism of Jesus
+      week: 7
+      basename: epiphany1
 
       #- title: the Second Week after Epiphany
       #week: 8

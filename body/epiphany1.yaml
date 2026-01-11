@@ -1,0 +1,25 @@
+readings:
+  - Isaiah 42:1-9
+  - address: Matthew 3:13-17
+    skip: 1
+  #- address: Psalm 29
+    #skip: 4
+  - address: Acts 10:34-43
+    skip: 1
+  - address: Romans 6:1-6
+
+musicpages:
+  - Christ Our Hope In Life And Death
+
+prayer:
+  text: >
+    God of grace and glory,
+    you call us with your voice of flame
+    to be your people, faithful and courageous.
+    As your beloved Son
+    embraced his mission in the waters of baptism,
+    inspire us with the fire of your Spirit
+    to join in his transforming work.
+    We ask this in the name of our Savior Jesus Christ,
+    who lives and reigns for ever and ever. Amen.
+  reference: Revised Common Lectionary, Year A, First Week After Epiphany
