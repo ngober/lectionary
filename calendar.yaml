@@ -148,32 +148,37 @@
       #basename: ordinary9
 
     - title: PLACEHOLDER
-      week: 32
+      week: 31
       basename: placeholder2
 
     - title: PLACEHOLDER
       subtitle: On the Foolishness of Faith
-      week: 33
+      week: 32
       basename: placeholder3
 
     - title: PLACEHOLDER
       subtitle: On the Eternal Hope of the Faithful
-      week: 34
+      week: 33
       basename: placeholder4
 
     - title: PLACEHOLDER
       subtitle: On Holy Communion
-      week: 35
+      week: 34
       basename: placeholder5
 
     - title: PLACEHOLDER
-      week: 36
+      week: 35
       basename: placeholder1
 
     - title: PLACEHOLDER
       subtitle: On Wisdom
-      week: 37
+      week: 36
       basename: placeholder6
+
+    - title: PLACEHOLDER
+      subtitle: On the Local Church
+      week: 37
+      basename: placeholder7
 
     - title: the Week of June 29th
       week: 38
