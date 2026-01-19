@@ -39,7 +39,7 @@ def add_template_name(target, source, env):
 def address_to_index(address):
     sort_key = bible.convert_references_to_verse_ids(bible.get_references(address))[0]
     sort_key = f'{sort_key:08}' # Pad to 8 digits, early books only have 7
-    sort_key = [sort_key[:2], sort_key[2:5]] # book index, chapter index
+    sort_key = [sort_key[:2], sort_key[2:]] # book index, chapter/verse index
 
     # Extract a book name (maybe has a leading digit) and prepend book and chapter sort keys
     return re.sub(r'((?:\d\s)?\w+)\s*', f'{sort_key[0]}@\\1!{sort_key[1]}@', address, count=1)
