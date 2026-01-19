@@ -1,8 +1,11 @@
 readings:
   - Genesis 17:1-7
   - Psalm 105:5-15
-  - Romans 9:6-13
-  - Luke 19:1-10
+  - address: Romans 9:6-13
+    skip: 1
+  - address: Luke 19:1-10
+    skip: 1
+    prefix: Jesus
 
 musicpages:
   - Yet Not I But Through Christ In Me
