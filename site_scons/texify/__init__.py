@@ -60,11 +60,9 @@ def fix_quotes(par):
 
     return result
 
-RIGHT_SELAH = '''
+RIGHT_SELAH = r'''
 
-\\\\setlength{\\\\parindent}{3in}
-\\\\textit{Selah}
-\\\\setlength{\\\\parindent}{15pt}
+\\hspace{3in}\\textit{Selah}
 
 '''
 UNESCAPED_WORD = re.compile(r'(?<!\\)\S+\s*')
@@ -96,12 +94,12 @@ def process_par(par, func=identity):
     # Change all-caps words (e.g. LORD) to smallcap style
     par = smallcap(par)
 
-    # Push 'Selah' in psalms to the right and italicize
-    par = re.sub('Selah$', RIGHT_SELAH, par)
-
     # Join lines together again
     lines = par.splitlines()
     par = '\n'.join(' '.join(l) for l in zip(indentations_for(lines), lines))
+
+    # Push 'Selah' in psalms to the right and italicize
+    par = re.sub(r'Selah\s*$', RIGHT_SELAH, par, flags=re.MULTILINE)
 
     # Use LaTeX's dirtytalk package to ensure quotes are good
     par = fix_quotes(par)

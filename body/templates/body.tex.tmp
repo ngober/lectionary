@@ -66,7 +66,7 @@ Let us pray:
 \begin{quote}
 {%- endif %}
 {{ prayer.text }}
-Amen
+Amen.
 {% if 'reference' in prayer -%}
 \end{aquote}
 {%- else -%}
