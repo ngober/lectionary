@@ -127,9 +127,10 @@
       week: 10
       basename: epiphany4
 
-      #- title: the Fifth Week after Epiphany
-      #week: 11
-      #basename: ordinary5
+    - title: the Fifth Week after Epiphany
+      subtitle: The Calling of Moses
+      week: 11
+      basename: epiphany5
 
       #- title: the Sixth Week after Epiphany
       #week: 12

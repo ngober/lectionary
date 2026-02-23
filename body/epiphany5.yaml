@@ -1,0 +1,17 @@
+# Moses the Lawgiver
+readings:
+  - address: Exodus 3:1-15 # The burning bush
+    skip: 1
+  - address: Exodus 15:1-9 # The song at the Red Sea crossing
+    skip: 1
+    prefix: After crossing the Red Sea on dry ground,
+  - address: 1 Corinthians 10:1-13
+    skip: 1
+
+musicpages:
+  - Blessed Assurance
+
+prayer:
+  text: >
+    Lord God, heavenly Father, through the prophet Moses, You began the prophetic pattern of teaching Your people the true faith and demonstrating through miracles Your presence in creation to heal it of its brokenness. Grant that Your Church may see in Your Son, our Lord Jesus Christ, the final end-times prophet whose teaching and miracles continue in Your Church, through Jesus Christ, our Lord
+  reference: John Rickert; Newark, Delaware
