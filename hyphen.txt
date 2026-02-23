@@ -1,12 +1,15 @@
+a-blaze
 a-bove
 a-broad
 a-bun-dant
+a-dor-a-tion
 a-dore
 a-dored
 a-gain
 a-ges
 a-le-lu-ia
 al-le-lu-ia
+all-glo-rious
 al-migh-ty
 a-lone
 a-long
@@ -24,6 +27,7 @@ che-ru-bim
 com-fort-er
 con-quer-ors
 co-ve-nant
+cre-a-tion
 cre-a-tor
 da-vid
 day-spring
@@ -63,6 +67,7 @@ o-pened
 o-ver
 o-ver-come
 o-ver-throw
+pa-vil-ioned
 pi-ty
 pris'-ner
 rea-dy
@@ -79,6 +84,7 @@ stor-my
 strang-er
 thir-sty
 tri-um-phant
+un-change-a-ble
 wea-ry
 ve-ry
 vil-est
