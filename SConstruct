@@ -29,7 +29,6 @@ jinja_env = jinja2.Environment(
 )
 
 calendar = File(str(pathlib.Path(root) / 'calendar.yaml'))
-calendar_data = parse_yaml(str(calendar))
 
 env = Environment(BUILDERS={
                       'TwoUp': Builder(
@@ -44,8 +43,6 @@ env = Environment(BUILDERS={
                   MUSICDIR=Dir('music'),
                   TEMPLATEDIR=Dir('templates'),
                   jinja_env=jinja_env,
-                  calendar_file=calendar,
-                  calendar_events=calendar_data,
                   DRAFT=GetOption('draft'))
 env.Append(TEXINPUTS=str(pathlib.Path(root) / 'texmf' / 'tex' / 'latex'))
 

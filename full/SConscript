@@ -10,7 +10,6 @@ yaml_sources = full_env.Glob('$BODYDIR/*.yaml')
 music_wrapper = full_env.LilypondWrapper('full_hymnal', yaml_sources)
 music_file = full_env.Lilypond('full_hymnal', music_wrapper)
 texfile = full_env.Wrapper('fulltext', ['$TEMPLATEDIR/full.tex.tmp'] + yaml_sources + music_file)
-full_env.Depends(texfile, full_env['calendar_file']) # rebuild if calendar changed, but does not appear in sources
 if GetOption('twoup'):
     oneup_pdf = full_env.PDF('full_1up.pdf', 'full.tex')
     pdf_result = full_env.TwoUp('full.pdf', oneup_pdf)

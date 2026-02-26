@@ -1,10 +1,18 @@
-{% for season in calendar %}
-  \chapter{{ '{' }}{{ season.title }}}
-{% for event in season.weeks %}
+{% macro chap(weeks, name, title) %}
+\chapter{ {{ title }} }
+{%- for event in weeks %}
+  {%- if event.season == name %}
   \section[For {{ event.title }}]{For {{ event.title }}{% if 'subtitle' in event %}\\ {\large\normalfont {{ event.subtitle }}}{% endif %}}
   \input{../body/{{ event.basename }}.tex}
 
   \newpage
-{% endfor %}
-{% endfor %}
+  {%- endif %}
+{%- endfor %}
+{% endmacro %}
+
+{{ chap(calendar, "advent", 'The Season of Advent') }}
+{{ chap(calendar, "christmas", 'The Season of Christmas') }}
+{{ chap(calendar, "lent", 'The Season of Lent') }}
+{{ chap(calendar, "easter", 'The Season of Easter') }}
+{{ chap(calendar, "ordinary", 'Ordinary Time') }}
 

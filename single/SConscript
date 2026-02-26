@@ -12,7 +12,6 @@ for source in single_env.Glob('$BODYDIR/*.yaml'):
     music_wrapper = single_env.LilypondWrapper(f'{basename}_hymnal', [source])
     music_file = single_env.Lilypond(f'{basename}_hymnal', music_wrapper)
     texfile = single_env.Wrapper(basename, ['$TEMPLATEDIR/single.tex.tmp', source] + music_file)
-    single_env.Depends(texfile, single_env['calendar_file']) # rebuild if calendar changed, but does not appear in sources
     if GetOption('twoup'):
         oneup_pdf = single_env.PDF(f'{basename}_1up.pdf', texfile)
         pdf_result = single_env.TwoUp(f'{basename}.pdf', oneup_pdf)

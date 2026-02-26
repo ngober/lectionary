@@ -1,3 +1,6 @@
+title: the First Week of Lent
+week: 16
+season: lent
 readings:
   - Deuteronomy 26:1-11
   - Psalm 91:1-2,9-16
@@ -6,10 +9,11 @@ readings:
   - address: Luke 4:1-13
     skip: 1
 
-prayer: >
-  God of deliverance and freedom, you taught the people of Israel to acknowledge that all things come from your bountiful hand.
-  Deepen our faith so that we may resist temptation and, in the midst of trial, proclaim that Jesus Christ is Lord, now and for ever.
-# Revised Common Lectionary, First Sunday in Lent
+prayer: 
+  text: >
+    God of deliverance and freedom, you taught the people of Israel to acknowledge that all things come from your bountiful hand.
+    Deepen our faith so that we may resist temptation and, in the midst of trial, proclaim that Jesus Christ is Lord, now and for ever.
+  reference: Revised Common Lectionary, First Sunday in Lent
 
 musicpages:
   - O Worship the King

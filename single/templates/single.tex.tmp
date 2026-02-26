@@ -1,4 +1,4 @@
-{% set event = calendar[0]['weeks'][0] %}
+{% set event = calendar[0] %}
 \input{preamble.tex}
 
 \title{For {{ event.title }}{% if 'subtitle' in event %}\\ {\large\normalfont {{ event.subtitle }}}{% endif %}}

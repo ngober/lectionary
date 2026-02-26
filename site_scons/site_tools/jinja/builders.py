@@ -13,7 +13,7 @@ from SCons.Scanner import Scanner, FindPathDirs
 import pythonbible as bible
 
 from .esv_api import get_text
-from util import noisy, get_basename, parse_yaml, filter_calendar, make_dict_with
+from util import noisy, get_basename, parse_yaml, make_dict_with
 import texify
 
 def get_first_with_ext(source, ext):
@@ -25,17 +25,6 @@ def get_tex_from_yaml(target, source, env):
 def filter_templates_exist(templates, env):
     yield from filter(lambda x: x is not None, map(env.FindTemplate, templates))
 
-def add_template_name(target, source, env):
-    source_basenames = [pathlib.Path(str(s)).stem for s in source]
-
-    season_map = dict(itertools.chain.from_iterable([(w['basename'], season['season']) for w in season['weeks']] for season in env['calendar_events']))
-
-    name_templates = [f'{s}.tex.tmp' for s in source_basenames]
-    season_templates = [f'{season_map[s]}.tex.tmp' for s in source_basenames]
-    templates = next(filter_templates_exist(itertools.chain(name_templates, season_templates, ('body.tex.tmp',)), env))
-    source.append(templates)
-    return target, source
-
 def address_to_index(address):
     sort_key = bible.convert_references_to_verse_ids(bible.get_references(address))[0]
     sort_key = f'{sort_key:08}' # Pad to 8 digits, early books only have 7
@@ -46,7 +35,7 @@ def address_to_index(address):
 
 def augment_readings(readings, draft=False):
     if draft:
-        texts = [['\lipsum[2]'] for _ in readings]
+        texts = ['\lipsum[2]' for _ in readings]
     else:
         texts = get_text([a['address'] for a in readings])
     readings = [texify.reading_join_text(text=t, **r) for r,t in zip(readings, texts)]
@@ -62,20 +51,32 @@ def normalize_yaml(parsed, draft=False):
     parsed['prayer'] = make_dict_with(parsed['prayer'], 'text')
     return parsed
 
+def parse_normalized(fname, draft=False):
+    return normalize_yaml(parse_yaml(fname), draft)
+
+def add_template_name(target, source, env):
+    name_templates = [f'{pathlib.Path(str(s)).stem}.tex.tmp' for s in source]
+    source_data = [parse_normalized(str(s), True) for s in source]
+    season_templates = [f'{s["season"]}.tex.tmp' for s in source_data]
+    templates = next(filter_templates_exist(itertools.chain(name_templates, season_templates, ('body.tex.tmp',)), env))
+    source.append(templates)
+    return target, source
+
 @noisy()
 def render_body(target, source, env):
     template_name = pathlib.Path(get_first_with_ext(source, '.tex.tmp'))
     data_src_name = pathlib.Path(get_first_with_ext(source, '.yaml'))
-    data = normalize_yaml(parse_yaml(data_src_name), env['DRAFT'])
+    data = parse_normalized(data_src_name, env['DRAFT'])
     env.Render(target[0], template_name, data)
 
 @noisy()
 def render_wrapper(target, source, env):
     template_name = pathlib.Path(get_first_with_ext(source, '.tex.tmp'))
     hymnal_name = pathlib.Path(get_first_with_ext(source, '.pdf'))
-    source_basenames = [pathlib.Path(str(s)).stem for s in source if str(s).endswith('.tex')]
+    yaml_sources = [pathlib.Path(str(f)).with_suffix('.yaml') for f in source if str(f).endswith('.tex')]
+    yaml_sources = [{**parse_normalized(f, True), 'basename': f.stem} for f in yaml_sources]
     render_data = {
-        'calendar': filter_calendar(env['calendar_events'], *source_basenames),
+        'calendar': sorted(yaml_sources, key=lambda x: x['week']),
         'hymnal_name' : os.path.splitext(os.path.basename(str(hymnal_name)))[0]
     }
     env.Render(target[0], template_name, render_data)
