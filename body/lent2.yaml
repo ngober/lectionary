@@ -2,11 +2,13 @@ title: the Second Week of Lent
 week: 17
 season: lent
 readings:
-  - Genesis 15:1-8
+  - address: Genesis 15:1-8
+    skip: 3
   - address: Psalm 27
     skip: 2
   - address: Mark 8:31-38
-    skip: 1
+    skip: 2
+    prefix: Jesus
   - Romans 4:1-5, 13-17
 
 musicpages:
