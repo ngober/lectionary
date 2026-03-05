@@ -108,8 +108,9 @@ def render_single(target, source, env):
 
     data = parse_yaml(source_name)
     data['tag'] = tag.translate(str.maketrans("0123456789", "ghijklmnop"))
-    data['num_inline_verses'] = env['num_inline_verses']
-    data['num_trailing_verses'] = max([len(section['lyrics']) for section in data['sections']]) - data['num_inline_verses']
+    num_verses = max([len(section['lyrics']) for section in data['sections']])
+    data['num_inline_verses'] = min([env['num_inline_verses'], num_verses])
+    data['num_trailing_verses'] = num_verses - data['num_inline_verses']
 
     for section in data['sections']:
         section['lyrics'] = [process_verse(verse, i < data['num_inline_verses']) for i,verse in enumerate(section['lyrics'])]

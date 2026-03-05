@@ -19,6 +19,7 @@ AddOption(
     '--inline-verses',
     action='store',
     default=3,
+    type=int,
     help='Number of verses to place inline'
 )
 

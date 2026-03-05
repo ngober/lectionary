@@ -27,17 +27,17 @@ sections:
       b'2 a4 g4 | a2 g2 | fis4 g4 e4 c4 | d2 d4
 
     lyrics:
-      - >
+      - |
         O come, all ye faithful, joyful and triumphant,
-        O come ye O come _ ye to Bethlehem; Come and behold him, born the King of angels
+        O come ye O come \skip1 ye to Bethlehem; Come and behold him, born the King of angels
 
-      - >
-        _ Sing, choirs of angels; sing in exultation;
-        _ sing, all ye citizens of heav'n above! Glory to God, all glory in the highest!
+      - |
+        \skip1 Sing, choirs of angels; sing in exultation;
+        \skip1 sing, all ye citizens of heav'n above! Glory to God, all glory in the highest!
 
-      - >
-        _ Yea, Lord, we greet Thee, born this happy morning;
-        _ Jesus, to Thee _ be all glory giv'n! Word of the Father, now in flesh appearing!
+      - |
+        \skip1 Yea, Lord, we greet Thee, born this happy morning;
+        \skip1 Jesus, to Thee \skip1 be all glory giv'n! Word of the Father, now in flesh appearing!
 
   - anacrusis: 4
     soprano: |
@@ -60,6 +60,6 @@ sections:
       g4 | a4 g4 fis4 e4 | d4 ( c4 ) b4 ( c4 ) | d2 ~ d4. g,8 | g1
 
     lyrics:
-      - >
+      - |
         O come, let us adore him! O come let us adore him!
         O come, let us adore him, Christ the Lord!
