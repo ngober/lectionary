@@ -22,23 +22,23 @@ sections:
       as4 | des4. des8 des4 des8 des8 | as2 c4 des4 | es4 es8 es8 es4 es4 | as,1
 
     lyrics:
-      - >
+      - |
         I stand amazed in the presence Of Jesus the Nazarene,
         And wonder how He could love me, A sinner, condemned, unclean.
 
-      - >
+      - |
         For me it was in the den \skip1 He prayed: "Not My will, but Thine."
         He had no tears for His own griefs, But sweat drops of blood for mine.
 
-      - >
+      - |
         In pity angels beheld Him, And came from the world of light
         To comfort Him in the sorrows He bore for my soul that night.
 
-      - >
+      - |
         He took my sins and my sorrows, He made them His very own;
         He bore the burden to Calvary, And suffered and died alone.
 
-      - >
+      - |
         When with the ransomed in glory His face I at last shall see,
         'Twill be my joy through the ages To sing of His love for me.
 
@@ -84,12 +84,12 @@ sections:
       es4 es4 as,4
 
     lyrics:
-      - >
+      - |
         How marvelous! How wonderful! And my song shall ever be:
         How marvelous! How wonderful is my saviors love for me!
 
       - bind: alto
-        text: >
+        text: |
           Oh, how marvelous! Oh, how wonderful!
           \skip1 \skip1 \skip1 \skip1 \skip1 \skip1 \skip1
           Oh, how marvelous! Oh, how wonderful

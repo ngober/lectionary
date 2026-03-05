@@ -71,10 +71,16 @@ def filter_quoted_hyphenate(word):
     return PUNCTUATED_WORD.sub(hyphenate, word)
 
 UNQUOTED_WORD = re.compile(r'(?:(?<=(\\")|.[^"])|^)\b([a-zA-Z\']+)\b[;:,.!]?(?=(\\")|[^"]|$)')
-def process_verse(verse):
+def process_verse(verse, hyphenate):
     verse = { 'bind': 'soprano', **make_dict_with(verse, 'text') }
     lines = verse['text'].splitlines()
-    verse['text'] = '\n'.join(' '.join(map(filter_quoted_hyphenate, line.split())) if not line.strip().startswith('\\') else line for line in lines)
+    if hyphenate:
+        lines = [' '.join(map(filter_quoted_hyphenate, line.split())) if not line.strip().startswith('\\') else line for line in lines]
+    else:
+        lines = [re.sub(r'\\skip1', '', l) for l in lines]
+        lines = [re.sub(LY_HYPEN, '', l) for l in lines]
+        lines = [f'"{l}"' for l in lines]
+    verse['text'] = '\n'.join(lines)
     return verse
 
 def bind_lyrics_to_voice(tag, all_sections):
@@ -99,20 +105,21 @@ def time_signature_cycle(part, time_sigs):
 def render_single(target, source, env):
     source_name = pathlib.Path(get_first_with_ext(source, '.yaml'))
     tag = hashlib.sha256(source_name.stem.encode()).hexdigest()
-    tag = tag.translate(str.maketrans("0123456789", "ghijklmnop"))
 
     data = parse_yaml(source_name)
-    num_verses = max([len(section['lyrics']) for section in data['sections']])
+    data['tag'] = tag.translate(str.maketrans("0123456789", "ghijklmnop"))
+    data['num_inline_verses'] = env['num_inline_verses']
+    data['num_trailing_verses'] = max([len(section['lyrics']) for section in data['sections']]) - data['num_inline_verses']
 
     for section in data['sections']:
-        section['lyrics'] = [process_verse(verse) for verse in section['lyrics']]
+        section['lyrics'] = [process_verse(verse, i < data['num_inline_verses']) for i,verse in enumerate(section['lyrics'])]
         for part in ('soprano', 'alto', 'tenor', 'bass'):
             section[part] = insert_soft_breaks(section[part])
         if 'time_signature' in section:
             section['soprano'] = time_signature_cycle(section['soprano'], section['time_signature'])
 
-    data['sections'] = bind_lyrics_to_voice(tag, data['sections'])
-    env.Render(target[0], get_first_with_ext(source, '.tmp'), { "tag": tag, "num_verses": num_verses, **data })
+    data['sections'] = bind_lyrics_to_voice(data['tag'], data['sections'])
+    env.Render(target[0], get_first_with_ext(source, '.tmp'), data)
 
 def add_hymn_template(target, source, env):
     return target, source + ['$TEMPLATEDIR/hymn.ly.tmp']

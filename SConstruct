@@ -16,6 +16,13 @@ AddOption(
 )
 
 AddOption(
+    '--inline-verses',
+    action='store',
+    default=3,
+    help='Number of verses to place inline'
+)
+
+AddOption(
     '--twoup',
     action='store_true',
     help='Build in 2up form'
@@ -43,6 +50,7 @@ env = Environment(BUILDERS={
                   MUSICDIR=Dir('music'),
                   TEMPLATEDIR=Dir('templates'),
                   jinja_env=jinja_env,
+                  num_inline_verses=GetOption('inline_verses'),
                   DRAFT=GetOption('draft'))
 env.Append(TEXINPUTS=str(pathlib.Path(root) / 'texmf' / 'tex' / 'latex'))
 
