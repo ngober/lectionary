@@ -2,8 +2,11 @@ title: the Week of June 29th
 week: 38
 season: ordinary
 readings:
-  - 1 Kings 19:15-16,19-21
-  - Psalm 16
+  - address: 1 Kings 19:15-16,19-21
+    skip: 6
+    prefix: The LORD said to Elijah
+  - address: Psalm 16
+    skip: 4
   - Galatians 5:1,13-25
   - Luke 9:51-62
 
