@@ -66,10 +66,13 @@ RIGHT_SELAH = r'''
 
 '''
 UNESCAPED_WORD = re.compile(r'(?<!\\)\S+\s*')
-def config_par_adjust(par, skip=0, prefix=None):
+def config_par_adjust(par, skip=0, skip_end=0, prefix=None):
     # Skip N initial words
     if skip:
         par = UNESCAPED_WORD.sub('', par, count=skip)
+
+    if skip_end:
+        par = UNESCAPED_WORD.sub('', par[::-1], count=skip_end+1)[::-1]
 
     # Add a prefix to the reading, if indicated
     # e.g. [Jesus said:]
@@ -107,7 +110,12 @@ def process_par(par, func=identity):
     return par
     
 def reading_join_text(address, text, **kwargs):
-    parfuncs = itertools.chain([functools.partial(config_par_adjust, **kwargs)], itertools.repeat(identity))
+    pars = split_paragraph(text)
+    parfuncs = (
+            [functools.partial(config_par_adjust, skip=kwargs.get('skip', 0), prefix=kwargs.get('prefix'))]
+            + ([identity] * max(len(pars) - 2, 0)) 
+            + [functools.partial(config_par_adjust, skip_end=kwargs.get('skip_end', 0))]
+            )
     text = [process_par(par, func) for par, func in zip(split_paragraph(text), parfuncs)]
 
     return { **kwargs, 'address': address, 'text': text }
