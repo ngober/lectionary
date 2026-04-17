@@ -5,9 +5,11 @@ season: ordinary
 readings:
   - address: Deuteronomy 10:17-21
     skip: 1
-  - Psalm 145
+  - address: Psalm 145
+    skip: 6
   - Hebrews 11:8-16
-  - Matthew 5:43-48
+  - address: Matthew 5:43-48
+    prefix: Jesus said,
 
 prayer:
   text: >
