@@ -12,6 +12,7 @@
 
 {{ chap(calendar, "advent", 'The Season of Advent') }}
 {{ chap(calendar, "christmas", 'The Season of Christmas') }}
+{{ chap(calendar, "epiphany", 'Ordinary Time') }}
 {{ chap(calendar, "lent", 'The Season of Lent') }}
 {{ chap(calendar, "easter", 'The Season of Easter') }}
 {{ chap(calendar, "ordinary", 'Ordinary Time') }}
