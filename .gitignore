@@ -9,6 +9,7 @@ full/*.tex
 full/*.ly
 !full/full.tex
 !full/introduction.tex
+!full/full_hymnal.tex
 !full/hymnal_preamble.ly
 
 ## Core latex/pdflatex auxiliary files:
