@@ -125,13 +125,7 @@ def render_single(target, source, env):
 def add_hymn_template(target, source, env):
     return target, source + ['$TEMPLATEDIR/hymn.ly.tmp']
 
-def get_musicpages(yamlfile):
-    data = parse_yaml(yamlfile)
-    return [f'$MUSICDIR/{get_basename(mus)}.ly' for mus in (data.get('musicpages') or [])]
-
-def add_musicpages(target, source, env):
-    source = [get_musicpages(s) if s.endswith('.yaml') else s for s in map(str, source)]
-    source = sorted(set(itertools.chain.from_iterable(source)))
+def add_hymnal_template(target, source, env):
     target.append(str(pathlib.Path(str(target[0])).with_suffix('.toc')))
     return target, ['$MUSICDIR/templates/hymnal.ly.tmp'] + source
 
@@ -160,7 +154,7 @@ def generate(env):
         action=render_wrapper,
         suffix='.ly',
         src_suffix='.ly.tmp',
-        emitter=add_musicpages
+        emitter=add_hymnal_template
     )
 
     lilypond_single = Builder(

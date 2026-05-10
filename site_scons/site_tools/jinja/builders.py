@@ -81,6 +81,13 @@ def render_wrapper(target, source, env):
     }
     env.Render(target[0], template_name, render_data)
 
+def get_musicpages(node, env, path, arg=None):
+    fname = str(node)
+    if fname.endswith('.yaml'):
+        data = parse_yaml(fname)
+        return [env['MUSICDIR'].File(f'{get_basename(mus)}.ly') for mus in (data.get('musicpages') or [])]
+    return []
+
 JINJA_EXTEND = re.compile(r'^{%\s+extends\s+([\'"])(\S+)\1\s+%}$', re.M)
 def template_scanner(node, env, path, arg=None):
     includes = [m[1] for m in JINJA_EXTEND.findall(node.get_text_contents())]
@@ -100,6 +107,10 @@ def BodyBuilder():
         action=render_body,
         suffix='.tex',
         src_suffix='.yaml',
+        source_scanner=Scanner(
+            function=get_musicpages,
+            skeys=['.yaml']
+        ),
         target_scanner=SCons.Scanner.LaTeX.LaTeXScanner(),
         emitter=add_template_name
     )
