@@ -7,7 +7,8 @@ import hashlib
 import pyphen
 
 from SCons.Builder import Builder
-from SCons.Scanner import Scanner
+from SCons.Scanner import Scanner, FindPathDirs
+from SCons.Tool import SourceFileScanner
 
 from util import get_basename, parse_yaml, make_dict_with
 
@@ -17,10 +18,6 @@ def get_first_with_ext(source, ext):
 def generate_lilypond(source, target, env, for_signature):
     target_name = os.path.splitext(str(target[0]))[0]
     return f'lilypond --pspdfopt=TeX -o {target_name} {source[0]!s}'
-
-def scan_lilypond(node, env, path, arg=None):
-    contents = node.get_text_contents()
-    return re.findall(r'\\include "(.*)"', contents)
 
 def render_wrapper(target, source, env):
     template_name = pathlib.Path(get_first_with_ext(source, '.tmp'))
@@ -129,13 +126,19 @@ def add_hymnal_template(target, source, env):
     target.append(str(pathlib.Path(str(target[0])).with_suffix('.toc')))
     return target, ['$MUSICDIR/templates/hymnal.ly.tmp'] + source
 
-def generate(env):
-    env.Append(SCANNERS=Scanner(function=scan_lilypond, skeys=['.ly']))
+def scan_lilypond(node, env, path, arg=None):
+    node_name = pathlib.Path(str(node))
+    contents = node.get_text_contents()
+    return [env.File(node_name.with_name(f)) for f in re.findall(r'\\include "(.*)"', contents)]
 
+def generate(env):
+    ly_scanner = Scanner(function=scan_lilypond, skeys=['.ly'], path_function=FindPathDirs('TARGETDIR'), recursive=1)
+    SourceFileScanner.add_scanner('.ly', ly_scanner)
     lilypond_builder = Builder(
         generator=generate_lilypond,
         suffix='.pdf',
-        src_suffix='.ly'
+        src_suffix='.ly',
+        source_scanner=ly_scanner
     )
 
     musicxml_converter = Builder(
