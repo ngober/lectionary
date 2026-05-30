@@ -124,12 +124,23 @@ def add_hymn_template(target, source, env):
 
 def add_hymnal_template(target, source, env):
     target.append(str(pathlib.Path(str(target[0])).with_suffix('.toc')))
-    return target, ['$MUSICDIR/templates/hymnal.ly.tmp'] + source
+
+    result_source = ['$MUSICDIR/templates/hymnal.ly.tmp']
+    for node in source:
+        fname = str(node)
+        if fname.endswith('.yaml'):
+            data = parse_yaml(fname)
+            result_source.extend(env['MUSICDIR'].File(f'{get_basename(mus)}.ly') for mus in (data.get('musicpages') or []))
+        else:
+            result_source.append(node)
+
+    return target, result_source
 
 def scan_lilypond(node, env, path, arg=None):
     node_name = pathlib.Path(str(node))
     contents = node.get_text_contents()
-    return [env.File(node_name.with_name(f)) for f in re.findall(r'\\include "(.*)"', contents)]
+    includes = re.findall(r'\\include "(.*)"', contents)
+    return [node.File(f) for f in includes]
 
 def generate(env):
     ly_scanner = Scanner(function=scan_lilypond, skeys=['.ly'], path_function=FindPathDirs('TARGETDIR'), recursive=1)
