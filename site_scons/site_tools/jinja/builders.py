@@ -41,32 +41,37 @@ def augment_readings(readings, draft=False):
     readings = [texify.reading_join_text(text=t, **r) for r,t in zip(readings, texts)]
     return [{**r, 'index': address_to_index(r['address'])} for r in readings]
 
-def normalize_yaml(parsed, draft=False):
+def get_musicref_from_catalog(name, catalog):
+    return catalog[name]['ref']
+    #return f'pg. \pageref{{mus:{ get_basename(name) }}}'
+
+def normalize_yaml(parsed, catalog=None, draft=False):
     readings = augment_readings([make_dict_with(a, 'address') for a in parsed['readings']], draft)
     if 'musicpages' in parsed:
-        parsed['musicpages'] = { name: get_basename(name) for name in (parsed.get('musicpages') or []) }
+        parsed['musicpages'] = { name: get_musicref_from_catalog(name, catalog) for name in (parsed.get('musicpages') or []) }
     parsed['presong_readings'] = readings[:len(readings)//2]
     parsed['postsong_readings'] = readings[len(readings)//2:]
     parsed['lordsprayer'] = parsed.get('lordsprayer', True)
     parsed['prayer'] = make_dict_with(parsed['prayer'], 'text')
     return parsed
 
-def parse_normalized(fname, draft=False):
-    return normalize_yaml(parse_yaml(fname), draft)
+def parse_normalized(fname, catalog=None, draft=False):
+    return normalize_yaml(parse_yaml(fname), catalog=catalog, draft=draft)
 
 def add_template_name(target, source, env):
     name_templates = [f'{pathlib.Path(str(s)).stem}.tex.tmp' for s in source]
-    source_data = [parse_normalized(str(s), True) for s in source]
+    source_data = [parse_yaml(str(s)) for s in source]
     season_templates = [f'{s["season"]}.tex.tmp' for s in source_data]
     templates = next(filter_templates_exist(itertools.chain(name_templates, season_templates, ('body.tex.tmp',)), env))
     source.append(templates)
+    source.append('$MUSICDIR/catalog.yaml')
     return target, source
 
 @noisy()
 def render_body(target, source, env):
-    template_name = pathlib.Path(get_first_with_ext(source, '.tex.tmp'))
-    data_src_name = pathlib.Path(get_first_with_ext(source, '.yaml'))
-    data = parse_normalized(data_src_name, env['DRAFT'])
+    data_src_name, template_name, catalog_name = map(lambda s: pathlib.Path(str(s)), source)
+    catalog_data = parse_yaml(str(catalog_name))
+    data = parse_normalized(data_src_name, catalog=catalog_data, draft=env['DRAFT'])
     env.Render(target[0], template_name, data)
 
 @noisy()
@@ -74,7 +79,7 @@ def render_wrapper(target, source, env):
     template_name = pathlib.Path(get_first_with_ext(source, '.tex.tmp'))
     hymnal_name = pathlib.Path(get_first_with_ext(source, '.pdf'))
     yaml_sources = [pathlib.Path(str(f)).with_suffix('.yaml') for f in source if str(f).endswith('.tex')]
-    yaml_sources = [{**parse_normalized(f, True), 'basename': f.stem} for f in yaml_sources]
+    yaml_sources = [{**parse_yaml(f), 'basename': f.stem} for f in yaml_sources]
     render_data = {
         'calendar': sorted(yaml_sources, key=lambda x: x['week']),
         'hymnal_name' : os.path.splitext(os.path.basename(str(hymnal_name)))[0]
@@ -107,10 +112,10 @@ def BodyBuilder():
         action=render_body,
         suffix='.tex',
         src_suffix='.yaml',
-        source_scanner=Scanner(
-            function=get_musicpages,
-            skeys=['.yaml']
-        ),
+        #source_scanner=Scanner(
+            #function=get_musicpages,
+            #skeys=['.yaml']
+        #),
         target_scanner=SCons.Scanner.LaTeX.LaTeXScanner(),
         emitter=add_template_name
     )

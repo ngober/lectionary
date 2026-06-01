@@ -7,6 +7,7 @@ single/*.ly
 
 full/*.tex
 full/*.ly
+full/full_catalog.yaml
 !full/full.tex
 !full/introduction.tex
 !full/full_hymnal.tex
@@ -47,6 +48,7 @@ full/*.ly
 .sconsign.dblite
 
 music/*.ly
+music/catalog.yaml
 !music/hymnal_preamble.ly
 
 *~

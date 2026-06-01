@@ -3,6 +3,7 @@ import re
 import itertools
 import pathlib
 import hashlib
+import yaml
 
 import pyphen
 
@@ -20,11 +21,22 @@ def generate_lilypond(source, target, env, for_signature):
     return f'lilypond --pspdfopt=TeX -o {target_name} {source[0]!s}'
 
 def render_wrapper(target, source, env):
-    template_name = pathlib.Path(get_first_with_ext(source, '.tmp'))
+    catalog_name, template_name = map(lambda f: pathlib.Path(str(f)), source)
+    catalog_data = parse_yaml(catalog_name)
+    music_names = filter(None, (entry.get('basename') for entry in catalog_data.values()))
     render_data = {
-        'musicpages': [str(f) for f in source if str(f).endswith('.ly')]
+        'musicpages': [str(env['MUSICDIR'].File(f'internal/{ name }.ly')) for name in music_names]
     }
     env.Render(target[0], template_name, render_data)
+
+def filter_catalog(target, source, env):
+    catalog_name, *body_sources = source
+    catalog_data = parse_yaml(str(catalog_name))
+    musicpages = itertools.chain.from_iterable((parse_yaml(str(body)).get('musicpages') or []) for body in body_sources)
+    filtered = { title: catalog_data[title] for title in musicpages }
+
+    with open(str(target[0]), 'wt') as wfp:
+        yaml.dump(filtered, wfp)
 
 def syllable_quote_escape(syl):
     escaped = re.sub('"', r'\\"', syl)
@@ -124,17 +136,8 @@ def add_hymn_template(target, source, env):
 
 def add_hymnal_template(target, source, env):
     target.append(str(pathlib.Path(str(target[0])).with_suffix('.toc')))
-
-    result_source = ['$MUSICDIR/templates/hymnal.ly.tmp']
-    for node in source:
-        fname = str(node)
-        if fname.endswith('.yaml'):
-            data = parse_yaml(fname)
-            result_source.extend(env['MUSICDIR'].File(f'{get_basename(mus)}.ly') for mus in (data.get('musicpages') or []))
-        else:
-            result_source.append(node)
-
-    return target, result_source
+    source.append('$MUSICDIR/templates/hymnal.ly.tmp')
+    return target, source
 
 def scan_lilypond(node, env, path, arg=None):
     node_name = pathlib.Path(str(node))
@@ -184,12 +187,15 @@ def generate(env):
         src_suffix='.ly.tmp'
     )
 
+    filter_cat = Builder(action=filter_catalog)
+
     env['BUILDERS']['Lilypond'] = lilypond_builder
     env['BUILDERS']['MusicXML'] = musicxml_converter
     env['BUILDERS']['UncompMusicXML'] = uncomp_musicxml_converter
     env['BUILDERS']['LilypondWrapper']  = lilypond_wrapper
     env['BUILDERS']['LilypondSingle']  = lilypond_single
     env['BUILDERS']['LilypondDebug']  = lilypond_debug
+    env['BUILDERS']['FilteredCatalog']  = filter_cat
 
 def exists(env):
     return True

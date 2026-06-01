@@ -28,8 +28,8 @@
 {%- if musicpages is defined %}
 \subsubsection*{Sing one or more of the following}
 \begin{itemize}
-{% for musicname, musiclabel in musicpages.items() %}
-\item {{ musicname }} (pg. \pageref{mus:{{ musiclabel }}})
+{% for musicname, musicref in musicpages.items() %}
+\item {{ musicname }} ({{ musicref }})
 {% endfor %}
 \end{itemize}
 %\vspace{8pt}

@@ -7,7 +7,8 @@ full_env.LyGeometry('geometry')
 full_env.TexGeometry('geometry')
 
 yaml_sources = full_env.Glob('$BODYDIR/*.yaml')
-music_wrapper = full_env.LilypondWrapper('full_hymnal', yaml_sources)
+filtered_catalog = full_env.FilteredCatalog(target='full_catalog.yaml', source=['$MUSICDIR/catalog.yaml', yaml_sources])
+music_wrapper = full_env.LilypondWrapper(target='full_hymnal', source=filtered_catalog)
 music_file = full_env.Lilypond('full_hymnal', music_wrapper)
 texfile = full_env.Wrapper('fulltext', ['$TEMPLATEDIR/full.tex.tmp'] + yaml_sources + music_file)
 if GetOption('twoup'):

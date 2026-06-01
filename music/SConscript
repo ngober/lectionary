@@ -1,10 +1,52 @@
 import pathlib
+import itertools
+import yaml
+
+from util import get_basename, parse_yaml
 
 Import('env')
 
+def make_page(fname):
+    data = parse_yaml(fname)
+    basename = pathlib.Path(fname).stem
+    return {
+        'title': data['title'],
+        'ref': f'pg. \pageref{{mus:{ get_basename(basename) }}}',
+        'basename': basename
+    }
+
+def make_catalog(target, source, env):
+    external_catalog, *internal_pages = source
+    internal_pages = [make_page(str(s)) for s in internal_pages]
+   
+    external_catalog = parse_yaml(str(external_catalog))
+    for cat in external_catalog.values():
+        for entry in cat['contents']:
+          entry['ref'] = f'{cat["prefix"]} {entry["page"]}'
+
+    entries = itertools.chain(internal_pages, *(cat['contents'] for cat in external_catalog.values()))
+    entries = sorted(entries, key=lambda e: e['title'])
+    catalog = {}
+    for k,g in itertools.groupby(entries, key=lambda e: e['title']):
+        entries = list(g)
+        catalog[k] = {
+            'ref': ', '.join(e['ref'] for e in entries),
+        }
+        for e in entries:
+            if 'basename' in e:
+                catalog[k]['basename'] = e['basename']
+
+    with open(str(target[0]), 'wt') as wfp:
+        yaml.dump(catalog, wfp)
+
+catalog_builder = Builder(action=make_catalog)
+env['BUILDERS']['Catalog'] = catalog_builder
+
 music_env = env.Clone(TEMPLATEDIR='templates')
-all_files = music_env.Glob('*.yaml')
-for source in all_files:
+internal_files = music_env.Glob('internal/*.yaml')
+
+catalog = music_env.Catalog(target='catalog.yaml', source=['external_catalog.yaml', internal_files])
+for source in internal_files:
     target = pathlib.Path(str(source)).with_suffix('.ly')
     ly_single_target = music_env.LilypondSingle(target=str(target), source=source)
     music_env.Depends(ly_single_target, '../hyphen.txt') # rebuild if hyphen dictionary changed, but does not appear in sources
