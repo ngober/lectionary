@@ -1,5 +1,118 @@
 Songs of the Church:
   prefix: SotC
   contents:
+    - title: All Hail the Power of Jesus' Name
+      page: 7
+    - title: All to Jesus I Surrender
+      page: 10
+    - title: To God Be the Glory
+      page: 15
     - title: All the Way My Savior Leads Me
       page: 26
+    - title: Blessed Assurance
+      page: 43
+    - title: Christ the Lord Is Risen Today
+      page: 64
+    - title: Fairest Lord Jesus
+      page: 102
+    - title: I Stand Amazed In the Presence
+      page: 114
+    - title: Hark! The Herald Angels Sing
+      page: 152
+    - title: He Leadeth Me
+      page: 157
+    - title: I Know That My Redeemer Lives
+      page: 218
+    - title: I Know Whom I Have Believed
+      page: 237
+    - title: It Is Well
+      page: 280
+    - title: Jesus Keep Me Near the Cross
+      page: 283
+    - title: Jesus Paid It All
+      page: 289
+    - title: Nothing But The Blood
+      page: 376
+    - title: O Sacred Head
+      page: 398
+    - title: O Worship the King
+      page: 406
+    - title: Praise Him! Praise Him!
+      page: 426
+    - title: Hallelujah! What a Savior!
+      page: 449
+    - title: My Hope Is Built On Nothing Less
+      page: 475
+    - title: Standing On the Promises
+      page: 488
+    - title: The Old Rugged Cross
+      page: 536
+    - title: Tis So Sweet To Trust In Jesus
+      page: 587
+    - title: Victory In Jesus
+      page: 596
+    - title: What a Friend We Have In Jesus
+      page: 623
+    - title: When I Survey The Wondrous Cross
+      page: 633
+
+Songs of Faith and Praise:
+  prefix: SFP
+  contents:
+    - title: To God Be the Glory
+      page: 4
+    - title: All Creatures Of Our God And King
+      page: 6
+    - title: Step By Step
+      page: 15
+    - title: My Tribute
+      page: 36
+    - title: Holy, Holy, Holy!
+      page: 47
+    - title: Great Is Thy Faithfulness
+      page: 57
+    - title: He Is Exalted
+      page: 60
+    - title: As the Deer
+      page: 71
+    - title: How Great Thou Art
+      page: 76
+    - title: O Worship the King
+      page: 144
+    - title: All Hail the Power Of Jesus' Name
+      page: 162
+    - title: I Stand Amazed In the Presence
+      page: 147
+    - title: Come, Thou Fount of Every Blessing
+      page: 226
+    - title: O For a Thousand Tongues To Sing
+      page: 233
+    - title: Fairest Lord Jesus
+      page: 288
+    - title: Praise Him! Praise Him!
+      page: 300
+    - title: The Old Rugged Cross
+      page: 313
+    - title: When I Survey The Wondrous Cross
+      page: 315
+    - title: O Sacred Head
+      page: 318
+    - title: Hallelujah! What a Savior!
+      page: 337
+    - title: Christ the Lord Is Risen Today
+      page: 345
+    - title: He Lives
+      page: 346
+    - title: He Leadeth Me
+      page: 410
+    - title: Standing On the Promises
+      page: 452
+    - title: Because He Lives
+      page: 464
+    - title: Victory In Jesus
+      page: 470
+    - title: Blessed Assurance
+      page: 480
+    - title: It Is Well
+      page: 490
+      
