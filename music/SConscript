@@ -1,34 +1,20 @@
 import pathlib
 import itertools
+import operator
 import yaml
+import csv
 
 from util import get_basename, parse_yaml
 
 Import('env')
 
-def make_page(fname):
-    data = parse_yaml(fname)
-    basename = pathlib.Path(fname).stem
-    return {
-        'title': data['title'],
-        'ref': f'pg. \pageref{{mus:{ get_basename(basename) }}}',
-        'basename': basename
-    }
-
 def make_catalog(target, source, env):
-    external_catalog, *internal_pages = source
-    internal_pages = [make_page(str(s)) for s in internal_pages]
-   
-    external_catalog = parse_yaml(str(external_catalog))
-    for cat in external_catalog.values():
-        for entry in cat['contents']:
-          entry['ref'] = f'{cat["prefix"]} {entry["page"]}'
-
-    entries = itertools.chain(internal_pages, *(cat['contents'] for cat in external_catalog.values()))
-    entries = sorted(entries, key=lambda e: e['title'])
+    # Each source looks like {title: info}
+    entries = list(itertools.chain.from_iterable(parse_yaml(str(s)).items() for s in source))
+    entries = sorted(entries, key=operator.itemgetter(0))
     catalog = {}
-    for k,g in itertools.groupby(entries, key=lambda e: e['title']):
-        entries = list(g)
+    for k,g in itertools.groupby(entries, key=operator.itemgetter(0)):
+        entries = [v[1] for v in g] # Entries of g are (key, value)
         catalog[k] = {
             'ref': ', '.join(e['ref'] for e in entries),
         }
@@ -39,18 +25,51 @@ def make_catalog(target, source, env):
     with open(str(target[0]), 'wt') as wfp:
         yaml.dump(catalog, wfp)
 
+def make_internal_catalog(target, source, env):
+    def make_page(fname):
+        data = parse_yaml(fname)
+        basename = pathlib.Path(fname).stem
+        return (data['title'],
+            {
+                'ref': f'pg. \pageref{{mus:{ get_basename(basename) }}}',
+                'basename': basename
+            })
+    catalog = dict(make_page(str(s)) for s in source)
+    with open(str(target[0]), 'wt') as wfp:
+        yaml.dump(catalog, wfp)
+
+def make_external_catalog(target, source, env):
+    def make_page(row):
+        prefix = row['hymnalID'].strip('1234567890')
+        return (row['displayTitle'],
+            {
+                'ref' : f'{prefix} {row["number"]}'
+            })
+
+    with open(str(source[0]), newline='') as csvfile:
+        reader = csv.DictReader(csvfile)
+        catalog = dict(make_page(r) for r in reader)
+    with open(str(target[0]), 'wt') as wfp:
+        yaml.dump(catalog, wfp)
+
 catalog_builder = Builder(action=make_catalog)
+internal_catalog_builder = Builder(action=make_internal_catalog)
+external_catalog_builder = Builder(action=make_external_catalog, suffix='yaml', src_suffix='csv')
 env['BUILDERS']['Catalog'] = catalog_builder
+env['BUILDERS']['InternalCatalog'] = internal_catalog_builder
+env['BUILDERS']['ExternalCatalog'] = external_catalog_builder
 
 music_env = env.Clone(TEMPLATEDIR='templates')
 internal_files = music_env.Glob('internal/*.yaml')
+external_files = music_env.Glob('external/*.csv')
 
-catalog = music_env.Catalog(target='catalog.yaml', source=['external_catalog.yaml', internal_files])
+int_catalog = music_env.InternalCatalog(target='internal_catalog.yaml', source=internal_files)
+ext_catalog = [music_env.ExternalCatalog(source=f) for f in external_files]
+catalog = music_env.Catalog(target='catalog.yaml', source=[int_catalog, *ext_catalog])
 for source in internal_files:
     target = pathlib.Path(str(source)).with_suffix('.ly')
     ly_single_target = music_env.LilypondSingle(target=str(target), source=source)
     music_env.Depends(ly_single_target, '../hyphen.txt') # rebuild if hyphen dictionary changed, but does not appear in sources
     ly_debug_target = music_env.LilypondDebug(target=str(target.with_suffix('.dbg.ly')), source=['$TEMPLATEDIR/hymnal.ly.tmp', ly_single_target]) # Used for debugging
     music_env.Lilypond(target=str(target.with_suffix('.pdf')), source=ly_debug_target)
-
 

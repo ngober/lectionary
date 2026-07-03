@@ -49,7 +49,9 @@ full/full_catalog.yaml
 
 music/*.ly
 music/catalog.yaml
+music/internal_catalog.yaml
 !music/hymnal_preamble.ly
+music/external/*.yaml
 
 *~
 
