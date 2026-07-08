@@ -1,6 +1,7 @@
 import pathlib
 import itertools
 import operator
+import collections
 import yaml
 import csv
 
@@ -8,19 +9,26 @@ from util import get_basename, parse_yaml
 
 Import('env')
 
+def gather(seq):
+    result = collections.defaultdict(list)
+    for elem in seq:
+        for k,v in elem.items():
+            result[k].append(v)
+    return result
+
 def make_catalog(target, source, env):
     # Each source looks like {title: info}
-    entries = list(itertools.chain.from_iterable(parse_yaml(str(s)).items() for s in source))
-    entries = sorted(entries, key=operator.itemgetter(0))
-    catalog = {}
-    for k,g in itertools.groupby(entries, key=operator.itemgetter(0)):
-        entries = [v[1] for v in g] # Entries of g are (key, value)
-        catalog[k] = {
-            'ref': ', '.join(e['ref'] for e in entries),
-        }
-        for e in entries:
-            if 'basename' in e:
-                catalog[k]['basename'] = e['basename']
+    entries = list(itertools.chain.from_iterable(parse_yaml(str(s)) for s in source))
+    entries = sorted(entries, key=operator.itemgetter('key'))
+
+    catalog = []
+    for _,g in itertools.groupby(entries, key=operator.itemgetter('key')):
+        catalog.append(gather(g))
+
+    catalog = { next(iter(group['title'])): {
+        'ref': ', '.join(group['ref']),
+        'basename': next(iter(group['basename']), None)
+    } for group in catalog }
 
     with open(str(target[0]), 'wt') as wfp:
         yaml.dump(catalog, wfp)
@@ -29,26 +37,28 @@ def make_internal_catalog(target, source, env):
     def make_page(fname):
         data = parse_yaml(fname)
         basename = pathlib.Path(fname).stem
-        return (data['title'],
-            {
+        return {
+                'title' : data['title'],
                 'ref': f'pg. \pageref{{mus:{ get_basename(basename) }}}',
-                'basename': basename
-            })
-    catalog = dict(make_page(str(s)) for s in source)
+                'basename': basename,
+                'key' : get_basename(data['title'])
+            }
+    catalog = [make_page(str(s)) for s in source]
     with open(str(target[0]), 'wt') as wfp:
         yaml.dump(catalog, wfp)
 
 def make_external_catalog(target, source, env):
     def make_page(row):
-        prefix = row['hymnalID'].strip('1234567890')
-        return (row['displayTitle'],
-            {
-                'ref' : f'{prefix} {row["number"]}'
-            })
+        prefix = row['hymnalID']#.strip('1234567890')
+        return {
+                'title': row['displayTitle'],
+                'ref' : f'{prefix} {row["number"]}',
+                'key' : row['textAuthNumber']
+            }
 
     with open(str(source[0]), newline='') as csvfile:
         reader = csv.DictReader(csvfile)
-        catalog = dict(make_page(r) for r in reader)
+        catalog = [make_page(r) for r in reader]
     with open(str(target[0]), 'wt') as wfp:
         yaml.dump(catalog, wfp)
 
