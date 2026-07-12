@@ -1,6 +1,9 @@
 title: Be Thou My Vision
 composer: Ancient Irish Tune
-poet: Mary E. Byrne (1880-1931)
+poet:
+  name: Mary E. Byrne
+  birth: 1880
+  death: 1931
 key: es \major
 time_signature: 3/4
 

@@ -116,6 +116,17 @@ def render_single(target, source, env):
     tag = hashlib.sha256(source_name.stem.encode()).hexdigest()
 
     data = parse_yaml(source_name)
+    for person in ('composer', 'poet'):
+        if person in data:
+            info = make_dict_with(data[person], 'name')
+            if 'death' in info:
+                info.setdefault('birth', '??')
+            if 'birth' in info:
+                info.setdefault('death', '')
+                data[person] = f'{info["name"]} ({info["birth"]}-{info["death"]})'
+            else:
+                data[person] = info['name']
+
     data['tag'] = tag.translate(str.maketrans("0123456789", "ghijklmnop"))
     num_verses = max([len(section['lyrics']) for section in data['sections']])
     data['num_inline_verses'] = min([env['num_inline_verses'], num_verses])

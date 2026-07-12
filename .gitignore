@@ -47,7 +47,7 @@ full/full_catalog.yaml
 **/__pycache__/
 .sconsign.dblite
 
-music/*.ly
+music/**/*.ly
 music/catalog.yaml
 music/internal_catalog.yaml
 !music/hymnal_preamble.ly

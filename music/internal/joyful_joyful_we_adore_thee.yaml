@@ -1,6 +1,12 @@
 title: Joyful, Joyful, We Adore Thee
-poet: Henry Van Dyke (1852-1933)
-composer: Ludwig Van Beethoven (1770-1827)
+poet:
+  name: Henry Van Dyke
+  birth: 1852
+  death: 1933
+composer:
+  name: Ludwig Van Beethoven
+  birth: 1770
+  death: 1827
 key: g \major
 time_signature: 4/4
 

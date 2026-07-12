@@ -1,6 +1,12 @@
 title: Blessed Assurance
-composer:  Phoebe Palmer Knapp (1839-1908)
-poet: Fanny Crosby (1820-1915)
+composer: 
+  name: Phoebe Palmer Knapp
+  birth: 1839
+  death: 1908
+poet:
+  name: Fanny Crosby
+  birth: 1820
+  death: 1915
 time_signature: 9/8
 key: d \major
 

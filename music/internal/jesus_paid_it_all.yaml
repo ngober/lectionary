@@ -1,6 +1,12 @@
 title: Jesus Paid It All
-poet: Elvina M. Hall (1820-1889)
-composer: John T. Grape (1835-1915)
+poet:
+  name: Elvina M. Hall
+  birth: 1820
+  death: 1889
+composer:
+  name: John T. Grape
+  birth: 1835
+  death: 1915
 key: des \major
 time_signature: 3/4
 

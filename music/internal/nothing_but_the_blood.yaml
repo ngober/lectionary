@@ -1,5 +1,8 @@
 title: Nothing But The Blood
-composer: Robert Lowry (1826-1899)
+composer:
+  name: Robert Lowry
+  birth: 1826
+  death: 1899
 key: f \major
 time_signature: 4/4
 

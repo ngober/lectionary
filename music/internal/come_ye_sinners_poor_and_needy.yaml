@@ -1,5 +1,8 @@
 title: Come, Ye Sinners, Poor and Needy
-poet: Joseph Hart (1712-1768)
+poet:
+  name: Joseph Hart
+  birth: 1712
+  death: 1768
 composer: Walker's \"Southern Harmony\", 1835
 key: as \major
 time_signature: 4/4

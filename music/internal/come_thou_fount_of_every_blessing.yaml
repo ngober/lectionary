@@ -1,5 +1,8 @@
 title: Come, Thou Fount of Every Blessing
-composer: Robert Robinson (1735-1790)
+composer:
+  name: Robert Robinson
+  birth: 1735
+  death: 1790
 key: d \major
 time_signature: 3/4
 

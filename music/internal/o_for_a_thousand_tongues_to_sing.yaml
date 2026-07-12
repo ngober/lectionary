@@ -1,6 +1,8 @@
 title: O For a Thousand Tongues To Sing
-poet: Charles Wesley
-composer: Charles Wesley
+poet:
+  name: Charles Wesley
+composer:
+  name: Charles Wesley
 key: aes \major
 time_signature: 3/4
 

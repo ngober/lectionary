@@ -1,6 +1,8 @@
 title: How Deep the Father's Love For Us
-poet: Stuart Townend
-composer: Bruce Greer
+poet:
+  name: Stuart Townend
+composer:
+  name: Bruce Greer
 time_signature: 3/4
 key: f \major
 

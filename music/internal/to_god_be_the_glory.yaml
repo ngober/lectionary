@@ -1,6 +1,12 @@
 title: To God Be the Glory
-poet: Fanny Crosby (1820-1915)
-composer: William Doane (1832-1915)
+poet:
+  name: Fanny Crosby
+  birth: 1820
+  death: 1915
+composer:
+  name: William Doane
+  birth: 1832
+  death: 1915
 key: g \major
 time_signature: 3/4
 

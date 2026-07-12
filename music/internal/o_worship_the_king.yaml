@@ -1,6 +1,12 @@
 title: O Worship the King
-poet: Robert Grant (1779-1838)
-composer: Joseph Haydn (1732-1809)
+poet:
+  name: Robert Grant
+  birth: 1779
+  death: 1838
+composer:
+  name: Joseph Haydn
+  birth: 1732
+  death: 1809
 key: g \major
 time_signature: 3/4
 

@@ -1,5 +1,8 @@
 title: O Come, All Ye Faithful
-composer: John Francis Wade (1711-1786)
+composer:
+  name: John Francis Wade
+  birth: 1711
+  death: 1786
 time_signature: 4/4
 key: g \major
 

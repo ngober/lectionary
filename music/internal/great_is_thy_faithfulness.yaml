@@ -1,6 +1,12 @@
 title: Great Is Thy Faithfulness
-poet: Thomas Chisolm (1866-1960)
-composer: William Runyan (1870-1957)
+poet:
+  name: Thomas Chisolm
+  birth: 1866
+  death: 1960
+composer:
+  name: William Runyan
+  birth: 1870
+  death: 1957
 key: d \major
 time_signature: 3/4
 

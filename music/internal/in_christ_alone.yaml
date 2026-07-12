@@ -1,6 +1,8 @@
 title: In Christ Alone
-composer: Stuart Townend
-poet: Keith Getty
+composer:
+  name: Stuart Townend
+poet:
+  name: Keith Getty
 time_signature: 3/2
 key: f \major
 

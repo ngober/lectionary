@@ -1,6 +1,12 @@
 title: Holy, Holy, Holy!
-poet: Reginald Heber (1783-1826)
-composer: John B. Dykes (1823-1876)
+poet: 
+  name: Reginald Heber
+  birth: 1783
+  death: 1826
+composer:
+  name: John B. Dykes
+  birth: 1823
+  death: 1876
 key: d \major
 time_signature: 4/4
 

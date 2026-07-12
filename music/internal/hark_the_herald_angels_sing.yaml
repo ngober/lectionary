@@ -1,6 +1,8 @@
 title: Hark! The Herald Angels Sing
-composer: Felix Mendelssohn
-poet: Charles Wesley
+composer:
+  name: Felix Mendelssohn
+poet:
+  name: Charles Wesley
 time_signature: 4/4
 key: f \major
 

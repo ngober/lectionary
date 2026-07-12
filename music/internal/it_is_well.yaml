@@ -1,6 +1,12 @@
 title: It Is Well
-poet: Horatio Gates Spafford (1828-1888)
-composer: Philip P. Bliss (1838-1876)
+poet:
+  name: Horatio Gates Spafford
+  birth: 1828
+  death: 1888
+composer:
+  name: Philip P. Bliss
+  birth: 1838
+  death: 1876
 time_signature: 4/4
 key: ges \major
 

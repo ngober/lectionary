@@ -1,5 +1,8 @@
 title: Christ the Lord Is Risen Today
-composer: Charles Wesley (1707-1788)
+composer:
+  name: Charles Wesley
+  birth: 1707
+  death: 1788
 key: c \major
 time_signature: 4/4
 
