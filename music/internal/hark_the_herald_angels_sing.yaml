@@ -3,6 +3,8 @@ composer:
   name: Felix Mendelssohn
 poet:
   name: Charles Wesley
+  birth: 1707
+  death: 1788
 time_signature: 4/4
 key: f \major
 
