@@ -1,13 +1,7 @@
-import itertools
-import operator
 import pathlib
-import os.path
-import contextlib
-import traceback
-
 import jinja2
 
-from util import noisy, parse_yaml
+from util import noisy
 
 AddOption(
     '--draft',
@@ -36,14 +30,12 @@ jinja_env = jinja2.Environment(
     autoescape=jinja2.select_autoescape()
 )
 
-calendar = File(str(pathlib.Path(root) / 'calendar.yaml'))
-
 env = Environment(BUILDERS={
                       'TwoUp': Builder(
                           action="pdfjam --nup 2x1 --landscape --clip true --outfile $TARGET $SOURCE"
                       )
                   },
-                  tools=['default', 'lilypond', 'jinja', 'geometry'],
+                  tools=['default', 'lilypond', 'jinja', 'geometry', 'catalog'],
                   ROOT=root,
                   FULLDIR=Dir('full'),
                   SINGLEDIR=Dir('single'),
