@@ -45,18 +45,16 @@ def get_musicref_from_catalog(name, catalog):
     return catalog[name]['ref']
     #return f'pg. \pageref{{mus:{ get_basename(name) }}}'
 
-def normalize_yaml(parsed, catalog=None, draft=False):
+def normalize_yaml(parsed, draft=False):
     readings = augment_readings([make_dict_with(a, 'address') for a in parsed['readings']], draft)
-    if 'musicpages' in parsed:
-        parsed['musicpages'] = { name: get_musicref_from_catalog(name, catalog) for name in (parsed.get('musicpages') or []) }
     parsed['presong_readings'] = readings[:len(readings)//2]
     parsed['postsong_readings'] = readings[len(readings)//2:]
     parsed['lordsprayer'] = parsed.get('lordsprayer', True)
     parsed['prayer'] = make_dict_with(parsed['prayer'], 'text')
     return parsed
 
-def parse_normalized(fname, catalog=None, draft=False):
-    return normalize_yaml(parse_yaml(fname), catalog=catalog, draft=draft)
+def parse_normalized(fname, draft=False):
+    return normalize_yaml(parse_yaml(fname), draft=draft)
 
 def add_template_name(target, source, env):
     name_templates = [f'{pathlib.Path(str(s)).stem}.tex.tmp' for s in source]
@@ -64,15 +62,29 @@ def add_template_name(target, source, env):
     season_templates = [f'{s["season"]}.tex.tmp' for s in source_data]
     templates = next(filter_templates_exist(itertools.chain(name_templates, season_templates, ('body.tex.tmp',)), env))
     source.append(templates)
+    return target, source
+
+def add_catalog_name(target, source, env):
     source.append('$MUSICDIR/catalog.yaml')
     return target, source
 
 @noisy()
 def render_body(target, source, env):
-    data_src_name, template_name, catalog_name = map(lambda s: pathlib.Path(str(s)), source)
-    catalog_data = parse_yaml(str(catalog_name))
-    data = parse_normalized(data_src_name, catalog=catalog_data, draft=env['DRAFT'])
+    data_src_name, template_name = map(lambda s: pathlib.Path(str(s)), source)
+    data = parse_normalized(data_src_name, draft=env['DRAFT'])
+    data['basename'] = str(data_src_name.with_suffix(''))
     env.Render(target[0], template_name, data)
+
+@noisy()
+def render_musicref(target, source, env):
+    data_src_name, catalog_name = map(lambda s: pathlib.Path(str(s)), source)
+    catalog_data = parse_yaml(str(catalog_name))
+    data = parse_yaml(data_src_name)
+
+    with open(str(target[0]), 'wt') as wfp:
+        for musicname in data.get('musicpages', []):
+            musicref = get_musicref_from_catalog(musicname, catalog_data)
+            wfp.write(f'\item { musicname } ({ musicref })\n')
 
 @noisy()
 def render_wrapper(target, source, env):
@@ -105,6 +117,12 @@ def WrapperBuilder():
         src_suffix='.yaml',
         target_scanner=SCons.Scanner.LaTeX.LaTeXScanner(),
         emitter=get_tex_from_yaml
+    )
+
+def MusicRefBuilder():
+    return Builder(
+        action=render_musicref,
+        emitter=add_catalog_name
     )
 
 def BodyBuilder():

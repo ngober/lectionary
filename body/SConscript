@@ -1,5 +1,9 @@
+import pathlib
+
 Import('env')
 
 body_env = env.Clone(TEMPLATEDIR='templates')
 for source in body_env.Glob('*.yaml'):
+    source_path = pathlib.Path(str(source))
+    body_env.MusicRef(target=str(source_path.with_suffix('.musicref.tex')), source=source)
     body_env.Body(source)

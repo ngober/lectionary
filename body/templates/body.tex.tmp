@@ -28,9 +28,7 @@
 {%- if musicpages is defined %}
 \subsubsection*{Sing one or more of the following}
 \begin{itemize}
-{% for musicname, musicref in musicpages.items() %}
-\item {{ musicname }} ({{ musicref }})
-{% endfor %}
+\input{{ '{' }}{{ '../' + basename + '.musicref.tex' }}}
 \end{itemize}
 %\vspace{8pt}
 {%- endif %}
