@@ -17,33 +17,31 @@ def gather(seq):
             result[k].append(v)
     return result
 
-def merge_similar(entries):
-    catalog = []
-    for _,g in itertools.groupby(entries, key=operator.itemgetter('key')):
-        catalog.append(gather(g))
-    return catalog
-
 class join_funcs(dict):
     def __missing__(self, key):
-        return lambda g: next(iter(g[key]), None)
+        return lambda g: next(iter(g), None)
 
-def join_entries(merged):
+def merge_similar(entries):
     funcs = join_funcs();
-    funcs['ref'] = lambda g: ', '.join(g['ref'])
+    funcs['ref'] = ', '.join
 
-    for k,v in merged.items():
-        merged[k] = funcs[k](v)
+    catalog = {}
+    entries = sorted(entries, key=operator.itemgetter('key'))
+    for _,g in itertools.groupby(entries, key=operator.itemgetter('key')):
+        merged = dict(gather(g))
+        for k,v in merged.items():
+            merged[k] = funcs[k](v)
+        print(merged)
+        title = merged.pop('title')
+        catalog[title] = merged
 
-    return merged
-        
+    return catalog
+
 def make_catalog(target, source, env):
     # Each source looks like {title: info}
     entries = list(itertools.chain.from_iterable(parse_yaml(str(s)) for s in source))
-    entries = sorted(entries, key=operator.itemgetter('key'))
 
     catalog = merge_similar(entries)
-    catalog = map(join_entries, catalog)
-    catalog = { e.pop('title'): e for e in catalog }
 
     with open(str(target[0]), 'wt') as wfp:
         yaml.dump(catalog, wfp)
