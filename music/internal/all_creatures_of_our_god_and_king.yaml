@@ -1,6 +1,12 @@
 title: All Creatures Of Our God and King
-poet: Francis of Assisi (1225)
-composer: Ralph Vaughan Williams (1906)
+poet: 
+  name: Francis of Assisi
+  birth: 1181
+  death: 1226
+composer: 
+  name: Ralph Vaughan Williams
+  birth: 1872
+  death: 1958
 time_signature: 3/2
 key: d \major
 
