@@ -47,8 +47,12 @@ def get_musicref_from_catalog(name, catalog):
 
 def normalize_yaml(parsed, draft=False):
     readings = augment_readings([make_dict_with(a, 'address') for a in parsed['readings']], draft)
-    parsed['presong_readings'] = readings[:len(readings)//2]
-    parsed['postsong_readings'] = readings[len(readings)//2:]
+    if len(readings) == 1:
+        parsed['presong_readings'] = readings
+        parsed['postsong_readings'] = []
+    else:
+        parsed['presong_readings'] = readings[:len(readings)//2]
+        parsed['postsong_readings'] = readings[len(readings)//2:]
     parsed['lordsprayer'] = parsed.get('lordsprayer', True)
     parsed['prayer'] = make_dict_with(parsed['prayer'], 'text')
     return parsed
