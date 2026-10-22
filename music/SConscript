@@ -3,6 +3,9 @@ import pathlib
 Import('env')
 
 music_env = env.Clone(TEMPLATEDIR='templates')
+music_env.LyGeometry('geometry')
+music_env.TexGeometry('geometry')
+
 internal_files = music_env.Glob('internal/*.yaml')
 external_files = music_env.Glob('external/*.csv')
 
@@ -13,6 +16,10 @@ for source in internal_files:
     target = pathlib.Path(str(source)).with_suffix('.ly')
     ly_single_target = music_env.LilypondSingle(target=str(target), source=source)
     music_env.Depends(ly_single_target, '../hyphen.txt') # rebuild if hyphen dictionary changed, but does not appear in sources
-    ly_debug_target = music_env.LilypondDebug(target=str(target.with_suffix('.dbg.ly')), source=['$TEMPLATEDIR/hymnal.ly.tmp', ly_single_target]) # Used for debugging
-    music_env.Lilypond(target=str(target.with_suffix('.pdf')), source=ly_debug_target)
+
+    debug_catalog_fragment = music_env.InternalCatalog(target=str(target.with_suffix('.cat_part.dbg.ly')), source=source)
+    debug_catalog = music_env.Catalog(target=str(target.with_suffix('.cat.dbg.ly')), source=debug_catalog_fragment)
+    debug_wrapper = music_env.LilypondWrapper(target=target.stem, source=debug_catalog)
+
+    music_env.Lilypond(target=str(target.with_suffix('.pdf')), source=debug_wrapper)
 
