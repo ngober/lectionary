@@ -28,6 +28,15 @@
 }
 {%- endmacro %}
 
+%% The \aikenHeads must be here because \partCombine creates new voice contexts when voices split.
+%% See https://gitlab.com/lilypond/lilypond/-/work_items/6977
+\layout {
+  \context {
+    \Voice
+    \aikenHeads
+  }
+}
+
 {{ tag }}Soprano = {{ partmaker(sections, "soprano", "treble", "es'", True) }}
 
 {{ tag }}Alto = {{ partmaker(sections, "alto", "treble", "c'") }}
